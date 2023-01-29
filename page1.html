@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Page 1</title>
+</head>
+<body>
+ <!-- home button -->
+  <div class="parent-container">
+    <div class="button-container" style="top: 0px; left: 0px;">
+      <button class="homebutton" onclick="location.href='index.html'">
+        <a href="index.html" class="button" id="pages-link">Home</a>
+        <div class="arrow">←</div>
+      </button>
+    </div>
+  </div>  
+<!-- slideshow -->
+  <div id="slideshow-container">
+    <img src="image1.png" id="slideshow-image">
+    <button id="prev-button">&lt;</button>
+    <button id="next-button">&gt;</button>
+  </div>   
+  <img id="slideshow-image">
+  <h1 id="caption-header"></h1>
+  <p id="caption-text"></p>
+  <script>
+  let images = ["image1.png", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
+  let captions = [
+      {
+          header: "Header 1",
+          text: "Caption 1"
+      },
+      {
+          header: "Header 2",
+          text: "Caption 2"
+      },
+      {
+          header: "Header 3",
+          text: "Caption 3"
+      },
+      {
+          header: "Header 4",
+          text: "Caption 4"
+      },
+      {
+          header: "Header 5",
+          text: "Caption 5"
+      }
+  ];
+  let currentSlide = 0;
+  let slideshowImage = document.getElementById("slideshow-image");
+  let prevButton = document.getElementById("prev-button");
+  let nextButton = document.getElementById("next-button");
+  let captionHeader = document.getElementById("caption-header");
+  let captionText = document.getElementById("caption-text");
+  updateSlideshow();
+  prevButton.addEventListener("click", function() {
+      currentSlide--;
+      if (currentSlide < 0) {
+          currentSlide = images.length - 1;
+      }
+      updateSlideshow();
+  });
+  nextButton.addEventListener("click", function() {
+      currentSlide++;
+      if (currentSlide >= images.length) {
+          currentSlide = 0;
+      }
+      updateSlideshow();
+  });
+  function updateSlideshow() {
+      slideshowImage.src = images[currentSlide];
+      captionHeader.innerText = captions[currentSlide].header;
+      captionText.innerText = captions[currentSlide].text;
+  }
+  </script>
+</script>
+</body>
+</html>
