@@ -123,9 +123,9 @@
 
 #buttonimage1{
     position: absolute;
-    top: -509px;
-    left: -393px;
-    scale: 75%;
+    top: -545px;
+    left: -157px;
+    height: 2350%;
     overflow: hidden;
     background-repeat: no-repeat;
     z-index: -1;
