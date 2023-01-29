@@ -1,16 +1,108 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
-    <script src= "https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
-    <body style="margin: 0px; overflow: hidden;">
-            <a-scene embedded arjs>
-                <a-marker preset="hiro">
-                    <a-text position = "-.6 0.5 0.8" value="Hello Laurel!"></a-text>
-                    <a-box position="0 0.5 0" material="color: red">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>My Website</title>
+    <style>
+      h1 {
+        text-align: center;
+        margin-top: 20%;
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        color: black;
+      }
+      #h1:hover {
+        color: red;
+      } 
+    </style>
+    <script>
+      if (screen.width <= 767) {
+        window.location = "page1.html";
+      }
+      </script>
+  </head>
+  <body>
+    <h1>Tina Tarighian</h1>
+    <div id="about-projects">
+      <a href="page1.html" id="about-me">About Me</a> | 
+      <a href="page2.html" id="all-projects">All Projects</a>
+  </div>
+  
+    <div style="text-align:center">
+    <div class="parent-container">
+      <div class="button-container" style="top: -18px;left: 145px;">
+        <img src="background5b.jpg" id="buttonimage1">
+        <button class="button" onclick="location.href='page1.html'">
+          <a href="page1.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Coding Projects</div>
+      </div>
+    </div>    
 
-                    </a-box>
-                </a-marker>
-                <a-entity camera ></a-entity>
-            </a-scene>
-        </body>
+    <div class="parent-container">
+      <div class="button-container" style="top: -196px;left: 363px;">
+        <button class="button" onclick="location.href='page2.html'">
+          <a href="page2.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Extended Reality Experiences</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: 68px;left: 720px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Resume</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: 105px;left: 687px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Github</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: 49px;left: 837px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Linkedin</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: -529px;left: 118px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Marketing</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: -608px;left: 1149px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Research Papers</div>
+      </div>
+    </div> 
+
+    <div class="parent-container">
+      <div class="button-container" style="top: -451px;left: 1089px;">
+        <button class="button" onclick="location.href='page3.html'">
+          <a href="page3.html" class="button" id="pages-link">Page 1</a>
+        </button>
+        <div class="textbox">Artwork</div>
+      </div>
+    </div> 
+
+  </body>
 </html>
+
