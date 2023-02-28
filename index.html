@@ -49,6 +49,7 @@
         .circ{
             stroke:black;
             pointer-events:bounding-box; 
+            fill:blue;
         }
         .circ:hover{
             fill:red;
@@ -92,14 +93,15 @@
         #svg8:hover + text {
         display: block;
         cursor: pointer;}
-        a {
+        #littlelinks {
             text-decoration: none;
             color: black;
         }
-        a:hover{
+        #littlelinks:hover{
             background: yellow;
 
         }
+
 
     </style>
         <script>
@@ -115,9 +117,9 @@
         <h1 style="
             margin-top: -10px;
             font-size: smaller;">
-            <a class="about-me" href="aboutme.html">About Me</a> | 
-            <a class="all-projects" href="allprojects.html">All Projects</a> | 
-            <a class="services" href="services.html">Services</a>
+            <a id="littlelinks" class="about-me" href="aboutme.html">About Me</a> | 
+            <a id="littlelinks" class="all-projects" href="allprojects.html">All Projects</a> | 
+            <a id="littlelinks" class="services" href="services.html">Services</a>
         </h1>
       </div>
     <!-- circles -->
