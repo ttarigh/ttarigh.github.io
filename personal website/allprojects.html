@@ -1,0 +1,101 @@
+<!-- pill shaped buttons with icons that redirect to different pages -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tina Tarighian</title>
+    <style>
+        button{ 
+            display: block;
+            margin-bottom: 10px;  
+            font-size: xx-large; 
+            padding: 10px;
+            border-radius: 30px;
+            border-width: 5px;
+            border-style: solid;
+            background-color: rgb(255, 100, 100);
+            border-color: red;
+            color:white;
+            font-family: sans-serif;
+            width:100%;
+            text-align: left;
+
+        }
+        button:hover{
+            background-color: yellow;
+            color: black;
+        }
+        #head{
+            display:block;
+            text-align: center;
+            font-size: xx-large; 
+            padding: 20px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            border-width: 5px;
+            border-style: solid;
+            background-color:white ;
+            border-color: rgb(221, 0, 0);
+            color:black;
+            font-family: sans-serif;
+            
+        }
+        #stuff{
+            text-align: center;
+            font-family:sans-serif; 
+            margin-top: 5px;
+        }
+        img{   
+            width: 40px;
+            margin-bottom: -9px;
+            height: 40px;}
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            background: yellow;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+<h1 id=stuff style="
+margin-top: 1px;
+font-size: smaller;">
+<a class="all-projects" href="index.html">Home</a> |
+<a class="about-me" href="aboutme.html">About Me</a> | 
+<a class="all-projects" href="allprojects.html" style="background: yellow;">All Projects</a> | 
+<a class="services" href="services.html">Services</a>
+</h1>
+
+<h1 id=head>Tina Tarighian</h1>
+
+
+<button onclick="window.location.href = 'xr.html'">
+    <img src="img/XRpic.png">
+    Extended Reality Experiences 
+  </button>
+<button onclick="window.location.href = 'codingprojects.html'">
+    <img src="img/computer.png">
+    Coding Projects
+  </button>
+<button onclick="window.location.href = 'marketing.html'">
+    <img src="img/marketing.png">
+    Marketing
+  </button>
+<button onclick="window.location.href = 'researchpapers.html'">
+    <img src="img/researchpapers.png">
+    Research Papers
+  </button>
+  <button onclick="window.location.href = 'artwork.html'">
+    <img src="img/artpic.png">
+    Artwork
+  </button>
+</body>
+</html>
