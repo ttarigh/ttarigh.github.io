@@ -1,0 +1,121 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+  }
+  button {
+    display: block;
+    margin-bottom: 10px;  
+    font-size: xx-large; 
+    padding: 10px;
+    border-radius: 30px;
+    border-width: 5px;
+    border-style: solid;
+    background-color: rgb(255, 100, 100);
+    border-color: red;
+    color:white;
+    font-family: sans-serif;
+    width:100%;
+    text-align: left;
+  }
+
+  #Bimg{   
+    width: 40px;
+    margin-bottom: -9px;
+    height: 40px;}
+  
+  .back-to-index {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .back-to-index img {
+    width: 100%;
+    height: 100%;
+  }
+  .page-name {
+    margin: 0;
+    font-size: xx-large;
+    font-weight: bold;
+    color: red;
+    border: 3px solid red;
+    padding: 5px 20px;
+    border-radius: 50px;
+  }
+  .project-section {
+    border-top: 3px solid black;
+    padding: 0px 0;
+    margin: 0;
+  }
+  .project-name {
+    display: inline-block;
+    background-color: yellow;
+    padding: 10px;
+    font-size:xx-large;
+    font-weight: bold;
+  }
+  .project-description {
+    margin-top: 10px;
+    padding:10px;
+  }
+  .project-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-media img {
+    max-width: 100%;
+    max-height: 80vh;
+    margin: 10px 0;
+  }
+  .collapsible-img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .collapsible-img img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-bottom: -5px;
+  }
+
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: white;
+  }
+  @media screen and (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+    .back-to-index {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .project-name {
+      font-size: 20px;
+      padding: 11px;
+    }
+    .project-description {
+      font-size: 16px;
+    }
+  }

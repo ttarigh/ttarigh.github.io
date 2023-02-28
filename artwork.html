@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tina Tarighian</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .page-name {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: red;
+        border: 3px solid red;
+        padding: 5px 20px;
+        border-radius: 50px;
+        
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: white;
+        border-bottom: 3px solid black;
+      }
+      .back-to-index {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+      .back-to-index img {
+        width: 100%;
+        height: 100%;
+      }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+    }
+
+    .image {
+      flex: 1 1 200px;
+      height: 350px;
+      margin: 10px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    .description {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      padding-top: 309px;
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .image:hover .description {
+      opacity: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #007bff;
+      border: 2px solid #007bff;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .tag:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .tag.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;}
+    
+      button {
+    display: block;
+    margin-bottom: 10px;  
+    font-size: xx-large; 
+    padding: 10px;
+    border-radius: 30px;
+    border-width: 5px;
+    border-style: solid;
+    background-color: rgb(255, 100, 100);
+    border-color: red;
+    color:white;
+    font-family: sans-serif;
+    width:100%;
+    text-align: left;
+  }
+
+  #Bimg{   
+    width: 40px;
+    margin-bottom: -9px;
+    height: 40px;}
+      button:hover {
+        background-color: yellow;
+        color: black;
+      }
+      button:hover span{
+        display: none; 
+      }
+      button:hover:before {
+        content: "←"
+      }
+  </style>
+</head>
+<body>
+    <div class="header">
+      <button onclick="window.location.href = 'index.html'">
+        <img id="Bimg" src="img/artpic.png">
+        <span>Artwork </span>
+      </button>
+    </div>
+
+
+
+  <div class="tags">
+    <div class="tag active" data-filter="all">All</div>
+    <div class="tag" data-filter="TJS">Three.JS Graphics</div>
+    <div class="tag" data-filter="ink">Ink</div>
+    <div class="tag" data-filter="paint">Paint</div>
+    <div class="tag" data-filter="Charcoal">Charcoal</div>
+    <div class="tag" data-filter="Blender">Blender</div>
+  </div>
+  <div class="container">
+    <div class="image" data-tags="TJS" style="background-image: url(img/barn.gif)">
+      <div class="description">Barn Render</div>
+    </div>
+
+    <div class="image" data-tags="paint" style="background-image: url(img/paint9.jpg)">
+      <div class="description">I'm sinking into the floor.</div>
+  </div>
+  <div class="image" data-tags="Blender" style="background-image: url(img/blue.png)">
+    <div class="description">Blue Lingerie Set</div>
+    </div>
+    <div class="image" data-tags="ink" style="background-image: url(img/ink.jpg)">
+      <div class="description">Doodle</div>
+      </div>
+    <div class="image" data-tags="TJS" style="background-image: url('img/clown.gif')">
+      <div class="description">Clown Render</div>
+    </div>
+    <div class="image" data-tags="Charcoal" style="background-image: url(img/charcoal2.jpg)">
+      <div class="description">Study</div>
+</div>
+<div class="image" data-tags="Blender" style="background-image: url(img/redboot.png)">
+  <div class="description">Mschf Red Boot</div>
+  </div>
+    <div class="image" data-tags="TJS" style="background-image: url('img/flythrough.gif')">
+      <div class="description">Flythrough Animation</div>
+    </div>
+
+          <div class="image" data-tags="ink" style="background-image: url(img/ink3.jpg)">
+            <div class="description">Doodle</div>
+            </div>
+  <div class="image" data-tags="paint" style="background-image: url(img/paint1.jpg)">
+      <div class="description">Beyond the Veil</div>
+    </div>
+
+
+  <div class="image" data-tags="Blender" style="background-image: url(img/pearlneck.png)">
+      <div class="description">Spikey Pearl Necklace</div>
+      </div>
+
+      <div class="image" data-tags="ink" style="background-image: url(img/ink2.jpg)">
+        <div class="description">Doodle</div>
+        </div>
+
+
+  <div class="image" data-tags="Blender" style="background-image: url(img/heartneck.png)">
+        <div class="description">Carnelian Heart Necklace</div>
+      </div>
+
+    <div class="image" data-tags="TJS" style="background-image: url(img/fishAnimation.gif)">
+      <div class="description">Fish Tank Interactive</div>
+    </div>
+    <div class="image" data-tags="paint" style="background-image: url('img/paint2.jpg')">
+      <div class="description">Portrait</div>
+    </div>
+    <div class="image" data-tags="paint" style="background-image: url('img/paint3.jpg')">
+      <div class="description">Flame</div>
+    </div>
+    <div class="image" data-tags="paint" style="background-image: url('img/paint4.jpg')">
+      <div class="description">Pill</div>
+    </div>
+    <div class="image" data-tags="paint" style="background-image: url('img/paint5.jpg')">
+      <div class="description">Sisters on TV</div>
+    </div>
+    <div class="image" data-tags="paint" style="background-image: url(img/paint6.jpg)">
+        <div class="description">Hold Me</div>
+        </div>
+        <div class="image" data-tags="Blender" style="background-image: url(img/dripneck.png)">
+          <div class="description">Drippy Gold Necklace</div>
+          </div>
+    <div class="image" data-tags="paint" style="background-image: url(img/paint7.jpg)">
+        <div class="description">Betty Boop</div>
+        </div>
+   <div class="image" data-tags="paint" style="background-image: url(img/paint8.jpg)">
+        <div class="description">The world is small, to me</div>
+        </div>
+    
+    <div class="image" data-tags="Blender" style="background-image: url('img/UF.png')">
+      <div class="description">User Friendly Model for Startup</div>
+    </div>
+
+    <div class="image" data-tags="TJS" style="background-image: url('img/lightingdemo.gif')">
+      <div class="description">Lighting Demo Sconce</div>
+    </div>
+    <div class="image" data-tags="Blender" style="background-image: url('img/mush.png')">
+      <div class="description">Mushroom Lace Lingerie Set</div>
+    </div>
+    <div class="image" data-tags="Blender" style="background-image: url(img/floral.png)">
+        <div class="description">Floral Lace Lingerie Set</div>
+        </div>
+    <div class="image" data-tags="Blender" style="background-image: url(img/plum.png)">
+        <div class="description">Plum Lingerie Set</div>
+        </div>
+    <div class="image" data-tags="Blender" style="background-image: url(img/rib.png)">
+          <div class="description">Ribcage with Beating Heart</div>
+        </div>
+        <div class="image" data-tags="TJS" style="background-image: url('img/obleisk.gif')">
+          <div class="description">Oblesik Render with GUI</div>
+        </div>
+      <div class="image" data-tags="Charcoal" style="background-image: url(img/charcoal1.jpg)">
+          <div class="description">Study</div>
+      </div>
+
+      <script>
+            const tags = document.querySelectorAll('.tag');
+            const images = document.querySelectorAll('.image');
+        
+            tags.forEach(tag => {
+              tag.addEventListener('click', () => {
+                // Remove the 'active' class from all tags
+                tags.forEach(t => t.classList.remove('active'));
+                // Add the 'active' class to the clicked tag
+                tag.classList.add('active');
+        
+                const filter = tag.dataset.filter;
+        
+                images.forEach(image => {
+                  const tags = image.dataset.tags.split(' ');
+        
+                  if (filter === 'all' || tags.includes(filter)) {
+                    image.style.display = 'block';
+                  } else {
+                    image.style.display = 'none';
+                  }
+                });
+              });
+            });
+
+          </script>
+        </body>
+        </html>
+        
