@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tina Tarighian</title>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/ink.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <button onclick="window.location.href = 'index.html'">←</button>
+    <div class="split-container">
+      <div class="left" onclick="showArts()">
+        <h1>art work</h1>
+      </div>
+      <div class="right" onclick="showWorks()">
+        <h1>real work</h1>
+      </div>
+    </div>
+<!-- Art -->
+    <div class="portfolio-item">
+      <div class="project-name">Interactive Fish Tank</div>
+      <div class="collapsible-img">
+      <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(1)">
+    </div>
+    <div class="content">
+        <div class="project-description">
+          <p>This is a project I completed in a 300-level Introduction to Computer Graphics class at Wellesley College. The entire project was done in JavaScript, WebGL, and Three.js. <a id="intext" href="https://ttarigh.github.io/interactiveaquarium/"> Click here</a> to see how you can interact with the environment using your keyboard.</p>
+        </div>
+        <div class="project-media">
+          <img src="img/fishAnimation.gif"> 
+        </div>
+      </div>
+  </div> 
+
+  <div class="portfolio-item">
+    <div class="project-name">Magic 8 Ball</div>
+    <div class="collapsible-img">
+    <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(2)">
+  </div>
+  <div class="content">
+      <div class="project-description">
+        <p> This was a simple magic-8 ball I made in basic html/js with a old web 1.0 style of animation.</p>
+        <p id="minihead"> <a id="intext" href="https://tina.zone/magic8"> Try the Magic</a></p>
+      </div>
+      <div class="project-media">
+        <img src="img/magic8.png"> 
+      </div>
+    </div>
+</div> 
+
+<div class="portfolio-item">
+  <div class="project-name">Love Meter</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(3)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> This was a birthday present I made for a friend going through a breakup, urging them to remember that the love they've put out into the universe exists inside them.</p>
+      <p id="minihead"> <a id="intext" href="https://tina.zone/lovemeter"> Love Meter</a></p>
+    </div>
+    <div class="project-media">
+      <img src="img/lovemeter.png"> 
+    </div>
+  </div>
+</div> 
+
+<div class="portfolio-item">
+  <div class="project-name">Columbia ADP's Art Exhibit</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(4)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> Columbia University put on a play based on old alumnis tragic love letters, and featured different artists from NYC. I was invited to participate, and in addition to some live-coding visuals I did for the performance, I also had this simple html/js animation</p>
+      <p id="minihead"> <a id="intext" href="https://tina.zone/adp"> Watch Here</a></p>
+    </div>
+    <div class="project-media">
+      <img src="img/adp.png"> 
+    </div>
+  </div>
+</div> 
+
+<div class="portfolio-item">
+  <div class="project-name">Pop-up Experiments</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(5)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> This piece is meant to be funny and also experimental. It is about how we may seem perfect on paper even if that could not be farther from the truth. If you want to try this experience, make sure popups and cmaera are turned on.</p>
+      <p id="minihead"> <a id="intext" href="https://tina.zone/abouttina"> play with popups</a></p>
+    </div>
+    <div class="project-media">
+      <img src="img/popup.jpeg"> 
+    </div>
+  </div>
+</div> 
+
+
+<div class="portfolio-item">
+  <div class="project-name">Elf Barighian</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(6)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> This piece was made a mockup for a cannabis deivery company, Doobie. It is a great demo of places 3D assets into the real world.</p>
+      <p id="minihead"> <a id="intext" href="https://tina.zone/barighian"> hit my vape</a></p>
+    </div>
+    <div class="project-media">
+      <img src="img/barighian.png"> 
+    </div>
+  </div>
+</div> 
+
+<div class="portfolio-item">
+  <div class="project-name">Audio-Reactive Visualizer Projects</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(7)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> Early into experimenting with audio reactive visuals, I made this video of me demoing its ability, projected and bodymapped onto a shirt I have.</p>
+    </div>
+    <div class="project-media">
+      <iframe src="https://drive.google.com/file/d/1rQ91Jfs9p7sL9Flc-pW3tY7qL44w60_z/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+  </div>
+</div> 
+
+<div class="portfolio-item">
+  <div class="project-name">Fine Arts and misc 3D Assets</div>
+  <div class="collapsible-img">
+  <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(8)">
+</div>
+<div class="content">
+    <div class="project-description">
+      <p> Truthfully, I've been making art since I was 5. There is no way to store everything on here. If you are really curious about some of my other mediums, check out the link below to my old website.</p>
+      <p id="minihead"> <a id="intext" href="https://tina.zone/artworks.html"> My Arts!</a></p>
+    </div>
+  </div>
+</div> 
+
+<!-- Work -->
+    <div class="project-section">
+      <div class="project-name">Chrome Extension: Stop Buying Things!</div>
+      <div class="collapsible-img">
+        <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(9)">
+      </div>
+      <div class="content">
+        <div class="project-description">
+          <p id="minihead">What does the application do? What is its purpose?</p>
+          <p>After discovering the trend of "deinfluencing," I decided to take a stab at the consumerism problem. I noticed that because of how convienient it has become to order things online, we are consuimg much more than we need to. My simple solution to this is a chrome extension I aptly named "Stop Buying Things."</p>
+          <p id="minihead">How does it work?</p>
+          <p>By detecting that you are on a shopping cart page, the pop-up turns your browser window red for a few seconds, then reminds you of its simple creed: STOP BUYING THINGS! In the few seconds where your browser is totally red, it will allow you to take a deep breath before truly considering if you need to buy anything.</p>
+          <p id="minihead">Can I try?</p>
+          <p>Absolutely, it's on the Chrome Extension store!</p>
+        </div>
+        <div class="project-media">
+          <img src="img/SBTex.png">
+        </div>
+      </div>
+  </div>
+
+    <div class="project-section">
+      <div class="project-name">Mathy, the Math Cat!</div>
+      <div class="collapsible-img">
+        <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(10)">
+      </div>
+      <div class="content">
+        <div class="project-description">
+          <p id="minihead">What does the application do? What is its purpose?</p>
+            <p>This application is a additional skill practice program built for english-speaking 2nd graders. Its purpose is to help students improve their additional skills by encouraging them to get multiple answers in a row. Users answer the displayed arithemic question, which increases in difficulty every level. Users submit their answer by pressing the submit button, or pressing the enter key on their keyboard. If the user answers correctly, a new problem will be random generated.
+            </p><p>The number of currently consecutive answers is stored, and it is displayed under "Current Streak" on the webpage. The users highest streak for the session is also displayed, which is reset when the page is refreshed/ a new session starts.
+            </p>  
+            <p>For every correctly answered question, the screen displays "Correct! Great Job!" with an accompanying image of the original avatar, Mathy the Adventure Cat, randoming displaying 1 of 3 positive emotions. Every 10 correct consecutive answers is rewarded with unlocking a new background.
+            </p>  
+            <p>When users enter incorrectly, the current streak is reset to 0, and the question will not change until it is answer correctly. Mathy the Adventure Cat is displayed as having a pensive, thinking face.
+            </p>  
+            <p>When users need help, they can press the help button in the top right of the div container. This alerts the user of some ways to help them solve the problem.
+            </p>  
+            <p>For users who have sight impairments or struggle with dyscalculia, there is a speech-to-text toggle button displayed under the current level.</p>
+            </p>
+            <p id="minihead">My Whiteboard</p>
+            <p>Accompanied by the color palette, some early lists of desired features, buttons, and my original avatar I drew for this project.
+            </p>
+        <div class="project-media">
+          <img src="img/10.png">
+        </div>
+        <p id="minihead">Before and After Styling</p>
+        <p>In the before, the basic crux of the given assignment was "working." At least in the sense that it accomplished about half of its real goal. The after is more equipped with all the tools really needed for successful user interactions, such as lively colors, engaging feedback, and a help button.</p>
+        <div class="project-media">
+          <img src="img/beforeaftermath.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+        <div class="project-name">Original Evolutionary Algorithm for Computational Intelligence</div>
+        <div class="collapsible-img">
+        <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(11)">
+      </div>
+      <div class="content">
+      <div class="project-description">
+        <p>By rationalizing my choice of a recombination operator, a mutation operator, and selection mechanisms, I implemented an original evolutionary algorithm. Then, I applied it to a given non-differentiable optimization task and analyzed its results. You can view my code, rationale, and analysis above. Coded in Python3 using Numpy, SciPy, and Matplotlib by <a id=intext href="https://drive.google.com/file/d/1zTJFim9LICR79j7aJZPWd6anAInH5xg7/view"> clicking here</a>.</p>
+        </p>
+      </div>
+    </div>
+    </div>
+
+    <div class="project-section">
+        <div class="project-name">Simulated Annealing and Metropolis-Hastings Sampling Algorithms</div>
+        <div class="collapsible-img">
+        <img src="img/plus.png" alt="Collapsible button" onclick="toggleContent(12)">
+      </div>
+      <div class="content">
+      <div class="project-description">
+        <p>Simulated annealing is a meta-heuristic algorithm used for optimization, that is finding the minimum/maximum of a function. Metropolis-Hastings is an algorithm used for exploring a function (finding possible values/samples). You can see my implementation, generated graphs, and formal comparisons of the two algorithms in the context of computational intelligence training. Coded in Python3 using Numpy, SciPy, and Matplotlib by <a id=intext href="https://drive.google.com/file/d/1LmJ30ecoCiSAmUwddCiA3YxrfB0r0PUl/view"> clicking here</a>.</p>
+        </p>
+      </div>
+    </div>
+    </div>
+
+  
+
+    <script>
+      function showArts() {
+        // Show div items from class portfolio-item
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        portfolioItems.forEach((item) => {
+          item.style.display = "block";
+        });
+
+        // Hide div items from class work-item
+        const workItems = document.querySelectorAll(".project-section");
+        workItems.forEach((item) => {
+          item.style.display = "none";
+        });
+      }
+
+      function showWorks() {
+        // Show div items from class work-item
+        const workItems = document.querySelectorAll(".project-section");
+        workItems.forEach((item) => {
+          item.style.display = "block";
+        });
+
+        // Hide div items from class portfolio-item
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+        portfolioItems.forEach((item) => {
+          item.style.display = "none";
+        });
+      }
+      function toggleContent(buttonID) {
+        var content = document.getElementsByClassName("content")[buttonID-1];
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

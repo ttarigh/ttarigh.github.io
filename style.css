@@ -1,13 +1,46 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
     margin: 0;
-  }
-  .header {
+    padding: 0;
+}
+
+#minihead {
+  font-family: sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+.split-container {
+    display: flex;
+}
+
+.left, .right {
+    flex: 1;
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: white;
-  }
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.left {
+    justify-content: right;
+    background-color: white; /* Update with your preferred color */
+    color: red; /* Update with your preferred text color */
+    /* border-right: 3px solid rgb(30, 31, 33); Update with your preferred line color */
+}
+
+.right {
+    justify-content: left;
+    background-color: white; /* Update with your preferred color */
+    color: blue; /* Update with your preferred text color */
+    /* border-left: 3px solid rgb(30, 31, 33);  */
+}
+
+.left:hover, .right:hover {
+    color: rgb(0, 255, 0);
+    /* background-color: rgb(30, 31, 33); */
+}
+
 button{
     background-color: white;
     border:none;
@@ -22,10 +55,18 @@ button:hover{
 
 }
 
-  .project-section {
-    border-top: 1px solid black;
+.portfolio-item {
+  border-top: 3px solid black;
     padding: 0px 0;
     margin: 0;
+    display:none;
+}
+
+.project-section {
+    border-top: 3px solid black;
+    padding: 0px 0;
+    margin: 0;
+    display:none;
   }
   .project-name {
     display: inline-block;
@@ -37,6 +78,7 @@ button:hover{
   .project-description {
     margin-top: 10px;
     padding:10px;
+    font-size: 16px;
   }
   .project-media {
     display: flex;
@@ -67,6 +109,7 @@ button:hover{
     margin-bottom: -5px;
   }
 
+  /* Style the collapsible content. Note: hidden by default */
   .content {
     padding: 0 18px;
     display: none;

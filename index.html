@@ -12,7 +12,7 @@
     <link rel="manifest" href="img/site.webmanifest">
     <style>
       body {
-        background-color: rgb(0, 0, 0);
+        background-color: white;
         font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
@@ -23,14 +23,28 @@
       .name {
         font-size: 50px;
         z-index: 1;
-        color: rgb(255, 255, 255);
       }
       .clickable {
-        color: rgb(255, 255, 255);
+        color: black;
         cursor: pointer;
+        animation: blink 1s infinite;
+
       }
       .clickable:hover {
         color: red;
+        animation: none; 
+        
+      }
+      @keyframes blink {
+        0% {
+          color: blue;
+        }
+        50% {
+          color: black;
+        }
+        100% {
+          color: blue;
+        }
       }
       .label {
         display: none;
@@ -40,7 +54,7 @@
         z-index: 1;
       }
       .lamp {
-        fill: white;
+        fill: black;
         pointer-events: bounding-box;
       }
       .lamp:hover {
@@ -61,7 +75,7 @@
       }
 
       .image {
-        background-image: url(dark.jpg);
+        background-image: url(background.jpg);
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -75,7 +89,7 @@
       <a><span>T</span></a>
       <a><span>I</span></a>
       <a><span>N</span></a>
-      <a id="lastletter" class="clickable" href="xr.html"
+      <a id="lastletter" class="clickable" href="xr1.html"
         ><span
           onmouseover="showLabel('A', 'Augmented Reality')"
           onmouseout="hideLabel('A')"
@@ -86,7 +100,7 @@
       <a><span>A</span></a>
       <a
         class="clickable"
-        href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing"
+        href="https://drive.google.com/file/d/1jasjuaUopldaV2RSYsmLYUpelBHPgPNf/view?usp=sharing"
         ><span
           onmouseover="showLabel('R', 'Resume')"
           onmouseout="hideLabel('R')"
@@ -103,7 +117,7 @@
       >
       <a><span>H</span></a>
       <a><span>I</span></a>
-      <a class="clickable" href="allprojects.html"
+      <a class="clickable" href="allprojects1.html"
         ><span
           onmouseover="showLabel('A', 'All Works')"
           onmouseout="hideLabel('A')"
@@ -129,7 +143,7 @@
             fill="#2e1ff9"
             stroke="none"
           >
-            <a xlink:href="index.html">
+            <a xlink:href="dark.html">
               <path
                 class="lamp"
                 id="svg9"
@@ -155,6 +169,9 @@
         const label = document.getElementById("label");
         label.style.display = "none";
       }
+      if (screen.width <= 767) {
+              window.location = "allprojects.html";
+            }
     </script>
   </body>
 </html>
