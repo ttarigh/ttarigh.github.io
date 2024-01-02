@@ -18,6 +18,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="manifest" href="img/site.webmanifest">
+
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
     <style>
       body {
         background-color: rgb(0, 0, 0);
@@ -163,6 +166,8 @@
       </div>
     </div>
     <div class="label" id="label">Title</div>
+    <video id="video" width="1" height="1" autoplay>
+
     <script>
       function showLabel(letter, title) {
         const label = document.getElementById("label");

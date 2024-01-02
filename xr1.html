@@ -19,6 +19,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="stylesheet" type="text/css" href="stylepages.css" />
+
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
     <style>
 
       button:hover {
@@ -566,7 +569,8 @@
         </div>
       </div>
     </div>
-
+    
+    <video id="video" width="1" height="1" autoplay>
     <script>
       function toggleContent(buttonID) {
         var content = document.getElementsByClassName("content")[buttonID - 1];
