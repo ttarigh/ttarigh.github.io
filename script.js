@@ -1,4 +1,5 @@
 const video = document.getElementById("video");
+let detectedEmotion; 
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
@@ -27,35 +28,26 @@ video.addEventListener("play", () => {
       .withFaceExpressions();
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    // faceapi.draw.drawDetections(canvas, resizedDetections)
-    // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 
     const firstDetection = detections[0];
-    let lastPopupTime = 0;
 
     if (firstDetection && firstDetection.expressions) {
-      let happyDetected = false;
       // Iterate over the emotions
       for (const emotion in firstDetection.expressions) {
         const emotionValue = firstDetection.expressions[emotion];
 
         // Check if the value is between 0.8 and 1
         if (emotionValue > 0.8 && emotionValue < 1) {
+          detectedEmotion = emotion; 
           // Print the emotion name
-          console.log("Emotion:", emotion);
-        }
-        if (emotion != "happy") {
-          happyDetected = true;
+          console.log("Emotion:", detectedEmotion);
+
+          // Send the emotion data to Google Analytics
+          gtag("event", "EmotionDetected", {
+            detectedEmotion: detectedEmotion,
+          });
         }
       }
-    }
-    // If happy is not detected and enough time has passed, show the popup window
-    if (!happyDetected && Date.now() - lastPopupTime > 5 * 60 * 1000) {
-      alert("rememer to smile!");
-
-      // Update the lastPopupTime to the current time
-      lastPopupTime = Date.now();
     }
   }, 100);
 });
