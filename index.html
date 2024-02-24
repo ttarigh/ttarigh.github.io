@@ -3,13 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tina Tarighian</title>
+    <title>TINA TARIGHIAN</title>
     <script src="https://code.jquery.com/jquery.min.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="img/site.webmanifest">
-    
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+
     <style>
       body {
         background-color: white;
@@ -28,12 +42,10 @@
         color: black;
         cursor: pointer;
         animation: blink 1s infinite;
-
       }
       .clickable:hover {
         color: red;
-        animation: none; 
-        
+        animation: none;
       }
       @keyframes blink {
         0% {
@@ -82,11 +94,25 @@
         width: 100%;
         height: 100%;
       }
-
+      #work {
+        border: 2px dashed black;
+        color: black;
+        z-index: 100;
+        background-color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 35px;
+      }
+      #work:hover {
+        color: red;
+        border-color: red;
+        cursor:pointer;
+      }
     </style>
   </head>
   <body>
-
+    <button id="work">WORK</button>
     <div class="name">
       <a><span>T</span></a>
       <a><span>I</span></a>
@@ -102,7 +128,7 @@
       <a><span>A</span></a>
       <a
         class="clickable"
-        href="https://drive.google.com/file/d/1jasjuaUopldaV2RSYsmLYUpelBHPgPNf/view?usp=sharing"
+        href="https://drive.google.com/file/d/1X8Q7uBLzVeRjV4GyZDrhBo2yFYUc78fe/view?usp=sharing"
         ><span
           onmouseover="showLabel('R', 'Resume')"
           onmouseout="hideLabel('R')"
@@ -173,8 +199,11 @@
         label.style.display = "none";
       }
       if (screen.width <= 767) {
-              window.location = "mobileindex.html";
-            }
+        window.location = "mobileindex.html";
+      }
+      document.getElementById("work").addEventListener("click", function () {
+        window.open("https://work.tina.zone", "_blank");
+      });
     </script>
   </body>
 </html>
