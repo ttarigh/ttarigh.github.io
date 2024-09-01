@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TINA TARIGHIAN</title>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        height: 100vh;
+    
+        margin: 0;
+        margin-left: 10px;
+        padding: 0;
+      }
+
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 60px;
+      }
+      .overHead {
+        margin-top: 30px;
+      }
+      .header h1 {
+        display: inline-block; /* Allow elements to be placed side-by-side */
+      }
+      #about {
+        display: inline-block; /* Allow the link to be placed next to the h1 */
+        margin-left: 0px; /* Add some space between the h1 and the link */
+      }
+      
+      #aboutlink{
+        color: blue;
+      }
+
+      .image-container {
+        position: relative;
+        width: 90%;
+      }
+
+      .overlay-box {
+        position: absolute;
+        border: 2px solid;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .overlay-box span {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      #work-box {
+        top: 20%;
+        left: 5%;
+        width: 50%;
+        height: 65%;
+        border: dashed;
+        border-color: blue;
+        border-width: 4px;
+
+      }
+
+      #art-box {
+        top: 0%;
+        left: 40%;
+        width: 55%;
+        height: 70%;
+        border: dotted;
+        border-color: #00ff00;
+        border-width: 2px;
+      }
+      p{
+        font-size: 10px;
+      }
+      #wru{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+      .zone{
+        text-decoration: none;
+        color: black;
+      }
+      h2{
+        margin: 0 0 10px 0;
+      }
+      .map{
+        background-color: #fffc00;
+        display: none;
+        margin-left: 10px;
+      }
+      .mapHeader h1{
+        padding-top: 50px;
+        font-size: 25px;
+      }
+      #star{
+        color: red;
+      }
+      span{
+        margin: 0;
+      }
+    </style>
+  </head>
+    <div class="container">
+      <div class="overHead">
+        <div class="header">
+          <h1 style="margin-bottom: 0;">TINA</h1>       
+          <p id="about"><a id="aboutlink" href="about.html">{about}</a></p>
+          <h1 style="margin-top: 0;">TARIGHIAN</h1>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="splash/mobile.png" alt="mobile" style="width: 100%; height: auto;">
+        <a href="https://work.tina.zone/" class="overlay-box" id="work-box">
+          <span style="color: blue;">WORK</span>
+        </a>
+        <a href="https://art.tina.zone/" class="overlay-box" id="art-box">
+          <span style="color: #00ff00;">ART</span>
+        </a>
+      </div>
+      <img id="wru" src="splash/wru.png" alt="map" style="width: 15%; height: auto;">
+    </div>
+    <div class="map">
+      <div class="mapHeader">
+        <h1>ZONE MAP</h1>
+      </div>
+      <h2 id="star" style="margin-bottom: 0;"><a class="zone" href="mobileindex.html">tina.zone</a> ★</h2>
+      <span>|</span>
+      <h2><a class="zone" href="https://art.tina.zone/">art.tina.zone</a></h2>
+      <h2><a class="zone" href="https://work.tina.zone/">work.tina.zone</a></h2>
+      <a style="text-decoration: none; position:absolute; bottom: 10px; left: 10px; font-size: 50px; color: red;" href="mindex.html">←</a>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('#wru').click(function() {
+          $('.container').hide(); // Hide the container div
+          $('.map').show(); // Show the map div
+          $('body').css('background-color', '#fffc00'); // Change background color
+        });
+      });
+    </script>
+  </body>
+</html>

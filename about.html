@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TINA TARIGHIAN</title>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        height: 100vh;
+    
+        margin: 0;
+        margin-left: 10px;
+        padding: 0;
+      }
+      .gradient-background {
+    background: linear-gradient(to bottom, white, #d0d0d0);
+}
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 60px;
+    }
+      p{
+        margin-bottom: 20px;
+      }
+      a{
+        color:blue;
+      }
+      
+      .content-wrapper {
+        display: flex;
+        flex-direction: row;
+      }
+      
+      .text-content {
+        width: 50%;
+        padding-right: 20px;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      
+      .image-content {
+        width: 50%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      
+      .image-content img {
+        max-width: 50%;
+        height: auto;
+      }
+
+      @media (max-width: 768px) {
+        .image-content {
+          display: none; /* Hide image on mobile */
+        }
+        .text-content {
+          width: 100%; /* Set text width to 100% on mobile */
+        }
+        body {
+          background-color: white !important; /* Added !important to ensure it overrides other styles */
+          font-size: 18px;
+        }
+        body.gradient-background {
+        background: none; /* Remove the gradient */
+        }
+      }
+    </style>
+  </head>
+  <body class="gradient-background">
+    <div class="container">
+        <h1 style="margin-bottom: 0;">about:</h1>
+        <div class="content-wrapper">
+          <div class="text-content">
+            <p>
+                <strong>Hi</strong>, I'm a creative technologist experimenting with AI at the Google Creative lab in NYC. 
+            </p>
+            <p>
+                Previously, I was a freelance software artist. I'm fascinated by post-digital intimacy and surveillance. 
+            </p>
+            <p>
+                If you want to talk (<strong>I always do btw</strong>) or collaborate please: <a href="mailto:tinatarighianwork@gmail.com">email me</a>. <a href="https://x.com/tinaz0ne">tweet me</a>. <a href="https://www.instagram.com/tarighian">gram me</a>. <a href="https://www.are.na/tina-zone/channels">arena me</a>. <a href="https://www.tiktok.com/@tina.z0ne">tiktok me</a>. <a href="tel:+19739084582">text me</a>. 
+            </p>
+            <p>
+                <em>Also,</em> <a href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing">my resume</a>. <a href="https://github.com/ttarigh/">my github</a>.
+            </p>
+            <p>
+                The <em>ombromanie</em> (shadow puppetry) on my <a href="index.html">splash page</a> is an astute metaphor for the relationship between my work and my art. How can my hands (my work) create the vision (my art) that germinates in my mind? And what if my visions directly sprout from the hands instead of the mind? 
+            </p>
+            <p>
+                My art <em>needs</em> to be informed by innovation and experimenting and living in the real world. Just as the best shadows come from light proceeding from the smallest possible point, the most impactful art emerges from focused, deliberate exploration. 
+            </p>
+
+            <p>
+                And ultimately... the art drives me to work. I wouldn't need to
+                 contort my hands if I didn't want to make the shadow in the first
+                  place. <em><a href="https://github.com/ttarigh/">How to make a Rabbit Shadow</a></em>
+            </p>
+          </div>
+          <div class="image-content">
+            <img id="workspace" src="splash/workspace.jpg" alt="workspace">
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

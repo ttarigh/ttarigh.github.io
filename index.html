@@ -26,17 +26,35 @@
 
     <style>
       body {
-        background-color: white;
+        background: linear-gradient(to bottom, white, #d0d0d0);
         font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 60px;
         height: 100vh;
         margin: 0;
+        padding: 0;
+        overflow: hidden;
       }
-      .name {
-        font-size: 50px;
-        z-index: 1;
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .header {
+        padding: 20px;
+      }
+      .images {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        transform: scale(2.3);
+        margin-bottom: 100px;
+        padding-bottom: 300px;
+      }
+      h1{
+        margin-top: 0;
+        margin-left: 10px;
       }
       .clickable {
         color: black;
@@ -65,124 +83,68 @@
         position: absolute;
         z-index: 1;
       }
-      .lamp {
-        fill: black;
-        pointer-events: bounding-box;
+      #A{
+        margin-left: 0px;
+        z-index: 1000;
       }
-      .lamp:hover {
-        fill: yellow;
-        stroke: blue;
-        cursor: pointer;
-      }
-
-      .image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 200px;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
 
-      .image {
-        background-image: url(background.jpg);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(1deg); }
+        75% { transform: rotate(-1deg); }
       }
-      /* #work {
-        border: 2px dashed black;
-        color: black;
-        z-index: 100;
-        background-color: white;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 35px;
+
+      #handImage, #bunnyImage {
+        animation: bounce 1s ease-in-out infinite, wiggle 3s ease-in-out infinite;
       }
-      #work:hover {
-        color: red;
-        border-color: red;
-        cursor:pointer;
-      } */
+
+      #handImage {
+        animation-delay: 0s, 0.5s;
+      }
+
+      #bunnyImage {
+        animation-delay: 0.5s, 0s;
+      }
     </style>
   </head>
   <body>
-    <!-- <button id="work">WORK</button> -->
-    <div class="name">
-      <a><span>T</span></a>
-      <a><span>I</span></a>
-      <a><span>N</span></a>
-      <a id="lastletter" class="clickable" href="https://work.tina.zone"
-        ><span
-          onmouseover="showLabel('A', 'Augmented Reality')"
-          onmouseout="hideLabel('A')"
-          >A</span
-        ></a
-      >
-      <a><span>T</span></a>
-      <a><span>A</span></a>
-      <a
-        class="clickable"
-        href="https://drive.google.com/file/d/1X8Q7uBLzVeRjV4GyZDrhBo2yFYUc78fe/view?usp=sharing"
-        ><span
-          onmouseover="showLabel('R', 'Resume')"
-          onmouseout="hideLabel('R')"
-          >R</span
-        ></a
-      >
-      <a><span>I</span></a>
-      <a class="clickable" href="https://github.com/ttarigh//"
-        ><span
-          onmouseover="showLabel('G', 'Github')"
-          onmouseout="hideLabel('G')"
-          >G</span
-        ></a
-      >
-      <a><span>H</span></a>
-      <a><span>I</span></a>
-      <a class="clickable" href="https://art.tina.zone"
-        ><span
-          onmouseover="showLabel('A', 'All Works')"
-          onmouseout="hideLabel('A')"
-          >A</span
-        ></a
-      >
-      <a><span>N</span></a>
-    </div>
-
-    <div class="image-container">
-      <div class="image">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.0"
-          width="300"
-          height="159"
-          viewBox="0 0 300 159"
-          preserveAspectRatio="xMidYMid meet"
-          style="width: 100%; display: inherit; height: 100%"
-        >
-          <g
-            transform="translate(0,159) scale(0.1,-0.1)"
-            fill="#2e1ff9"
-            stroke="none"
-          >
-            <a xlink:href="dark.html">
-              <path
-                class="lamp"
-                id="svg9"
-                d="M1332 2229 c2 -13 9 -23 16 -21 7 1 63 -3 125 -9 114 -11 217 -38 252 -65 20 -15 20 -16 -10 -40 -69 -58 -382 -190 -578 -244 -110 -31 -275 -27 -454 9 -129 26 -213 58 -213 80 0 14 66 70 124 105 90 54 312 121 446 134 56 6 65 10 65 27 0 31 -74 31 -207 -1 -219 -52 -332 -103 -422 -189 l-49 -47 11 -287 c13 -310 18 -346 48 -346 22 0 22 -19 6 290 -6 116 -13 218 -17 228 -9 21 4 22 33 1 62 -43 255 -77 442 -78 134 -1 166 2 235 23 189 55 435 158 517 217 47 33 48 33 53 11 31 -140 47 -247 56 -376 5 -85 12 -158 15 -163 10 -15 -115 -85 -208 -116 -170 -56 -387 -111 -508 -129 -106 -15 -132 -16 -227 -4 -60 7 -157 17 -217 22 -69 5 -117 14 -133 24 -27 18 -43 12 -43 -14 0 -11 14 -25 34 -35 45 -21 415 -69 488 -63 l57 5 -5 -26 c-3 -18 3 -35 17 -52 19 -23 28 -25 100 -25 77 0 79 1 115 36 25 26 37 47 41 77 4 26 12 43 22 46 9 3 66 19 126 36 229 65 325 115 414 216 45 51 45 52 31 74 -7 12 -15 7 -42 -24 l-34 -39 4 106 c4 113 -12 235 -52 394 -13 51 -21 102 -19 116 7 37 -33 74 -112 104 -58 21 -93 26 -208 31 l-139 5 4 -24z m-36 -1037 c-27 -53 -53 -67 -117 -66 -67 1 -64 0 -72 35 -7 26 -6 27 64 33 39 4 81 11 93 16 40 17 48 13 32 -18z"
-                style="translate: 1132px 744px; scale: 0.23 0.23 0"
-              ></path>
-            </a>
-          </g>
-        </svg>
+    <div class="container">
+      <div class="header">
+        <h1 style="margin-bottom: 0;">TARIGHIAN,</h1>
+        <div style="display: flex; justify-content: left; margin-top: 0;">
+          <h1 style="margin-top: 0;">TIN</h1>
+          <h1 id= "A">
+            <a class="clickable" href="about.html"
+              ><span
+                onmouseover="showLabel('A', 'about')"
+                onmouseout="hideLabel('A')"
+                style="cursor: pointer;"
+                >A</span
+              ></a>
+          </h1>
+        </div>
+      </div>
+      
+      <div class="images">
+        <div style="position: relative;">
+          <img src="splash/hand.png" alt="hand" id="handImage"
+                 style="position: relative; z-index: 2; filter: brightness(100%);"/>
+          <a href="https://work.tina.zone" id="handLink">
+            <div id="handHoverArea" style="position: absolute; top: 80px; right: 100px; width: 100%; height: 100%; scale:0.2 0.5; z-index: 3;"></div>
+          </a>
+          <img src="splash/bunny.png" alt="bunny" id="bunnyImage"
+                 style="position: absolute; top: 31px; left: 50px; z-index: 1; filter: brightness(100%);"/>
+          <a href="https://art.tina.zone" id="bunnyLink">
+            <div id="bunnyHoverArea" style="position: absolute; top: -10px; left: 110px; scale:0.2 0.5; width: 100%; height: 100%; z-index: 3;"></div>
+          </a>
+        </div>
       </div>
     </div>
+    
     <div class="label" id="label">Title</div>
 
     <script>
@@ -190,7 +152,7 @@
         const label = document.getElementById("label");
         label.textContent = title;
         label.style.left = event.clientX + "px";
-        label.style.top = event.clientY + 20 + "px";
+        label.style.top = event.clientY + 50 + "px";
         label.style.display = "block";
       }
 
@@ -199,11 +161,46 @@
         label.style.display = "none";
       }
       if (screen.width <= 767) {
-        window.location = "mobileindex.html";
+        window.location = "mindex.html";
       }
-      // document.getElementById("work").addEventListener("click", function () {
-      //   window.open("https://work.tina.zone", "_blank");
-      // });
+
+      function isInsideCircle(event, element, radius) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.sqrt(Math.pow(event.clientX - centerX, 2) + Math.pow(event.clientY - centerY, 2));
+        return distance <= radius;
+      }
+
+      function handleImageHover(event, imageId, hoverSrc, normalSrc, bgColor) {
+        const image = document.getElementById(imageId);
+        image.src = hoverSrc;
+        document.body.style.background = bgColor; // Change to 'background' instead of 'backgroundColor'
+      }
+
+      function handleImageLeave(imageId, normalSrc) {
+        const image = document.getElementById(imageId);
+        image.src = normalSrc;
+        document.body.style.background = 'linear-gradient(to bottom, white, #d0d0d0)'; // Reset to original gradient
+      }
+
+      document.getElementById('handHoverArea').addEventListener('mouseover', (event) => {
+        handleImageHover(event, 'handImage', 'splash/handhover.png', 'splash/hand.png', '#fffc00');
+      });
+
+      document.getElementById('handHoverArea').addEventListener('mouseout', () => {
+        handleImageLeave('handImage', 'splash/hand.png');
+      });
+
+      document.getElementById('bunnyHoverArea').addEventListener('mouseover', (event) => {
+        handleImageHover(event, 'bunnyImage', 'splash/bunnyhover.png', 'splash/bunny.png', '#ff5757');
+      });
+
+      document.getElementById('bunnyHoverArea').addEventListener('mouseout', () => {
+        handleImageLeave('bunnyImage', 'splash/bunny.png');
+      });
+
+      // Remove the global mousemove event listener as it's no longer needed
     </script>
   </body>
 </html>
