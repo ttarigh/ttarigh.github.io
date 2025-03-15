@@ -28,58 +28,84 @@
       body {
         font-family: Arial, sans-serif;
         font-size: 24px;
-        height: 100vh;
-    
+        min-height: 100vh;
         margin: 0;
-        margin-left: 10px;
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .container {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;  
-      }
-      p{
         width: 90%;
+        max-width: 500px;
+        padding: 20px;
+      }
+      
+      p {
+        margin-bottom: 20px;
+        line-height: 1.4;
       }
    
-      .legal{
+      .legal {
         font-size: 12px;
-      }
-      label{
-        color: blue;
-      }
-      #warningMessage{
-        font-size: 12px;
+        margin: 20px 0;
       }
       
+      label {
+        color: blue;
+        display: block;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      
+      #warningMessage {
+        font-size: 12px;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      
+      /* Added for better touch interaction */
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 10px;
+      }
+      
+      /* Force the correct view on desktop */
+      @media (min-width: 769px) {
+        .container {
+          max-width: 600px;
+          border: 1px solid #ccc;
+          padding: 30px;
+          border-radius: 5px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+      }
     </style>
   </head>
+  <body>
     <div class="container">
       <div class="agreement">
-      <p>
-        I, visitor of <em><a style="color: blue;" href="mobileindex.html"> tina.zone</a></em>, hereby acknowledge that I am viewing this website on a mobile device.
-         I fully understand that this experience, while delightful, may not capture the 
-         full beauty and splendor of its desktop counterpart. 
-      </p>
-      <div class="legal">
         <p>
-          I affirm that this decision was made of my own free will, without any undue influence or
-           coercion, and I accept full responsibility for the consequences of my actions. 
+          I, visitor of <em><a style="color: blue;" href="mobileindex.html"> tina.zone</a></em>, hereby acknowledge that I am viewing this website on a mobile device.
+          I fully understand that this experience, while delightful, may not capture the 
+          full beauty and splendor of its desktop counterpart. 
         </p>
-        <p>
-          By checking the box below, I hereby seal this acknowledgment with all the binding force of a legally recognized e-signature.
-        </p>
+        <div class="legal">
+          <p>
+            I affirm that this decision was made of my own free will, without any undue influence or
+            coercion, and I accept full responsibility for the consequences of my actions. 
+          </p>
+          <p>
+            By checking the box below, I hereby seal this acknowledgment with all the binding force of a legally recognized e-signature.
+          </p>
+        </div>
+        
+        <label>
+          <input type="checkbox" id="agreementCheckbox"> <em> <a id="enterSiteLink" style="text-decoration: none; color: blue;" href="mindex.html">enter site →</a> </em>
+        </label>
+        <p id="warningMessage" style="color: red; display: none;">ur not getting away!</p>
       </div>
-      
-      <label>
-        <input type="checkbox" id="agreementCheckbox"> <em> <a id="enterSiteLink" style="text-decoration: none; color: blue;" href="mindex.html">enter site →</a> </em>
-      </label>
-      <p id="warningMessage" style="color: red; display: none;">ur not getting away!</p>
-
-    </div>
     </div>
     <script>
       const checkbox = document.getElementById('agreementCheckbox');
@@ -108,6 +134,21 @@
           warningMessage.style.display = 'none';
         }
       });
+      
+      // Ensure this page is shown on mobile even if someone tries to view on desktop
+      function ensureCorrectVersion() {
+        if (!isMobile() && window.location.pathname.includes('mobileindex.html')) {
+          // Someone is viewing mobile version on desktop - let's keep it for demo purposes
+          console.log("Viewing mobile version on desktop");
+        }
+      }
+      
+      function isMobile() {
+        return window.innerWidth <= 767 || 
+               /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      }
+      
+      ensureCorrectVersion();
     </script>
   </body>
 </html>

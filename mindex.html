@@ -28,39 +28,51 @@
       body {
         font-family: Arial, sans-serif;
         font-size: 24px;
-        height: 100vh;
-    
+        min-height: 100vh;
         margin: 0;
-        margin-left: 10px;
         padding: 0;
+        background-color: white;
       }
 
-      .container {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
+      .container, .map {
+        min-height: 100vh;
+        padding: 10px;
+        box-sizing: border-box;
       }
-      h1 {
-        font-size: 60px;
-      }
+
       .overHead {
         margin-top: 30px;
       }
-      .header h1 {
-        display: inline-block; /* Allow elements to be placed side-by-side */
-      }
-      #about {
-        display: inline-block; /* Allow the link to be placed next to the h1 */
-        margin-left: 0px; /* Add some space between the h1 and the link */
+      
+      h1 {
+        font-size: 60px;
+        margin: 0;
       }
       
-      #aboutlink{
+      .header h1 {
+        display: inline-block;
+      }
+      
+      #about {
+        display: inline-block;
+        margin-left: 0px;
+        font-size: 20px;
+      }
+      
+      #aboutlink {
         color: blue;
       }
 
       .image-container {
         position: relative;
-        width: 90%;
+        width: 100%;
+        margin-top: 20px;
+      }
+      
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       .overlay-box {
@@ -68,6 +80,7 @@
         border: 2px solid;
         cursor: pointer;
         text-decoration: none;
+        box-sizing: border-box;
       }
 
       .overlay-box span {
@@ -86,7 +99,6 @@
         border: dashed;
         border-color: blue;
         border-width: 4px;
-
       }
 
       #art-box {
@@ -98,38 +110,71 @@
         border-color: #00ff00;
         border-width: 2px;
       }
-      p{
+      
+      p {
         font-size: 10px;
+        margin: 5px 0;
       }
-      #wru{
-        position: absolute;
+      
+      #wru {
+        position: fixed;
         bottom: 10px;
         right: 10px;
+        width: 15%;
+        height: auto;
+        z-index: 10;
+        cursor: pointer;
       }
-      .zone{
+      
+      .zone {
         text-decoration: none;
         color: black;
       }
-      h2{
+      
+      h2 {
         margin: 0 0 10px 0;
       }
-      .map{
+      
+      .map {
         background-color: #fffc00;
         display: none;
-        margin-left: 10px;
       }
-      .mapHeader h1{
+      
+      .mapHeader h1 {
         padding-top: 50px;
         font-size: 25px;
       }
-      #star{
+      
+      #star {
         color: red;
       }
-      span{
+      
+      span {
         margin: 0;
+      }
+      
+      .back-to-site {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        font-size: 50px;
+        color: red;
+        text-decoration: none;
+        z-index: 100;
+      }
+      
+      /* Fix for desktop users who somehow get to this page */
+      @media (min-width: 768px) {
+        body {
+          max-width: 500px;
+          margin: 0 auto;
+          border-left: 1px solid #eee;
+          border-right: 1px solid #eee;
+        }
       }
     </style>
   </head>
+  <body>
     <div class="container">
       <div class="overHead">
         <div class="header">
@@ -147,8 +192,9 @@
           <span style="color: #00ff00;">ART</span>
         </a>
       </div>
-      <img id="wru" src="splash/wru.png" alt="map" style="width: 15%; height: auto;">
+      <img id="wru" src="splash/wru.png" alt="map">
     </div>
+    
     <div class="map">
       <div class="mapHeader">
         <h1>ZONE MAP</h1>
@@ -157,15 +203,39 @@
       <span>|</span>
       <h2><a class="zone" href="https://art.tina.zone/">art.tina.zone</a></h2>
       <h2><a class="zone" href="https://work.tina.zone/">work.tina.zone</a></h2>
-      <a style="text-decoration: none; position:absolute; bottom: 10px; left: 10px; font-size: 50px; color: red;" href="mindex.html">←</a>
+      <a class="back-to-site" href="mindex.html">←</a>
     </div>
+    
     <script>
       $(document).ready(function() {
+        // Map toggle
         $('#wru').click(function() {
-          $('.container').hide(); // Hide the container div
-          $('.map').show(); // Show the map div
-          $('body').css('background-color', '#fffc00'); // Change background color
+          $('.container').hide();
+          $('.map').show();
+          $('body').css('background-color', '#fffc00');
         });
+        
+        $('.back-to-site').click(function(e) {
+          e.preventDefault();
+          $('.map').hide();
+          $('.container').show();
+          $('body').css('background-color', 'white');
+        });
+        
+        // Ensure this is the mobile version
+        function ensureCorrectVersion() {
+          const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          if (!isMobileDevice && window.innerWidth > 767 && !localStorage.getItem('mobileConsent')) {
+            // User is on desktop but viewing mobile version
+            if (confirm("You're viewing the mobile version on a desktop. Would you like to switch to the desktop version?")) {
+              window.location.href = "index.html";
+            } else {
+              localStorage.setItem('mobileConsent', 'true');
+            }
+          }
+        }
+        
+        ensureCorrectVersion();
       });
     </script>
   </body>

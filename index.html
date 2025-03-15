@@ -28,7 +28,7 @@
       body {
         background: linear-gradient(to bottom, white, #d0d0d0);
         font-family: Arial, sans-serif;
-        font-size: 60px;
+        font-size: clamp(40px, 5vw, 60px); /* Responsive font size */
         height: 100vh;
         margin: 0;
         padding: 0;
@@ -109,6 +109,19 @@
       #bunnyImage {
         animation-delay: 0.5s, 0s;
       }
+      
+      /* Added responsive adjustments */
+      @media screen and (max-width: 1200px) {
+        .images {
+          transform: scale(2);
+        }
+      }
+      
+      @media screen and (max-width: 992px) {
+        .images {
+          transform: scale(1.7);
+        }
+      }
     </style>
   </head>
   <body>
@@ -160,28 +173,27 @@
         const label = document.getElementById("label");
         label.style.display = "none";
       }
-      if (screen.width <= 767) {
-        window.location = "mobileindex.html";
+      
+      // Improved mobile detection
+      function isMobile() {
+        return window.innerWidth <= 767 || 
+               /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       }
-
-      function isInsideCircle(event, element, radius) {
-        const rect = element.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.sqrt(Math.pow(event.clientX - centerX, 2) + Math.pow(event.clientY - centerY, 2));
-        return distance <= radius;
+      
+      if (isMobile()) {
+        window.location = "mobileindex.html";
       }
 
       function handleImageHover(event, imageId, hoverSrc, normalSrc, bgColor) {
         const image = document.getElementById(imageId);
         image.src = hoverSrc;
-        document.body.style.background = bgColor; // Change to 'background' instead of 'backgroundColor'
+        document.body.style.background = bgColor;
       }
 
       function handleImageLeave(imageId, normalSrc) {
         const image = document.getElementById(imageId);
         image.src = normalSrc;
-        document.body.style.background = 'linear-gradient(to bottom, white, #d0d0d0)'; // Reset to original gradient
+        document.body.style.background = 'linear-gradient(to bottom, white, #d0d0d0)';
       }
 
       document.getElementById('handHoverArea').addEventListener('mouseover', (event) => {
@@ -199,8 +211,6 @@
       document.getElementById('bunnyHoverArea').addEventListener('mouseout', () => {
         handleImageLeave('bunnyImage', 'splash/bunny.png');
       });
-
-      // Remove the global mousemove event listener as it's no longer needed
     </script>
   </body>
 </html>

@@ -27,113 +27,195 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        font-size: 24px;
-        height: 100vh;
-    
+        font-size: 18px; /* Reduced from 24px for less scrolling */
+        min-height: 100vh;
         margin: 0;
-        margin-left: 10px;
-        padding: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
       }
+      
       .gradient-background {
-    background: linear-gradient(to bottom, white, #d0d0d0);
-}
-      .container {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
+        background: linear-gradient(to bottom, white, #d0d0d0);
       }
+      
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px 0;
+        position: relative;
+      }
+      
       h1 {
-        font-size: 60px;
-    }
-      p{
+        font-size: clamp(36px, 5vw, 50px); /* Smaller font */
         margin-bottom: 20px;
       }
-      a{
-        color:blue;
+      
+      p {
+        margin-bottom: 16px; /* Smaller margin */
+        line-height: 1.4;
+      }
+      
+      a {
+        color: blue;
       }
       
       .content-wrapper {
         display: flex;
         flex-direction: row;
+        gap: 30px;
       }
       
       .text-content {
-        width: 50%;
-        padding-right: 20px;
-        align-items: flex-start;
-        justify-content: center;
+        flex: 1;
+        max-width: 800px;
       }
       
       .image-content {
-        width: 50%;
+        flex: 1;
         display: flex;
         align-items: flex-start;
         justify-content: center;
       }
       
       .image-content img {
-        max-width: 50%;
+        max-width: 80%;
         height: auto;
       }
-
+      
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 50px;
+        color: red;
+        text-decoration: none;
+        z-index: 100;
+        line-height: 0.8;
+      }
+      
+      .arena-box {
+        display: inline-block;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-decoration: none;
+        color: #333;
+        transition: all 0.2s ease;
+      }
+      
+      .arena-box:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+      }
+      
+      .arena-box h3 {
+        margin: 0 0 5px 0;
+        font-size: 18px;
+      }
+      
+      .arena-box p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
+      .artsy-text {
+        font-size: 13px;
+      }
+      
+    
       @media (max-width: 768px) {
+        .content-wrapper {
+          flex-direction: column;
+        }
+        
         .image-content {
-          display: none; /* Hide image on mobile */
+          display: none; /* Hide image on mobile as requested */
         }
+        
         .text-content {
-          width: 100%; /* Set text width to 100% on mobile */
+          width: 100%;
         }
+        
         body {
-          background-color: white !important; /* Added !important to ensure it overrides other styles */
-          font-size: 18px;
+          background-color: white !important;
+          font-size: 16px; /* Even smaller on mobile */
         }
+        
         body.gradient-background {
-        background: none; /* Remove the gradient */
+          background: none;
+        }
+        
+        .back-button {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+        
+        .container {
+          padding: 40px 0;
         }
       }
     </style>
   </head>
   <body class="gradient-background">
     <div class="container">
-        <h1 style="margin-bottom: 0;">about:</h1>
+        <a href="#" id="backToSplash" class="back-button">←</a>
+        <h1 style="margin-bottom: 20px;">about:</h1>
         <div class="content-wrapper">
           <div class="text-content">
             <p>
-                <strong>Hi</strong>, I'm a creative technologist experimenting with AI at the Google Creative Lab in NYC. 
+                <strong>Hi</strong>, I'm a Tina Tarighian.  
             </p>
             <p>
-                Previously, I was a freelance software artist. I'm fascinated by post-digital intimacy and surveillance. 
+              I code, play, and write with and about AI at the Google Creative Lab in NYC. I'm also a Y11 <a href="https://www.newmuseum.org/new-inc/">NEW INC</a> member, the New Museum's technology and art incubator. 
             </p>
             <p>
-                If you want to talk (<strong>I always do btw</strong>) or collaborate please: <a href="mailto:tinatarighianwork@gmail.com">email me</a> 
-                <a href="https://x.com/tinaz0ne">tweet me</a> <a href="https://www.instagram.com/tarighian">gram me</a> <a href="https://www.are.na/tina-zone/channels">arena me.</a> <a href="https://www.tiktok.com/@tina.z0ne">tiktok me.</a> <a href="tel:+19739084582">text me.</a> 
+              I give talks on everything from javascript at <a href="https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Parsons School of Design</a> to AI’s future in art at <a href="https://www.artechouse.com/"> ARTECHOUSE</a>—plus the occasional play opening, like <a href="https://doomers.fyi/">Doomers NYC</a>, exploring our ties to artificial intelligence.
             </p>
             <p>
-                <em>Also,</em> <a href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing">my resume.</a> <a href="https://github.com/ttarigh/">my github.</a>
+                If you want to chat (<strong>I always do btw</strong>) or collaborate please: <a href="mailto:tinatarighianwork@gmail.com">email me</a>, 
+                <a href="https://x.com/tinaz0ne">tweet me</a>, <a href="https://www.instagram.com/tarighian">gram me</a>, <a href="https://www.are.na/tina-zone/channels">are.na me</a>
             </p>
+            
+            <a href="https://www.are.na/tina-tarighian/daily-read-b5xa7nbkgyg" class="arena-box">
+              <h3>Daily Readings on Are.na</h3>
+              <p>What I read on the subway: thoughts, essays, speculations on AI, art, and the digital condition.</p>
+            </a>
+            <div class="artsy-text">
             <p>
                 The <em>ombromanie</em> (shadow puppetry) on my <a href="#" id="splashLink">splash page</a> is an astute metaphor for the relationship between my work and my art. How can my hands (my work) create the vision (my art) that germinates in my mind? And what if my visions directly sprout from my hands instead of my mind? 
             </p>
             <p>
-                My art <em>needs</em> to be informed by innovating and experimenting and living in the real world. Just as the best shadows come from light proceeding from the smallest possible point, the most impactful art emerges from focused, deliberate exploration. 
+                My art <em>needs</em> to be informed by innovation and experimenting and living in the real world. Just as the best shadows come from light proceeding from the smallest possible point, the most impactful art emerges from focused, deliberate exploration. 
             </p>
-
             <p>
                 And ultimately... the art drives me to work. I wouldn't need to
                  contort my hands if I didn't want to make the shadow in the first
                   place. <em><a href="https://www.youtube.com/watch?v=D9bjL8udt2s">How to make a Rabbit Shadow</a></em>
             </p>
-            <a style="text-decoration: none; margin: 5px; position:absolute; top: 0px; left: 0px; font-size: 50px; color: red;" href="#" id="backToSplash">←</a>
+          </div>
+            <p>
+              <em>Also,</em> <a href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing">my resume</a> and <a href="https://github.com/ttarigh/">my github</a>.
+          </p>
+          
           </div>
           <div class="image-content">
-            <img id="workspace" src="splash/workspace.jpg" alt="workspace">
+            <img id="workspace" src="splash/workspace.png" alt="workspace">
           </div>
         </div>
     </div>
   </body>
   <script>
+    // Improved screen check function
     function checkScreenWidth() {
-      return window.innerWidth <= 767 ? "mindex.html" : "index.html";
+      if (window.innerWidth <= 767 || 
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return "mindex.html";
+      } else {
+        return "index.html";
+      }
     }
 
     document.getElementById('splashLink').addEventListener('click', function(e) {
