@@ -1,0 +1,123 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "https://ttarigh.github.io/"
+    },
+    {
+      "source": "/art",
+      "destination": "https://ttarigh.github.io/art.html"
+    },
+    {
+      "source": "/work",
+      "destination": "https://ttarigh.github.io/work.html"
+    },
+    {
+      "source": "/about",
+      "destination": "https://ttarigh.github.io/about.html"
+    },
+    {
+      "source": "/infinite-podcast(.*)",
+      "destination": "https://ttarigh.github.io/infinite-podcast$1"
+    },
+    {
+      "source": "/vitamin(.*)",
+      "destination": "https://ttarigh.github.io/vitamin$1"
+    },
+    {
+      "source": "/engagewithme(.*)",
+      "destination": "https://ttarigh.github.io/engagewithme$1"
+    },
+    {
+      "source": "/happytest(.*)",
+      "destination": "https://ttarigh.github.io/happytest$1"
+    },
+    {
+      "source": "/distancefromsource(.*)",
+      "destination": "https://ttarigh.github.io/distancefromsource$1"
+    },
+    {
+      "source": "/asheandru(.*)",
+      "destination": "https://ttarigh.github.io/asheandru$1"
+    },
+    {
+      "source": "/RIGHTEYELEFTEYE(.*)",
+      "destination": "https://ttarigh.github.io/RIGHTEYELEFTEYE$1"
+    },
+    {
+      "source": "/worshipme(.*)",
+      "destination": "https://ttarigh.github.io/worshipme$1"
+    },
+    {
+      "source": "/barighian(.*)",
+      "destination": "https://ttarigh.github.io/barighian$1"
+    },
+    {
+      "source": "/abouttina(.*)",
+      "destination": "https://ttarigh.github.io/abouttina$1"
+    },
+    {
+      "source": "/lovemeter(.*)",
+      "destination": "https://ttarigh.github.io/lovemeter$1"
+    },
+    {
+      "source": "/adp(.*)",
+      "destination": "https://ttarigh.github.io/adp$1"
+    },
+    {
+      "source": "/magic8(.*)",
+      "destination": "https://ttarigh.github.io/magic8$1"
+    },
+    {
+      "source": "/visuals(.*)",
+      "destination": "https://ttarigh.github.io/visuals$1"
+    },
+    {
+      "source": "/interactiveaquarium(.*)",
+      "destination": "https://ttarigh.github.io/interactiveaquarium$1"
+    },
+    {
+      "source": "/css/:path*",
+      "destination": "https://ttarigh.github.io/css/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "https://ttarigh.github.io/js/:path*"
+    },
+    {
+      "source": "/images/:path*",
+      "destination": "https://ttarigh.github.io/images/:path*"
+    },
+    {
+      "source": "/img/:path*",
+      "destination": "https://ttarigh.github.io/img/:path*"
+    },
+    {
+      "source": "/splash/:path*",
+      "destination": "https://ttarigh.github.io/splash/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://ttarigh.github.io/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Accept"
+        }
+      ]
+    }
+  ]
+} 
