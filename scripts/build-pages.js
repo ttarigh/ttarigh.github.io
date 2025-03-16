@@ -5,8 +5,15 @@ const marked = require('marked');
 // Configure paths
 const artProjectsFile = path.join(__dirname, '../data/art-projects.md');
 const workProjectsFile = path.join(__dirname, '../data/work-projects.md');
-const artOutputPath = path.join(__dirname, '../art.html');
-const workOutputPath = path.join(__dirname, '../work.html');
+
+// Create public directory if it doesn't exist
+const publicDir = path.join(__dirname, '../public');
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+const artOutputPath = path.join(publicDir, 'art.html');
+const workOutputPath = path.join(publicDir, 'work.html');
 
 // Template for art page with table layout
 const artPageTemplate = (content) => `
@@ -231,6 +238,28 @@ function parseProjectsFile(filePath, category) {
   return projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+// Function to copy a file or directory recursively
+function copyRecursive(src, dest) {
+  const stat = fs.statSync(src);
+  if (stat.isDirectory()) {
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(dest, { recursive: true });
+    }
+    const entries = fs.readdirSync(src);
+    for (const entry of entries) {
+      // Skip node_modules and .git directories
+      if (entry === 'node_modules' || entry === '.git' || entry === 'public') {
+        continue;
+      }
+      const srcPath = path.join(src, entry);
+      const destPath = path.join(dest, entry);
+      copyRecursive(srcPath, destPath);
+    }
+  } else {
+    fs.copyFileSync(src, dest);
+  }
+}
+
 // Build the pages
 function buildPages() {
   // Get all projects
@@ -249,7 +278,32 @@ function buildPages() {
   fs.writeFileSync(artOutputPath, artPage);
   fs.writeFileSync(workOutputPath, workPage);
   
+  // Copy static files to public directory
+  const rootDir = path.join(__dirname, '..');
+  
+  // Copy index.html and other HTML files
+  const htmlFiles = ['index.html', 'about.html', 'mobileindex.html', 'mindex.html'];
+  htmlFiles.forEach(file => {
+    const srcPath = path.join(rootDir, file);
+    const destPath = path.join(publicDir, file);
+    if (fs.existsSync(srcPath)) {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  });
+  
+  // Copy directories
+  const directories = ['css', 'js', 'images', 'img', 'splash'];
+  directories.forEach(dir => {
+    const srcPath = path.join(rootDir, dir);
+    const destPath = path.join(publicDir, dir);
+    if (fs.existsSync(srcPath)) {
+      copyRecursive(srcPath, destPath);
+    }
+  });
+  
   console.log('Art and Work pages built successfully!');
+  console.log('All static files copied to public directory.');
 }
 
+// Execute the build
 buildPages(); 
