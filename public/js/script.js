@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Update grid visibility based on screen size
-    updateGridVisibility();
+    // Check for multi-image galleries and ensure they're displayed correctly
+    setupMultiImageGalleries();
   }, 250);
   
   window.addEventListener('resize', handleResize);
@@ -207,6 +207,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+  // Function to set up multi-image galleries
+  function setupMultiImageGalleries() {
+    const galleries = document.querySelectorAll('.picture-gallery[data-images]');
+    
+    galleries.forEach(gallery => {
+      const imagesData = gallery.getAttribute('data-images');
+      if (!imagesData) return;
+      
+      try {
+        const images = JSON.parse(imagesData);
+        if (images.length <= 1) return;
+        
+        // If we have multiple images, make sure we have the right structure
+        if (gallery.querySelectorAll('.gallery-main').length < 2) {
+          const projectId = gallery.closest('.work-project').id;
+          const category = 'work'; // Default category
+          
+          // Get the first image to extract the category
+          const firstImage = gallery.querySelector('.gallery-main img');
+          if (firstImage) {
+            const pathParts = firstImage.src.split('/');
+            if (pathParts.length >= 2) {
+              const possibleCategory = pathParts[pathParts.length - 2];
+              if (possibleCategory) {
+                category = possibleCategory;
+              }
+            }
+          }
+          
+          // Add additional image containers for side-by-side display
+          for (let i = 1; i < Math.min(images.length, 2); i++) {
+            const newContainer = document.createElement('div');
+            newContainer.className = 'gallery-main';
+            
+            const newImage = document.createElement('img');
+            newImage.src = `images/${category}/${images[i]}`;
+            newImage.alt = `Additional image for ${projectId}`;
+            newImage.loading = "lazy";
+            
+            newContainer.appendChild(newImage);
+            gallery.appendChild(newContainer);
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing images data:', e);
+      }
+    });
+  }
+  
   // Lazy load images for better performance
   const lazyLoadImages = function() {
     const images = document.querySelectorAll('.work-images img');
@@ -249,73 +298,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Call lazy load function
   lazyLoadImages();
   
+  // Set up multi-image galleries
+  setupMultiImageGalleries();
+  
   // Gallery navigation for work projects
   setupGalleryNavigation();
   
   // Add touch support for gallery navigation
   addTouchSupport();
-  
-  // Create image grids for mobile view
-  createMobileImageGrids();
-  
-  // Initialize grid visibility based on current screen size
-  updateGridVisibility();
 });
-
-// Function to create image grids for mobile view
-function createMobileImageGrids() {
-  const galleries = document.querySelectorAll('.picture-gallery[data-images]');
-  
-  galleries.forEach(gallery => {
-    // Create grid container if it doesn't exist
-    if (!gallery.querySelector('.gallery-grid')) {
-      const gridContainer = document.createElement('div');
-      gridContainer.className = 'gallery-grid';
-      gallery.appendChild(gridContainer);
-      
-      // Get images data
-      let imagesData;
-      try {
-        imagesData = JSON.parse(gallery.getAttribute('data-images'));
-      } catch (e) {
-        console.error('Error parsing images data:', e);
-        return;
-      }
-      
-      // Get category from main image path
-      const mainImage = gallery.querySelector('.gallery-main img');
-      if (!mainImage) return;
-      
-      const mainSrc = mainImage.src;
-      const pathParts = mainSrc.split('/');
-      const category = pathParts.length >= 2 ? pathParts[pathParts.length - 2] : 'work';
-      
-      // Add images to grid (limit to 4 for performance)
-      const maxImages = Math.min(imagesData.length, 4);
-      for (let i = 0; i < maxImages; i++) {
-        const img = document.createElement('img');
-        img.src = `images/${category}/${imagesData[i]}`;
-        img.alt = mainImage.alt + ` (${i + 1})`;
-        img.loading = "lazy";
-        gridContainer.appendChild(img);
-        
-        // Add click event to show this image in the main view on desktop
-        img.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Only change main image if not on mobile
-          if (window.innerWidth > 768) {
-            mainImage.src = this.src;
-          }
-        });
-      }
-    }
-  });
-  
-  // Update grid visibility based on screen size
-  updateGridVisibility();
-}
 
 // Function to add touch support for gallery navigation
 function addTouchSupport() {
@@ -411,10 +402,7 @@ function setupGalleryNavigation() {
     } else {
       // Fallback for Gemini 2.0 Experiments project if data attribute is not available
       if (projectId === 'gemini-2.0-experiments-@-google-creative-lab') {
-        galleryData[projectId].images = ['wordtocode.gif', 'handspew.gif'];
-        
-        // Add data-images attribute for CSS selectors to work
-        gallery.setAttribute('data-images', JSON.stringify(['gemini-experiments.jpg', 'wordtocode.gif', 'handspew.gif']));
+        galleryData[projectId].images = ['gemini-experiments.jpg', 'wordtocode.gif', 'handspew.gif'];
       } else {
         // For other projects, just add the current image
         galleryData[projectId].images.push(filename);
@@ -429,63 +417,59 @@ function setupGalleryNavigation() {
       const data = galleryData[projectId];
       if (!data || data.images.length <= 1) return;
       
-      // Move to next image
-      data.currentIndex = (data.currentIndex + 1) % data.images.length;
+      // For galleries with side-by-side images, we need to update both images
+      const allImageContainers = gallery.querySelectorAll('.gallery-main');
+      const category = data.category;
       
-      // Update the image
-      const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
-      
-      // Create a new image to preload
-      const tempImg = new Image();
-      tempImg.onload = function() {
-        mainImage.src = newSrc;
-      };
-      tempImg.src = newSrc;
-      
-      // If image doesn't load within 3 seconds, show it anyway
-      setTimeout(() => {
-        if (mainImage.src !== newSrc) {
+      if (allImageContainers.length >= 2) {
+        // If we have multiple containers, update them with consecutive images
+        data.currentIndex = (data.currentIndex + 1) % (data.images.length - 1);
+        
+        // Update the images
+        allImageContainers.forEach((container, idx) => {
+          if (idx < 2) { // Only update the first two containers
+            const imageIndex = (data.currentIndex + idx) % data.images.length;
+            const newSrc = `images/${category}/${data.images[imageIndex]}`;
+            const img = container.querySelector('img');
+            
+            if (img) {
+              // Create a new image to preload
+              const tempImg = new Image();
+              tempImg.onload = function() {
+                img.src = newSrc;
+              };
+              tempImg.src = newSrc;
+              
+              // If image doesn't load within 3 seconds, show it anyway
+              setTimeout(() => {
+                if (img.src !== newSrc) {
+                  img.src = newSrc;
+                }
+              }, 3000);
+            }
+          }
+        });
+      } else {
+        // Traditional single image update
+        data.currentIndex = (data.currentIndex + 1) % data.images.length;
+        
+        // Update the image
+        const newSrc = `images/${category}/${data.images[data.currentIndex]}`;
+        
+        // Create a new image to preload
+        const tempImg = new Image();
+        tempImg.onload = function() {
           mainImage.src = newSrc;
-        }
-      }, 3000);
+        };
+        tempImg.src = newSrc;
+        
+        // If image doesn't load within 3 seconds, show it anyway
+        setTimeout(() => {
+          if (mainImage.src !== newSrc) {
+            mainImage.src = newSrc;
+          }
+        }, 3000);
+      }
     });
   });
-}
-
-// Function to update grid visibility based on screen size
-function updateGridVisibility() {
-  const isMobile = isMobileDevice();
-  
-  // Get all grids and gallery mains
-  const grids = document.querySelectorAll('.gallery-grid');
-  const mainImages = document.querySelectorAll('.picture-gallery[data-images] .gallery-main');
-  const navButtons = document.querySelectorAll('.picture-gallery[data-images] .gallery-nav');
-  
-  if (isMobile) {
-    // On mobile: show grids, hide main images and nav buttons
-    grids.forEach(grid => {
-      grid.style.display = 'grid';
-    });
-    
-    mainImages.forEach(main => {
-      main.style.display = 'none';
-    });
-    
-    navButtons.forEach(nav => {
-      nav.style.display = 'none';
-    });
-  } else {
-    // On desktop: hide grids, show main images and nav buttons
-    grids.forEach(grid => {
-      grid.style.display = 'none';
-    });
-    
-    mainImages.forEach(main => {
-      main.style.display = 'block';
-    });
-    
-    navButtons.forEach(nav => {
-      nav.style.display = 'flex';
-    });
-  }
 } 
