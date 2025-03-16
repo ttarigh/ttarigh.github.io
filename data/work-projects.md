@@ -137,7 +137,7 @@ This project created immersive AR experiences that allow users to explore virtua
 - description: Partnered with [Fit4U Solutions](https://www.fit4usolutions.com/) dedicated to helping transgender individuals with body dysmorphia through specialized clothing solutions. See my process [here](https://www.instagram.com/reel/Cn-EHLdp7-8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==).
 - link: https://www.instagram.com/reel/Cn-EHLdp7-8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
 - link_text: View AR Filter
-- images: [fit4u.gif, fit4u2.webp]
+- images: [fit4U.gif, fit4u2.webp]
 - tags: [SparkAR, Blender, Social Impact]
 
 I created a specialized AR try-on filter that simulates the effects of the company's products, helping users visualize results before purchasing and supporting their journey toward physical comfort and gender affirmation. 

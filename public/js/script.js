@@ -8,7 +8,39 @@ function checkScreenWidth() {
   }
 }
 
+// Redirect to appropriate version based on device
+function redirectToCorrectVersion() {
+  // Only redirect if we're not already on the correct version
+  const currentPath = window.location.pathname;
+  const isMobilePage = currentPath.includes('m') && !currentPath.includes('images');
+  
+  if (window.innerWidth <= 767 || 
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // On mobile device
+    if (!isMobilePage && !currentPath.includes('mindex.html')) {
+      // Convert current path to mobile version
+      let newPath = currentPath.replace('.html', '');
+      if (newPath === '/' || newPath === '') {
+        window.location.href = 'mindex.html';
+      } else {
+        newPath = 'm' + newPath.substring(newPath.lastIndexOf('/') + 1) + '.html';
+        window.location.href = newPath;
+      }
+    }
+  } else {
+    // On desktop
+    if (isMobilePage) {
+      // Convert to desktop version
+      let newPath = currentPath.replace('m', '');
+      window.location.href = newPath;
+    }
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  // Uncomment this if you want automatic redirection
+  // redirectToCorrectVersion();
+  
   // Handle project row clicks for expanding content
   const projectRows = document.querySelectorAll('.project-row');
   const imageStage = document.querySelector('.image-stage');
@@ -143,13 +175,15 @@ function setupGalleryNavigation() {
   const galleries = document.querySelectorAll('.picture-gallery');
   
   galleries.forEach((gallery, galleryIndex) => {
-    const projectId = gallery.closest('.work-project').id;
+    const projectId = gallery.closest('.work-project')?.id;
+    if (!projectId) return;
+    
     const navButton = gallery.querySelector('.gallery-nav');
     const mainImageContainer = gallery.querySelector('.gallery-main');
-    const mainImage = mainImageContainer.querySelector('img');
+    const mainImage = mainImageContainer?.querySelector('img');
     
-    // Skip if no navigation button (only one image)
-    if (!navButton) return;
+    // Skip if no navigation button (only one image) or no main image
+    if (!navButton || !mainImage) return;
     
     // Initialize gallery data
     galleryData[projectId] = {
@@ -159,7 +193,7 @@ function setupGalleryNavigation() {
     };
     
     // Extract project title from alt attribute or parent element
-    const projectTitle = mainImage.alt || gallery.closest('.work-project').querySelector('.work-title').textContent;
+    const projectTitle = mainImage.alt || gallery.closest('.work-project').querySelector('.work-title')?.textContent;
     
     // Get the current image src and extract the filename
     const currentSrc = mainImage.src;
@@ -202,9 +236,18 @@ function setupGalleryNavigation() {
       // Move to next image
       data.currentIndex = (data.currentIndex + 1) % data.images.length;
       
-      // Update the image
-      const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
-      mainImage.src = newSrc;
+      // Update the image with fade effect
+      mainImage.style.opacity = '0';
+      
+      setTimeout(() => {
+        // Update the image
+        const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
+        mainImage.src = newSrc;
+        mainImage.style.opacity = '1';
+      }, 200);
     });
+    
+    // Add fade transition to main image
+    mainImage.style.transition = 'opacity 0.2s ease-in-out';
   });
 } 
