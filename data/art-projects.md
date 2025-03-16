@@ -37,12 +37,12 @@ Created for the Rusty Utopia group show by [Artists Quarters](https://www.instag
 - tags: [web, interactive, viral]
 
 This project explores digital communication, chance, and the value we place on having our voices heard. The campaign spread through social media with viral videos explaining the concept:
-- [Campaign Video 1](https://www.instagram.com/reel/DCsXAp0xdGy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
-- [Campaign Video 2](https://www.instagram.com/reel/DCNc_ZpxKj5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
+- [Interviewing People in WSP](https://www.instagram.com/reel/DCsXAp0xdGy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
+- [Marketing Video for the Tool](https://www.instagram.com/reel/DCNc_ZpxKj5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
 
 New entries continue to arrive daily, with participants hoping to be the rare voice that breaks through.
 
-## ☆ SuperVitamin
+## SuperVitamin
 - date: 2024-06-23
 - description: My inspirations for "SuperVitamin" were: 1) an ex who would take a bunch of supplements at the same time (like a handful of 20 pills, AT ONCE!!) and 2) a time period where I was completely enthralled with online manifestation videos.
 - link: https://tina.zone/vitamin/
@@ -54,7 +54,7 @@ To manifest my dream job, I spent nearly an hour each morning listening to three
 
 Use this tool as a menu, pick out everything you want to manifest and listen to the cacophony of your every desire.
 
-## ☆ Pixelmouth
+## Enter Here
 - date: 2024-06-10
 - description: This is a little install I did for @pixelmouthnyc called "A rose for @Emily7213_lol"
 - link: https://www.instagram.com/p/C8aQekjP9QV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==

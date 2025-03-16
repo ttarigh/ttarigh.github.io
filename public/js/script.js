@@ -63,6 +63,44 @@ document.addEventListener('DOMContentLoaded', function() {
   
   window.addEventListener('resize', handleResize);
   
+  // Function to expand a project row
+  function expandProjectRow(row) {
+    const projectId = row.getAttribute('data-project-id');
+    const detailsRow = document.getElementById(projectId + '-details');
+    
+    if (!detailsRow) {
+      console.error('Could not find details row for project:', projectId);
+      return;
+    }
+    
+    // Close all open detail rows first
+    document.querySelectorAll('.project-details').forEach(details => {
+      details.style.display = 'none';
+    });
+    
+    document.querySelectorAll('.project-row').forEach(r => {
+      r.classList.remove('active-row');
+    });
+    
+    // Open this row
+    detailsRow.style.display = 'table-row';
+    row.classList.add('active-row');
+    isAnyProjectExpanded = true;
+    
+    // Hide any visible preview image
+    if (imageStage) {
+      const previewImage = imageStage.querySelector('img');
+      if (previewImage) {
+        previewImage.classList.remove('visible');
+      }
+    }
+    
+    // Scroll to make sure the expanded content is visible
+    setTimeout(() => {
+      detailsRow.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+    }, 100);
+  }
+  
   if (projectRows.length > 0) {
     // Only set up image preview for non-mobile devices
     if (!isMobile && imageStage) {
@@ -88,6 +126,49 @@ document.addEventListener('DOMContentLoaded', function() {
           previewImage.classList.remove('visible');
         });
       });
+    }
+    
+    // Auto-expand starred projects on mobile
+    if (isMobile) {
+      // Find all projects with a star in their title and expand them
+      let starredProjects = [];
+      projectRows.forEach(row => {
+        const projectTitle = row.querySelector('.col-project').textContent;
+        if (projectTitle.includes('☆')) {
+          starredProjects.push(row);
+        }
+      });
+      
+      // If we found any starred projects, expand them
+      if (starredProjects.length > 0) {
+        // First, close all projects
+        document.querySelectorAll('.project-details').forEach(details => {
+          details.style.display = 'none';
+        });
+        
+        document.querySelectorAll('.project-row').forEach(r => {
+          r.classList.remove('active-row');
+        });
+        
+        // Then expand all starred projects
+        starredProjects.forEach(row => {
+          const projectId = row.getAttribute('data-project-id');
+          const detailsRow = document.getElementById(projectId + '-details');
+          
+          if (detailsRow) {
+            detailsRow.style.display = 'table-row';
+            row.classList.add('active-row');
+            isAnyProjectExpanded = true;
+          }
+        });
+        
+        // Scroll to the first starred project
+        if (starredProjects.length > 0) {
+          setTimeout(() => {
+            starredProjects[0].scrollIntoView({behavior: 'smooth', block: 'start'});
+          }, 100);
+        }
+      }
     }
     
     // Handle click for expanding content (for all devices)
