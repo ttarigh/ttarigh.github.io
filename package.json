@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "node scripts/build-pages.js"
+  },
+  "dependencies": {
+    "marked": "^4.3.0"
+  }
+}

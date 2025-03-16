@@ -1,0 +1,241 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* New header styles */
+.site-header {
+  padding: 20px 40px;
+  margin-bottom: 30px;
+}
+
+/* Override for work page */
+.work-page .site-header {
+  margin-bottom: 30px;
+}
+
+.site-header h1 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.home-link {
+  color: black;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  color: red;
+}
+
+.page-highlight {
+  color: black;
+  text-decoration: none;
+  border-bottom: 2px solid blue;
+}
+
+.page-highlight:hover {
+  text-decoration: none;
+}
+
+/* Table wrapper to control width */
+.table-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Table Layout */
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #000;
+}
+
+.projects-table td {
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.col-project {
+  width: 70%;
+  padding-left: 30px !important;
+}
+
+.col-category {
+  width: 20%;
+  text-align: left;
+}
+
+.col-year {
+  width: 10%;
+  text-align: right;
+  padding-right: 30px !important;
+}
+
+.project-row {
+  cursor: crosshair;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.project-row:hover {
+  background-color: blue;
+  color: white;
+}
+
+/* Make project titles italic on hover */
+.project-row:hover .col-project {
+  font-style: italic;
+}
+
+/* Also make project titles italic when active */
+.project-row.active-row .col-project {
+  font-style: italic;
+}
+
+/* Project row active state */
+.project-row.active-row {
+  background-color: blue;
+  color: white;
+  border-bottom: none; /* Remove bottom border for active row */
+}
+
+/* Project Details */
+.project-details {
+  display: none;
+  background-color: #ffffff;
+}
+
+.project-details td {
+  padding: 0;
+  border-bottom: none; /* Remove default border */
+}
+
+/* Add border to the bottom of the details container instead */
+.details-container {
+  padding: 25px 30px 40px;
+  overflow: hidden;
+  border-bottom: 1px solid #000; /* Add border at the bottom of details */
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.details-description {
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.details-body {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.details-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.details-images img {
+  max-width: 100%;
+  max-height: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Replace image stage with floating preview */
+.floating-preview {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  display: none;
+  transform: translate(-50%, -50%);
+}
+
+.floating-preview img {
+  max-width: 350px;
+  max-height: 250px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Remove the old image stage */
+.image-stage {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .col-category {
+    display: none;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .details-images {
+    order: -1;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+  
+  .site-header {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .col-project {
+    padding-left: 15px !important;
+  }
+  
+  .col-year {
+    padding-right: 15px !important;
+  }
+  
+  .details-container {
+    padding: 15px;
+  }
+  
+  .table-wrapper {
+    width: 100%;
+  }
+  
+  /* Hide floating preview on mobile */
+  .floating-preview {
+    display: none !important;
+  }
+} 
