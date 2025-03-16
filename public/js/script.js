@@ -129,4 +129,82 @@ document.addEventListener('DOMContentLoaded', function() {
     floatingPreview.style.left = (windowWidth / 2) + 'px';
     floatingPreview.style.top = (windowHeight / 2) + 'px';
   }
-}); 
+  
+  // Gallery navigation for work projects
+  setupGalleryNavigation();
+});
+
+// Function to set up gallery navigation for work projects
+function setupGalleryNavigation() {
+  // Store image data for each gallery
+  const galleryData = {};
+  
+  // Find all galleries on the page
+  const galleries = document.querySelectorAll('.picture-gallery');
+  
+  galleries.forEach((gallery, galleryIndex) => {
+    const projectId = gallery.closest('.work-project').id;
+    const navButton = gallery.querySelector('.gallery-nav');
+    const mainImageContainer = gallery.querySelector('.gallery-main');
+    const mainImage = mainImageContainer.querySelector('img');
+    
+    // Skip if no navigation button (only one image)
+    if (!navButton) return;
+    
+    // Initialize gallery data
+    galleryData[projectId] = {
+      currentIndex: 0,
+      images: [],
+      category: 'work' // Default category
+    };
+    
+    // Extract project title from alt attribute or parent element
+    const projectTitle = mainImage.alt || gallery.closest('.work-project').querySelector('.work-title').textContent;
+    
+    // Get the current image src and extract the filename
+    const currentSrc = mainImage.src;
+    const srcParts = currentSrc.split('/');
+    const filename = srcParts[srcParts.length - 1];
+    
+    // Extract category from path
+    const pathParts = currentSrc.split('/');
+    if (pathParts.length >= 2) {
+      galleryData[projectId].category = pathParts[pathParts.length - 2];
+    }
+    
+    // Get images from data attribute if available
+    const imagesData = gallery.getAttribute('data-images');
+    if (imagesData) {
+      try {
+        galleryData[projectId].images = JSON.parse(imagesData);
+      } catch (e) {
+        console.error('Error parsing images data:', e);
+        galleryData[projectId].images.push(filename);
+      }
+    } else {
+      // Fallback for Gemini 2.0 Experiments project if data attribute is not available
+      if (projectId === 'gemini-2.0-experiments-@-google-creative-lab') {
+        galleryData[projectId].images = ['wordtocode.gif', 'handspew.gif'];
+      } else {
+        // For other projects, just add the current image
+        galleryData[projectId].images.push(filename);
+      }
+    }
+    
+    // Add click event to navigation button
+    navButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const data = galleryData[projectId];
+      if (!data || data.images.length <= 1) return;
+      
+      // Move to next image
+      data.currentIndex = (data.currentIndex + 1) % data.images.length;
+      
+      // Update the image
+      const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
+      mainImage.src = newSrc;
+    });
+  });
+} 

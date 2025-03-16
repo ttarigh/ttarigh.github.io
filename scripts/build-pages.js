@@ -129,11 +129,12 @@ const workProjectTemplate = (project) => `
     
     <div class="work-images">
       ${project.images && project.images.length > 0 ? 
-        `<div class="picture-gallery">
-          <div class="gallery-main">
-            <img src="images/${project.category}/${project.images[0]}" alt="${project.title}" />
-          </div>
-          ${project.images.length > 1 ? `<div class="gallery-nav">→</div>` : ''}
+        `<div class="images-grid ${project.images.length === 1 ? 'single-image' : ''}">
+          ${project.images.map(img => 
+            `<div class="image-container">
+              <img src="images/${project.category}/${img}" alt="${project.title}" />
+            </div>`
+          ).join('')}
         </div>` : ''}
     </div>
   </div>
@@ -219,7 +220,7 @@ function parseProjectsFile(filePath, category) {
       // Remove the title and metadata from the content before parsing
       const cleanedContent = projectContent
         .replace(/^## .*$/m, '') // Remove title
-        .replace(/^- .*$/gm, '') // Remove metadata lines
+        .replace(/^- [a-zA-Z_]+?: .*$/gm, '') // Only remove metadata lines with key-value pairs
         .trim();
         
       if (cleanedContent) {
