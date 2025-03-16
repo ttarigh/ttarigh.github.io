@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TINA TARIGHIAN</title>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.webp"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.webp"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.webp"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+
+      .container, .map {
+        min-height: 100vh;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .overHead {
+        margin-top: 30px;
+      }
+      
+      h1 {
+        font-size: 60px;
+        margin: 0;
+      }
+      
+      .header h1 {
+        display: inline-block;
+      }
+      
+      #about {
+        display: inline-block;
+        margin-left: 0px;
+        font-size: 20px;
+      }
+      
+      #aboutlink {
+        color: blue;
+      }
+
+      .image-container {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+      }
+      
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .overlay-box {
+        position: absolute;
+        border: 2px solid;
+        cursor: pointer;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+
+      .overlay-box span {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      #work-box {
+        top: 20%;
+        left: 5%;
+        width: 50%;
+        height: 65%;
+        border: dashed;
+        border-color: blue;
+        border-width: 4px;
+      }
+
+      #art-box {
+        top: 0%;
+        left: 40%;
+        width: 55%;
+        height: 70%;
+        border: dotted;
+        border-color: #00ff00;
+        border-width: 2px;
+      }
+      
+      p {
+        font-size: 10px;
+        margin: 5px 0;
+      }
+      
+      #wru {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 15%;
+        height: auto;
+        z-index: 10;
+        cursor: pointer;
+      }
+      
+      .zone {
+        text-decoration: none;
+        color: black;
+      }
+      
+      h2 {
+        margin: 0 0 10px 0;
+      }
+      
+      .map {
+        background-color: #fffc00;
+        display: none;
+      }
+      
+      .mapHeader h1 {
+        padding-top: 50px;
+        font-size: 25px;
+      }
+      
+      #star {
+        color: red;
+      }
+      
+      span {
+        margin: 0;
+      }
+      
+      .back-to-site {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        font-size: 50px;
+        color: red;
+        text-decoration: none;
+        z-index: 100;
+      }
+      
+      /* Fix for desktop users who somehow get to this page */
+      @media (min-width: 768px) {
+        body {
+          max-width: 500px;
+          margin: 0 auto;
+          border-left: 1px solid #eee;
+          border-right: 1px solid #eee;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="overHead">
+        <div class="header">
+          <h1 style="margin-bottom: 0;">TINA</h1>       
+          <p id="about"><a id="aboutlink" href="about.html">{about}</a></p>
+          <h1 style="margin-top: 0;">TARIGHIAN</h1>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="splash/mobile.webp" alt="mobile" style="width: 100%; height: auto;">
+        <a href="work.html" class="overlay-box" id="work-box">
+          <span style="color: blue;">WORK</span>
+        </a>
+        <a href="art.html" class="overlay-box" id="art-box">
+          <span style="color: #00ff00;">ART</span>
+        </a>
+      </div>
+      <img id="wru" src="splash/wru.webp" alt="map">
+    </div>
+    
+    <div class="map">
+      <div class="mapHeader">
+        <h1>ZONE MAP</h1>
+      </div>
+      <h2 id="star" style="margin-bottom: 0;"><a class="zone" href="mindex.html">tina.zone</a> ★</h2>
+      <span>|</span>
+      <h2><a class="zone" href="art.html">art.tina.zone</a></h2>
+      <h2><a class="zone" href="work.html">work.tina.zone</a></h2>
+      <a class="back-to-site" href="mindex.html">←</a>
+    </div>
+    
+    <script>
+      $(document).ready(function() {
+        // Map toggle
+        $('#wru').click(function() {
+          $('.container').hide();
+          $('.map').show();
+          $('body').css('background-color', '#fffc00');
+        });
+        
+        $('.back-to-site').click(function(e) {
+          e.preventDefault();
+          $('.map').hide();
+          $('.container').show();
+          $('body').css('background-color', 'white');
+        });
+        
+        // Ensure this is the mobile version
+        function ensureCorrectVersion() {
+          const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          if (!isMobileDevice && window.innerWidth > 767 && !localStorage.getItem('mobileConsent')) {
+            // User is on desktop but viewing mobile version
+            if (confirm("You're viewing the mobile version on a desktop. Would you like to switch to the desktop version?")) {
+              window.location.href = "index.html";
+            } else {
+              localStorage.setItem('mobileConsent', 'true');
+            }
+          }
+        }
+        
+        ensureCorrectVersion();
+      });
+    </script>
+  </body>
+</html>

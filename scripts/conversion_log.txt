@@ -1,0 +1,59 @@
+Image Conversion Log - Sun Mar 16 01:00:21 EDT 2025
+Original filename -> WebP filename
+----------------------------------------
+scanartist.jpg -> scanartist.webp
+  Size: 3.1M -> 1.2M
+SBTex.png -> SBTex.webp
+  Size:  16K -> 4.0K
+adp.png -> adp.webp
+  Size: 300K ->  24K
+arhelper.png -> arhelper.webp
+  Size: 116K ->  44K
+barighian.png -> barighian.webp
+  Size: 336K ->  32K
+couch.png -> couch.webp
+  Size:  28K -> 8.0K
+distance-source.png -> distance-source.webp
+  Size:  44K ->  20K
+emotions-detector.png -> emotions-detector.webp
+  Size:  80K -> 8.0K
+engagewithme.png -> engagewithme.webp
+  Size:  20K -> 8.0K
+enroute.png -> enroute.webp
+  Size: 264K ->  24K
+enter.png -> enter.webp
+  Size: 1.6M ->  60K
+fbmirrors.png -> fbmirrors.webp
+  Size: 1.5M ->  52K
+happy.png -> happy.webp
+  Size:  96K ->  12K
+infinite-podcast.png -> infinite-podcast.webp
+  Size: 212K ->  76K
+lovemeter.png -> lovemeter.webp
+  Size:  80K ->  32K
+magic8.png -> magic8.webp
+  Size: 264K ->  28K
+mathy.png -> mathy.webp
+  Size: 796K -> 144K
+ml.png -> ml.webp
+  Size: 460K ->  28K
+musictie.png -> musictie.webp
+  Size: 1.7M ->  84K
+pic.png -> pic.webp
+  Size: 164K ->  20K
+popup.png -> popup.webp
+  Size: 668K ->  36K
+resurrection.png -> resurrection.webp
+  Size: 160K ->  44K
+say-one-more-thing.png -> say-one-more-thing.webp
+  Size: 200K ->  24K
+source-consume.png -> source-consume.webp
+  Size:  80K ->  20K
+supervitamin.png -> supervitamin.webp
+  Size:  16K -> 4.0K
+testingTinasVision.png -> testingTinasVision.webp
+  Size: 112K ->  28K
+worship.png -> worship.webp
+  Size: 128K ->  12K
+----------------------------------------
+Conversion complete: 27 of 27 files converted successfully.
