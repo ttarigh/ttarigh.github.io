@@ -39,19 +39,19 @@ The campaign received extensive media coverage in [The Guardian](https://www.the
 - images: [genweather.webp]
 - tags: [AI, Gemini API, DevRel]
 
-## Artechouse Panel
+## ARTECHOUSE
 - date: 2024-10-20
 - description: Featured [panelist](https://www.instagram.com/p/DA91-9BPdLQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==) at ARTECHOUSE's inaugural session discussing the intersection of art, AI, social media, and emerging creative technologies.
 - images: [artechouse.webp]
 - tags: [Panel, AI, Art]
 
-## Visiting Professor at Parsons
+## Visiting Professor: Parsons School of Design
 - date: 2024-09-01
 - description: Served as visiting professor at Parsons School of Design, teaching Introduction to JavaScript for Web Design as part of @simoneqtri's Core Interaction class. [Selected Slides](https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
 - images: [parsons.gif]
 - tags: [Teaching, JavaScript, Web Design]
 
-## Visuals for FCUKERS: Govball, SXSW, Portolla Fest
+## FCUKERS: Govball, SXSW, Portolla Fest
 - date: 2024-06-15
 - description: Original visuals coordinator and creative director for FCUKERS, creating immersive live-coded visuals and AR installations for performances at major festivals.
 - images: [fcukers.webp, fcukers2.gif]
@@ -59,7 +59,7 @@ The campaign received extensive media coverage in [The Guardian](https://www.the
 
 I developed and controlled real-time visuals at numerous venues including Governors Ball, SXSW, and Portolla Festival. Co-directed with [Maria Galebach](https://www.mariagalebach.online/#).
 
-## Visual Identity of Chlomosexual Parties
+## Chlomosexual Presents Parties
 - date: 2024-01-15
 - description: Ongoing creative direction and live-coded visual experiences for [Chlomosexual's](https://www.instagram.com/chlomosexual.presents/) multi-thousand attendee events.
 - link: https://www.instagram.com/chlomosexual.presents/
@@ -79,7 +79,7 @@ This ongoing collaboration began in January 2024 and continues to the present, c
 
 Utilizing precise geolocation technology, this application creates immersive campus tour experiences. I developed the core AR functionality that allows visitors to explore and interact with virtual content throughout the university grounds.
 
-## Aesthetic Computer
+## Aesthetic.Computer
 - date: 2023-09-15
 - description: Led development of Aesthetic Computer's "Happy Hands" series, creating hands-free controlled immersive gameplay experiences.
 - link: https://www.aesthetic.computer/about
@@ -102,7 +102,7 @@ The project includes three distinct experiences:
 
 Featured at New York Fashion Week Fall and Spring 2023, this project created an interactive AR mirror experience that celebrated diverse body types and enhanced the fashion show experience for attendees.
 
-## Finger Painting AR for IAMB Magazine
+## IAMB Magazine
 - date: 2023-05-20
 - description: Developed an intuitive hands-free [fingerpainting experience](https://iamb.tina.zone) for IAMB literary magazine's third issue, "NOSTALGIA."
 - link: https://iamb.tina.zone

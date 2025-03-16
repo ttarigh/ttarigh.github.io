@@ -8,44 +8,60 @@ function checkScreenWidth() {
   }
 }
 
-// Redirect to appropriate version based on device
-function redirectToCorrectVersion() {
-  // Only redirect if we're not already on the correct version
-  const currentPath = window.location.pathname;
-  const isMobilePage = currentPath.includes('m') && !currentPath.includes('images');
-  
-  if (window.innerWidth <= 767 || 
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    // On mobile device
-    if (!isMobilePage && !currentPath.includes('mindex.html')) {
-      // Convert current path to mobile version
-      let newPath = currentPath.replace('.html', '');
-      if (newPath === '/' || newPath === '') {
-        window.location.href = 'mindex.html';
-      } else {
-        newPath = 'm' + newPath.substring(newPath.lastIndexOf('/') + 1) + '.html';
-        window.location.href = newPath;
-      }
-    }
-  } else {
-    // On desktop
-    if (isMobilePage) {
-      // Convert to desktop version
-      let newPath = currentPath.replace('m', '');
-      window.location.href = newPath;
-    }
-  }
+// Debounce function to limit execution of resize events
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
+
+// Check if device is mobile
+function isMobileDevice() {
+  return window.innerWidth <= 768 || 
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Uncomment this if you want automatic redirection
-  // redirectToCorrectVersion();
-  
   // Handle project row clicks for expanding content
   const projectRows = document.querySelectorAll('.project-row');
   const imageStage = document.querySelector('.image-stage');
-  const isMobile = window.innerWidth <= 768;
+  let isMobile = isMobileDevice();
   let isAnyProjectExpanded = false;
+  
+  // Create floating preview element
+  const floatingPreview = document.createElement('div');
+  floatingPreview.className = 'floating-preview';
+  const previewImg = document.createElement('img');
+  floatingPreview.appendChild(previewImg);
+  document.body.appendChild(floatingPreview);
+  
+  // Handle window resize events
+  const handleResize = debounce(function() {
+    isMobile = isMobileDevice();
+    
+    // Hide floating preview on mobile
+    if (isMobile && floatingPreview.style.display === 'block') {
+      floatingPreview.style.display = 'none';
+    }
+    
+    // Adjust gallery image sizes if needed
+    const galleryImages = document.querySelectorAll('.gallery-main img');
+    galleryImages.forEach(img => {
+      // Ensure images are loaded properly after resize
+      if (img.complete) {
+        img.style.height = 'auto'; // Reset height to maintain aspect ratio
+      }
+    });
+    
+    // Update grid visibility based on screen size
+    updateGridVisibility();
+  }, 250);
+  
+  window.addEventListener('resize', handleResize);
   
   if (projectRows.length > 0) {
     // Only set up image preview for non-mobile devices
@@ -58,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
       projectRows.forEach(row => {
         // Show image on hover (only if no project is expanded)
         row.addEventListener('mouseenter', function() {
-          if (isAnyProjectExpanded) return; // Skip if any project is expanded
+          if (isAnyProjectExpanded || isMobile) return; // Skip if any project is expanded or on mobile
           
           const imagePath = this.getAttribute('data-preview-image');
           if (imagePath) {
@@ -122,28 +138,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
-  // Create floating preview element
-  const floatingPreview = document.createElement('div');
-  floatingPreview.className = 'floating-preview';
-  const previewImg = document.createElement('img');
-  floatingPreview.appendChild(previewImg);
-  document.body.appendChild(floatingPreview);
   
   projectRows.forEach(row => {
     // Get the image path from data attribute or first image in the project
     const imagePath = row.getAttribute('data-preview-image');
     
-    if (imagePath) {
+    if (imagePath && !isMobile) {
       // Mouse enter event
       row.addEventListener('mouseenter', function(e) {
+        if (isAnyProjectExpanded) return; // Don't show preview if a project is expanded
+        
         previewImg.src = imagePath;
         floatingPreview.style.display = 'block';
         updatePreviewPosition(e);
       });
       
       // Mouse move event
-      row.addEventListener('mousemove', updatePreviewPosition);
+      row.addEventListener('mousemove', function(e) {
+        if (!isMobile) updatePreviewPosition(e);
+      });
       
       // Mouse leave event
       row.addEventListener('mouseleave', function() {
@@ -152,19 +165,193 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Update preview position
+  // Update preview position - improved for better positioning
   function updatePreviewPosition(e) {
-    // Position in center of screen instead of following cursor exactly
+    if (isMobile) {
+      floatingPreview.style.display = 'none';
+      return;
+    }
+    
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     
-    floatingPreview.style.left = (windowWidth / 2) + 'px';
-    floatingPreview.style.top = (windowHeight / 2) + 'px';
+    // For larger screens, follow cursor with offset
+    if (windowWidth > 1024) {
+      // Position near cursor but with offset to avoid covering content
+      const offsetX = 20;
+      const offsetY = 20;
+      let posX = e.clientX + offsetX;
+      let posY = e.clientY + offsetY;
+      
+      // Make sure preview stays within viewport
+      const previewRect = floatingPreview.getBoundingClientRect();
+      const previewWidth = previewRect.width || 300; // Fallback if not yet rendered
+      const previewHeight = previewRect.height || 200;
+      
+      if (posX + previewWidth > windowWidth - 20) {
+        posX = e.clientX - previewWidth - offsetX;
+      }
+      
+      if (posY + previewHeight > windowHeight - 20) {
+        posY = e.clientY - previewHeight - offsetY;
+      }
+      
+      floatingPreview.style.left = posX + 'px';
+      floatingPreview.style.top = posY + 'px';
+      floatingPreview.style.transform = 'none';
+    } else {
+      // For medium screens, center in viewport
+      floatingPreview.style.left = (windowWidth / 2) + 'px';
+      floatingPreview.style.top = (windowHeight / 2) + 'px';
+      floatingPreview.style.transform = 'translate(-50%, -50%)';
+    }
   }
+  
+  // Lazy load images for better performance
+  const lazyLoadImages = function() {
+    const images = document.querySelectorAll('.work-images img');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+            
+            if (src) {
+              img.src = src;
+              img.removeAttribute('data-src');
+            }
+            
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+      
+      images.forEach(img => {
+        // Only observe images with data-src attribute
+        if (img.getAttribute('data-src')) {
+          imageObserver.observe(img);
+        }
+      });
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      images.forEach(img => {
+        const src = img.getAttribute('data-src');
+        if (src) {
+          img.src = src;
+          img.removeAttribute('data-src');
+        }
+      });
+    }
+  };
+  
+  // Call lazy load function
+  lazyLoadImages();
   
   // Gallery navigation for work projects
   setupGalleryNavigation();
+  
+  // Add touch support for gallery navigation
+  addTouchSupport();
+  
+  // Create image grids for mobile view
+  createMobileImageGrids();
+  
+  // Initialize grid visibility based on current screen size
+  updateGridVisibility();
 });
+
+// Function to create image grids for mobile view
+function createMobileImageGrids() {
+  const galleries = document.querySelectorAll('.picture-gallery[data-images]');
+  
+  galleries.forEach(gallery => {
+    // Create grid container if it doesn't exist
+    if (!gallery.querySelector('.gallery-grid')) {
+      const gridContainer = document.createElement('div');
+      gridContainer.className = 'gallery-grid';
+      gallery.appendChild(gridContainer);
+      
+      // Get images data
+      let imagesData;
+      try {
+        imagesData = JSON.parse(gallery.getAttribute('data-images'));
+      } catch (e) {
+        console.error('Error parsing images data:', e);
+        return;
+      }
+      
+      // Get category from main image path
+      const mainImage = gallery.querySelector('.gallery-main img');
+      if (!mainImage) return;
+      
+      const mainSrc = mainImage.src;
+      const pathParts = mainSrc.split('/');
+      const category = pathParts.length >= 2 ? pathParts[pathParts.length - 2] : 'work';
+      
+      // Add images to grid (limit to 4 for performance)
+      const maxImages = Math.min(imagesData.length, 4);
+      for (let i = 0; i < maxImages; i++) {
+        const img = document.createElement('img');
+        img.src = `images/${category}/${imagesData[i]}`;
+        img.alt = mainImage.alt + ` (${i + 1})`;
+        img.loading = "lazy";
+        gridContainer.appendChild(img);
+        
+        // Add click event to show this image in the main view on desktop
+        img.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Only change main image if not on mobile
+          if (window.innerWidth > 768) {
+            mainImage.src = this.src;
+          }
+        });
+      }
+    }
+  });
+  
+  // Update grid visibility based on screen size
+  updateGridVisibility();
+}
+
+// Function to add touch support for gallery navigation
+function addTouchSupport() {
+  const galleries = document.querySelectorAll('.picture-gallery');
+  
+  galleries.forEach(gallery => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    gallery.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
+    gallery.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe(gallery);
+    }, false);
+    
+    function handleSwipe(gallery) {
+      const swipeThreshold = 50;
+      const navButton = gallery.querySelector('.gallery-nav');
+      
+      // If swiped left to right (and far enough)
+      if (touchEndX - touchStartX > swipeThreshold && navButton) {
+        // Trigger click on navigation button
+        navButton.click();
+      }
+      // For right to left swipe, we could add previous image functionality
+      else if (touchStartX - touchEndX > swipeThreshold && navButton) {
+        // Optional: Add previous image functionality
+        // For now, just trigger next image (same as button click)
+        navButton.click();
+      }
+    }
+  });
+}
 
 // Function to set up gallery navigation for work projects
 function setupGalleryNavigation() {
@@ -175,15 +362,21 @@ function setupGalleryNavigation() {
   const galleries = document.querySelectorAll('.picture-gallery');
   
   galleries.forEach((gallery, galleryIndex) => {
-    const projectId = gallery.closest('.work-project')?.id;
-    if (!projectId) return;
-    
-    const navButton = gallery.querySelector('.gallery-nav');
+    const projectId = gallery.closest('.work-project').id;
     const mainImageContainer = gallery.querySelector('.gallery-main');
-    const mainImage = mainImageContainer?.querySelector('img');
+    const mainImage = mainImageContainer.querySelector('img');
     
-    // Skip if no navigation button (only one image) or no main image
-    if (!navButton || !mainImage) return;
+    // Create navigation button if it doesn't exist and there are multiple images
+    let navButton = gallery.querySelector('.gallery-nav');
+    if (!navButton && (gallery.getAttribute('data-images') || projectId === 'gemini-2.0-experiments-@-google-creative-lab')) {
+      navButton = document.createElement('div');
+      navButton.className = 'gallery-nav';
+      navButton.innerHTML = '→';
+      gallery.appendChild(navButton);
+    }
+    
+    // Skip if no navigation button (only one image)
+    if (!navButton) return;
     
     // Initialize gallery data
     galleryData[projectId] = {
@@ -193,7 +386,7 @@ function setupGalleryNavigation() {
     };
     
     // Extract project title from alt attribute or parent element
-    const projectTitle = mainImage.alt || gallery.closest('.work-project').querySelector('.work-title')?.textContent;
+    const projectTitle = mainImage.alt || gallery.closest('.work-project').querySelector('.work-title').textContent;
     
     // Get the current image src and extract the filename
     const currentSrc = mainImage.src;
@@ -219,6 +412,9 @@ function setupGalleryNavigation() {
       // Fallback for Gemini 2.0 Experiments project if data attribute is not available
       if (projectId === 'gemini-2.0-experiments-@-google-creative-lab') {
         galleryData[projectId].images = ['wordtocode.gif', 'handspew.gif'];
+        
+        // Add data-images attribute for CSS selectors to work
+        gallery.setAttribute('data-images', JSON.stringify(['gemini-experiments.jpg', 'wordtocode.gif', 'handspew.gif']));
       } else {
         // For other projects, just add the current image
         galleryData[projectId].images.push(filename);
@@ -236,18 +432,60 @@ function setupGalleryNavigation() {
       // Move to next image
       data.currentIndex = (data.currentIndex + 1) % data.images.length;
       
-      // Update the image with fade effect
-      mainImage.style.opacity = '0';
+      // Update the image
+      const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
       
-      setTimeout(() => {
-        // Update the image
-        const newSrc = `images/${data.category}/${data.images[data.currentIndex]}`;
+      // Create a new image to preload
+      const tempImg = new Image();
+      tempImg.onload = function() {
         mainImage.src = newSrc;
-        mainImage.style.opacity = '1';
-      }, 200);
+      };
+      tempImg.src = newSrc;
+      
+      // If image doesn't load within 3 seconds, show it anyway
+      setTimeout(() => {
+        if (mainImage.src !== newSrc) {
+          mainImage.src = newSrc;
+        }
+      }, 3000);
+    });
+  });
+}
+
+// Function to update grid visibility based on screen size
+function updateGridVisibility() {
+  const isMobile = isMobileDevice();
+  
+  // Get all grids and gallery mains
+  const grids = document.querySelectorAll('.gallery-grid');
+  const mainImages = document.querySelectorAll('.picture-gallery[data-images] .gallery-main');
+  const navButtons = document.querySelectorAll('.picture-gallery[data-images] .gallery-nav');
+  
+  if (isMobile) {
+    // On mobile: show grids, hide main images and nav buttons
+    grids.forEach(grid => {
+      grid.style.display = 'grid';
     });
     
-    // Add fade transition to main image
-    mainImage.style.transition = 'opacity 0.2s ease-in-out';
-  });
+    mainImages.forEach(main => {
+      main.style.display = 'none';
+    });
+    
+    navButtons.forEach(nav => {
+      nav.style.display = 'none';
+    });
+  } else {
+    // On desktop: hide grids, show main images and nav buttons
+    grids.forEach(grid => {
+      grid.style.display = 'none';
+    });
+    
+    mainImages.forEach(main => {
+      main.style.display = 'block';
+    });
+    
+    navButtons.forEach(nav => {
+      nav.style.display = 'flex';
+    });
+  }
 } 

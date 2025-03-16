@@ -171,6 +171,24 @@
   position: relative;
 }
 
+/* Mobile gallery grid for multiple images */
+.gallery-grid {
+  display: none; /* Hidden by default, shown on mobile */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  max-height: none !important; /* Override max-height from other styles */
+}
+
 .gallery-main {
   width: 100%;
   border-radius: 4px;
@@ -313,6 +331,35 @@
   .floating-preview {
     display: none !important; /* Disable floating preview on mobile */
   }
+  
+  /* Show multiple images side by side on mobile */
+  .picture-gallery[data-images] .gallery-main {
+    display: none; /* Hide the main image when we have multiple images */
+  }
+  
+  .picture-gallery[data-images] .gallery-nav {
+    display: none; /* Hide the navigation arrow when showing grid */
+  }
+  
+  .picture-gallery[data-images] .gallery-grid {
+    display: grid !important;
+  }
+  
+  .picture-gallery[data-images] .gallery-main,
+  .picture-gallery[data-images] .gallery-nav {
+    display: none !important;
+  }
+  
+  /* For galleries without data-images attribute, keep showing the main image */
+  .picture-gallery:not([data-images]) .gallery-main {
+    display: block;
+  }
+  
+  /* Ensure grid images are properly sized */
+  .gallery-grid img {
+    max-height: none !important;
+    height: auto !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -331,6 +378,16 @@
   
   .work-images img {
     max-height: 250px;
+  }
+  
+  /* Adjust grid for smaller screens */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .gallery-grid img {
+    border-radius: 6px;
   }
 }
 
@@ -364,6 +421,12 @@
     width: 35px;
     height: 35px;
   }
+  
+  /* Keep the grid for very small screens */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -385,6 +448,16 @@
   
   .work-images img {
     max-height: 180px;
+  }
+  
+  /* Maintain side-by-side grid even on very small screens */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+  
+  .gallery-grid img {
+    border-radius: 4px;
   }
 }
 

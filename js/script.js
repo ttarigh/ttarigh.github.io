@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
         img.style.height = 'auto'; // Reset height to maintain aspect ratio
       }
     });
+    
+    // Update grid visibility based on screen size
+    updateGridVisibility();
   }, 250);
   
   window.addEventListener('resize', handleResize);
@@ -251,7 +254,68 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add touch support for gallery navigation
   addTouchSupport();
+  
+  // Create image grids for mobile view
+  createMobileImageGrids();
+  
+  // Initialize grid visibility based on current screen size
+  updateGridVisibility();
 });
+
+// Function to create image grids for mobile view
+function createMobileImageGrids() {
+  const galleries = document.querySelectorAll('.picture-gallery[data-images]');
+  
+  galleries.forEach(gallery => {
+    // Create grid container if it doesn't exist
+    if (!gallery.querySelector('.gallery-grid')) {
+      const gridContainer = document.createElement('div');
+      gridContainer.className = 'gallery-grid';
+      gallery.appendChild(gridContainer);
+      
+      // Get images data
+      let imagesData;
+      try {
+        imagesData = JSON.parse(gallery.getAttribute('data-images'));
+      } catch (e) {
+        console.error('Error parsing images data:', e);
+        return;
+      }
+      
+      // Get category from main image path
+      const mainImage = gallery.querySelector('.gallery-main img');
+      if (!mainImage) return;
+      
+      const mainSrc = mainImage.src;
+      const pathParts = mainSrc.split('/');
+      const category = pathParts.length >= 2 ? pathParts[pathParts.length - 2] : 'work';
+      
+      // Add images to grid (limit to 4 for performance)
+      const maxImages = Math.min(imagesData.length, 4);
+      for (let i = 0; i < maxImages; i++) {
+        const img = document.createElement('img');
+        img.src = `images/${category}/${imagesData[i]}`;
+        img.alt = mainImage.alt + ` (${i + 1})`;
+        img.loading = "lazy";
+        gridContainer.appendChild(img);
+        
+        // Add click event to show this image in the main view on desktop
+        img.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Only change main image if not on mobile
+          if (window.innerWidth > 768) {
+            mainImage.src = this.src;
+          }
+        });
+      }
+    }
+  });
+  
+  // Update grid visibility based on screen size
+  updateGridVisibility();
+}
 
 // Function to add touch support for gallery navigation
 function addTouchSupport() {
@@ -348,6 +412,9 @@ function setupGalleryNavigation() {
       // Fallback for Gemini 2.0 Experiments project if data attribute is not available
       if (projectId === 'gemini-2.0-experiments-@-google-creative-lab') {
         galleryData[projectId].images = ['wordtocode.gif', 'handspew.gif'];
+        
+        // Add data-images attribute for CSS selectors to work
+        gallery.setAttribute('data-images', JSON.stringify(['gemini-experiments.jpg', 'wordtocode.gif', 'handspew.gif']));
       } else {
         // For other projects, just add the current image
         galleryData[projectId].images.push(filename);
@@ -383,4 +450,42 @@ function setupGalleryNavigation() {
       }, 3000);
     });
   });
+}
+
+// Function to update grid visibility based on screen size
+function updateGridVisibility() {
+  const isMobile = isMobileDevice();
+  
+  // Get all grids and gallery mains
+  const grids = document.querySelectorAll('.gallery-grid');
+  const mainImages = document.querySelectorAll('.picture-gallery[data-images] .gallery-main');
+  const navButtons = document.querySelectorAll('.picture-gallery[data-images] .gallery-nav');
+  
+  if (isMobile) {
+    // On mobile: show grids, hide main images and nav buttons
+    grids.forEach(grid => {
+      grid.style.display = 'grid';
+    });
+    
+    mainImages.forEach(main => {
+      main.style.display = 'none';
+    });
+    
+    navButtons.forEach(nav => {
+      nav.style.display = 'none';
+    });
+  } else {
+    // On desktop: hide grids, show main images and nav buttons
+    grids.forEach(grid => {
+      grid.style.display = 'none';
+    });
+    
+    mainImages.forEach(main => {
+      main.style.display = 'block';
+    });
+    
+    navButtons.forEach(nav => {
+      nav.style.display = 'flex';
+    });
+  }
 } 

@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Tina Tarighian's portfolio of work in AI, creative technology, and digital experiences" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Work | TINA TARIGHIAN</title>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.webp" />
@@ -12,6 +13,8 @@
     <link rel="manifest" href="img/site.webmanifest" />
     <link rel="stylesheet" href="css/portfolio.css" />
     <link rel="stylesheet" href="css/work-layout.css" />
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/work-layout.css" as="style" />
   </head>
   <body class="work-page">
     <div class="container">
@@ -43,11 +46,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["gemini-experiments.jpg", "wordtocode.gif", "handspew.gif"]'>
           <div class="gallery-main">
-            <img src="images/work/gemini-experiments.jpg" alt="Gemini 2.0 Experiments @ Google Creative Lab" />
+            <img src="images/work/gemini-experiments.jpg" alt="Gemini 2.0 Experiments @ Google Creative Lab" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -72,11 +75,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["doomers.jpg", "doomers-2.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/doomers.jpg" alt="DOOMERS" />
+            <img src="images/work/doomers.jpg" alt="DOOMERS" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -101,11 +104,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["mesa.jpg", "mesa-prototype.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/mesa.jpg" alt="MESA Prototyping" />
+            <img src="images/work/mesa.jpg" alt="MESA Prototyping" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -129,11 +132,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["genweather.jpg", "genweather-demo.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/genweather.jpg" alt="Google Deep Mind: GenWeather" />
+            <img src="images/work/genweather.jpg" alt="Google Deep Mind: GenWeather" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -159,7 +162,7 @@
     <div class="work-images">
       <div class="picture-gallery">
           <div class="gallery-main">
-            <img src="images/work/artechouse-panel.jpg" alt="Artechouse Panel" />
+            <img src="images/work/artechouse-panel.jpg" alt="Artechouse Panel" loading="lazy" />
           </div>
           
         </div>
@@ -185,11 +188,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["parsons-teaching.jpg", "parsons-slides.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/parsons-teaching.jpg" alt="Visiting Professor at Parsons" />
+            <img src="images/work/parsons-teaching.jpg" alt="Visiting Professor at Parsons" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -214,11 +217,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["fcukers.jpg", "fcukers-live.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/fcukers.jpg" alt="Visuals for FCUKERS: Govball, SXSW, Portolla Fest" />
+            <img src="images/work/fcukers.jpg" alt="Visuals for FCUKERS: Govball, SXSW, Portolla Fest" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -243,11 +246,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["chlomosexual.jpg", "chlomosexual-event.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/chlomosexual.jpg" alt="Visual Identity of Chlomosexual Parties" />
+            <img src="images/work/chlomosexual.jpg" alt="Visual Identity of Chlomosexual Parties" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -272,11 +275,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["ready-companion.jpg", "ready-companion-app.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/ready-companion.jpg" alt="Ready Companion" />
+            <img src="images/work/ready-companion.jpg" alt="Ready Companion" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -301,11 +304,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["aesthetic-computer.jpg", "aesthetic-computer-hands.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/aesthetic-computer.jpg" alt="Aesthetic Computer" />
+            <img src="images/work/aesthetic-computer.jpg" alt="Aesthetic Computer" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -330,11 +333,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["uye-surana.jpg", "uye-surana-mirror.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/uye-surana.jpg" alt="Uye Surana" />
+            <img src="images/work/uye-surana.jpg" alt="Uye Surana" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -359,11 +362,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["iamb.jpg", "iamb-painting.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/iamb.jpg" alt="Finger Painting AR for IAMB Magazine" />
+            <img src="images/work/iamb.jpg" alt="Finger Painting AR for IAMB Magazine" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -388,11 +391,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["pianos.jpg", "pianos-visuals.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/pianos.jpg" alt="Pianos" />
+            <img src="images/work/pianos.jpg" alt="Pianos" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -417,11 +420,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["cyber-matuta.jpg", "cyber-matuta-ar.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/cyber-matuta.jpg" alt="Cyber Matuta" />
+            <img src="images/work/cyber-matuta.jpg" alt="Cyber Matuta" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
@@ -446,11 +449,11 @@
     </div>
     
     <div class="work-images">
-      <div class="picture-gallery">
+      <div class="picture-gallery" data-images='["fit4u.jpg", "fit4u-app.jpg"]'>
           <div class="gallery-main">
-            <img src="images/work/fit4u.jpg" alt="Fit4U Solutions" />
+            <img src="images/work/fit4u.jpg" alt="Fit4U Solutions" loading="lazy" />
           </div>
-          
+          <div class="gallery-nav">→</div>
         </div>
     </div>
   </div>
