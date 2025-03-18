@@ -38,8 +38,8 @@ This repository includes a `vercel.json` configuration file that allows you to p
 The `vercel.json` file contains rewrite rules that forward requests from your Vercel domain to your GitHub Pages site. For example:
 
 - `tina.zone/art` → `ttarigh.github.io/art.html`
-- `tina.zone/infinite-podcast` → `ttarigh.github.io/infinite-podcast`
-- `tina.zone/vitamin` → `ttarigh.github.io/vitamin`
+- `tina.zone/infinite-podcast` → `ttarigh.github.io/infinite-podcast/index.html`
+- `tina.zone/vitamin` → `ttarigh.github.io/vitamin/index.html`
 
 The configuration includes specific rules for your projects and a catch-all rule for any other paths.
 
@@ -47,11 +47,15 @@ The configuration includes specific rules for your projects and a catch-all rule
 
 When you create a new project on GitHub Pages, you should:
 
-1. Add a specific rewrite rule to the `vercel.json` file:
+1. Add specific rewrite rules to the `vercel.json` file:
    ```json
    {
-     "source": "/new-project-name(.*)",
-     "destination": "https://ttarigh.github.io/new-project-name$1"
+     "source": "/new-project-name",
+     "destination": "https://ttarigh.github.io/new-project-name/index.html"
+   },
+   {
+     "source": "/new-project-name/:path*",
+     "destination": "https://ttarigh.github.io/new-project-name/:path*"
    }
    ```
 
@@ -62,9 +66,14 @@ When you create a new project on GitHub Pages, you should:
 
 ## Troubleshooting
 
+- **Redirect Loops**: If you encounter "too many redirects" errors, make sure you have:
+  1. Separate rules for the root path and subpaths of each project
+  2. Point root paths directly to index.html files (e.g., `/vitamin` → `/vitamin/index.html`)
+  3. Use the `:path*` pattern for subpaths instead of regex patterns
+  4. Added proper cache control headers to prevent caching issues
+
 - **CORS Issues**: The configuration includes CORS headers to allow cross-origin requests.
 - **404 Errors**: Make sure the path in the GitHub Pages repository matches the path in the rewrite rule.
-- **Redirect Loops**: Check that your rewrite rules don't create circular redirects.
 
 ## Maintenance
 

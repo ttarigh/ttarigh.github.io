@@ -47,7 +47,7 @@ The campaign received extensive media coverage in [The Guardian](https://www.the
 
 ## Visiting Professor: Parsons School of Design
 - date: 2024-09-01
-- description: Served as visiting professor at Parsons School of Design, teaching Introduction to JavaScript for Web Design as part of @simoneqtri's Core Interaction class. [Selected Slides](https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
+- description: Served as visiting professor at Parsons School of Design, teaching Introduction to JavaScript for Web Design as part of [Simone Cutrí's](https://simonecutri.com/) Core Interaction class. [Selected Slides](https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
 - images: [parsons.gif]
 - tags: [Teaching, JavaScript, Web Design]
 
@@ -81,7 +81,7 @@ Utilizing precise geolocation technology, this application creates immersive cam
 
 ## Aesthetic.Computer
 - date: 2023-09-15
-- description: Led development of Aesthetic Computer's "Happy Hands" series, creating hands-free controlled immersive gameplay experiences.
+- description: Led development of Aesthetic Computer's "Happy Hands" series, creating hands-free controlled immersive gameplay experiences for [Jeffrey Alan Scudder](https://digitpain.com/).
 - link: https://www.aesthetic.computer/about
 - link_text: Explore Aesthetic Computer
 - images: [aesthetic-computer.gif]
