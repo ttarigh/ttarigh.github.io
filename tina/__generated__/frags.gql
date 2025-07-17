@@ -1,0 +1,27 @@
+fragment ArtParts on Art {
+  __typename
+  artProjects {
+    __typename
+    id
+    title
+    category
+    year
+    description
+    body
+    link
+    linkText
+    previewImage
+    images {
+      __typename
+      src
+      alt
+    }
+  }
+}
+
+fragment AboutParts on About {
+  __typename
+  title
+  content
+  image
+}
