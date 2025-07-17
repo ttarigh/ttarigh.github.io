@@ -6,8 +6,8 @@
       "category": "Web",
       "year": "2025",
       "description": "This site uses native image out to generate an interpretation of what your husband (or wife, or breakfast, or job, or anything else) might look like based on a picture of you. When you ask an reasoning model with native image out what your husband looks like, you're watching the model complete that thought using your face, its training data, and its own reasoning. AI models with multimodal input and reasoning do not classify you so much as they dream you up.",
-      "body": "I was inspired by[ Kate Crawford and Trevor Paglen's ImageNet Roulette 2019](https://excavating.ai/), a project that quickly onboarded users into ML training bias as they watched their own faces fall under the labels of \"queen,\" \"ballbuster,\" or even \"loser.\"\n",
-      "link": "whatdoesmyhusbandlooklike.com",
+      "body": "I was inspired by [Kate Crawford and Trevor Paglen's ImageNet Roulette 2019](https://excavating.ai/), a project that quickly onboarded users into ML training bias as they watched their own faces fall under the labels of \"queen,\" \"ballbuster,\" or even \"loser.\"\n",
+      "link": "https://whatdoesmyhusbandlooklike.com",
       "linkText": "What does your husband look like? ",
       "previewImage": "/images/art/whatdoesmyhusbandlooklike.webp",
       "images": [

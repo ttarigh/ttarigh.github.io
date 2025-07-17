@@ -7,15 +7,28 @@ function richTextToHtml(richText) {
   
   // Handle both string and rich-text format
   if (typeof richText === 'string') {
-    return richText.replace(/\n/g, '</p>\n<p>');
+    // Convert markdown links to HTML links
+    let html = richText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    // Convert newlines to paragraph breaks
+    html = html.replace(/\n/g, '</p>\n<p>');
+    return html;
   }
   
   // If it's rich text format from Tina, convert it
   if (richText.children) {
     return richText.children.map(child => {
       if (child.type === 'p') {
-        const text = child.children.map(c => c.text || '').join('');
-        return `<p>${text}</p>`;
+        const content = child.children.map(c => {
+          if (c.type === 'a' && c.url) {
+            // Handle links
+            const linkText = c.children ? c.children.map(ch => ch.text || '').join('') : c.text || '';
+            return `<a href="${c.url}">${linkText}</a>`;
+          } else {
+            // Handle regular text
+            return c.text || '';
+          }
+        }).join('');
+        return `<p>${content}</p>`;
       }
       return '';
     }).join('\n');
