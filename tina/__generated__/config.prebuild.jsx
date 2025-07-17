@@ -4,7 +4,7 @@ var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || p
 var config_default = defineConfig({
   branch,
   // Get this from tina.io
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "fake-client-id-for-local-dev",
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "1b05e708-d9d0-4fd7-83ac-3ecf5ec12662",
   // Get this from tina.io  
   token: process.env.TINA_TOKEN || "fake-token-for-local-dev",
   build: {
