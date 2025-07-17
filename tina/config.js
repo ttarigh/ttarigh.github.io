@@ -126,22 +126,11 @@ export default defineConfig({
                 description: "Main image shown in the table and on hover"
               },
               {
-                type: "object",
+                type: "image",
                 name: "images",
                 label: "Gallery Images",
                 list: true,
-                fields: [
-                  {
-                    type: "image",
-                    name: "src",
-                    label: "Image"
-                  },
-                  {
-                    type: "string",
-                    name: "alt",
-                    label: "Alt Text"
-                  }
-                ]
+                description: "Additional images for the project gallery"
               }
             ]
           }

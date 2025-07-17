@@ -19,11 +19,7 @@ export const ArtPartsFragmentDoc = gql`
     link
     linkText
     previewImage
-    images {
-      __typename
-      src
-      alt
-    }
+    images
   }
 }
     `;

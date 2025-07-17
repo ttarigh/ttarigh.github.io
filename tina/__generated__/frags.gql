@@ -11,11 +11,7 @@ fragment ArtParts on Art {
     link
     linkText
     previewImage
-    images {
-      __typename
-      src
-      alt
-    }
+    images
   }
 }
 

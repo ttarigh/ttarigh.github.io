@@ -93,11 +93,6 @@ type Collection {
 
 union DocumentNode = Art | Work | About | Folder
 
-type ArtArtProjectsImages {
-  src: String
-  alt: String
-}
-
 type ArtArtProjects {
   id: String!
   title: String!
@@ -108,7 +103,7 @@ type ArtArtProjects {
   link: String
   linkText: String
   previewImage: String!
-  images: [ArtArtProjectsImages]
+  images: [String]
 }
 
 type Art implements Node & Document {
@@ -138,11 +133,6 @@ input ImageFilter {
   in: [String]
 }
 
-input ArtArtProjectsImagesFilter {
-  src: ImageFilter
-  alt: StringFilter
-}
-
 input ArtArtProjectsFilter {
   id: StringFilter
   title: StringFilter
@@ -153,7 +143,7 @@ input ArtArtProjectsFilter {
   link: StringFilter
   linkText: StringFilter
   previewImage: ImageFilter
-  images: ArtArtProjectsImagesFilter
+  images: ImageFilter
 }
 
 input ArtFilter {
@@ -298,11 +288,6 @@ input DocumentMutation {
   about: AboutMutation
 }
 
-input ArtArtProjectsImagesMutation {
-  src: String
-  alt: String
-}
-
 input ArtArtProjectsMutation {
   id: String
   title: String
@@ -313,7 +298,7 @@ input ArtArtProjectsMutation {
   link: String
   linkText: String
   previewImage: String
-  images: [ArtArtProjectsImagesMutation]
+  images: [String]
 }
 
 input ArtMutation {
