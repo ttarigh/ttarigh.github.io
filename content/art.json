@@ -1,16 +1,29 @@
 {
   "artProjects": [
     {
+      "id": "whatdoesmyhusbandlooklike",
+      "title": "What does my Husband Look Like? ",
+      "category": "Web",
+      "year": "2025",
+      "description": "What does my husband look like... ",
+      "body": "\\<p>What does my husband look like... \\</p>\n",
+      "link": "whatdoesmyhusbandlooklike.com",
+      "linkText": "What does your husband look like? ",
+      "previewImage": "/images/Screenshot 2025-07-17 at 8.52.50 AM.png"
+    },
+    {
       "id": "resurrection",
       "title": "Resurrection",
       "category": "Web",
       "year": "2025",
       "description": "A time-based website created for a cabaret artist at The BOX NYC show, featuring a dynamic background that changes with the time of day.",
-      "body": "This immersive digital experience complements the performer's physical presence, creating a seamless bridge between the digital and physical realms of artistic expression.",
+      "body": "This immersive digital experience complements the performer's physical presence, creating a seamless bridge between the digital and physical realms of artistic expression.\n",
       "link": "https://resurrection.theemmasofia.com/",
       "linkText": "Experience Resurrection",
-      "previewImage": "images/art/resurrection.webp",
-      "images": ["images/art/resurrection.webp"]
+      "previewImage": "/imagesimages/art/resurrection.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "source-consume",
@@ -18,11 +31,13 @@
       "category": "Installation",
       "year": "2024",
       "description": "An interactive QR code installation for an anti-consumption fashion show that redirects users to live feeds of sites affected by overconsumption.",
-      "body": "This project creates a direct connection between fashion consumption and its environmental impact by transporting viewers to various locations affected by overconsumption, including manufacturing sites, waste dumps, and natural areas under threat.",
+      "body": "This project creates a direct connection between fashion consumption and its environmental impact by transporting viewers to various locations affected by overconsumption, including manufacturing sites, waste dumps, and natural areas under threat.\n",
       "link": "",
       "linkText": "",
-      "previewImage": "images/art/source-consume.webp",
-      "images": ["images/art/source-consume.webp"]
+      "previewImage": "/imagesimages/art/source-consume.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "infinite-podcast",
@@ -30,11 +45,13 @@
       "category": "Web",
       "year": "2024",
       "description": "A generative audio piece that infinitely chops and screws true crime podcasts together, creating an endless stream of fragmented narratives.",
-      "body": "Created for the Rusty Utopia group show by <a href=\"https://www.instagram.com/artistsquarters/\">Artists Quarters</a>, this piece examines our cultural obsession with true crime content by algorithmically remixing it into an unsettling, never-ending stream.",
+      "body": "Created for the Rusty Utopia group show by <a href=\"https://www.instagram.com/artistsquarters/\">Artists Quarters</a>, this piece examines our cultural obsession with true crime content by algorithmically remixing it into an unsettling, never-ending stream.\n",
       "link": "https://ttarigh.github.io/infinite-podcast/",
       "linkText": "Listen to Infinite Podcast",
-      "previewImage": "images/art/infinite-podcast.webp",
-      "images": ["images/art/infinite-podcast.webp"]
+      "previewImage": "/imagesimages/art/infinite-podcast.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "say-one-more-thing",
@@ -42,11 +59,13 @@
       "category": "Web",
       "year": "2024",
       "description": "An email lottery system with a 1 in one million chance that your message goes through, garnering over 5 million views and 10,000+ users.",
-      "body": "This project explores digital communication, chance, and the value we place on having our voices heard. The campaign spread through social media with viral videos explaining the concept:\n\nNew entries continue to arrive daily, with participants hoping to be the rare voice that breaks through.",
+      "body": "This project explores digital communication, chance, and the value we place on having our voices heard. The campaign spread through social media with viral videos explaining the concept:\n\nNew entries continue to arrive daily, with participants hoping to be the rare voice that breaks through.\n",
       "link": "https://say-one-more-thing.com/",
       "linkText": "Try Your Luck",
-      "previewImage": "images/art/say-one-more-thing.webp",
-      "images": ["images/art/say-one-more-thing.webp"]
+      "previewImage": "/imagesimages/art/say-one-more-thing.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "supervitamin",
@@ -54,11 +73,13 @@
       "category": "Web",
       "year": "2024",
       "description": "My inspirations for \"SuperVitamin\" were: 1) an ex who would take a bunch of supplements at the same time (like a handful of 20 pills, AT ONCE!!) and 2) a time period where I was completely enthralled with online manifestation videos.",
-      "body": "To manifest my dream job, I spent nearly an hour each morning listening to three back-to-back videos. Patience isn't my virtue, so why not binge all these good vibes at once? That curiosity plunged me into YouTube's manifestation rabbit hole, where you can manifest anything. Forget just the dream job—how about changing your eye color, winning the lottery, or nailing a backflip? The possibilities are endless, with countless frequencies and soothing voices guiding the way.\n\nUse this tool as a menu, pick out everything you want to manifest and listen to the cacophony of your every desire.",
+      "body": "To manifest my dream job, I spent nearly an hour each morning listening to three back-to-back videos. Patience isn't my virtue, so why not binge all these good vibes at once? That curiosity plunged me into YouTube's manifestation rabbit hole, where you can manifest anything. Forget just the dream job—how about changing your eye color, winning the lottery, or nailing a backflip? The possibilities are endless, with countless frequencies and soothing voices guiding the way.\n\nUse this tool as a menu, pick out everything you want to manifest and listen to the cacophony of your every desire.\n",
       "link": "https://tina.zone/vitamin/",
       "linkText": "Take Your Vitamins",
-      "previewImage": "images/art/supervitamin.webp",
-      "images": ["images/art/supervitamin.webp"]
+      "previewImage": "/imagesimages/art/supervitamin.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "pixelmouth",
@@ -66,11 +87,13 @@
       "category": "Installation",
       "year": "2024",
       "description": "This is a little install I did for @pixelmouthnyc called \"A rose for @Emily7213_lol\"",
-      "body": "It's an immersive viewing experience that dynamically switches between different real-time live streams worldwide while physically encapsulating you in the soft-sculpture. The portals transition between remote sea cameras, zoo animals, random backyards, ASMR, porn cams, MIT's cafeteria, bomb watches in Gaza, UN meetings, mukbang channels, urban city streets, game shows, stock watches, and so SO much more. It also featured a security camera watching the viewer from a location within the gallery.\n\nThis project highlights both the interconnectedness of our digital-age existence and the pervasive nature of modern surveillance. You are the observer and the observed. Thanks so much @tench.nology for getting me involved. It was such an honor and the show was fabulous ☺️❤️🙏",
+      "body": "It's an immersive viewing experience that dynamically switches between different real-time live streams worldwide while physically encapsulating you in the soft-sculpture. The portals transition between remote sea cameras, zoo animals, random backyards, ASMR, porn cams, MIT's cafeteria, bomb watches in Gaza, UN meetings, mukbang channels, urban city streets, game shows, stock watches, and so SO much more. It also featured a security camera watching the viewer from a location within the gallery.\n\nThis project highlights both the interconnectedness of our digital-age existence and the pervasive nature of modern surveillance. You are the observer and the observed. Thanks so much @tench.nology for getting me involved. It was such an honor and the show was fabulous ☺️❤️🙏\n",
       "link": "https://www.instagram.com/p/C8aQekjP9QV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       "linkText": "ENTER HERE",
-      "previewImage": "images/art/enter.webp",
-      "images": ["images/art/enter.webp"]
+      "previewImage": "/imagesimages/art/enter.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "facebook-marketplace-mirrors",
@@ -78,11 +101,13 @@
       "category": "Video",
       "year": "2024",
       "description": "I was selling a mirror on @facebookmarketplace like a month ago and laughed at myself trying to take a picture of the mirror without capturing my reflection.",
-      "body": "I went through hundreds of listings of second hand mirrors, ran the images through an image expander, and these are some of the haunted favs. Silly little thing.",
+      "body": "I went through hundreds of listings of second hand mirrors, ran the images through an image expander, and these are some of the haunted favs. Silly little thing.\n",
       "link": "https://www.instagram.com/reel/C6rLBhHxfjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       "linkText": "Watch the Reel!",
-      "previewImage": "images/art/fbmirrors.webp",
-      "images": ["images/art/fbmirrors.webp"]
+      "previewImage": "/imagesimages/art/fbmirrors.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "musical-tie",
@@ -90,11 +115,13 @@
       "category": "Wearable",
       "year": "2024",
       "description": "Made a silly thing with a children's toy I thrifted… thinking about dynamics between work and play// professional items and toys.",
-      "body": "I'd wear this if I was invited to a funeral for a musician. Or maybe if I was a server at a bar with live jazz, and had to help the guitarist tune up (swanky style). Anyway, I broke it...",
+      "body": "I'd wear this if I was invited to a funeral for a musician. Or maybe if I was a server at a bar with live jazz, and had to help the guitarist tune up (swanky style). Anyway, I broke it...\n",
       "link": "https://www.instagram.com/p/C5PIpHCRMBo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       "linkText": "See the Tie in Action!",
-      "previewImage": "images/art/musictie.webp",
-      "images": ["images/art/musictie.webp"]
+      "previewImage": "/imagesimages/art/musictie.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "engage-with-me",
@@ -102,11 +129,13 @@
       "category": "Web",
       "year": "2024",
       "description": "I stopped posting casual selfies of myself on instagram once it started turning into a page where I shared my freelance work and personal projects.",
-      "body": "I'm not exactly sure why. The humorous side of me likes to think it is because it is too easily accessible, and most people do not deserve my awesome selfies. This led to \"Engage with Me,\" a series of steps you must complete before being deemed worthy enough for an old picture of me.",
+      "body": "I'm not exactly sure why. The humorous side of me likes to think it is because it is too easily accessible, and most people do not deserve my awesome selfies. This led to \"Engage with Me,\" a series of steps you must complete before being deemed worthy enough for an old picture of me.\n",
       "link": "https://tina.zone/engagewithme",
       "linkText": "Engage with Me",
-      "previewImage": "images/art/engagewithme.webp",
-      "images": ["images/art/engagewithme.webp"]
+      "previewImage": "/imagesimages/art/engagewithme.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "happy-test",
@@ -114,11 +143,13 @@
       "category": "Web",
       "year": "2024",
       "description": "Inspired by the dystopian smile detector Canon installed in their Chinese offices (2021), I temporarily implemented browser-based emotion tracking on my personal website.",
-      "body": "With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.",
+      "body": "With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.\n",
       "link": "https://tina.zone/happytest",
       "linkText": "Happy Test",
-      "previewImage": "images/art/happy.webp",
-      "images": ["images/art/happy.webp"]
+      "previewImage": "/imagesimages/art/happy.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "scan-artist",
@@ -126,11 +157,13 @@
       "category": "AR",
       "year": "2024",
       "description": "A NYFW show that tells a story about the current scourges of the fashion industry through marker-based augmented reality.",
-      "body": "This project was presented at New York Fashion Week 2024, using augmented reality to highlight issues in the fashion industry.",
+      "body": "This project was presented at New York Fashion Week 2024, using augmented reality to highlight issues in the fashion industry.\n",
       "link": "https://nikimariers.substack.com/p/coding-chaos-unveiling-consumer-culture?r=f5n80&utm_medium=email",
       "linkText": "Learn More",
-      "previewImage": "images/art/scanartist.webp",
-      "images": ["images/art/scanartist.webp"]
+      "previewImage": "/imagesimages/art/scanartist.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "distance-from-source",
@@ -138,11 +171,13 @@
       "category": "Web",
       "year": "2024",
       "description": "I want the truth. Don't stray from the source. This diary entry obfuscates more the further you are away from the place it was written.",
-      "body": "This project explores the concept of truth and proximity, using geolocation to alter the user's experience based on their physical distance from where the content was created.",
+      "body": "This project explores the concept of truth and proximity, using geolocation to alter the user's experience based on their physical distance from where the content was created.\n",
       "link": "https://tina.zone/distancefromsource/",
       "linkText": "Read my Diary",
-      "previewImage": "images/art/distance-source.webp",
-      "images": ["images/art/distance-source.webp"]
+      "previewImage": "/imagesimages/art/distance-source.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "machine-learning-demo-with-book-covers",
@@ -153,8 +188,10 @@
       "body": "",
       "link": "",
       "linkText": "",
-      "previewImage": "images/art/ml.webp",
-      "images": ["images/art/ml.webp"]
+      "previewImage": "/imagesimages/art/ml.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "ru-and-ashe-an-html-play-about-love",
@@ -162,11 +199,13 @@
       "category": "Web",
       "year": "2024",
       "description": "WIP, two characters who are in love that speak to each other across the browser.",
-      "body": "This is an experiment with dialogue and animation. Current fixes needed: the speech is off. I realized you cannot have text to speech for two popups going at the same time, so I tried to improvise with some inputted audio files.",
+      "body": "This is an experiment with dialogue and animation. Current fixes needed: the speech is off. I realized you cannot have text to speech for two popups going at the same time, so I tried to improvise with some inputted audio files.\n",
       "link": "https://tina.zone/asheandru",
       "linkText": "Enjoy the Show!",
-      "previewImage": "images/art/couch.webp",
-      "images": ["images/art/couch.webp"]
+      "previewImage": "/imagesimages/art/couch.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "testing-tinas-vision",
@@ -174,11 +213,13 @@
       "category": "Web",
       "year": "2023",
       "description": "In an interview with a company, the CEO commented on my glasses and how the lenses are different shapes.",
-      "body": "This was a cutesy project I put together in a night.",
+      "body": "This was a cutesy project I put together in a night.\n",
       "link": "https://tina.zone/RIGHTEYELEFTEYE/",
       "linkText": "Test my Vision!",
-      "previewImage": "images/art/testingTinasVision.webp",
-      "images": ["images/art/testingTinasVision.webp"]
+      "previewImage": "/imagesimages/art/testingTinasVision.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "worship-me-a-shareable-digital-shrine",
@@ -186,11 +227,13 @@
       "category": "Web",
       "year": "2023",
       "description": "After a friend with covid jokingly told me to \"worship her through the screen,\" I thought about how I could make a shrine-like website for her.",
-      "body": "I notoriously make websites and art projects for the people in my life, so this was a fun challenge. This is my first Node.js application! After uploading a photo, users generate a link to their custom shrines, with buttons allowing you to worship them harder and harder. This custom link is sharable with other people, so they can worship you as well.",
+      "body": "I notoriously make websites and art projects for the people in my life, so this was a fun challenge. This is my first Node.js application! After uploading a photo, users generate a link to their custom shrines, with buttons allowing you to worship them harder and harder. This custom link is sharable with other people, so they can worship you as well.\n",
       "link": "https://worshipme.tina.zone",
       "linkText": "Build a shrine!",
-      "previewImage": "images/art/worship.webp",
-      "images": ["images/art/worship.webp"]
+      "previewImage": "/imagesimages/art/worship.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "elf-barighian",
@@ -198,11 +241,13 @@
       "category": "AR",
       "year": "2023",
       "description": "This piece was made as a mockup for a cannabis delivery company, Doobie.",
-      "body": "It is a great demo of placing 3D assets into the real world.",
+      "body": "It is a great demo of placing 3D assets into the real world.\n",
       "link": "https://tina.zone/barighian",
       "linkText": "hit my vape",
-      "previewImage": "images/art/barighian.webp",
-      "images": ["images/art/barighian.webp"]
+      "previewImage": "/imagesimages/art/barighian.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "en-route-super-sized-necklace",
@@ -210,11 +255,13 @@
       "category": "AR",
       "year": "2023",
       "description": "Inspired by Viviene Westwood's AR campaign for larger-than-life jewelry in real space.",
-      "body": "I made a 3D model of one of En Route's best-selling necklaces and got some early pics using meta spark for a real-world world object placement. It's always good for me to have some basic 3D modeling in my freelance practice.",
+      "body": "I made a 3D model of one of En Route's best-selling necklaces and got some early pics using meta spark for a real-world world object placement. It's always good for me to have some basic 3D modeling in my freelance practice.\n",
       "link": "",
       "linkText": "",
-      "previewImage": "images/art/enroute.webp",
-      "images": ["images/art/enroute.webp"]
+      "previewImage": "/imagesimages/art/enroute.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "pop-up-experiments",
@@ -222,11 +269,13 @@
       "category": "Web",
       "year": "2023",
       "description": "This piece is meant to be funny and also experimental. It is about how we may seem perfect on paper even if that could not be farther from the truth.",
-      "body": "If you want to try this experience, make sure popups and camera are turned on.",
+      "body": "If you want to try this experience, make sure popups and camera are turned on.\n",
       "link": "https://tina.zone/abouttina",
       "linkText": "play with popups",
-      "previewImage": "images/art/popup.webp",
-      "images": ["images/art/popup.webp"]
+      "previewImage": "/imagesimages/art/popup.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "love-meter",
@@ -234,11 +283,13 @@
       "category": "Web",
       "year": "2023",
       "description": "A birthday present I made for a friend going through a breakup.",
-      "body": "Urging them to remember that the love they've put out into the universe exists inside them.",
+      "body": "Urging them to remember that the love they've put out into the universe exists inside them.\n",
       "link": "https://tina.zone/lovemeter",
       "linkText": "Love Meter",
-      "previewImage": "images/art/lovemeter.webp",
-      "images": ["images/art/lovemeter.webp"]
+      "previewImage": "/imagesimages/art/lovemeter.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "columbia-adps-art-exhibit",
@@ -246,11 +297,13 @@
       "category": "Web",
       "year": "2023",
       "description": "Columbia University put on a play based on old alumni's tragic love letters, and featured different artists from NYC.",
-      "body": "I was invited to participate, and in addition to some live-coding visuals I did for the performance, I also had this simple html/js animation.",
+      "body": "I was invited to participate, and in addition to some live-coding visuals I did for the performance, I also had this simple html/js animation.\n",
       "link": "https://tina.zone/adp",
       "linkText": "Watch Here",
-      "previewImage": "images/art/adp.webp",
-      "images": ["images/art/adp.webp"]
+      "previewImage": "/imagesimages/art/adp.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "magic-8-ball",
@@ -258,11 +311,13 @@
       "category": "Web",
       "year": "2023",
       "description": "A simple magic-8 ball I made using my own head, designed to have an old primitive style of animation.",
-      "body": "I still use this if I'm unsure.",
+      "body": "I still use this if I'm unsure.\n",
       "link": "https://tina.zone/magic8",
       "linkText": "Try the Magic",
-      "previewImage": "images/art/magic8.webp",
-      "images": ["images/art/magic8.webp"]
+      "previewImage": "/imagesimages/art/magic8.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "ar-portfolio-enhancer",
@@ -270,11 +325,13 @@
       "category": "AR",
       "year": "2023",
       "description": "A portfolio enhancer I designed using A-frame, that I no longer use on my personal website.",
-      "body": "Instead of having so much text on my projects page, I decided to record casual videos of myself discussing each one.",
+      "body": "Instead of having so much text on my projects page, I decided to record casual videos of myself discussing each one.\n",
       "link": "https://www.instagram.com/reel/C3tbtJ2PYTb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       "linkText": "See what it was like in action!",
-      "previewImage": "images/art/arhelper.webp",
-      "images": ["images/art/arhelper.webp"]
+      "previewImage": "/imagesimages/art/arhelper.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "emotions-detector",
@@ -282,11 +339,13 @@
       "category": "Web",
       "year": "2023",
       "description": "Inspired by the dystopian smile detector Canon installed in their Chinese offices (2021), I temporarily implemented browser-based emotion tracking on my personal website.",
-      "body": "With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.",
+      "body": "With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.\n",
       "link": "https://tina.zone/happytest/",
       "linkText": "Happy Test",
-      "previewImage": "images/art/emotions-detector.webp",
-      "images": ["images/art/emotions-detector.webp"]
+      "previewImage": "/imagesimages/art/emotions-detector.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "audio-reactive-visualizer-projects",
@@ -297,8 +356,10 @@
       "body": "",
       "link": "https://tina.zone/visuals",
       "linkText": "Check them out!",
-      "previewImage": "images/art/pic.webp",
-      "images": ["images/art/pic.webp"]
+      "previewImage": "/imagesimages/art/pic.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "chrome-extension-stop-buying-things",
@@ -306,11 +367,13 @@
       "category": "Chrome extension",
       "year": "2022",
       "description": "After discovering the trend of \"deinfluencing,\" I decided to take a stab at the consumerism problem.",
-      "body": "I noticed that because of how convenient it has become to order things online, we are consuming much more than we need to. My simple solution to this is a chrome extension I aptly named \"Stop Buying Things.\" By detecting that you are on a shopping cart page, the pop-up turns your browser window red for a few seconds, then reminds you of its simple creed: STOP BUYING THINGS! In the few seconds where your browser is totally red, it will allow you to take a deep breath before truly considering if you need to buy anything.",
+      "body": "I noticed that because of how convenient it has become to order things online, we are consuming much more than we need to. My simple solution to this is a chrome extension I aptly named \"Stop Buying Things.\" By detecting that you are on a shopping cart page, the pop-up turns your browser window red for a few seconds, then reminds you of its simple creed: STOP BUYING THINGS! In the few seconds where your browser is totally red, it will allow you to take a deep breath before truly considering if you need to buy anything.\n",
       "link": "",
       "linkText": "",
-      "previewImage": "images/art/SBTex.webp",
-      "images": ["images/art/SBTex.webp"]
+      "previewImage": "/imagesimages/art/SBTex.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "mathy-the-math-cat",
@@ -318,11 +381,13 @@
       "category": "Education",
       "year": "2022",
       "description": "An additional skill practice program built for English-speaking 2nd graders.",
-      "body": "Its purpose is to help students improve their additional skills by encouraging them to get multiple answers in a row. Users answer the displayed arithmetic question, which increases in difficulty every level. Users submit their answer by pressing the submit button, or pressing the enter key on their keyboard. If the user answers correctly, a new problem will be randomly generated.\n\nThe number of currently consecutive answers is stored, and it is displayed under \"Current Streak\" on the webpage. The user's highest streak for the session is also displayed, which is reset when the page is refreshed/a new session starts.\n\nFor every correctly answered question, the screen displays \"Correct! Great Job!\" with an accompanying image of the original avatar, Mathy the Adventure Cat, randomly displaying 1 of 3 positive emotions. Every 10 correct consecutive answers is rewarded with unlocking a new background.\n\nWhen users enter incorrectly, the current streak is reset to 0, and the question will not change until it is answered correctly. Mathy the Adventure Cat is displayed as having a pensive, thinking face.\n\nWhen users need help, they can press the help button in the top right of the div container. This alerts the user of some ways to help them solve the problem.\n\nFor users who have sight impairments or struggle with dyscalculia, there is a speech-to-text toggle button displayed under the current level.",
+      "body": "Its purpose is to help students improve their additional skills by encouraging them to get multiple answers in a row. Users answer the displayed arithmetic question, which increases in difficulty every level. Users submit their answer by pressing the submit button, or pressing the enter key on their keyboard. If the user answers correctly, a new problem will be randomly generated.\n\nThe number of currently consecutive answers is stored, and it is displayed under \"Current Streak\" on the webpage. The user's highest streak for the session is also displayed, which is reset when the page is refreshed/a new session starts.\n\nFor every correctly answered question, the screen displays \"Correct! Great Job!\" with an accompanying image of the original avatar, Mathy the Adventure Cat, randomly displaying 1 of 3 positive emotions. Every 10 correct consecutive answers is rewarded with unlocking a new background.\n\nWhen users enter incorrectly, the current streak is reset to 0, and the question will not change until it is answered correctly. Mathy the Adventure Cat is displayed as having a pensive, thinking face.\n\nWhen users need help, they can press the help button in the top right of the div container. This alerts the user of some ways to help them solve the problem.\n\nFor users who have sight impairments or struggle with dyscalculia, there is a speech-to-text toggle button displayed under the current level.\n",
       "link": "",
       "linkText": "",
-      "previewImage": "images/art/mathy.webp",
-      "images": ["images/art/mathy.webp"]
+      "previewImage": "/imagesimages/art/mathy.webp",
+      "images": [
+        {}
+      ]
     },
     {
       "id": "interactive-fish-tank",
@@ -330,11 +395,13 @@
       "category": "Web",
       "year": "2021",
       "description": "A project I completed in a 300-level Introduction to Computer Graphics class at Wellesley College.",
-      "body": "The entire project was done in JavaScript, WebGL, and Three.js. Click the link to see how you can interact with the environment using your keyboard.",
+      "body": "The entire project was done in JavaScript, WebGL, and Three.js. Click the link to see how you can interact with the environment using your keyboard.\n",
       "link": "https://ttarigh.github.io/interactiveaquarium/",
       "linkText": "Click here",
-      "previewImage": "images/art/pic.webp",
-      "images": ["images/art/pic.webp"]
+      "previewImage": "/imagesimages/art/pic.webp",
+      "images": [
+        {}
+      ]
     }
   ]
-} 
+}
