@@ -56,12 +56,15 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   art(relativePath: String): Art!
   artConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ArtFilter): ArtConnection!
+  work(relativePath: String): Work!
+  workConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WorkFilter): WorkConnection!
   about(relativePath: String): About!
   aboutConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutFilter): AboutConnection!
 }
 
 input DocumentFilter {
   art: ArtFilter
+  work: WorkFilter
   about: AboutFilter
 }
 
@@ -88,7 +91,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Art | About | Folder
+union DocumentNode = Art | Work | About | Folder
 
 type ArtArtProjectsImages {
   src: String
@@ -168,19 +171,93 @@ type ArtConnection implements Connection {
   edges: [ArtConnectionEdges]
 }
 
-type About implements Node & Document {
-  title: String
-  content: JSON
-  image: String
+type WorkWorkProjectsImages {
+  src: String!
+  alt: String!
+}
+
+type WorkWorkProjects {
+  id: String!
+  title: String!
+  category: String!
+  year: String!
+  description: JSON!
+  images: [WorkWorkProjectsImages]
+  imageLayout: String!
+}
+
+type Work implements Node & Document {
+  workProjects: [WorkWorkProjects]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
+input WorkWorkProjectsImagesFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input WorkWorkProjectsFilter {
+  id: StringFilter
+  title: StringFilter
+  category: StringFilter
+  year: StringFilter
+  description: RichTextFilter
+  images: WorkWorkProjectsImagesFilter
+  imageLayout: StringFilter
+}
+
+input WorkFilter {
+  workProjects: WorkWorkProjectsFilter
+}
+
+type WorkConnectionEdges {
+  cursor: String!
+  node: Work
+}
+
+type WorkConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [WorkConnectionEdges]
+}
+
+type AboutArenaBox {
+  title: String
+  description: String
+  link: String
+}
+
+type About implements Node & Document {
+  title: String!
+  image: String!
+  intro: JSON!
+  bio: JSON!
+  contact: JSON!
+  arenaBox: AboutArenaBox
+  philosophy: JSON
+  footer: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AboutArenaBoxFilter {
+  title: StringFilter
+  description: StringFilter
+  link: StringFilter
+}
+
 input AboutFilter {
   title: StringFilter
-  content: RichTextFilter
   image: ImageFilter
+  intro: RichTextFilter
+  bio: RichTextFilter
+  contact: RichTextFilter
+  arenaBox: AboutArenaBoxFilter
+  philosophy: RichTextFilter
+  footer: RichTextFilter
 }
 
 type AboutConnectionEdges {
@@ -202,18 +279,22 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updateArt(relativePath: String!, params: ArtMutation!): Art!
   createArt(relativePath: String!, params: ArtMutation!): Art!
+  updateWork(relativePath: String!, params: WorkMutation!): Work!
+  createWork(relativePath: String!, params: WorkMutation!): Work!
   updateAbout(relativePath: String!, params: AboutMutation!): About!
   createAbout(relativePath: String!, params: AboutMutation!): About!
 }
 
 input DocumentUpdateMutation {
   art: ArtMutation
+  work: WorkMutation
   about: AboutMutation
   relativePath: String
 }
 
 input DocumentMutation {
   art: ArtMutation
+  work: WorkMutation
   about: AboutMutation
 }
 
@@ -239,10 +320,40 @@ input ArtMutation {
   artProjects: [ArtArtProjectsMutation]
 }
 
+input WorkWorkProjectsImagesMutation {
+  src: String
+  alt: String
+}
+
+input WorkWorkProjectsMutation {
+  id: String
+  title: String
+  category: String
+  year: String
+  description: JSON
+  images: [WorkWorkProjectsImagesMutation]
+  imageLayout: String
+}
+
+input WorkMutation {
+  workProjects: [WorkWorkProjectsMutation]
+}
+
+input AboutArenaBoxMutation {
+  title: String
+  description: String
+  link: String
+}
+
 input AboutMutation {
   title: String
-  content: JSON
   image: String
+  intro: JSON
+  bio: JSON
+  contact: JSON
+  arenaBox: AboutArenaBoxMutation
+  philosophy: JSON
+  footer: JSON
 }
 
 schema {

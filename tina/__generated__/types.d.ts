@@ -84,6 +84,8 @@ export type Query = {
   document: DocumentNode;
   art: Art;
   artConnection: ArtConnection;
+  work: Work;
+  workConnection: WorkConnection;
   about: About;
   aboutConnection: AboutConnection;
 };
@@ -125,6 +127,21 @@ export type QueryArtConnectionArgs = {
 };
 
 
+export type QueryWorkArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryWorkConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<WorkFilter>;
+};
+
+
 export type QueryAboutArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -141,6 +158,7 @@ export type QueryAboutConnectionArgs = {
 
 export type DocumentFilter = {
   art?: InputMaybe<ArtFilter>;
+  work?: InputMaybe<WorkFilter>;
   about?: InputMaybe<AboutFilter>;
 };
 
@@ -181,7 +199,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Art | About | Folder;
+export type DocumentNode = Art | Work | About | Folder;
 
 export type ArtArtProjectsImages = {
   __typename?: 'ArtArtProjectsImages';
@@ -266,20 +284,100 @@ export type ArtConnection = Connection & {
   edges?: Maybe<Array<Maybe<ArtConnectionEdges>>>;
 };
 
-export type About = Node & Document & {
-  __typename?: 'About';
-  title?: Maybe<Scalars['String']['output']>;
-  content?: Maybe<Scalars['JSON']['output']>;
-  image?: Maybe<Scalars['String']['output']>;
+export type WorkWorkProjectsImages = {
+  __typename?: 'WorkWorkProjectsImages';
+  src: Scalars['String']['output'];
+  alt: Scalars['String']['output'];
+};
+
+export type WorkWorkProjects = {
+  __typename?: 'WorkWorkProjects';
+  id: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  year: Scalars['String']['output'];
+  description: Scalars['JSON']['output'];
+  images?: Maybe<Array<Maybe<WorkWorkProjectsImages>>>;
+  imageLayout: Scalars['String']['output'];
+};
+
+export type Work = Node & Document & {
+  __typename?: 'Work';
+  workProjects?: Maybe<Array<Maybe<WorkWorkProjects>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
 };
 
+export type WorkWorkProjectsImagesFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+};
+
+export type WorkWorkProjectsFilter = {
+  id?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  description?: InputMaybe<RichTextFilter>;
+  images?: InputMaybe<WorkWorkProjectsImagesFilter>;
+  imageLayout?: InputMaybe<StringFilter>;
+};
+
+export type WorkFilter = {
+  workProjects?: InputMaybe<WorkWorkProjectsFilter>;
+};
+
+export type WorkConnectionEdges = {
+  __typename?: 'WorkConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Work>;
+};
+
+export type WorkConnection = Connection & {
+  __typename?: 'WorkConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<WorkConnectionEdges>>>;
+};
+
+export type AboutArenaBox = {
+  __typename?: 'AboutArenaBox';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type About = Node & Document & {
+  __typename?: 'About';
+  title: Scalars['String']['output'];
+  image: Scalars['String']['output'];
+  intro: Scalars['JSON']['output'];
+  bio: Scalars['JSON']['output'];
+  contact: Scalars['JSON']['output'];
+  arenaBox?: Maybe<AboutArenaBox>;
+  philosophy?: Maybe<Scalars['JSON']['output']>;
+  footer?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type AboutArenaBoxFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
 export type AboutFilter = {
   title?: InputMaybe<StringFilter>;
-  content?: InputMaybe<RichTextFilter>;
   image?: InputMaybe<ImageFilter>;
+  intro?: InputMaybe<RichTextFilter>;
+  bio?: InputMaybe<RichTextFilter>;
+  contact?: InputMaybe<RichTextFilter>;
+  arenaBox?: InputMaybe<AboutArenaBoxFilter>;
+  philosophy?: InputMaybe<RichTextFilter>;
+  footer?: InputMaybe<RichTextFilter>;
 };
 
 export type AboutConnectionEdges = {
@@ -304,6 +402,8 @@ export type Mutation = {
   createFolder: DocumentNode;
   updateArt: Art;
   createArt: Art;
+  updateWork: Work;
+  createWork: Work;
   updateAbout: About;
   createAbout: About;
 };
@@ -354,6 +454,18 @@ export type MutationCreateArtArgs = {
 };
 
 
+export type MutationUpdateWorkArgs = {
+  relativePath: Scalars['String']['input'];
+  params: WorkMutation;
+};
+
+
+export type MutationCreateWorkArgs = {
+  relativePath: Scalars['String']['input'];
+  params: WorkMutation;
+};
+
+
 export type MutationUpdateAboutArgs = {
   relativePath: Scalars['String']['input'];
   params: AboutMutation;
@@ -367,12 +479,14 @@ export type MutationCreateAboutArgs = {
 
 export type DocumentUpdateMutation = {
   art?: InputMaybe<ArtMutation>;
+  work?: InputMaybe<WorkMutation>;
   about?: InputMaybe<AboutMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
   art?: InputMaybe<ArtMutation>;
+  work?: InputMaybe<WorkMutation>;
   about?: InputMaybe<AboutMutation>;
 };
 
@@ -398,15 +512,47 @@ export type ArtMutation = {
   artProjects?: InputMaybe<Array<InputMaybe<ArtArtProjectsMutation>>>;
 };
 
+export type WorkWorkProjectsImagesMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type WorkWorkProjectsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['JSON']['input']>;
+  images?: InputMaybe<Array<InputMaybe<WorkWorkProjectsImagesMutation>>>;
+  imageLayout?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type WorkMutation = {
+  workProjects?: InputMaybe<Array<InputMaybe<WorkWorkProjectsMutation>>>;
+};
+
+export type AboutArenaBoxMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type AboutMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
-  content?: InputMaybe<Scalars['JSON']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['JSON']['input']>;
+  bio?: InputMaybe<Scalars['JSON']['input']>;
+  contact?: InputMaybe<Scalars['JSON']['input']>;
+  arenaBox?: InputMaybe<AboutArenaBoxMutation>;
+  philosophy?: InputMaybe<Scalars['JSON']['input']>;
+  footer?: InputMaybe<Scalars['JSON']['input']>;
 };
 
 export type ArtPartsFragment = { __typename: 'Art', artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<{ __typename: 'ArtArtProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null };
 
-export type AboutPartsFragment = { __typename: 'About', title?: string | null, content?: any | null, image?: string | null };
+export type WorkPartsFragment = { __typename: 'Work', workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src: string, alt: string } | null> | null } | null> | null };
+
+export type AboutPartsFragment = { __typename: 'About', title: string, image: string, intro: any, bio: any, contact: any, philosophy?: any | null, footer?: any | null, arenaBox?: { __typename: 'AboutArenaBox', title?: string | null, description?: string | null, link?: string | null } | null };
 
 export type ArtQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -427,12 +573,31 @@ export type ArtConnectionQueryVariables = Exact<{
 
 export type ArtConnectionQuery = { __typename?: 'Query', artConnection: { __typename?: 'ArtConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArtConnectionEdges', cursor: string, node?: { __typename: 'Art', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<{ __typename: 'ArtArtProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
+export type WorkQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type WorkQuery = { __typename?: 'Query', work: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src: string, alt: string } | null> | null } | null> | null } };
+
+export type WorkConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<WorkFilter>;
+}>;
+
+
+export type WorkConnectionQuery = { __typename?: 'Query', workConnection: { __typename?: 'WorkConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WorkConnectionEdges', cursor: string, node?: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src: string, alt: string } | null> | null } | null> | null } | null } | null> | null } };
+
 export type AboutQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, title?: string | null, content?: any | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type AboutQuery = { __typename?: 'Query', about: { __typename: 'About', id: string, title: string, image: string, intro: any, bio: any, contact: any, philosophy?: any | null, footer?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, arenaBox?: { __typename: 'AboutArenaBox', title?: string | null, description?: string | null, link?: string | null } | null } };
 
 export type AboutConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -444,7 +609,7 @@ export type AboutConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, title?: string | null, content?: any | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type AboutConnectionQuery = { __typename?: 'Query', aboutConnection: { __typename?: 'AboutConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AboutConnectionEdges', cursor: string, node?: { __typename: 'About', id: string, title: string, image: string, intro: any, bio: any, contact: any, philosophy?: any | null, footer?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, arenaBox?: { __typename: 'AboutArenaBox', title?: string | null, description?: string | null, link?: string | null } | null } | null } | null> | null } };
 
 export const ArtPartsFragmentDoc = gql`
     fragment ArtParts on Art {
@@ -468,12 +633,41 @@ export const ArtPartsFragmentDoc = gql`
   }
 }
     `;
+export const WorkPartsFragmentDoc = gql`
+    fragment WorkParts on Work {
+  __typename
+  workProjects {
+    __typename
+    id
+    title
+    category
+    year
+    description
+    images {
+      __typename
+      src
+      alt
+    }
+    imageLayout
+  }
+}
+    `;
 export const AboutPartsFragmentDoc = gql`
     fragment AboutParts on About {
   __typename
   title
-  content
   image
+  intro
+  bio
+  contact
+  arenaBox {
+    __typename
+    title
+    description
+    link
+  }
+  philosophy
+  footer
 }
     `;
 export const ArtDocument = gql`
@@ -533,6 +727,63 @@ export const ArtConnectionDocument = gql`
   }
 }
     ${ArtPartsFragmentDoc}`;
+export const WorkDocument = gql`
+    query work($relativePath: String!) {
+  work(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...WorkParts
+  }
+}
+    ${WorkPartsFragmentDoc}`;
+export const WorkConnectionDocument = gql`
+    query workConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: WorkFilter) {
+  workConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...WorkParts
+      }
+    }
+  }
+}
+    ${WorkPartsFragmentDoc}`;
 export const AboutDocument = gql`
     query about($relativePath: String!) {
   about(relativePath: $relativePath) {
@@ -598,6 +849,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     artConnection(variables?: ArtConnectionQueryVariables, options?: C): Promise<{data: ArtConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArtConnectionQueryVariables, query: string}> {
         return requester<{data: ArtConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: ArtConnectionQueryVariables, query: string}, ArtConnectionQueryVariables>(ArtConnectionDocument, variables, options);
+      },
+    work(variables: WorkQueryVariables, options?: C): Promise<{data: WorkQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WorkQueryVariables, query: string}> {
+        return requester<{data: WorkQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WorkQueryVariables, query: string}, WorkQueryVariables>(WorkDocument, variables, options);
+      },
+    workConnection(variables?: WorkConnectionQueryVariables, options?: C): Promise<{data: WorkConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WorkConnectionQueryVariables, query: string}> {
+        return requester<{data: WorkConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: WorkConnectionQueryVariables, query: string}, WorkConnectionQueryVariables>(WorkConnectionDocument, variables, options);
       },
     about(variables: AboutQueryVariables, options?: C): Promise<{data: AboutQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutQueryVariables, query: string}> {
         return requester<{data: AboutQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: AboutQueryVariables, query: string}, AboutQueryVariables>(AboutDocument, variables, options);

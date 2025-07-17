@@ -27,12 +27,41 @@ export const ArtPartsFragmentDoc = gql`
   }
 }
     `;
+export const WorkPartsFragmentDoc = gql`
+    fragment WorkParts on Work {
+  __typename
+  workProjects {
+    __typename
+    id
+    title
+    category
+    year
+    description
+    images {
+      __typename
+      src
+      alt
+    }
+    imageLayout
+  }
+}
+    `;
 export const AboutPartsFragmentDoc = gql`
     fragment AboutParts on About {
   __typename
   title
-  content
   image
+  intro
+  bio
+  contact
+  arenaBox {
+    __typename
+    title
+    description
+    link
+  }
+  philosophy
+  footer
 }
     `;
 export const ArtDocument = gql`
@@ -92,6 +121,63 @@ export const ArtConnectionDocument = gql`
   }
 }
     ${ArtPartsFragmentDoc}`;
+export const WorkDocument = gql`
+    query work($relativePath: String!) {
+  work(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...WorkParts
+  }
+}
+    ${WorkPartsFragmentDoc}`;
+export const WorkConnectionDocument = gql`
+    query workConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: WorkFilter) {
+  workConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...WorkParts
+      }
+    }
+  }
+}
+    ${WorkPartsFragmentDoc}`;
 export const AboutDocument = gql`
     query about($relativePath: String!) {
   about(relativePath: $relativePath) {
@@ -156,6 +242,12 @@ export function getSdk(requester) {
     },
     artConnection(variables, options) {
       return requester(ArtConnectionDocument, variables, options);
+    },
+    work(variables, options) {
+      return requester(WorkDocument, variables, options);
+    },
+    workConnection(variables, options) {
+      return requester(WorkConnectionDocument, variables, options);
     },
     about(variables, options) {
       return requester(AboutDocument, variables, options);

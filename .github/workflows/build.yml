@@ -4,9 +4,22 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  # Trigger on content changes (when TinaCMS saves changes)
+  repository_dispatch:
+    types: [tina-content-update]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -22,18 +35,42 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build TinaCMS
-      run: npm run build
-      env:
-        NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-        TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        
     - name: Build site from content
       run: npm run build:site
       
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+    - name: Create admin interface
+      run: |
+        mkdir -p admin
+        echo '<!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>TinaCMS Admin</title>
+        </head>
+        <body>
+          <div id="tina-admin">
+            <p>Loading TinaCMS admin...</p>
+            <p><a href="https://app.tina.io/projects/tina-tarighian">Go to TinaCMS Cloud Dashboard</a></p>
+          </div>
+        </body>
+        </html>' > admin/index.html
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
-        exclude_assets: '.github,node_modules,scripts,tina,*.md,package*.json' 
+        path: ./
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 

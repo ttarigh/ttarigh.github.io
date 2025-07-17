@@ -13,6 +13,7 @@ yarn-error.log*
 
 # TinaCMS
 .tina/
+DEPLOYMENT_GUIDE.md
 
 # Logs
 logs

@@ -19,9 +19,37 @@ fragment ArtParts on Art {
   }
 }
 
+fragment WorkParts on Work {
+  __typename
+  workProjects {
+    __typename
+    id
+    title
+    category
+    year
+    description
+    images {
+      __typename
+      src
+      alt
+    }
+    imageLayout
+  }
+}
+
 fragment AboutParts on About {
   __typename
   title
-  content
   image
+  intro
+  bio
+  contact
+  arenaBox {
+    __typename
+    title
+    description
+    link
+  }
+  philosophy
+  footer
 }

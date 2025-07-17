@@ -34,15 +34,26 @@ export default defineConfig({
         label: "Art Projects",
         path: "content",
         match: {
-          include: "**/art"
+          include: "art"
         },
         format: "json",
+        ui: {
+          allowedActions: {
+            create: true,
+            delete: true,
+          },
+        },
         fields: [
           {
             type: "object",
             name: "artProjects",
             label: "Art Projects",
             list: true,
+            ui: {
+              itemProps: (item) => {
+                return { label: item?.title }
+              },
+            },
             fields: [
               {
                 type: "string",
@@ -137,28 +148,172 @@ export default defineConfig({
         ]
       },
       {
+        name: "work",
+        label: "Work Projects",
+        path: "content",
+        match: {
+          include: "work"
+        },
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: true,
+            delete: true,
+          },
+        },
+        fields: [
+          {
+            type: "object",
+            name: "workProjects",
+            label: "Work Projects",
+            list: true,
+            ui: {
+              itemProps: (item) => {
+                return { label: item?.title }
+              },
+            },
+            fields: [
+              {
+                type: "string",
+                name: "id",
+                label: "Project ID",
+                required: true,
+                description: "Unique identifier for the project (used in URLs)"
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+                required: true
+              },
+              {
+                type: "string",
+                name: "category",
+                label: "Category",
+                required: true,
+                description: "Multiple categories separated by commas"
+              },
+              {
+                type: "string",
+                name: "year",
+                label: "Year",
+                required: true
+              },
+              {
+                type: "rich-text",
+                name: "description",
+                label: "Description",
+                required: true,
+                description: "Project description with HTML support"
+              },
+              {
+                type: "object",
+                name: "images",
+                label: "Project Images",
+                list: true,
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image",
+                    required: true
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text",
+                    required: true
+                  }
+                ]
+              },
+              {
+                type: "string",
+                name: "imageLayout",
+                label: "Image Layout",
+                required: true,
+                options: ["single", "grid"],
+                description: "How images should be displayed"
+              }
+            ]
+          }
+        ]
+      },
+      {
         name: "about",
         label: "About Page",
         path: "content",
         match: {
-          include: "**/about"
+          include: "about"
         },
         format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
         fields: [
           {
             type: "string",
             name: "title",
-            label: "Page Title"
-          },
-          {
-            type: "rich-text",
-            name: "content",
-            label: "About Content"
+            label: "Page Title",
+            required: true
           },
           {
             type: "image",
             name: "image",
-            label: "Profile Image"
+            label: "Profile Image",
+            required: true
+          },
+          {
+            type: "rich-text",
+            name: "intro",
+            label: "Introduction",
+            required: true
+          },
+          {
+            type: "rich-text",
+            name: "bio",
+            label: "Bio",
+            required: true
+          },
+          {
+            type: "rich-text",
+            name: "contact",
+            label: "Contact Info",
+            required: true
+          },
+          {
+            type: "object",
+            name: "arenaBox",
+            label: "Are.na Box",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Box Title"
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Box Description"
+              },
+              {
+                type: "string",
+                name: "link",
+                label: "Box Link"
+              }
+            ]
+          },
+          {
+            type: "rich-text",
+            name: "philosophy",
+            label: "Philosophy Section"
+          },
+          {
+            type: "rich-text",
+            name: "footer",
+            label: "Footer"
           }
         ]
       }

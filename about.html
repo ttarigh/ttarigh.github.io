@@ -8,26 +8,26 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="img/apple-touch-icon.webp"
+      href="img/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="img/favicon-32x32.webp"
+      href="img/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="img/favicon-16x16.webp"
+      href="img/favicon-16x16.png"
     />
     <link rel="manifest" href="img/site.webmanifest" />
 
     <style>
       body {
         font-family: Arial, sans-serif;
-        font-size: 18px; /* Reduced from 24px for less scrolling */
+        font-size: 18px;
         min-height: 100vh;
         margin: 0;
         padding: 0 20px;
@@ -46,12 +46,12 @@
       }
       
       h1 {
-        font-size: clamp(36px, 5vw, 50px); /* Smaller font */
+        font-size: clamp(36px, 5vw, 50px);
         margin-bottom: 20px;
       }
       
       p {
-        margin-bottom: 16px; /* Smaller margin */
+        margin-bottom: 16px;
         line-height: 1.4;
       }
       
@@ -98,21 +98,20 @@
         background-color: white;
         border: 1px solid #ddd;
         padding: 15px;
-        margin: 10px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin: 20px 0;
+        border-radius: 5px;
         text-decoration: none;
-        color: #333;
-        transition: all 0.2s ease;
+        color: inherit;
+        transition: background-color 0.2s;
       }
       
       .arena-box:hover {
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        transform: translateY(-2px);
+        background-color: #f5f5f5;
       }
       
       .arena-box h3 {
-        margin: 0 0 5px 0;
-        font-size: 18px;
+        margin: 0 0 8px 0;
+        font-size: 16px;
       }
       
       .arena-box p {
@@ -120,31 +119,23 @@
         font-size: 14px;
         color: #666;
       }
-      .artsy-text {
-        font-size: 13px;
-      }
       
-    
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         .content-wrapper {
           flex-direction: column;
         }
         
         .image-content {
-          display: none; /* Hide image on mobile as requested */
+          order: -1;
         }
         
-        .text-content {
-          width: 100%;
+        .image-content img {
+          max-width: 100%;
         }
         
         body {
-          background-color: white !important;
-          font-size: 16px; /* Even smaller on mobile */
-        }
-        
-        body.gradient-background {
-          background: none;
+          font-size: 16px;
+          padding: 0 15px;
         }
         
         .back-button {
@@ -165,40 +156,25 @@
         <h1 style="margin-bottom: 20px;">about:</h1>
         <div class="content-wrapper">
           <div class="text-content">
-            <p>
-                <strong>Hi</strong>, I'm a Tina Tarighian.  
-            </p>
-            <p>
-              I code, play, and write with and about AI at the Google Creative Lab in NYC. I'm also a Y11 <a href="https://www.newmuseum.org/new-inc/">NEW INC</a> member, the New Museum's technology and art incubator. 
-            </p>
-            <p>
-              I give talks on everything from javascript at <a href="https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Parsons School of Design</a> to AI’s future in art at <a href="https://www.artechouse.com/"> ARTECHOUSE</a>—plus the occasional play opening, like <a href="https://doomers.fyi/">Doomers NYC</a>, exploring our ties to artificial intelligence.
-            </p>
-            <p>
-                If you want to chat (<strong>I always do btw</strong>) or collaborate please: <a href="mailto:tinatarighianwork@gmail.com">email me</a>, 
-                <a href="https://x.com/tinaz0ne">tweet me</a>, <a href="https://www.instagram.com/tarighian">gram me</a>, <a href="https://www.are.na/tina-zone/channels">are.na me</a>
-            </p>
+            <p><strong>Hi</strong>, I'm a Tina Tarighian.</p>
+            <p>I code, play, and write with and about AI at the Google Creative Lab in NYC. I'm also a Y11 <a href="https://www.newmuseum.org/new-inc/">NEW INC</a> member, the New Museum's technology and art incubator.</p></p>
+<p></p>
+<p><p>I give talks on everything from javascript at <a href="https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Parsons School of Design</a> to AI's future in art at <a href="https://www.artechouse.com/"> ARTECHOUSE</a>—plus the occasional play opening, like <a href="https://doomers.fyi/">Doomers NYC</a>, exploring our ties to artificial intelligence.</p>
+            <p>If you want to chat (<strong>I always do btw</strong>) or collaborate please: <a href="mailto:tinatarighianwork@gmail.com">email me</a>, <a href="https://x.com/tinaz0ne">tweet me</a>, <a href="https://www.instagram.com/tarighian">gram me</a>, <a href="https://www.are.na/tina-zone/channels">are.na me</a></p>
             
             <a href="https://www.are.na/tina-tarighian/daily-read-b5xa7nbkgyg" class="arena-box">
               <h3>Daily Readings on Are.na</h3>
               <p>What I read on the subway: thoughts, essays, speculations on AI, art, and the digital condition.</p>
             </a>
+            
             <div class="artsy-text">
-            <p>
-                The <em>ombromanie</em> (shadow puppetry) on my <a href="#" id="splashLink">splash page</a> is an astute metaphor for the relationship between my work and my art. How can my hands (my work) create the vision (my art) that germinates in my mind? And what if my visions directly sprout from my hands instead of my mind? 
-            </p>
-            <p>
-                My art <em>needs</em> to be informed by innovation and experimenting and living in the real world. Just as the best shadows come from light proceeding from the smallest possible point, the most impactful art emerges from focused, deliberate exploration. 
-            </p>
-            <p>
-                And ultimately... the art drives me to work. I wouldn't need to
-                 contort my hands if I didn't want to make the shadow in the first
-                  place. <em><a href="https://www.youtube.com/watch?v=D9bjL8udt2s">How to make a Rabbit Shadow</a></em>
-            </p>
+            <p>The <em>ombromanie</em> (shadow puppetry) on my <a href="#" id="splashLink">splash page</a> is an astute metaphor for the relationship between my work and my art. How can my hands (my work) create the vision (my art) that germinates in my mind? And what if my visions directly sprout from my hands instead of my mind?</p></p>
+<p></p>
+<p><p>My art <em>needs</em> to be informed by innovation and experimenting and living in the real world. Just as the best shadows come from light proceeding from the smallest possible point, the most impactful art emerges from focused, deliberate exploration.</p></p>
+<p></p>
+<p><p>And ultimately... the art drives me to work. I wouldn't need to contort my hands if I didn't want to make the shadow in the first place. <em><a href="https://www.youtube.com/watch?v=D9bjL8udt2s">How to make a Rabbit Shadow</a></em></p>
           </div>
-            <p>
-              <em>Also,</em> <a href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing">my resume</a> and <a href="https://github.com/ttarigh/">my github</a>.
-          </p>
+            <p><em>Also,</em> <a href="https://docs.google.com/document/d/1IL9wfm2N1a5DZ9Ox8cVWzpyvanH7PK1RhijjR-UpBbA/edit?usp=sharing">my resume</a> and <a href="https://github.com/ttarigh/">my github</a>.</p>
           
           </div>
           <div class="image-content">
@@ -208,24 +184,19 @@
     </div>
   </body>
   <script>
-    // Improved screen check function
-    function checkScreenWidth() {
-      if (window.innerWidth <= 767 || 
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return "mobile-main.html";
-      } else {
-        return "index.html";
-      }
-    }
-
-    document.getElementById('splashLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.location.href = checkScreenWidth();
-    });
-
+    // Back button functionality
     document.getElementById('backToSplash').addEventListener('click', function(e) {
       e.preventDefault();
-      window.location.href = checkScreenWidth();
+      window.history.back();
     });
+    
+    // Splash link functionality
+    const splashLink = document.getElementById('splashLink');
+    if (splashLink) {
+      splashLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
+      });
+    }
   </script>
 </html>
