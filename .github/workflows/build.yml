@@ -35,26 +35,15 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Build TinaCMS admin
+      env:
+        NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+        TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        GITHUB_BRANCH: main
+      run: npx tinacms build --skip-cloud-checks
+      
     - name: Build site from content
       run: npm run build:site
-      
-    - name: Create admin interface
-      run: |
-        mkdir -p admin
-        echo '<!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>TinaCMS Admin</title>
-        </head>
-        <body>
-          <div id="tina-admin">
-            <p>Loading TinaCMS admin...</p>
-            <p><a href="https://app.tina.io/projects/tina-tarighian">Go to TinaCMS Cloud Dashboard</a></p>
-          </div>
-        </body>
-        </html>' > admin/index.html
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
