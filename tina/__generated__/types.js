@@ -33,11 +33,7 @@ export const WorkPartsFragmentDoc = gql`
     category
     year
     description
-    images {
-      __typename
-      src
-      alt
-    }
+    images
     imageLayout
   }
 }

@@ -24,11 +24,7 @@ fragment WorkParts on Work {
     category
     year
     description
-    images {
-      __typename
-      src
-      alt
-    }
+    images
     imageLayout
   }
 }

@@ -196,24 +196,11 @@ export default defineConfig({
                 description: "Project description with HTML support"
               },
               {
-                type: "object",
+                type: "image",
                 name: "images",
                 label: "Project Images",
                 list: true,
-                fields: [
-                  {
-                    type: "image",
-                    name: "src",
-                    label: "Image",
-                    required: true
-                  },
-                  {
-                    type: "string",
-                    name: "alt",
-                    label: "Alt Text",
-                    required: true
-                  }
-                ]
+                description: "Images for the project"
               },
               {
                 type: "string",

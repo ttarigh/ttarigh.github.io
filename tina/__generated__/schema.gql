@@ -161,18 +161,13 @@ type ArtConnection implements Connection {
   edges: [ArtConnectionEdges]
 }
 
-type WorkWorkProjectsImages {
-  src: String!
-  alt: String!
-}
-
 type WorkWorkProjects {
   id: String!
   title: String!
   category: String!
   year: String!
   description: JSON!
-  images: [WorkWorkProjectsImages]
+  images: [String]
   imageLayout: String!
 }
 
@@ -183,18 +178,13 @@ type Work implements Node & Document {
   _values: JSON!
 }
 
-input WorkWorkProjectsImagesFilter {
-  src: ImageFilter
-  alt: StringFilter
-}
-
 input WorkWorkProjectsFilter {
   id: StringFilter
   title: StringFilter
   category: StringFilter
   year: StringFilter
   description: RichTextFilter
-  images: WorkWorkProjectsImagesFilter
+  images: ImageFilter
   imageLayout: StringFilter
 }
 
@@ -305,18 +295,13 @@ input ArtMutation {
   artProjects: [ArtArtProjectsMutation]
 }
 
-input WorkWorkProjectsImagesMutation {
-  src: String
-  alt: String
-}
-
 input WorkWorkProjectsMutation {
   id: String
   title: String
   category: String
   year: String
   description: JSON
-  images: [WorkWorkProjectsImagesMutation]
+  images: [String]
   imageLayout: String
 }
 
