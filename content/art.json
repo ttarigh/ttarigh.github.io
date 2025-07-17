@@ -1,6 +1,17 @@
 {
   "artProjects": [
     {
+      "id": "Rithm",
+      "title": "rithm",
+      "category": "Web",
+      "year": "2025",
+      "description": "mark zuckerberg knows you better than your mother.\n\nhe's watched your every move on instagram for years.\n\nhe knows what you like, what you don't like, and what you're looking for.\n\n\nthis algorithm has made you conscious of hip dips, disrupted governments, made millionaires overnight.\n\nwhat if we repurposed it for love?\n\n\nyour explore page is a mirror of your digital microinteractions. it's more honest than any dating profile you've ever written.\n\nother dating apps make you perform. curate. lie about loving hiking.\n\nyour algorithm already knows who you'd swipe right on.\n\nrithm.love: screenshot your explore page. find your scrollmate. no bios. no prompts. just pure digital pheromones.",
+      "body": "",
+      "link": "www.rithm.love",
+      "linkText": "sign up for rithm",
+      "previewImage": "/images/Screenshot 2025-07-17 at 4.07.24 PM.webp"
+    },
+    {
       "id": "whatdoesmyhusbandlooklike",
       "title": "What does my Husband Look Like? ",
       "category": "Web",
@@ -11,7 +22,7 @@
       "linkText": "What does your husband look like? ",
       "previewImage": "/images/art/whatdoesmyhusbandlooklike.webp",
       "images": [
-        "/images/art/whatdoesmyhusbandlooklike.webp"
+        {}
       ]
     },
     {
@@ -25,7 +36,7 @@
       "linkText": "Start Fumbling....",
       "previewImage": "/images/Screenshot 2025-07-17 at 3.12.13 PM.webp",
       "images": [
-        "/images/Screenshot 2025-07-17 at 3.12.13 PM.webp"
+        {}
       ]
     },
     {
@@ -39,7 +50,7 @@
       "linkText": "Experience Resurrection",
       "previewImage": "/images/art/resurrection.webp",
       "images": [
-        "/images/art/resurrection.webp"
+        {}
       ]
     },
     {
@@ -53,7 +64,7 @@
       "linkText": "",
       "previewImage": "/images/art/source-consume.webp",
       "images": [
-        "/images/art/source-consume.webp"
+        {}
       ]
     },
     {
@@ -67,7 +78,7 @@
       "linkText": "Listen to Infinite Podcast",
       "previewImage": "/images/art/infinite-podcast.webp",
       "images": [
-        "/images/art/infinite-podcast.webp"
+        {}
       ]
     },
     {
@@ -81,7 +92,7 @@
       "linkText": "Try Your Luck",
       "previewImage": "/images/art/say-one-more-thing.webp",
       "images": [
-        "/images/art/say-one-more-thing.webp"
+        {}
       ]
     },
     {
@@ -95,7 +106,7 @@
       "linkText": "Take Your Vitamins",
       "previewImage": "/images/art/supervitamin.webp",
       "images": [
-        "/images/art/supervitamin.webp"
+        {}
       ]
     },
     {
@@ -109,7 +120,7 @@
       "linkText": "ENTER HERE",
       "previewImage": "/images/art/enter.webp",
       "images": [
-        "/images/art/enter.webp"
+        {}
       ]
     },
     {
@@ -123,7 +134,7 @@
       "linkText": "Watch the Reel!",
       "previewImage": "/images/art/fbmirrors.webp",
       "images": [
-        "/images/art/fbmirrors.webp"
+        {}
       ]
     },
     {
@@ -137,7 +148,7 @@
       "linkText": "See the Tie in Action!",
       "previewImage": "/images/art/musictie.webp",
       "images": [
-        "/images/art/musictie.webp"
+        {}
       ]
     },
     {
@@ -151,7 +162,7 @@
       "linkText": "Engage with Me",
       "previewImage": "/images/art/engagewithme.webp",
       "images": [
-        "/images/art/engagewithme.webp"
+        {}
       ]
     },
     {
@@ -165,7 +176,7 @@
       "linkText": "Happy Test",
       "previewImage": "/images/art/happy.webp",
       "images": [
-        "/images/art/happy.webp"
+        {}
       ]
     },
     {
@@ -179,7 +190,7 @@
       "linkText": "Learn More",
       "previewImage": "/images/art/scanartist.webp",
       "images": [
-        "/images/art/scanartist.webp"
+        {}
       ]
     },
     {
@@ -193,7 +204,7 @@
       "linkText": "Read my Diary",
       "previewImage": "/images/art/distance-source.webp",
       "images": [
-        "/images/art/distance-source.webp"
+        {}
       ]
     },
     {
@@ -207,7 +218,7 @@
       "linkText": "",
       "previewImage": "/images/art/ml.webp",
       "images": [
-        "/images/art/ml.webp"
+        {}
       ]
     },
     {
@@ -221,7 +232,7 @@
       "linkText": "Enjoy the Show!",
       "previewImage": "/images/art/couch.webp",
       "images": [
-        "/images/art/couch.webp"
+        {}
       ]
     },
     {
@@ -235,7 +246,7 @@
       "linkText": "Test my Vision!",
       "previewImage": "/images/art/testingTinasVision.webp",
       "images": [
-        "/images/art/testingTinasVision.webp"
+        {}
       ]
     },
     {
@@ -249,7 +260,7 @@
       "linkText": "Build a shrine!",
       "previewImage": "/images/art/worship.webp",
       "images": [
-        "/images/art/worship.webp"
+        {}
       ]
     },
     {
@@ -263,7 +274,7 @@
       "linkText": "hit my vape",
       "previewImage": "/images/art/barighian.webp",
       "images": [
-        "/images/art/barighian.webp"
+        {}
       ]
     },
     {
@@ -277,7 +288,7 @@
       "linkText": "",
       "previewImage": "/images/art/enroute.webp",
       "images": [
-        "/images/art/enroute.webp"
+        {}
       ]
     },
     {
@@ -291,7 +302,7 @@
       "linkText": "play with popups",
       "previewImage": "/images/art/popup.webp",
       "images": [
-        "/images/art/popup.webp"
+        {}
       ]
     },
     {
@@ -305,7 +316,7 @@
       "linkText": "Love Meter",
       "previewImage": "/images/art/lovemeter.webp",
       "images": [
-        "/images/art/lovemeter.webp"
+        {}
       ]
     },
     {
@@ -319,7 +330,7 @@
       "linkText": "Watch Here",
       "previewImage": "/images/art/adp.webp",
       "images": [
-        "/images/art/adp.webp"
+        {}
       ]
     },
     {
@@ -333,7 +344,7 @@
       "linkText": "Try the Magic",
       "previewImage": "/images/art/magic8.webp",
       "images": [
-        "/images/art/magic8.webp"
+        {}
       ]
     },
     {
@@ -347,7 +358,7 @@
       "linkText": "See what it was like in action!",
       "previewImage": "/images/art/arhelper.webp",
       "images": [
-        "/images/art/arhelper.webp"
+        {}
       ]
     },
     {
@@ -361,7 +372,7 @@
       "linkText": "Happy Test",
       "previewImage": "/images/art/emotions-detector.webp",
       "images": [
-        "/images/art/emotions-detector.webp"
+        {}
       ]
     },
     {
@@ -375,7 +386,7 @@
       "linkText": "Check them out!",
       "previewImage": "/images/art/pic.webp",
       "images": [
-        "/images/art/pic.webp"
+        {}
       ]
     },
     {
@@ -389,7 +400,7 @@
       "linkText": "",
       "previewImage": "/images/art/SBTex.webp",
       "images": [
-        "/images/art/SBTex.webp"
+        {}
       ]
     },
     {
@@ -403,7 +414,7 @@
       "linkText": "",
       "previewImage": "/images/art/mathy.webp",
       "images": [
-        "/images/art/mathy.webp"
+        {}
       ]
     },
     {
@@ -417,7 +428,7 @@
       "linkText": "Click here",
       "previewImage": "/images/art/pic.webp",
       "images": [
-        "/images/art/pic.webp"
+        {}
       ]
     }
   ]
