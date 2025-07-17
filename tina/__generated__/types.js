@@ -19,7 +19,11 @@ export const ArtPartsFragmentDoc = gql`
     link
     linkText
     previewImage
-    images
+    images {
+      __typename
+      src
+      alt
+    }
   }
 }
     `;
@@ -33,7 +37,11 @@ export const WorkPartsFragmentDoc = gql`
     category
     year
     description
-    images
+    images {
+      __typename
+      src
+      alt
+    }
     imageLayout
   }
 }

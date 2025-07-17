@@ -118,11 +118,22 @@ var config_default = defineConfig({
                 description: "Main image shown in the table and on hover"
               },
               {
-                type: "image",
+                type: "object",
                 name: "images",
                 label: "Gallery Images",
                 list: true,
-                description: "Additional images for the project gallery"
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image"
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text"
+                  }
+                ]
               }
             ]
           }
@@ -188,11 +199,22 @@ var config_default = defineConfig({
                 description: "Project description with HTML support"
               },
               {
-                type: "image",
+                type: "object",
                 name: "images",
                 label: "Project Images",
                 list: true,
-                description: "Images for the project"
+                fields: [
+                  {
+                    type: "image",
+                    name: "src",
+                    label: "Image"
+                  },
+                  {
+                    type: "string",
+                    name: "alt",
+                    label: "Alt Text"
+                  }
+                ]
               },
               {
                 type: "string",

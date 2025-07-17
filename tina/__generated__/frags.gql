@@ -11,7 +11,11 @@ fragment ArtParts on Art {
     link
     linkText
     previewImage
-    images
+    images {
+      __typename
+      src
+      alt
+    }
   }
 }
 
@@ -24,7 +28,11 @@ fragment WorkParts on Work {
     category
     year
     description
-    images
+    images {
+      __typename
+      src
+      alt
+    }
     imageLayout
   }
 }

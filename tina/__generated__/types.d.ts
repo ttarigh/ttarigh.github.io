@@ -201,6 +201,12 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = Art | Work | About | Folder;
 
+export type ArtArtProjectsImages = {
+  __typename?: 'ArtArtProjectsImages';
+  src?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']['output']>;
+};
+
 export type ArtArtProjects = {
   __typename?: 'ArtArtProjects';
   id: Scalars['String']['output'];
@@ -212,7 +218,7 @@ export type ArtArtProjects = {
   link?: Maybe<Scalars['String']['output']>;
   linkText?: Maybe<Scalars['String']['output']>;
   previewImage: Scalars['String']['output'];
-  images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  images?: Maybe<Array<Maybe<ArtArtProjectsImages>>>;
 };
 
 export type Art = Node & Document & {
@@ -243,6 +249,11 @@ export type ImageFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ArtArtProjectsImagesFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+};
+
 export type ArtArtProjectsFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
@@ -253,7 +264,7 @@ export type ArtArtProjectsFilter = {
   link?: InputMaybe<StringFilter>;
   linkText?: InputMaybe<StringFilter>;
   previewImage?: InputMaybe<ImageFilter>;
-  images?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<ArtArtProjectsImagesFilter>;
 };
 
 export type ArtFilter = {
@@ -273,6 +284,12 @@ export type ArtConnection = Connection & {
   edges?: Maybe<Array<Maybe<ArtConnectionEdges>>>;
 };
 
+export type WorkWorkProjectsImages = {
+  __typename?: 'WorkWorkProjectsImages';
+  src?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']['output']>;
+};
+
 export type WorkWorkProjects = {
   __typename?: 'WorkWorkProjects';
   id: Scalars['String']['output'];
@@ -280,7 +297,7 @@ export type WorkWorkProjects = {
   category: Scalars['String']['output'];
   year: Scalars['String']['output'];
   description: Scalars['JSON']['output'];
-  images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  images?: Maybe<Array<Maybe<WorkWorkProjectsImages>>>;
   imageLayout: Scalars['String']['output'];
 };
 
@@ -292,13 +309,18 @@ export type Work = Node & Document & {
   _values: Scalars['JSON']['output'];
 };
 
+export type WorkWorkProjectsImagesFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+};
+
 export type WorkWorkProjectsFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   category?: InputMaybe<StringFilter>;
   year?: InputMaybe<StringFilter>;
   description?: InputMaybe<RichTextFilter>;
-  images?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<WorkWorkProjectsImagesFilter>;
   imageLayout?: InputMaybe<StringFilter>;
 };
 
@@ -468,6 +490,11 @@ export type DocumentMutation = {
   about?: InputMaybe<AboutMutation>;
 };
 
+export type ArtArtProjectsImagesMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ArtArtProjectsMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -478,11 +505,16 @@ export type ArtArtProjectsMutation = {
   link?: InputMaybe<Scalars['String']['input']>;
   linkText?: InputMaybe<Scalars['String']['input']>;
   previewImage?: InputMaybe<Scalars['String']['input']>;
-  images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  images?: InputMaybe<Array<InputMaybe<ArtArtProjectsImagesMutation>>>;
 };
 
 export type ArtMutation = {
   artProjects?: InputMaybe<Array<InputMaybe<ArtArtProjectsMutation>>>;
+};
+
+export type WorkWorkProjectsImagesMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkWorkProjectsMutation = {
@@ -491,7 +523,7 @@ export type WorkWorkProjectsMutation = {
   category?: InputMaybe<Scalars['String']['input']>;
   year?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['JSON']['input']>;
-  images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  images?: InputMaybe<Array<InputMaybe<WorkWorkProjectsImagesMutation>>>;
   imageLayout?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -516,9 +548,9 @@ export type AboutMutation = {
   footer?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type ArtPartsFragment = { __typename: 'Art', artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<string | null> | null } | null> | null };
+export type ArtPartsFragment = { __typename: 'Art', artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<{ __typename: 'ArtArtProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null };
 
-export type WorkPartsFragment = { __typename: 'Work', workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, images?: Array<string | null> | null, imageLayout: string } | null> | null };
+export type WorkPartsFragment = { __typename: 'Work', workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null };
 
 export type AboutPartsFragment = { __typename: 'About', title: string, image: string, intro: any, bio: any, contact: any, philosophy?: any | null, footer?: any | null, arenaBox?: { __typename: 'AboutArenaBox', title?: string | null, description?: string | null, link?: string | null } | null };
 
@@ -527,7 +559,7 @@ export type ArtQueryVariables = Exact<{
 }>;
 
 
-export type ArtQuery = { __typename?: 'Query', art: { __typename: 'Art', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<string | null> | null } | null> | null } };
+export type ArtQuery = { __typename?: 'Query', art: { __typename: 'Art', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<{ __typename: 'ArtArtProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null } };
 
 export type ArtConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -539,14 +571,14 @@ export type ArtConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ArtConnectionQuery = { __typename?: 'Query', artConnection: { __typename?: 'ArtConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArtConnectionEdges', cursor: string, node?: { __typename: 'Art', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<string | null> | null } | null> | null } | null } | null> | null } };
+export type ArtConnectionQuery = { __typename?: 'Query', artConnection: { __typename?: 'ArtConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ArtConnectionEdges', cursor: string, node?: { __typename: 'Art', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, artProjects?: Array<{ __typename: 'ArtArtProjects', id: string, title: string, category: string, year: string, description: string, body?: any | null, link?: string | null, linkText?: string | null, previewImage: string, images?: Array<{ __typename: 'ArtArtProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type WorkQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type WorkQuery = { __typename?: 'Query', work: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, images?: Array<string | null> | null, imageLayout: string } | null> | null } };
+export type WorkQuery = { __typename?: 'Query', work: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null } };
 
 export type WorkConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -558,7 +590,7 @@ export type WorkConnectionQueryVariables = Exact<{
 }>;
 
 
-export type WorkConnectionQuery = { __typename?: 'Query', workConnection: { __typename?: 'WorkConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WorkConnectionEdges', cursor: string, node?: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, images?: Array<string | null> | null, imageLayout: string } | null> | null } | null } | null> | null } };
+export type WorkConnectionQuery = { __typename?: 'Query', workConnection: { __typename?: 'WorkConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WorkConnectionEdges', cursor: string, node?: { __typename: 'Work', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, workProjects?: Array<{ __typename: 'WorkWorkProjects', id: string, title: string, category: string, year: string, description: any, imageLayout: string, images?: Array<{ __typename: 'WorkWorkProjectsImages', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type AboutQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -593,7 +625,11 @@ export const ArtPartsFragmentDoc = gql`
     link
     linkText
     previewImage
-    images
+    images {
+      __typename
+      src
+      alt
+    }
   }
 }
     `;
@@ -607,7 +643,11 @@ export const WorkPartsFragmentDoc = gql`
     category
     year
     description
-    images
+    images {
+      __typename
+      src
+      alt
+    }
     imageLayout
   }
 }

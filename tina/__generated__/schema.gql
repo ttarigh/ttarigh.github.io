@@ -93,6 +93,11 @@ type Collection {
 
 union DocumentNode = Art | Work | About | Folder
 
+type ArtArtProjectsImages {
+  src: String
+  alt: String
+}
+
 type ArtArtProjects {
   id: String!
   title: String!
@@ -103,7 +108,7 @@ type ArtArtProjects {
   link: String
   linkText: String
   previewImage: String!
-  images: [String]
+  images: [ArtArtProjectsImages]
 }
 
 type Art implements Node & Document {
@@ -133,6 +138,11 @@ input ImageFilter {
   in: [String]
 }
 
+input ArtArtProjectsImagesFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
 input ArtArtProjectsFilter {
   id: StringFilter
   title: StringFilter
@@ -143,7 +153,7 @@ input ArtArtProjectsFilter {
   link: StringFilter
   linkText: StringFilter
   previewImage: ImageFilter
-  images: ImageFilter
+  images: ArtArtProjectsImagesFilter
 }
 
 input ArtFilter {
@@ -161,13 +171,18 @@ type ArtConnection implements Connection {
   edges: [ArtConnectionEdges]
 }
 
+type WorkWorkProjectsImages {
+  src: String
+  alt: String
+}
+
 type WorkWorkProjects {
   id: String!
   title: String!
   category: String!
   year: String!
   description: JSON!
-  images: [String]
+  images: [WorkWorkProjectsImages]
   imageLayout: String!
 }
 
@@ -178,13 +193,18 @@ type Work implements Node & Document {
   _values: JSON!
 }
 
+input WorkWorkProjectsImagesFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
 input WorkWorkProjectsFilter {
   id: StringFilter
   title: StringFilter
   category: StringFilter
   year: StringFilter
   description: RichTextFilter
-  images: ImageFilter
+  images: WorkWorkProjectsImagesFilter
   imageLayout: StringFilter
 }
 
@@ -278,6 +298,11 @@ input DocumentMutation {
   about: AboutMutation
 }
 
+input ArtArtProjectsImagesMutation {
+  src: String
+  alt: String
+}
+
 input ArtArtProjectsMutation {
   id: String
   title: String
@@ -288,11 +313,16 @@ input ArtArtProjectsMutation {
   link: String
   linkText: String
   previewImage: String
-  images: [String]
+  images: [ArtArtProjectsImagesMutation]
 }
 
 input ArtMutation {
   artProjects: [ArtArtProjectsMutation]
+}
+
+input WorkWorkProjectsImagesMutation {
+  src: String
+  alt: String
 }
 
 input WorkWorkProjectsMutation {
@@ -301,7 +331,7 @@ input WorkWorkProjectsMutation {
   category: String
   year: String
   description: JSON
-  images: [String]
+  images: [WorkWorkProjectsImagesMutation]
   imageLayout: String
 }
 
