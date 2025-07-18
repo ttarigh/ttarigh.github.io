@@ -11,7 +11,10 @@
       "linkText": "sign up for rithm",
       "previewImage": "/images/Screenshot 2025-07-17 at 4.07.24 PM.webp",
       "images": [
-        "/images/Screenshot 2025-07-17 at 4.07.24 PM.webp"
+        {
+          "src": "/images/Screenshot 2025-07-17 at 4.07.24 PM.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -25,7 +28,10 @@
       "linkText": "What does your husband look like? ",
       "previewImage": "/images/art/whatdoesmyhusbandlooklike.webp",
       "images": [
-        "/images/art/whatdoesmyhusbandlooklike.webp"
+        {
+          "src": "/images/art/whatdoesmyhusbandlooklike.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -39,7 +45,10 @@
       "linkText": "Start Fumbling....",
       "previewImage": "/images/art/fumble-dating.webp",
       "images": [
-        "/images/art/fumble-dating.webp"
+        {
+          "src": "/images/art/fumble-dating.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -53,7 +62,10 @@
       "linkText": "Experience Resurrection",
       "previewImage": "/images/art/resurrection.webp",
       "images": [
-        "/images/art/resurrection.webp"
+        {
+          "src": "/images/art/resurrection.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -67,7 +79,10 @@
       "linkText": "",
       "previewImage": "/images/art/source-consume.webp",
       "images": [
-        "/images/art/source-consume.webp"
+        {
+          "src": "/images/art/source-consume.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -81,7 +96,10 @@
       "linkText": "Listen to Infinite Podcast",
       "previewImage": "/images/art/infinite-podcast.webp",
       "images": [
-        "/images/art/infinite-podcast.webp"
+        {
+          "src": "/images/art/infinite-podcast.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -95,7 +113,10 @@
       "linkText": "Try Your Luck",
       "previewImage": "/images/art/say-one-more-thing.webp",
       "images": [
-        "/images/art/say-one-more-thing.webp"
+        {
+          "src": "/images/art/say-one-more-thing.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -109,7 +130,10 @@
       "linkText": "Take Your Vitamins",
       "previewImage": "/images/art/supervitamin.webp",
       "images": [
-        "/images/art/supervitamin.webp"
+        {
+          "src": "/images/art/supervitamin.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -123,7 +147,10 @@
       "linkText": "ENTER HERE",
       "previewImage": "/images/art/enter.webp",
       "images": [
-        "/images/art/enter.webp"
+        {
+          "src": "/images/art/enter.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -137,7 +164,10 @@
       "linkText": "Watch the Reel!",
       "previewImage": "/images/art/fbmirrors.webp",
       "images": [
-        "/images/art/fbmirrors.webp"
+        {
+          "src": "/images/art/fbmirrors.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -151,7 +181,10 @@
       "linkText": "See the Tie in Action!",
       "previewImage": "/images/art/musictie.webp",
       "images": [
-        "/images/art/musictie.webp"
+        {
+          "src": "/images/art/musictie.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -165,7 +198,10 @@
       "linkText": "Engage with Me",
       "previewImage": "/images/art/engagewithme.webp",
       "images": [
-        "/images/art/engagewithme.webp"
+        {
+          "src": "/images/art/engagewithme.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -179,7 +215,10 @@
       "linkText": "Happy Test",
       "previewImage": "/images/art/happy.webp",
       "images": [
-        "/images/art/happy.webp"
+        {
+          "src": "/images/art/happy.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -193,7 +232,10 @@
       "linkText": "Learn More",
       "previewImage": "/images/art/scanartist.webp",
       "images": [
-        "/images/art/scanartist.webp"
+        {
+          "src": "/images/art/scanartist.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -207,7 +249,10 @@
       "linkText": "Read my Diary",
       "previewImage": "/images/art/distance-source.webp",
       "images": [
-        "/images/art/distance-source.webp"
+        {
+          "src": "/images/art/distance-source.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -221,7 +266,10 @@
       "linkText": "",
       "previewImage": "/images/art/ml.webp",
       "images": [
-        "/images/art/ml.webp"
+        {
+          "src": "/images/art/ml.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -235,7 +283,10 @@
       "linkText": "Enjoy the Show!",
       "previewImage": "/images/art/couch.webp",
       "images": [
-        "/images/art/couch.webp"
+        {
+          "src": "/images/art/couch.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -249,7 +300,10 @@
       "linkText": "Test my Vision!",
       "previewImage": "/images/art/testingTinasVision.webp",
       "images": [
-        "/images/art/testingTinasVision.webp"
+        {
+          "src": "/images/art/testingTinasVision.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -263,7 +317,10 @@
       "linkText": "Build a shrine!",
       "previewImage": "/images/art/worship.webp",
       "images": [
-        "/images/art/worship.webp"
+        {
+          "src": "/images/art/worship.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -277,7 +334,10 @@
       "linkText": "hit my vape",
       "previewImage": "/images/art/barighian.webp",
       "images": [
-        "/images/art/barighian.webp"
+        {
+          "src": "/images/art/barighian.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -291,7 +351,10 @@
       "linkText": "",
       "previewImage": "/images/art/enroute.webp",
       "images": [
-        "/images/art/enroute.webp"
+        {
+          "src": "/images/art/enroute.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -305,7 +368,10 @@
       "linkText": "play with popups",
       "previewImage": "/images/art/popup.webp",
       "images": [
-        "/images/art/popup.webp"
+        {
+          "src": "/images/art/popup.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -319,7 +385,10 @@
       "linkText": "Love Meter",
       "previewImage": "/images/art/lovemeter.webp",
       "images": [
-        "/images/art/lovemeter.webp"
+        {
+          "src": "/images/art/lovemeter.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -333,7 +402,10 @@
       "linkText": "Watch Here",
       "previewImage": "/images/art/adp.webp",
       "images": [
-        "/images/art/adp.webp"
+        {
+          "src": "/images/art/adp.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -347,7 +419,10 @@
       "linkText": "Try the Magic",
       "previewImage": "/images/art/magic8.webp",
       "images": [
-        "/images/art/magic8.webp"
+        {
+          "src": "/images/art/magic8.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -361,7 +436,10 @@
       "linkText": "See what it was like in action!",
       "previewImage": "/images/art/arhelper.webp",
       "images": [
-        "/images/art/arhelper.webp"
+        {
+          "src": "/images/art/arhelper.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -375,7 +453,10 @@
       "linkText": "Happy Test",
       "previewImage": "/images/art/emotions-detector.webp",
       "images": [
-        "/images/art/emotions-detector.webp"
+        {
+          "src": "/images/art/emotions-detector.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -389,7 +470,10 @@
       "linkText": "Check them out!",
       "previewImage": "/images/art/pic.webp",
       "images": [
-        "/images/art/pic.webp"
+        {
+          "src": "/images/art/pic.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -403,7 +487,10 @@
       "linkText": "",
       "previewImage": "/images/art/SBTex.webp",
       "images": [
-        "/images/art/SBTex.webp"
+        {
+          "src": "/images/art/SBTex.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -417,7 +504,10 @@
       "linkText": "",
       "previewImage": "/images/art/mathy.webp",
       "images": [
-        "/images/art/mathy.webp"
+        {
+          "src": "/images/art/mathy.webp",
+          "alt": ""
+        }
       ]
     },
     {
@@ -431,7 +521,10 @@
       "linkText": "Click here",
       "previewImage": "/images/art/pic.webp",
       "images": [
-        "/images/art/pic.webp"
+        {
+          "src": "/images/art/pic.webp",
+          "alt": ""
+        }
       ]
     }
   ]

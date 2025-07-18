@@ -25,8 +25,8 @@
           <tbody>
             
 <tr class="project-row" data-project-id="rithm" 
-    data-preview-image="/images/Screenshot 2025-07-17 at 4.07.24 PM.webp">
-  <td class="col-project">rithm</td>
+    data-preview-image="images/art/rithm.webp">
+  <td class="col-project">☆ rithm</td>
   <td class="col-category">Web</td>
   <td class="col-year">2025</td>
 </tr>
@@ -35,30 +35,12 @@
     <div class="details-container">
       <div class="details-grid">
         <div class="details-info">
-          <div class="details-description">mark zuckerberg knows you better than your mother.
-
-he's watched your every move on instagram for years.
-
-he knows what you like, what you don't like, and what you're looking for.
-
-
-this algorithm has made you conscious of hip dips, disrupted governments, made millionaires overnight.
-
-what if we repurposed it for love?
-
-
-your explore page is a mirror of your digital microinteractions. it's more honest than any dating profile you've ever written.
-
-other dating apps make you perform. curate. lie about loving hiking.
-
-your algorithm already knows who you'd swipe right on.
-
-rithm.love: screenshot your explore page. find your scrollmate. no bios. no prompts. just pure digital pheromones.</div>
+          <div class="details-description"><p>Mark Zuckerberg knows you better than your mother.</p><p>He's watched your every move on Instagram for years.</p><p>He knows what you like, what you don't like, and what you're looking for.</p><p>This algorithm has made you conscious of hip dips, disrupted governments, made millionaires overnight.</p><p>What if we repurposed it for love?</p><p>Your explore page is a mirror of your digital micro-interactions. It's more honest than any dating profile you've ever written.</p><p>Other dating apps make you perform. Curate. Lie about loving hiking.</p><p>Your algorithm already knows who you'd swipe right on.</p><p>rithm.love: screenshot your explore page. Find your scrollmate. No bios. No prompts. Just pure digital pheromones.</p></div>
           
           <a href="www.rithm.love" class="details-link" target="_blank">sign up for rithm</a>
         </div>
         <div class="details-images">
-          <img src="/images/Screenshot 2025-07-17 at 4.07.24 PM.webp" alt="rithm" />
+          <img src="images/art/rithm.webp" alt="rithm" />
         </div>
       </div>
     </div>
@@ -92,7 +74,7 @@ rithm.love: screenshot your explore page. find your scrollmate. no bios. no prom
 </tr>
             
 <tr class="project-row" data-project-id="fumble-dating" 
-    data-preview-image="/images/art/fumble-dating.webp">
+    data-preview-image="images/art/fumble.webp">
   <td class="col-project">Fumble Dating </td>
   <td class="col-category">Web</td>
   <td class="col-year">2025</td>
@@ -113,7 +95,7 @@ rithm.love: screenshot your explore page. find your scrollmate. no bios. no prom
           <a href="fumbledating.com" class="details-link" target="_blank">Start Fumbling....</a>
         </div>
         <div class="details-images">
-          <img src="/images/art/fumble-dating.webp" alt="Fumble Dating " />
+          <img src="images/art/fumble.webp" alt="Fumble Dating " />
         </div>
       </div>
     </div>
@@ -810,5 +792,24 @@ rithm.love: screenshot your explore page. find your scrollmate. no bios. no prom
       </div>
     </div>
     <script src="js/main.js"></script>
+    <script>
+      // Fix absolute image paths (leading '/') to relative on GitHub Pages
+      document.addEventListener('DOMContentLoaded', function() {
+        // Update image src attributes
+        document.querySelectorAll('img').forEach(function(img) {
+          const src = img.getAttribute('src');
+          if (src && src.startsWith('/')) {
+            img.setAttribute('src', src.substring(1));
+          }
+        });
+        // Update data-preview-image attributes on project rows
+        document.querySelectorAll('[data-preview-image]').forEach(function(el) {
+          const val = el.getAttribute('data-preview-image');
+          if (val && val.startsWith('/')) {
+            el.setAttribute('data-preview-image', val.substring(1));
+          }
+        });
+      });
+    </script>
   </body>
 </html>

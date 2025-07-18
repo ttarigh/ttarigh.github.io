@@ -672,3 +672,13 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
   }
 } 
+
+/* === CUSTOM OVERRIDES === */
+/* Make VeoVJ visuals larger */
+.work-project#veovj .work-images img {
+  max-height: 300px;
+}
+/* Display them in a single column so each gets full width */
+.work-project#veovj .images-grid {
+  grid-template-columns: 1fr;
+} 
