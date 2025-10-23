@@ -2,19 +2,5 @@
   "name": "tina-tarighian-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Tina Tarighian's portfolio with TinaCMS",
-  "scripts": {
-    "dev": "tinacms dev -c \"npm run build:watch\"",
-    "build": "npm run build:site",
-    "build:tinacms": "tinacms build && npm run build:site",
-    "build:site": "node scripts/build.js",
-    "build:watch": "npm run build:site",
-    "start": "npm run build && npx serve .",
-    "tinacms": "tinacms"
-  },
-  "dependencies": {
-    "tinacms": "^2.2.4",
-    "@tinacms/cli": "^1.6.10"
-  },
-  "devDependencies": {}
-} 
+  "description": "Tina Tarighian's portfolio"
+}

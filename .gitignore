@@ -11,10 +11,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# TinaCMS
-.tina/
-DEPLOYMENT_GUIDE.md
-
 # Logs
 logs
 *.log
