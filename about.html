@@ -159,14 +159,27 @@
       @media (max-width: 900px) {
         .content-wrapper {
           flex-direction: column;
+          gap: 20px;
+        }
+
+        .text-content {
+          max-width: 100%;
         }
         
         .image-content {
-          order: -1;
+          flex: none;
+          width: 100%;
+          align-items: flex-start;
         }
         
         .image-content img {
+          display: none;
+        }
+
+        .arena-box {
+          width: 100%;
           max-width: 100%;
+          margin: 20px 0;
         }
         
         body {
