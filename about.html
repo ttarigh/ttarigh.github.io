@@ -153,6 +153,34 @@
         text-underline-offset: 2px;
         text-decoration-style: dotted;
       }
+
+      .site-header {
+        padding: 20px 0;
+        margin-bottom: 20px;
+      }
+
+      .site-header h1 {
+        font-size: 24px;
+        font-weight: normal;
+        margin: 0;
+      }
+
+      .home-link,
+      .page-link,
+      .page-highlight {
+        color: black;
+        text-decoration: none;
+      }
+
+      .home-link:hover,
+      .page-link:hover,
+      .page-highlight:hover {
+        color: red;
+      }
+
+      .page-highlight {
+        background-color: yellow;
+      }
       
       @media (max-width: 900px) {
         .content-wrapper {
@@ -199,7 +227,9 @@
   </head>
   <body class="gradient-background">
     <div class="container">
-        <a href="https://www.tina.zone" class="back-button">←</a>
+        <header class="site-header">
+          <h1><a href="index.html" class="home-link">Tina Tarighian:</a> <a href="about.html" class="page-highlight">abt</a> / <a href="art.html" class="page-link">art</a> / <a href="work.html" class="page-link">work</a></h1>
+        </header>
         <h1 style="margin-bottom: 10px;">about: tina tarighian</h1>
         <div class="content-wrapper">
           <div class="text-content">
@@ -247,9 +277,11 @@
             </details>
             </div>
             <div class="image-content">
-              <img id="workspace" src="splash/headshot.webp" alt="workspace">
+              <img id="workspace" src="images/art/headshot_final.webp" alt="Tina Tarighian">
             
               <div class="contact-links" style="margin-top: 15px; font-size: 16px; color: black;">
+                <a href="https://docs.google.com/document/d/e/2PACX-1vTROXtut07j8Su4ytr73K4_LrTfEW3gzSferyMS-4k90jvvusLA8QvTc614J2FW_N-SH2M9HgH_C63k/pub" target="_blank"
+                  style="color: blue; text-decoration: none;">cv</a> /
                 <a href="https://www.instagram.com/wwwtinazone/" target="_blank"
                   style="color: blue; text-decoration: none;">instagram</a> /
                 <a href="#" id="email-link" style="color: blue; text-decoration: none;">email</a> /

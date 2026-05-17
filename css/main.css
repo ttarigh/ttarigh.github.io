@@ -116,6 +116,20 @@ body {
   font-style: italic;
 }
 
+.lab-link-row {
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lab-link-row:hover {
+  background-color: blue;
+  color: white;
+}
+
+.lab-link-row:hover .col-project {
+  font-style: italic;
+}
+
 .project-row.active-row .col-project {
   font-style: italic;
 }
