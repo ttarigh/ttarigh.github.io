@@ -108,6 +108,12 @@
       </div>
     </div>
     <script>
+      const MOBILE_AGREEMENT_KEY = 'mobileAgreementAccepted';
+
+      if (sessionStorage.getItem(MOBILE_AGREEMENT_KEY)) {
+        window.location.replace('mobile-main.html');
+      }
+
       const checkbox = document.getElementById('agreementCheckbox');
       const enterSiteLink = document.getElementById('enterSiteLink');
       const warningMessage = document.getElementById('warningMessage');
@@ -131,6 +137,7 @@
           warningMessage.style.display = 'block';
           currentMessageIndex = (currentMessageIndex + 1) % warningMessages.length;
         } else {
+          sessionStorage.setItem(MOBILE_AGREEMENT_KEY, 'true');
           warningMessage.style.display = 'none';
         }
       });

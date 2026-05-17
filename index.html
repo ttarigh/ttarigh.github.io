@@ -240,13 +240,23 @@
 
     <script>
       // Mobile detection and redirect
+      const MOBILE_AGREEMENT_KEY = 'mobileAgreementAccepted';
+
       function isMobile() {
         return window.innerWidth <= 767 || 
                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       }
+
+      function redirectMobile() {
+        if (sessionStorage.getItem(MOBILE_AGREEMENT_KEY)) {
+          window.location = 'mobile-main.html';
+        } else {
+          window.location = 'mobile-splash.html';
+        }
+      }
       
       if (isMobile()) {
-        window.location = "mobile-splash.html";
+        redirectMobile();
       }
 
       // Label functions
@@ -300,7 +310,7 @@
       // Handle window resize
       window.addEventListener('resize', function() {
         if (isMobile()) {
-          window.location = "mobile-splash.html";
+          redirectMobile();
         }
       });
     </script>
