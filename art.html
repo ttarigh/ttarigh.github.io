@@ -1,484 +1,1945 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Art | TINA TARIGHIAN</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
-    <link rel="manifest" href="img/site.webmanifest" />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header class="site-header">
-        <h1><a href="index.html" class="home-link">Tina Tarighian:</a> <a href="about.html" class="page-link">abt</a> / <a href="art.html" class="page-highlight">art</a> / <a href="work.html" class="page-link">work</a></h1>
-      </header>
-      
-      <!-- Image preview stage -->
-      <div class="image-stage"></div>
-      
-      <div class="table-wrapper">
-        <table class="projects-table">
-          <tbody>
-            
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art | TINA TARIGHIAN</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 !important;
+    }
 
-            
+    html {
+      scroll-behavior: smooth;
+      background-color: #261c18;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
 
+    body {
+      width: 100%;
+      min-height: 100%;
+      background-color: #261c18;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #ffffff;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
 
-            
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+      height: 0 !important;
+    }
 
+    .mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
 
-            
+    /* Fixed Navigation Header (Borderless for this page) */
+    .site-header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      pointer-events: auto;
+    }
 
+    .nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-            
+    .nav-brand-box {
+      background-color: #ffff00;
+      border: none;
+      padding: 6px 14px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
 
-            
-<tr class="project-row" data-project-id="everyday" 
-    data-preview-image="images/art/everyday.webp">
-  <td class="col-project">everyday.tina.zone</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">ongoing</td>
-</tr>
-<tr class="project-details" id="everyday-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">In August 2025, two major events occurred: I took a really good selfie, and Google's native image model (Nano Banana) shipped to the public for free. The latter changed the liquidity of images on the internet overnight, and the former served as the basis for my project, everyday.tina.zone.</div>
-          <div class="details-body"><p>Every day, this project lets the model intelligently imagine what I look like X days from the original photo, aging me alongside the model. Through Instagram UI pastiche, my twin ages one day at a time. It's a practice in natural language—how precisely can I describe myself—and a meditative exercise in self-surveillance: studying how I actually document my own life so Her, my twin, can become life-like.</p></div>
-          <a href="https://everyday.tina.zone/" class="details-link" target="_blank">Check out my selfies</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/everyday.webp" alt="everyday.tina.zone" />
+    .nav-brand-box:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-dropdown-trigger {
+      background-color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.is-active {
+      background-color: #000000;
+      color: #ffff00;
+    }
+
+    .trigger-arrow {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown-trigger.is-active .trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #000000;
+      border: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      padding: 4px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      animation: popInNav 0.15s ease-out;
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    @keyframes popInNav {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-menu-item {
+      display: block;
+      padding: 6px 12px;
+      border: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-menu-item.item-work:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+    }
+
+    .nav-menu-item.item-abt:hover {
+      background-color: #00ff66;
+      color: #000000;
+    }
+
+    .nav-menu-item.item-den:hover {
+      background-color: #ffff00;
+      color: #000000;
+    }
+
+    /* =========================================================================
+       HERO SPLASH SCREEN
+       ========================================================================= */
+    .art-hero-splash {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 100px 48px 120px 48px;
+      box-sizing: border-box;
+      overflow: hidden;
+      background-color: #000000;
+    }
+
+    .art-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/art/art_splash.webp');
+      background-size: cover;
+      background-position: 0% 26%;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    .art-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 40% 60%, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.85) 100%);
+      z-index: 2;
+    }
+
+    .art-hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1300px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .art-hero-title {
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(48px, 8.5vw, 112px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin: 0;
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
+      user-select: none;
+    }
+
+    .hero-title-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-title-line span {
+      display: inline-block;
+      visibility: hidden;
+    }
+
+    .art-hero-arrow {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: clamp(48px, 8.5vw, 112px);
+      font-weight: 300;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+      margin-left: 10px;
+      transform: translateY(0.12em);
+      transition: color 0.15s ease, transform 0.15s ease, opacity 0.2s ease;
+      will-change: opacity, transform;
+      vertical-align: baseline;
+    }
+
+    .art-hero-arrow:hover {
+      color: #ffff00;
+      transform: translateY(0.18em);
+    }
+
+    /* Floating Letters Stage (Fixed to Viewport for high-performance GPU transforms) */
+    .art-letter-stage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    .art-morph-char {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #ffffff;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      transform-origin: top left;
+      will-change: transform, opacity;
+      user-select: none;
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =========================================================================
+       CHOCOLATE BROWN ART PROJECTS SECTION & BLURB
+       ========================================================================= */
+    .art-projects-section {
+      position: relative;
+      background-color: #261c18;
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 60px 48px 140px 48px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .table-wrapper {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* Statement Blob Card right above the list of projects */
+    .art-blurb-wrapper {
+      width: 100%;
+      margin-bottom: 48px;
+    }
+
+    .art-blob-card {
+      position: relative;
+      background-color: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.22);
+      border-radius: 28px 36px 24px 40px / 36px 24px 40px 28px;
+      padding: 32px 38px;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .art-blob-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .art-blurb-text {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.55;
+      letter-spacing: -0.015em;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .blurb-target-lead {
+      display: inline;
+      font-weight: 400;
+      color: #ffffff;
+    }
+
+    .blurb-target-lead span {
+      display: inline-block;
+      visibility: hidden;
+    }
+
+    .blurb-remaining-text {
+      display: inline;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .blurb-remaining-text.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blurb-cv-link {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 400;
+      transition: color 0.15s ease;
+    }
+
+    .blurb-cv-link:hover {
+      color: #ff5757;
+    }
+
+    /* =========================================================================
+       CHOCOLATE BROWN ART PROJECTS SECTION
+       ========================================================================= */
+    .art-projects-section {
+      position: relative;
+      background-color: #261c18;
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 70px 48px 140px 48px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .table-wrapper {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .projects-table td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 14px 0;
+      text-align: left;
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .col-project {
+      width: 65%;
+      padding-left: 24px !important;
+      font-weight: 400;
+    }
+
+    .col-category {
+      width: 20%;
+      text-align: left;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .col-year {
+      width: 15%;
+      text-align: right;
+      padding-right: 24px !important;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+    }
+
+    .project-row {
+      cursor: crosshair;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .project-row:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+    }
+
+    .project-row:hover .col-project {
+      font-style: italic;
+    }
+
+    .project-row:hover .col-category,
+    .project-row:hover .col-year {
+      color: #ffffff;
+    }
+
+    .project-row.active-row {
+      background-color: #0055ff;
+      color: #ffffff;
+      border-bottom: none;
+    }
+
+    .project-row.active-row .col-project {
+      font-style: italic;
+    }
+
+    .project-row.active-row .col-category,
+    .project-row.active-row .col-year {
+      color: #ffffff;
+    }
+
+    /* Lab / Den Link Row */
+    .lab-link-row {
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .lab-link-row:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+    }
+
+    .lab-link-row:hover .col-project {
+      font-style: italic;
+    }
+
+    /* Project Details Accordion */
+    .project-details {
+      display: none;
+      background-color: #1d1512;
+    }
+
+    .project-details td {
+      padding: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .details-container {
+      padding: 32px 28px 44px;
+      overflow: hidden;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .details-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .details-description {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #ffffff;
+    }
+
+    .details-body {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .details-body p {
+      margin-bottom: 14px;
+    }
+
+    .details-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .details-description a,
+    .details-body a {
+      color: #ffff00;
+      text-decoration: underline;
+      transition: color 0.15s ease;
+    }
+
+    .details-description a:hover,
+    .details-body a:hover {
+      color: #ff5757;
+    }
+
+    .details-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #ffff00;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 2px solid #ffff00;
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .details-link:hover {
+      color: #ff5757;
+      border-color: #ff5757;
+    }
+
+    .details-images {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .details-images img {
+      max-width: 100%;
+      max-height: 520px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0 !important;
+    }
+
+    /* Floating Image Preview Stage */
+    .image-stage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .image-stage img {
+      position: absolute;
+      width: 320px;
+      height: auto;
+      max-height: 320px;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      pointer-events: none;
+      transform: translate(-50%, -100%);
+    }
+
+    .image-stage img.visible {
+      opacity: 1;
+    }
+
+    /* Mobile screens */
+    @media (max-width: 768px) {
+      .site-header {
+        top: 14px;
+        left: 14px;
+      }
+
+      .art-hero-splash {
+        padding: 80px 20px 60px 20px;
+      }
+
+      .art-hero-title {
+        font-size: clamp(38px, 12vw, 68px);
+        line-height: 1.08;
+      }
+
+      .art-hero-bg {
+        background-position: center top;
+        background-size: cover;
+      }
+
+      .art-blurb-wrapper {
+        margin-bottom: 36px;
+      }
+
+      .art-blob-card {
+        padding: 26px 20px;
+        border-radius: 24px 32px 22px 34px / 32px 22px 34px 24px;
+      }
+
+      .art-blurb-text {
+        font-size: clamp(16px, 4.2vw, 20px);
+        line-height: 1.5;
+      }
+
+      .art-projects-section {
+        padding: 40px 16px 80px 16px;
+      }
+
+      .col-category {
+        display: none;
+      }
+
+      .col-project {
+        width: 75%;
+        padding-left: 14px !important;
+        font-size: 15px;
+      }
+
+      .col-year {
+        width: 25%;
+        padding-right: 14px !important;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .details-images {
+        order: -1;
+      }
+
+      .details-container {
+        padding: 20px 14px 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Strictly Sharp Dashed Navigation Header -->
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand-box">
+        <span>Tina Tarighian</span>
+      </a>
+      <button class="nav-dropdown-trigger" id="navTrigger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>art</span>
+        <span class="trigger-arrow">▾</span>
+      </button>
+
+      <nav class="nav-dropdown-menu" id="navMenu">
+        <a href="work.html" class="nav-menu-item item-work">work</a>
+        <a href="about.html" class="nav-menu-item item-abt">abt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Clean Full-Screen Hero Splash -->
+  <header class="art-hero-splash" id="artHeroSplash">
+    <div class="art-hero-bg"></div>
+    <div class="art-hero-overlay"></div>
+
+    <div class="art-hero-content">
+      <h1 class="art-hero-title" id="artHeroTitle">
+        <!-- Rendered with hero spans -->
+      </h1>
+    </div>
+  </header>
+
+  <!-- Floating Letters Stage (Fixed to Viewport) -->
+  <div class="art-letter-stage" id="artLetterStage" aria-hidden="true"></div>
+
+  <!-- Floating preview stage for mouse follower -->
+  <div class="image-stage"></div>
+
+  <!-- Chocolate Brown Art Projects Table Section -->
+  <section class="art-projects-section" id="artProjects">
+    <div class="table-wrapper">
+
+      <!-- Statement Blob Card right above the list of projects -->
+      <div class="art-blurb-wrapper" id="artBlurbWrapper">
+        <div class="art-blob-card" id="artBlobCard">
+          <div class="art-blob-content">
+            <p class="art-blurb-text">
+              <span class="blurb-target-lead" id="blurbTargetLead"></span>
+              <span class="blurb-remaining-text" id="blurbRemainingText">
+                . Repurposing the formats of contemporary software, artificial intelligence, and internet infrastructure,
+                she builds inside the systems she examines to create participatory spectacles and net art that explore
+                human behavior, intimacy, and surveillance at scale. <a
+                  href="https://docs.google.com/document/d/e/2PACX-1vTROXtut07j8Su4ytr73K4_LrTfEW3gzSferyMS-4k90jvvusLA8QvTc614J2FW_N-SH2M9HgH_C63k/pub"
+                  target="_blank" rel="noopener noreferrer" class="blurb-cv-link">cv</a>
+              </span>
+            </p>
+          </div>
         </div>
       </div>
+
+      <table class="projects-table">
+        <tbody>
+          <!-- 1. everyday.tina.zone -->
+          <tr class="project-row" data-project-id="everyday" data-preview-image="images/art/everyday.webp">
+            <td class="col-project">everyday.tina.zone</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">ongoing</td>
+          </tr>
+          <tr class="project-details" id="everyday-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">In August 2025, two major events occurred: I took a really good
+                      selfie, and Google's native image model (Nano Banana) shipped to the public for free. The latter
+                      changed the liquidity of images on the internet overnight, and the former served as the basis for
+                      my project, everyday.tina.zone.</div>
+                    <div class="details-body">
+                      <p>Every day, this project lets the model intelligently imagine what I look like X days from the
+                        original photo, aging me alongside the model. Through Instagram UI pastiche, my twin ages one
+                        day at a time. It's a practice in natural language—how precisely can I describe myself—and a
+                        meditative exercise in self-surveillance: studying how I actually document my own life so Her,
+                        my twin, can become life-like.</p>
+                    </div>
+                    <a href="https://everyday.tina.zone/" class="details-link" target="_blank" rel="noopener">Check out
+                      my selfies</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/everyday.webp" alt="everyday.tina.zone" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 2. AI Purity Test -->
+          <tr class="project-row" data-project-id="aipuritytest" data-preview-image="images/art/aipuritytest.webp">
+            <td class="col-project">☆ AI Purity Test</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2025</td>
+          </tr>
+          <tr class="project-details" id="aipuritytest-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">The <a href="https://ricepuritytest.com/" target="_blank"
+                        rel="noopener">Rice Purity Test</a> is a storied freshman ritual… a puritanical scorecard for
+                      human hedonism that gives college kids a shared point of comparison. I.e., Have you kissed a girl?
+                      Have you done meth?</div>
+                    <div class="details-body">
+                      <p>The AI Purity Test emerged in a climate where AI usage has the same stigma.</p>
+                      <p>The test went viral on Twitter and has surpassed two million users and counting. I also made <a
+                          href="https://www.instagram.com/p/DXuWN-TESqA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                          target="_blank" rel="noopener">limited merch</a>, and am happy to custom make one for you.</p>
+                    </div>
+                    <a href="https://aipuritytest.org" class="details-link" target="_blank" rel="noopener">Have you
+                      heard of AI?</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/aipuritytest.webp" alt="☆ AI Purity Test" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 3. 100 Deep Breaths -->
+          <tr class="project-row" data-project-id="100-deep-breaths"
+            data-preview-image="images/art/100-deep-breaths.webp">
+            <td class="col-project">100 Deep Breaths</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2025</td>
+          </tr>
+          <tr class="project-details" id="100-deep-breaths-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">Breath marks the human body's arrival and departure. Like <a
+                        href="https://thispersondoesnotexist.com/" target="_blank"
+                        rel="noopener">thispersondoesnotexist.com</a>, 100 Deep Breaths stages the uncanny encounter of
+                      watching AI-generated humans breathe. The minimal act of inhalation and exhalation unsettles our
+                      sense of the real.</div>
+                    <div class="details-body">
+                      <p>Created by creative technologist Tina Tarighian, the project examines the threshold where
+                        simulation becomes visceral. One hundred video studies were generated with Google's Veo model.
+                      </p>
+                    </div>
+                    <a href="https://100-deep-breaths.com/" class="details-link" target="_blank" rel="noopener">Take a
+                      Deep Breath</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/100-deep-breaths.webp" alt="100 Deep Breaths" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 4. Rithm.Love -->
+          <tr class="project-row" data-project-id="rithm" data-preview-image="images/art/rithm.webp">
+            <td class="col-project">☆ Rithm.Love</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2025</td>
+          </tr>
+          <tr class="project-details" id="rithm-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">
+                      <p>Mark Zuckerberg knows you better than your mother.</p>
+                      <p>He's watched your every move on Instagram for years.</p>
+                      <p>He knows what you like, what you don't like, and what you're looking for.</p>
+                      <p>This algorithm has made you conscious of hip dips, disrupted governments, made millionaires
+                        overnight.</p>
+                      <p>What if we repurposed it for love?</p>
+                      <p>Your explore page is a mirror of your digital micro-interactions. It's more honest than any
+                        dating profile you've ever written.</p>
+                      <p>Other dating apps make you perform. Curate. Lie about loving hiking.</p>
+                      <p>Your algorithm already knows who you'd match with on Rithm.Love.</p>
+                      <p>Rithm.Love: screenshot your explore page. Find your scrollmate. No bios. No prompts. Just pure
+                        digital pheromones.</p>
+                    </div>
+                    <a href="https://www.rithm.love" class="details-link" target="_blank" rel="noopener">sign up for
+                      Rithm.Love</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/rithm.webp" alt="☆ Rithm.Love" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 5. What does my Husband Look Like? -->
+          <tr class="project-row" data-project-id="whatdoesmyhusbandlooklike"
+            data-preview-image="images/art/whatdoesmyhusbandlooklike.webp">
+            <td class="col-project">What does my Husband Look Like?</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2025</td>
+          </tr>
+          <tr class="project-details" id="whatdoesmyhusbandlooklike-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">This site uses native image out to generate an interpretation of
+                      what your husband (or wife, or breakfast, or job, or anything else) might look like based on a
+                      picture of you. When you ask an reasoning model with native image out what your husband looks
+                      like, you're watching the model complete that thought using your face, its training data, and its
+                      own reasoning. AI models with multimodal input and reasoning do not classify you so much as they
+                      dream you up.</div>
+                    <div class="details-body">
+                      <p>I was inspired by <a href="https://excavating.ai/" target="_blank" rel="noopener">Kate Crawford
+                          and Trevor Paglen's ImageNet Roulette 2019</a>, a project that quickly onboarded users into ML
+                        training bias as they watched their own faces fall under the labels of "queen," "ballbuster," or
+                        even "loser."</p>
+                      <p><a href="https://www.are.na/tina-tarighian/whatdoesmyhusbandlooklike-com" target="_blank"
+                          rel="noopener">Some people using it &lt;3</a></p>
+                    </div>
+                    <a href="https://whatdoesmyhusbandlooklike.com" class="details-link" target="_blank"
+                      rel="noopener">What does your husband look like?</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/whatdoesmyhusbandlooklike.webp" alt="What does my Husband Look Like?" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 6. Fumble Dating -->
+          <tr class="project-row" data-project-id="fumble-dating" data-preview-image="images/art/fumble.webp">
+            <td class="col-project">Fumble Dating</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2025</td>
+          </tr>
+          <tr class="project-details" id="fumble-dating-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">Fumble is an artistic response to the increasing automation and
+                      optimization of human relationships. It satirizes the recent trend of dating apps using AI to not
+                      just match people, but to potentially replace the actual dating experience itself. And every
+                      single one of them is a total fumble.</div>
+                    <div class="details-body">
+                      <p>This project was inspired by Bumble's recent announcement about developing "AI dating
+                        concierges" that could essentially date for you. As Bumble founder Whitney Wolfe Herd stated:
+                        <em>"There is a world where your dating concierge could go and date for you, with another dating
+                          concierge... Then you don't have to talk to 600 people. It will go scan all of San Francisco
+                          for you and say, 'These are the three people you really ought to meet.' That's the power of AI
+                          when harnessed the right way."</em>
+                      </p>
+                      <p>Fumble asks: What happens when we optimize away the human elements of dating? When AI does the
+                        flirting, the getting-to-know-you, and even the dating itself, what's left for us to experience?
+                      </p>
+                      <p><a href="https://www.are.na/tina-zone/ai-dating" target="_blank" rel="noopener">my are.na
+                          channel about AI dating...</a></p>
+                    </div>
+                    <a href="https://fumbledating.com" class="details-link" target="_blank" rel="noopener">Start
+                      Fumbling....</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/fumble.webp" alt="Fumble Dating" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 7. Say One More Thing -->
+          <tr class="project-row" data-project-id="say-one-more-thing"
+            data-preview-image="images/art/say-one-more-thing.webp">
+            <td class="col-project">☆ Say One More Thing</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="say-one-more-thing-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">An email lottery system with a 1 in one million chance that your
+                      message goes through, garnering over 5 million views and 10,000+ users.</div>
+                    <div class="details-body">
+                      <p>This project explores digital communication, chance, and the value we place on having our
+                        voices heard.</p>
+                      <p>New entries continue to arrive daily, with participants hoping to be the rare voice that breaks
+                        through.</p>
+                    </div>
+                    <a href="https://say-one-more-thing.com/" class="details-link" target="_blank" rel="noopener">Try
+                      Your Luck</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/say-one-more-thing.webp" alt="☆ Say One More Thing" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 8. SuperVitamin -->
+          <tr class="project-row" data-project-id="supervitamin" data-preview-image="images/art/supervitamin.webp">
+            <td class="col-project">SuperVitamin</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="supervitamin-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">My inspirations for "SuperVitamin" were: 1) an ex who would take a
+                      bunch of supplements at the same time (like a handful of 20 pills, AT ONCE!!) and 2) a time period
+                      where I was completely enthralled with online manifestation videos.</div>
+                    <div class="details-body">
+                      <p>To manifest my dream job, I spent nearly an hour each morning listening to three back-to-back
+                        videos. Patience isn't my virtue, so why not binge all these good vibes at once? That curiosity
+                        plunged me into YouTube's manifestation rabbit hole, where you can manifest anything. Forget
+                        just the dream job—how about changing your eye color, winning the lottery, or nailing a
+                        backflip? The possibilities are endless, with countless frequencies and soothing voices guiding
+                        the way.</p>
+                      <p>Use this tool as a menu, pick out everything you want to manifest and listen to the cacophony
+                        of your every desire.</p>
+                    </div>
+                    <a href="https://tina.zone/vitamin/" class="details-link" target="_blank" rel="noopener">Take Your
+                      Vitamins</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/supervitamin.webp" alt="SuperVitamin" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 9. Enter Here -->
+          <tr class="project-row" data-project-id="pixelmouth" data-preview-image="images/art/enter.webp">
+            <td class="col-project">Enter Here</td>
+            <td class="col-category">Installation</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="pixelmouth-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">This is a little install I did for @pixelmouthnyc called "A rose
+                      for @Emily7213_lol"</div>
+                    <div class="details-body">
+                      <p>It's an immersive viewing experience that dynamically switches between different real-time live
+                        streams worldwide while physically encapsulating you in the soft-sculpture. The portals
+                        transition between remote sea cameras, zoo animals, random backyards, ASMR, porn cams, MIT's
+                        cafeteria, bomb watches in Gaza, UN meetings, mukbang channels, urban city streets, game shows,
+                        stock watches, and so SO much more. It also featured a security camera watching the viewer from
+                        a location within the gallery.</p>
+                      <p>This project highlights both the interconnectedness of our digital-age existence and the
+                        pervasive nature of modern surveillance. You are the observer and the observed. Thanks so much
+                        @tench.nology for getting me involved. It was such an honor and the show was fabulous ☺️❤️🙏</p>
+                    </div>
+                    <a href="https://www.instagram.com/p/C8aQekjP9QV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                      class="details-link" target="_blank" rel="noopener">ENTER HERE</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/enter.webp" alt="Enter Here" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 10. Facebook Marketplace Mirrors -->
+          <tr class="project-row" data-project-id="facebook-marketplace-mirrors"
+            data-preview-image="images/art/fbmirrors.webp">
+            <td class="col-project">Facebook Marketplace Mirrors</td>
+            <td class="col-category">Video</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="facebook-marketplace-mirrors-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">I was selling a mirror on @facebookmarketplace like a month ago and
+                      laughed at myself trying to take a picture of the mirror without capturing my reflection.</div>
+                    <div class="details-body">
+                      <p>I went through hundreds of listings of second hand mirrors, ran the images through an image
+                        expander, and these are some of the haunted favs. Silly little thing.</p>
+                    </div>
+                    <a href="https://www.instagram.com/reel/C6rLBhHxfjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                      class="details-link" target="_blank" rel="noopener">Watch the Reel!</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/fbmirrors.webp" alt="Facebook Marketplace Mirrors" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 11. Engage with Me -->
+          <tr class="project-row" data-project-id="engage-with-me" data-preview-image="images/art/engagewithme.webp">
+            <td class="col-project">Engage with Me</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="engage-with-me-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">I stopped posting casual selfies of myself on instagram once it
+                      started turning into a page where I shared my freelance work and personal projects.</div>
+                    <div class="details-body">
+                      <p>I'm not exactly sure why. The humorous side of me likes to think it is because it is too easily
+                        accessible, and most people do not deserve my awesome selfies. This led to "Engage with Me," a
+                        series of steps you must complete before being deemed worthy enough for an old picture of me.
+                      </p>
+                    </div>
+                    <a href="https://tina.zone/engagewithme" class="details-link" target="_blank" rel="noopener">Engage
+                      with Me</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/engagewithme.webp" alt="Engage with Me" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 12. Happy Test -->
+          <tr class="project-row" data-project-id="happy-test" data-preview-image="images/art/happy.webp">
+            <td class="col-project">Happy Test</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="happy-test-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">Inspired by the dystopian smile detector Canon installed in their
+                      Chinese offices (2021), I temporarily implemented browser-based emotion tracking on my personal
+                      website.</div>
+                    <div class="details-body">
+                      <p>With Google Analytics, I was able to see whether or not people were enjoying their time at
+                        tina.zone.</p>
+                    </div>
+                    <a href="https://tina.zone/happytest" class="details-link" target="_blank" rel="noopener">Happy
+                      Test</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/happy.webp" alt="Happy Test" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 13. Scan Artist -->
+          <tr class="project-row" data-project-id="scan-artist" data-preview-image="images/art/scanartist.webp">
+            <td class="col-project">☆ Scan Artist</td>
+            <td class="col-category">AR</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="scan-artist-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">A NYFW show that tells a story about the current scourges of the
+                      fashion industry through marker-based augmented reality.</div>
+                    <div class="details-body">
+                      <p>This project was presented at New York Fashion Week 2024, using augmented reality to highlight
+                        issues in the fashion industry.</p>
+                    </div>
+                    <a href="https://nikimariers.substack.com/p/coding-chaos-unveiling-consumer-culture?r=f5n80&utm_medium=email"
+                      class="details-link" target="_blank" rel="noopener">Learn More</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/scanartist.webp" alt="☆ Scan Artist" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 14. Distance From Source -->
+          <tr class="project-row" data-project-id="distance-from-source"
+            data-preview-image="images/art/distance-source.webp">
+            <td class="col-project">Distance From Source</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="distance-from-source-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">I want the truth. Don't stray from the source. This diary entry
+                      obfuscates more the further you are away from the place it was written.</div>
+                    <div class="details-body">
+                      <p>This project explores the concept of truth and proximity, using geolocation to alter the user's
+                        experience based on their physical distance from where the content was created.</p>
+                    </div>
+                    <a href="https://tina.zone/distancefromsource/" class="details-link" target="_blank"
+                      rel="noopener">Read my Diary</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/distance-source.webp" alt="Distance From Source" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 15. Ru and Ashe: an HTML Play about Love -->
+          <tr class="project-row" data-project-id="ru-and-ashe-an-html-play-about-love"
+            data-preview-image="images/art/couch.webp">
+            <td class="col-project">Ru and Ashe: an HTML Play about Love</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2024</td>
+          </tr>
+          <tr class="project-details" id="ru-and-ashe-an-html-play-about-love-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">WIP, two characters who are in love that speak to each other across
+                      the browser.</div>
+                    <div class="details-body">
+                      <p>This is an experiment with dialogue and animation. Current fixes needed: the speech is off. I
+                        realized you cannot have text to speech for two popups going at the same time, so I tried to
+                        improvise with some inputted audio files.</p>
+                    </div>
+                    <a href="https://tina.zone/asheandru" class="details-link" target="_blank" rel="noopener">Enjoy the
+                      Show!</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/couch.webp" alt="Ru and Ashe: an HTML Play about Love" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 16. Worship Me: A Shareable Digital Shrine -->
+          <tr class="project-row" data-project-id="worship-me-a-shareable-digital-shrine"
+            data-preview-image="images/art/worship.webp">
+            <td class="col-project">Worship Me: A Shareable Digital Shrine</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2023</td>
+          </tr>
+          <tr class="project-details" id="worship-me-a-shareable-digital-shrine-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">After a friend with covid jokingly told me to "worship her through
+                      the screen," I thought about how I could make a shrine-like website for her.</div>
+                    <div class="details-body">
+                      <p>I notoriously make websites and art projects for the people in my life, so this was a fun
+                        challenge. This is my first Node.js application! After uploading a photo, users generate a link
+                        to their custom shrines, with buttons allowing you to worship them harder and harder. This
+                        custom link is sharable with other people, so they can worship you as well.</p>
+                    </div>
+                    <a href="https://worshipme.tina.zone" class="details-link" target="_blank" rel="noopener">Build a
+                      shrine!</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/worship.webp" alt="Worship Me: A Shareable Digital Shrine" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 17. Love Meter -->
+          <tr class="project-row" data-project-id="love-meter" data-preview-image="images/art/lovemeter.webp">
+            <td class="col-project">Love Meter</td>
+            <td class="col-category">Web</td>
+            <td class="col-year">2023</td>
+          </tr>
+          <tr class="project-details" id="love-meter-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    <div class="details-description">A birthday present I made for a friend going through a breakup.
+                    </div>
+                    <div class="details-body">
+                      <p>Urging them to remember that the love they've put out into the universe exists inside them.</p>
+                    </div>
+                    <a href="https://tina.zone/lovemeter" class="details-link" target="_blank" rel="noopener">Love
+                      Meter</a>
+                  </div>
+                  <div class="details-images">
+                    <img src="images/art/lovemeter.webp" alt="Love Meter" />
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 18. Den / Lab footer row -->
+          <tr class="lab-link-row" onclick="window.location.href='den.html'">
+            <td class="col-project" colspan="3">hoarder den of crap from before all this</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </td>
-</tr>
-            
-<tr class="project-row" data-project-id="aipuritytest" 
-    data-preview-image="images/art/aipuritytest.webp">
-  <td class="col-project">☆ AI Purity Test</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2025</td>
-</tr>
-<tr class="project-details" id="aipuritytest-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">The <a href="https://ricepuritytest.com/">Rice Purity Test</a> is a storied freshman ritual… a puritanical scorecard for human hedonism that gives college kids a shared point of comparison. I.e., Have you kissed a girl? Have you done meth?</div>
-          <div class="details-body"><p>The AI Purity Test emerged in a climate where AI usage has the same stigma.</p><p>The test went viral on Twitter and has surpassed two million users and counting. I also made <a href="https://www.instagram.com/p/DXuWN-TESqA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">limited merch</a>, and am happy to custom make one for you.</p></div>
-          <a href="https://aipuritytest.org" class="details-link" target="_blank">Have you heard of AI?</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/aipuritytest.webp" alt="☆ AI Purity Test" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
-            
-<tr class="project-row" data-project-id="100-deep-breaths" 
-    data-preview-image="images/art/100-deep-breaths.webp">
-  <td class="col-project">100 Deep Breaths</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2025</td>
-</tr>
-<tr class="project-details" id="100-deep-breaths-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">Breath marks the human body's arrival and departure. Like <a href="https://thispersondoesnotexist.com/">thispersondoesnotexist.com</a>, 100 Deep Breaths stages the uncanny encounter of watching AI-generated humans breathe. The minimal act of inhalation and exhalation unsettles our sense of the real.</div>
-          <div class="details-body"><p>Created by creative technologist Tina Tarighian, the project examines the threshold where simulation becomes visceral. One hundred video studies were generated with Google's Veo model.</p></div>
-          <a href="https://100-deep-breaths.com/" class="details-link" target="_blank">Take a Deep Breath</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/100-deep-breaths.webp" alt="100 Deep Breaths" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
-            
+  </section>
 
-<tr class="project-row" data-project-id="rithm" 
-    data-preview-image="images/art/rithm.webp">
-  <td class="col-project">☆ Rithm.Love</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2025</td>
-</tr>
-<tr class="project-details" id="rithm-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">Mark Zuckerberg knows you better than your mother.
+  <script>
+    // Navigation Dropdown Logic
+    const navTrigger = document.getElementById('navTrigger');
+    const navMenu = document.getElementById('navMenu');
 
-He's watched your every move on Instagram for years.
+    function toggleNavDropdown(e) {
+      if (e) e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('is-open');
+      navTrigger.classList.toggle('is-active', isOpen);
+      navTrigger.setAttribute('aria-expanded', isOpen);
+    }
 
-He knows what you like, what you don't like, and what you're looking for.
+    function closeNavDropdown() {
+      navMenu.classList.remove('is-open');
+      navTrigger.classList.remove('is-active');
+      navTrigger.setAttribute('aria-expanded', 'false');
+    }
 
-This algorithm has made you conscious of hip dips, disrupted governments, made millionaires overnight.
+    navTrigger.addEventListener('click', toggleNavDropdown);
 
-What if we repurposed it for love?
+    document.addEventListener('click', (e) => {
+      if (!navTrigger.contains(e.target) && !navMenu.contains(e.target)) {
+        closeNavDropdown();
+      }
+    });
 
-Your explore page is a mirror of your digital micro-interactions. It's more honest than any dating profile you've ever written.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdown();
+      }
+    });
 
-Other dating apps make you perform. Curate. Lie about loving hiking.
+    // ============================================================
+    // GOOGLE SHEETS CMS CONFIGURATION FOR ART PROJECTS
+    // ============================================================
+    const GOOGLE_SHEET_ID_OR_URL = 'https://docs.google.com/spreadsheets/d/1_cWMuByNoaVtMNV8bSlZ0D_cg0EerDHAvXv5Ly07U8A/edit?gid=960020960#gid=960020960';
+    const GOOGLE_SHEET_TAB_NAME = 'art';
 
-Your algorithm already knows who you'd match with on Rithm.Love.
+    function formatMarkdown(text) {
+      if (!text) return '';
+      let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      return html;
+    }
 
-Rithm.Love: screenshot your explore page. Find your scrollmate. No bios. No prompts. Just pure digital pheromones.</div>
-          
-          <a href="https://www.rithm.love" class="details-link" target="_blank">sign up for Rithm.Love</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/rithm.webp" alt="☆ Rithm.Love" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+    function parseLinks(raw) {
+      if (!raw) return [];
+      const items = raw.split(/[\n|]/).map(s => s.trim()).filter(Boolean);
+      const links = [];
+      items.forEach(item => {
+        const mdMatch = item.match(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/);
+        if (mdMatch) {
+          links.push({ label: mdMatch[1], url: mdMatch[2] });
+          return;
+        }
+        const colonMatch = item.match(/^([^:]+):\s*(https?:\/\/.+)$/);
+        if (colonMatch) {
+          links.push({ label: colonMatch[1].trim(), url: colonMatch[2].trim() });
+          return;
+        }
+        const urlMatch = item.match(/https?:\/\/[^\s]+/);
+        if (urlMatch) {
+          links.push({ label: 'Open Link', url: urlMatch[0] });
+        }
+      });
+      return links;
+    }
 
-            
-<tr class="project-row" data-project-id="whatdoesmyhusbandlooklike" 
-    data-preview-image="images/art/whatdoesmyhusbandlooklike.webp">
-  <td class="col-project">What does my Husband Look Like? </td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2025</td>
-</tr>
-<tr class="project-details" id="whatdoesmyhusbandlooklike-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">This site uses native image out to generate an interpretation of what your husband (or wife, or breakfast, or job, or anything else) might look like based on a picture of you. When you ask an reasoning model with native image out what your husband looks like, you're watching the model complete that thought using your face, its training data, and its own reasoning. AI models with multimodal input and reasoning do not classify you so much as they dream you up.</div>
-          <div class="details-body">I was inspired by <a href="https://excavating.ai/">Kate Crawford and Trevor Paglen's ImageNet Roulette 2019</a>, a project that quickly onboarded users into ML training bias as they watched their own faces fall under the labels of "queen," "ballbuster," or even "loser."</p>
-<p></p>
-<p><a href="https://www.are.na/tina-tarighian/whatdoesmyhusbandlooklike-com">Some people using it \<3 </a></div>
-          <a href="https://whatdoesmyhusbandlooklike.com" class="details-link" target="_blank">What does your husband look like? </a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/whatdoesmyhusbandlooklike.webp" alt="What does my Husband Look Like? " />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+    function parseImages(raw) {
+      if (!raw) return [];
+      return raw.split(/[,\n]/).map(s => s.trim()).filter(Boolean);
+    }
 
-            
-<tr class="project-row" data-project-id="fumble-dating" 
-    data-preview-image="images/art/fumble.webp">
-  <td class="col-project">Fumble Dating </td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2025</td>
-</tr>
-<tr class="project-details" id="fumble-dating-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">Fumble is an artistic response to the increasing automation and optimization of human relationships. It satirizes the recent trend of dating apps using AI to not just match people, but to potentially replace the actual dating experience itself. And every single one of them is a total fumble.</div>
-          <div class="details-body">This project was inspired by Bumble's recent announcement about developing "AI dating concierges" that could essentially date for you. As Bumble founder Whitney Wolfe Herd stated: *"There is a world where your dating concierge could go and date for you, with another dating concierge... Then you don't have to talk to 600 people. It will go scan all of San Francisco for you and say, 'These are the three people you really ought to meet.' That's the power of AI when harnessed the right way."*</p>
-<p></p>
-<p>Fumble asks: What happens when we optimize away the human elements of dating? When AI does the flirting, the getting-to-know-you, and even the dating itself, what's left for us to experience?</p>
-<p></p>
-<p><a href="https://www.are.na/tina-zone/ai-dating">my are.na channel about AI dating...</a></div>
-          <a href="fumbledating.com" class="details-link" target="_blank">Start Fumbling....</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/fumble.webp" alt="Fumble Dating " />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
 
-            
-<tr class="project-row" data-project-id="say-one-more-thing" 
-    data-preview-image="images/art/say-one-more-thing.webp">
-  <td class="col-project">☆ Say One More Thing</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="say-one-more-thing-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">An email lottery system with a 1 in one million chance that your message goes through, garnering over 5 million views and 10,000+ users.</div>
-          <div class="details-body">This project explores digital communication, chance, and the value we place on having our voices heard. The campaign spread through social media with viral videos explaining the concept:</p>
-<p></p>
-<p>New entries continue to arrive daily, with participants hoping to be the rare voice that breaks through.</div>
-          <a href="https://say-one-more-thing.com/" class="details-link" target="_blank">Try Your Luck</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/say-one-more-thing.webp" alt="☆ Say One More Thing" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+    function bindArtTableEvents() {
+      const projectRows = document.querySelectorAll('.project-row');
+      const imageStage = document.querySelector('.image-stage');
+      const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      let isAnyProjectExpanded = false;
 
-            
-<tr class="project-row" data-project-id="supervitamin" 
-    data-preview-image="images/art/supervitamin.webp">
-  <td class="col-project">SuperVitamin</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="supervitamin-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">My inspirations for "SuperVitamin" were: 1) an ex who would take a bunch of supplements at the same time (like a handful of 20 pills, AT ONCE!!) and 2) a time period where I was completely enthralled with online manifestation videos.</div>
-          <div class="details-body">To manifest my dream job, I spent nearly an hour each morning listening to three back-to-back videos. Patience isn't my virtue, so why not binge all these good vibes at once? That curiosity plunged me into YouTube's manifestation rabbit hole, where you can manifest anything. Forget just the dream job—how about changing your eye color, winning the lottery, or nailing a backflip? The possibilities are endless, with countless frequencies and soothing voices guiding the way.</p>
-<p></p>
-<p>Use this tool as a menu, pick out everything you want to manifest and listen to the cacophony of your every desire.</div>
-          <a href="https://tina.zone/vitamin/" class="details-link" target="_blank">Take Your Vitamins</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/supervitamin.webp" alt="SuperVitamin" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+      // Mouse-follow preview image for desktop
+      if (!isMobile && imageStage) {
+        imageStage.innerHTML = '';
+        const previewImage = document.createElement('img');
+        imageStage.appendChild(previewImage);
 
-            
-<tr class="project-row" data-project-id="pixelmouth" 
-    data-preview-image="images/art/enter.webp">
-  <td class="col-project">Enter Here</td>
-  <td class="col-category">Installation</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="pixelmouth-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">This is a little install I did for @pixelmouthnyc called "A rose for @Emily7213_lol"</div>
-          <div class="details-body">It's an immersive viewing experience that dynamically switches between different real-time live streams worldwide while physically encapsulating you in the soft-sculpture. The portals transition between remote sea cameras, zoo animals, random backyards, ASMR, porn cams, MIT's cafeteria, bomb watches in Gaza, UN meetings, mukbang channels, urban city streets, game shows, stock watches, and so SO much more. It also featured a security camera watching the viewer from a location within the gallery.</p>
-<p></p>
-<p>This project highlights both the interconnectedness of our digital-age existence and the pervasive nature of modern surveillance. You are the observer and the observed. Thanks so much @tench.nology for getting me involved. It was such an honor and the show was fabulous ☺️❤️🙏</div>
-          <a href="https://www.instagram.com/p/C8aQekjP9QV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="details-link" target="_blank">ENTER HERE</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/enter.webp" alt="Enter Here" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+        projectRows.forEach(row => {
+          row.addEventListener('mouseenter', function () {
+            if (isAnyProjectExpanded) return;
+            const imgPath = this.getAttribute('data-preview-image');
+            if (imgPath) {
+              previewImage.src = imgPath;
+              previewImage.classList.add('visible');
+            }
+          });
 
-            
-<tr class="project-row" data-project-id="facebook-marketplace-mirrors" 
-    data-preview-image="images/art/fbmirrors.webp">
-  <td class="col-project">Facebook Marketplace Mirrors</td>
-  <td class="col-category">Video</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="facebook-marketplace-mirrors-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">I was selling a mirror on @facebookmarketplace like a month ago and laughed at myself trying to take a picture of the mirror without capturing my reflection.</div>
-          <div class="details-body"><p>I went through hundreds of listings of second hand mirrors, ran the images through an image expander, and these are some of the haunted favs. Silly little thing.</p></div>
-          <a href="https://www.instagram.com/reel/C6rLBhHxfjJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="details-link" target="_blank">Watch the Reel!</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/fbmirrors.webp" alt="Facebook Marketplace Mirrors" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+          row.addEventListener('mousemove', function (e) {
+            if (isAnyProjectExpanded) return;
+            if (previewImage.classList.contains('visible')) {
+              previewImage.style.left = e.clientX + 'px';
+              previewImage.style.top = e.clientY + 'px';
+            }
+          });
 
-            
-<tr class="project-row" data-project-id="engage-with-me" 
-    data-preview-image="images/art/engagewithme.webp">
-  <td class="col-project">Engage with Me</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="engage-with-me-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">I stopped posting casual selfies of myself on instagram once it started turning into a page where I shared my freelance work and personal projects.</div>
-          <div class="details-body"><p>I'm not exactly sure why. The humorous side of me likes to think it is because it is too easily accessible, and most people do not deserve my awesome selfies. This led to "Engage with Me," a series of steps you must complete before being deemed worthy enough for an old picture of me.</p></div>
-          <a href="https://tina.zone/engagewithme" class="details-link" target="_blank">Engage with Me</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/engagewithme.webp" alt="Engage with Me" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+          row.addEventListener('mouseleave', function () {
+            previewImage.classList.remove('visible');
+          });
+        });
+      }
 
-            
-<tr class="project-row" data-project-id="happy-test" 
-    data-preview-image="images/art/happy.webp">
-  <td class="col-project">Happy Test</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="happy-test-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">Inspired by the dystopian smile detector Canon installed in their Chinese offices (2021), I temporarily implemented browser-based emotion tracking on my personal website.</div>
-          <div class="details-body"><p>With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.</p></div>
-          <a href="https://tina.zone/happytest" class="details-link" target="_blank">Happy Test</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/happy.webp" alt="Happy Test" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+      // Accordion click handling
+      projectRows.forEach(row => {
+        row.addEventListener('click', function () {
+          const projectId = this.getAttribute('data-project-id');
+          const detailsRow = document.getElementById(projectId + '-details');
+          if (!detailsRow) return;
 
-            
-<tr class="project-row" data-project-id="scan-artist" 
-    data-preview-image="images/art/scanartist.webp">
-  <td class="col-project">☆ Scan Artist</td>
-  <td class="col-category">AR</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="scan-artist-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">A NYFW show that tells a story about the current scourges of the fashion industry through marker-based augmented reality.</div>
-          <div class="details-body"><p>This project was presented at New York Fashion Week 2024, using augmented reality to highlight issues in the fashion industry.</p></div>
-          <a href="https://nikimariers.substack.com/p/coding-chaos-unveiling-consumer-culture?r=f5n80&utm_medium=email" class="details-link" target="_blank">Learn More</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/scanartist.webp" alt="☆ Scan Artist" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+          const isActive = this.classList.contains('active-row');
 
-            
-<tr class="project-row" data-project-id="distance-from-source" 
-    data-preview-image="images/art/distance-source.webp">
-  <td class="col-project">Distance From Source</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="distance-from-source-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">I want the truth. Don't stray from the source. This diary entry obfuscates more the further you are away from the place it was written.</div>
-          <div class="details-body"><p>This project explores the concept of truth and proximity, using geolocation to alter the user's experience based on their physical distance from where the content was created.</p></div>
-          <a href="https://tina.zone/distancefromsource/" class="details-link" target="_blank">Read my Diary</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/distance-source.webp" alt="Distance From Source" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+          // Close all open details first
+          document.querySelectorAll('.project-details').forEach(d => {
+            d.style.display = 'none';
+          });
+          document.querySelectorAll('.project-row').forEach(r => {
+            r.classList.remove('active-row');
+          });
 
-            
-<tr class="project-row" data-project-id="ru-and-ashe-an-html-play-about-love" 
-    data-preview-image="images/art/couch.webp">
-  <td class="col-project">Ru and Ashe: an HTML Play about Love</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2024</td>
-</tr>
-<tr class="project-details" id="ru-and-ashe-an-html-play-about-love-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">WIP, two characters who are in love that speak to each other across the browser.</div>
-          <div class="details-body"><p>This is an experiment with dialogue and animation. Current fixes needed: the speech is off. I realized you cannot have text to speech for two popups going at the same time, so I tried to improvise with some inputted audio files.</p></div>
-          <a href="https://tina.zone/asheandru" class="details-link" target="_blank">Enjoy the Show!</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/couch.webp" alt="Ru and Ashe: an HTML Play about Love" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+          // If row wasn't active, open it
+          if (!isActive) {
+            detailsRow.style.display = 'table-row';
+            this.classList.add('active-row');
+            isAnyProjectExpanded = true;
 
-            
-<tr class="project-row" data-project-id="worship-me-a-shareable-digital-shrine" 
-    data-preview-image="images/art/worship.webp">
-  <td class="col-project">Worship Me: A Shareable Digital Shrine</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2023</td>
-</tr>
-<tr class="project-details" id="worship-me-a-shareable-digital-shrine-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">After a friend with covid jokingly told me to "worship her through the screen," I thought about how I could make a shrine-like website for her.</div>
-          <div class="details-body"><p>I notoriously make websites and art projects for the people in my life, so this was a fun challenge. This is my first Node.js application! After uploading a photo, users generate a link to their custom shrines, with buttons allowing you to worship them harder and harder. This custom link is sharable with other people, so they can worship you as well.</p></div>
-          <a href="https://worshipme.tina.zone" class="details-link" target="_blank">Build a shrine!</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/worship.webp" alt="Worship Me: A Shareable Digital Shrine" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
+            if (imageStage) {
+              const previewImg = imageStage.querySelector('img');
+              if (previewImg) previewImg.classList.remove('visible');
+            }
 
-            
-<tr class="project-row" data-project-id="love-meter" 
-    data-preview-image="images/art/lovemeter.webp">
-  <td class="col-project">Love Meter</td>
-  <td class="col-category">Web</td>
-  <td class="col-year">2023</td>
-</tr>
-<tr class="project-details" id="love-meter-details">
-  <td colspan="3">
-    <div class="details-container">
-      <div class="details-grid">
-        <div class="details-info">
-          <div class="details-description">A birthday present I made for a friend going through a breakup.</div>
-          <div class="details-body"><p>Urging them to remember that the love they've put out into the universe exists inside them.</p></div>
-          <a href="https://tina.zone/lovemeter" class="details-link" target="_blank">Love Meter</a>
-        </div>
-        <div class="details-images">
-          <img src="images/art/lovemeter.webp" alt="Love Meter" />
-        </div>
-      </div>
-    </div>
-  </td>
-</tr>
-<tr class="lab-link-row" onclick="window.location.href='lab.html'">
-  <td class="col-project" colspan="3">mini investigations before calling anything art</td>
-</tr>
+            setTimeout(() => {
+              detailsRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 50);
+          } else {
+            isAnyProjectExpanded = false;
+          }
+        });
+      });
 
+      // Auto-expand starred projects on mobile
+      if (isMobile) {
+        let firstStarred = null;
+        projectRows.forEach(row => {
+          const title = row.querySelector('.col-project')?.textContent || '';
+          if (title.includes('☆')) {
+            const projectId = row.getAttribute('data-project-id');
+            const detailsRow = document.getElementById(projectId + '-details');
+            if (detailsRow) {
+              detailsRow.style.display = 'table-row';
+              row.classList.add('active-row');
+              isAnyProjectExpanded = true;
+              if (!firstStarred) firstStarred = detailsRow;
+            }
+          }
+        });
+      }
+    }
 
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <script src="js/main.js"></script>
-  </body>
+    function renderArtProjects(projects) {
+      if (!projects || projects.length === 0) return;
+
+      const tbody = document.querySelector('.projects-table tbody');
+      if (!tbody) return;
+
+      let html = '';
+      projects.forEach((proj, idx) => {
+        const id = proj.id || slugify(proj.title || `project-${idx + 1}`);
+        const previewImg = proj.images && proj.images.length > 0 ? proj.images[0] : '';
+
+        // Handle description paragraphs
+        const rawParas = (proj.description || '').split(/\n\s*\n/).filter(p => p.trim());
+        const firstPara = rawParas.length > 0 ? formatMarkdown(rawParas[0]) : '';
+        const remainingParas = rawParas.slice(1).map(p => `<p>${formatMarkdown(p)}</p>`).join('');
+
+        // Links
+        let linksHtml = '';
+        if (proj.links && proj.links.length > 0) {
+          linksHtml = proj.links.map(l => `<a href="${l.url}" class="details-link" target="_blank" rel="noopener noreferrer">${l.label}</a>`).join('');
+        }
+
+        // Images
+        let imagesHtml = '';
+        if (proj.images && proj.images.length > 0) {
+          imagesHtml = proj.images.map(img => `<img src="${img}" alt="${proj.title}" />`).join('');
+        }
+
+        html += `
+          <tr class="project-row" data-project-id="${id}" data-preview-image="${previewImg}">
+            <td class="col-project">${proj.title}</td>
+            <td class="col-category">${proj.category || ''}</td>
+            <td class="col-year">${proj.year || ''}</td>
+          </tr>
+          <tr class="project-details" id="${id}-details">
+            <td colspan="3">
+              <div class="details-container">
+                <div class="details-grid">
+                  <div class="details-info">
+                    ${firstPara ? `<div class="details-description">${firstPara}</div>` : ''}
+                    ${remainingParas ? `<div class="details-body">${remainingParas}</div>` : ''}
+                    ${linksHtml}
+                  </div>
+                  ${imagesHtml ? `<div class="details-images">${imagesHtml}</div>` : ''}
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+
+      // Append den footer row
+      html += `
+        <tr class="lab-link-row" onclick="window.location.href='den.html'">
+          <td class="col-project" colspan="3">hoarder den of crap from before all this</td>
+        </tr>
+      `;
+
+      tbody.innerHTML = html;
+
+      // Rebind table events
+      bindArtTableEvents();
+      window.dispatchEvent(new Event('resize'));
+    }
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    function parseCsvProjects(csvText) {
+      const rows = parseCSV(csvText);
+      if (!rows || rows.length < 2) return [];
+
+      let headers = rows[0].map(h => h.toLowerCase().trim());
+      let titleIdx = headers.findIndex(h => h.includes('title') || h.includes('name') || h.includes('project'));
+      let catIdx = headers.findIndex(h => h.includes('category') || h.includes('type') || h.includes('tag'));
+      let yearIdx = headers.findIndex(h => h.includes('year') || h.includes('date'));
+      let descIdx = headers.findIndex(h => h.includes('desc') || h.includes('detail') || h.includes('text') || h.includes('body') || h.includes('info'));
+      let imgIdx = headers.findIndex(h => (h.includes('image') || h.includes('img') || h.includes('pic') || h.includes('gif') || h === 'media') && !h.includes('layout'));
+      let linkIdx = headers.findIndex(h => h.includes('link') || h.includes('url') || h.includes('href') || h.includes('action'));
+
+      if (titleIdx === -1) titleIdx = 0;
+      if (catIdx === -1) catIdx = 1;
+      if (yearIdx === -1) yearIdx = 2;
+      if (descIdx === -1) descIdx = 3;
+      if (imgIdx === -1) imgIdx = 4;
+      if (linkIdx === -1) linkIdx = 5;
+
+      const projects = [];
+      rows.slice(1).forEach(r => {
+        const title = (r[titleIdx] || '').trim();
+        if (!title) return;
+        const category = (r[catIdx] || '').trim();
+        const year = (r[yearIdx] || '').trim();
+        const description = (r[descIdx] || '').trim();
+        const imagesRaw = (r[imgIdx] || '').trim();
+        const linksRaw = (r[linkIdx] || '').trim();
+
+        projects.push({
+          id: slugify(title),
+          title,
+          category,
+          year,
+          description,
+          images: parseImages(imagesRaw),
+          links: parseLinks(linksRaw)
+        });
+      });
+      return projects;
+    }
+
+    function loadGoogleSheetArtProjects() {
+      if (!GOOGLE_SHEET_ID_OR_URL) return;
+
+      let sheetId = GOOGLE_SHEET_ID_OR_URL.trim();
+      const match = sheetId.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+      if (match && match[1]) {
+        sheetId = match[1];
+      }
+
+      let gid = '960020960';
+      const gidMatch = GOOGLE_SHEET_ID_OR_URL.match(/[#&]gid=([0-9]+)/);
+      if (gidMatch && gidMatch[1]) {
+        gid = gidMatch[1];
+      }
+
+      let tabName = GOOGLE_SHEET_TAB_NAME || 'art';
+      let exportUrl = gid
+        ? `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}&t=${Date.now()}`
+        : `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+
+      fetch(exportUrl)
+        .then(response => {
+          if (!response.ok) throw new Error('Primary export response not ok');
+          return response.text();
+        })
+        .then(text => {
+          const projects = parseCsvProjects(text);
+          if (projects && projects.length > 0) {
+            renderArtProjects(projects);
+          }
+        })
+        .catch(() => {
+          // Fallback to gviz CSV if export endpoint encounters issues
+          let gvizUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+          fetch(gvizUrl)
+            .then(res => res.text())
+            .then(text => {
+              const projects = parseCsvProjects(text);
+              if (projects && projects.length > 0) {
+                renderArtProjects(projects);
+              }
+            })
+            .catch(err => {
+              console.log('Using default static art markup:', err);
+            });
+        });
+    }
+
+    // Initialize Art Table
+    document.addEventListener('DOMContentLoaded', () => {
+      bindArtTableEvents();
+      loadGoogleSheetArtProjects();
+    });
+
+    // =========================================================================
+    // SCROLL-DRIVEN RANDOM LETTER MORPH ENGINE
+    // =========================================================================
+    (function initLetterMorph() {
+      const PHRASE = "Tina Tarighian is an artist using technology";
+      const HERO_LINES = [
+        "Tina Tarighian",
+        "is an artist",
+        "using technology"
+      ];
+
+      const heroSplash = document.getElementById('artHeroSplash');
+      const heroTitle = document.getElementById('artHeroTitle');
+      const letterStage = document.getElementById('artLetterStage');
+      const blurbCard = document.getElementById('artBlobCard');
+      const blurbLead = document.getElementById('blurbTargetLead');
+      const blurbRemaining = document.getElementById('blurbRemainingText');
+
+      if (!heroSplash || !heroTitle || !letterStage || !blurbCard || !blurbLead) return;
+
+      // Seeded deterministic random shuffle so letters fill in randomly
+      function generateRandomRanks(n) {
+        const arr = Array.from({ length: n }, (_, i) => i);
+        let seed = 42;
+        function random() {
+          seed = (seed * 9301 + 49297) % 233280;
+          return seed / 233280;
+        }
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        const ranks = [];
+        arr.forEach((idx, r) => { ranks[idx] = r; });
+        return ranks;
+      }
+
+      const ranks = generateRandomRanks(PHRASE.length);
+      let chars = [];
+      let letterElements = [];
+      let heroCharSpans = [];
+      let blurbCharSpans = [];
+
+      function buildDOM() {
+        // 1. Build Hero Title layout
+        heroTitle.innerHTML = '';
+        heroCharSpans = [];
+        HERO_LINES.forEach((line, lineIdx) => {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'hero-title-line';
+          for (let i = 0; i < line.length; i++) {
+            const span = document.createElement('span');
+            span.textContent = line[i];
+            if (line[i] === ' ') span.innerHTML = '&nbsp;';
+
+            // Additional breathing room between 'r' and 't' in "artist"
+            if (line === "is an artist" && line[i] === 'r' && line[i + 1] === 't') {
+              span.style.marginRight = '0.06em';
+            }
+
+            lineDiv.appendChild(span);
+            heroCharSpans.push(span);
+          }
+
+          // Place the arrow inline right next to technology on the last line
+          if (lineIdx === HERO_LINES.length - 1) {
+            const arrow = document.createElement('a');
+            arrow.href = '#artProjects';
+            arrow.className = 'art-hero-arrow';
+            arrow.id = 'heroArrow';
+            arrow.setAttribute('aria-label', 'Scroll to art projects');
+            arrow.textContent = ' ⤵';
+            lineDiv.appendChild(arrow);
+          }
+
+          heroTitle.appendChild(lineDiv);
+
+          // Virtual line-break space span for 1:1 mapping
+          if (lineIdx < HERO_LINES.length - 1) {
+            const brSpan = document.createElement('span');
+            brSpan.innerHTML = '&nbsp;';
+            brSpan.style.display = 'inline-block';
+            brSpan.style.width = '0px';
+            lineDiv.appendChild(brSpan);
+            heroCharSpans.push(brSpan);
+          }
+        });
+
+        // 2. Build Blurb Lead Target layout
+        blurbLead.innerHTML = '';
+        blurbCharSpans = [];
+        for (let i = 0; i < PHRASE.length; i++) {
+          const span = document.createElement('span');
+          span.textContent = PHRASE[i];
+          if (PHRASE[i] === ' ') span.innerHTML = '&nbsp;';
+
+          // Additional breathing room between 'r' and 't' in "artist"
+          if (PHRASE.slice(i).startsWith('rtist') && PHRASE[i] === 'r') {
+            span.style.marginRight = '0.06em';
+          }
+
+          blurbLead.appendChild(span);
+          blurbCharSpans.push(span);
+        }
+
+        // 3. Build Floating Letters Layer
+        letterStage.innerHTML = '';
+        letterElements = [];
+        for (let i = 0; i < PHRASE.length; i++) {
+          const el = document.createElement('span');
+          el.className = 'art-morph-char';
+          el.textContent = PHRASE[i];
+          if (PHRASE[i] === ' ') el.innerHTML = '&nbsp;';
+          letterStage.appendChild(el);
+          letterElements.push(el);
+        }
+
+        // 4. Map Character Metadata
+        chars = [];
+        for (let i = 0; i < PHRASE.length; i++) {
+          chars.push({
+            char: PHRASE[i],
+            rank: ranks[i],
+            heroSpan: heroCharSpans[i] || heroCharSpans[heroCharSpans.length - 1],
+            blurbSpan: blurbCharSpans[i],
+            heroX0: 0,
+            heroY0: 0,
+            fontSize0: 72,
+            blurbX1: 0,
+            blurbY1: 0,
+            fontSize1: 22,
+            scaleRatio: 0.3
+          });
+        }
+      }
+
+      buildDOM();
+
+      function measurePositions() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+
+        chars.forEach((item, idx) => {
+          if (item.heroSpan) {
+            const hRect = item.heroSpan.getBoundingClientRect();
+            item.heroX0 = hRect.left + scrollX;
+            item.heroY0 = hRect.top + scrollY;
+            item.fontSize0 = parseFloat(window.getComputedStyle(item.heroSpan).fontSize) || 72;
+          }
+          if (item.blurbSpan) {
+            const bRect = item.blurbSpan.getBoundingClientRect();
+            item.blurbX1 = bRect.left + scrollX;
+            item.blurbY1 = bRect.top + scrollY;
+            item.fontSize1 = parseFloat(window.getComputedStyle(item.blurbSpan).fontSize) || 22;
+            item.scaleRatio = item.fontSize0 > 0 ? (item.fontSize1 / item.fontSize0) : 0.3;
+          }
+
+          const el = letterElements[idx];
+          if (el) {
+            el.style.fontSize = item.fontSize0 + 'px';
+          }
+        });
+      }
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      const N = chars.length;
+      const START_OFFSET = 0.05;
+      const STAGGER_SPREAD = 0.58;
+      const CHAR_DURATION = 0.32;
+
+      function renderMorph() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+
+        const blurbRect = blurbCard.getBoundingClientRect();
+        const blurbAbsTop = blurbRect.top + scrollY;
+        // Total scroll range from top until blurb reaches comfortable reading height
+        const targetScroll = Math.max(180, blurbAbsTop - window.innerHeight * 0.40);
+        const progress = Math.max(0, Math.min(1, scrollY / targetScroll));
+
+        // Fade out hero arrow smoothly as user scrolls down
+        const heroArrow = document.getElementById('heroArrow');
+        if (heroArrow) {
+          const arrowOpacity = Math.max(0, 1 - progress * 3.5);
+          heroArrow.style.opacity = arrowOpacity;
+          heroArrow.style.pointerEvents = arrowOpacity > 0.05 ? 'auto' : 'none';
+        }
+
+        // When fully landed down in the project list, show static text
+        const isFullyLanded = progress >= 0.99;
+
+        // Render each floating letter moving downwards into the blurb in random order
+        chars.forEach((item, i) => {
+          const el = letterElements[i];
+          if (!el) return;
+
+          if (isFullyLanded) {
+            el.style.display = 'none';
+            return;
+          } else {
+            el.style.display = 'inline-block';
+          }
+
+          // Random staggering based on rank
+          const charStart = START_OFFSET + (item.rank / Math.max(1, N - 1)) * STAGGER_SPREAD;
+          const rawP = (progress - charStart) / CHAR_DURATION;
+          const charP = Math.max(0, Math.min(1, rawP));
+          const eased = easeInOutCubic(charP);
+
+          // Absolute document position (moves downwards from hero to blurb)
+          const curAbsX = item.heroX0 + (item.blurbX1 - item.heroX0) * eased;
+          const curAbsY = item.heroY0 + (item.blurbY1 - item.heroY0) * eased;
+          const curScale = 1 + (item.scaleRatio - 1) * eased;
+
+          // Viewport coordinates for fixed element
+          const viewX = curAbsX - scrollX;
+          const viewY = curAbsY - scrollY;
+
+          el.style.color = '#ffffff';
+          el.style.fontWeight = '400';
+          el.style.textShadow = charP < 0.15 ? '0 2px 30px rgba(0,0,0,0.7)' : 'none';
+
+          el.style.transform = `translate3d(${viewX}px, ${viewY}px, 0) scale(${curScale})`;
+        });
+
+        // Blurb placeholder spans visibility when landed
+        blurbCharSpans.forEach(span => {
+          span.style.visibility = isFullyLanded ? 'visible' : 'hidden';
+        });
+
+        // Remaining blurb text reveal
+        const restProg = Math.max(0, Math.min(1, (progress - 0.65) / 0.30));
+        blurbRemaining.style.opacity = restProg;
+        blurbRemaining.style.transform = `translateY(${(1 - restProg) * 6}px)`;
+        if (restProg > 0.05) {
+          blurbRemaining.classList.add('is-visible');
+        } else {
+          blurbRemaining.classList.remove('is-visible');
+        }
+      }
+
+      let ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            renderMorph();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => {
+        measurePositions();
+        renderMorph();
+      });
+
+      measurePositions();
+      renderMorph();
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          measurePositions();
+          renderMorph();
+        });
+      }
+
+      window.addEventListener('load', () => {
+        measurePositions();
+        renderMorph();
+      });
+    })();
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Den | TINA TARIGHIAN</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Redesigned Navigation Header with Dotted/Dashed Style & Flat Hidden Dropdown */
+    .site-header {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      pointer-events: auto;
+    }
+
+    .nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand-box {
+      background-color: #ffff00;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-brand-box:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-dropdown-trigger {
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.is-active {
+      background-color: #000000;
+      color: #ffff00;
+    }
+
+    .trigger-arrow {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown-trigger.is-active .trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      box-shadow: none;
+      padding: 4px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      animation: popInNav 0.15s ease-out;
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    @keyframes popInNav {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-menu-item {
+      display: block;
+      padding: 6px 12px;
+      border: 2px dashed transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-menu-item:hover {
+      border-color: #000000;
+    }
+
+    .nav-menu-item.item-art:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-menu-item.item-work:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+    }
+
+    .nav-menu-item.item-abt:hover {
+      background-color: #00ff66;
+      color: #000000;
+    }
+
+    /* Main Fullscreen Playground */
+    .playground-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Centered Text */
+    .center-content {
+      position: relative;
+      z-index: 50;
+      text-align: center;
+      pointer-events: none;
+      max-width: 600px;
+      padding: 16px;
+    }
+
+    .clock-icon {
+      font-size: 46px;
+      line-height: 1;
+      margin-bottom: 16px;
+      user-select: none;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 400;
+      line-height: 1.28;
+      letter-spacing: -0.015em;
+      color: #000000;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+
+    .hero-title em {
+      font-style: italic;
+    }
+
+    .sub-hint {
+      font-size: 14px;
+      color: #777777;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      user-select: none;
+    }
+
+    /* Scattered Bare Sticker Items - Larger & Closer */
+    .sticker-item {
+      position: absolute;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .sticker-item:hover {
+      transform: scale(1.15) !important;
+      z-index: 500 !important;
+    }
+
+    .sticker-img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: clamp(140px, 18vw, 230px);
+      max-height: clamp(118px, 18vh, 205px);
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .sticker-item.is-large .sticker-img {
+      max-width: clamp(190px, 25vw, 310px);
+      max-height: clamp(160px, 25vh, 270px);
+    }
+
+    /* RN-style Project Detail Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      border: 6px dashed black;
+      width: 740px;
+      max-width: 90vw;
+      max-height: 88vh;
+      position: relative;
+      padding: 0;
+      box-sizing: border-box;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      animation: popIn 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 52px;
+      height: 52px;
+      background-color: white;
+      border: 6px dashed black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: black;
+      cursor: pointer;
+      box-sizing: border-box;
+      z-index: 10;
+      transition: background-color 0.15s ease;
+    }
+
+    .modal-close:hover {
+      background-color: #ffff00;
+    }
+
+    .modal-body-container {
+      padding: 36px 30px 16px;
+      overflow-y: auto;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .modal-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      max-height: 360px;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .modal-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-cat {
+      background: #ffff00;
+      color: #000000;
+      padding: 2px 6px;
+      border: 2px solid #000000;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .modal-title {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #000000;
+      margin-bottom: 12px;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #222222;
+      margin-bottom: 12px;
+    }
+
+    .modal-body-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #555555;
+      margin-bottom: 16px;
+    }
+
+    .modal-body-text a,
+    .modal-desc a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .modal-action-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #000000;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      align-self: flex-start;
+      margin-top: auto;
+      border: 2px solid #000000;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .modal-action-link:hover {
+      background: blue;
+      transform: translateY(-2px);
+    }
+
+    /* Modal Navigation Bar with borderless arrows and no separator line */
+    .modal-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px 20px;
+      background: #ffffff;
+      border-top: none;
+    }
+
+    .nav-arrow-btn {
+      background: transparent;
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000000;
+      padding: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-arrow-btn:hover {
+      color: red;
+      transform: scale(1.25);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      html, body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .site-header {
+        top: 14px;
+        left: 14px;
+      }
+
+      .playground-container {
+        min-height: 100vh;
+        height: auto;
+        padding: 100px 16px 60px;
+        flex-direction: column;
+      }
+
+      .center-content {
+        margin-bottom: 30px;
+      }
+
+      .sticker-item {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        display: inline-flex;
+        margin: 12px;
+      }
+
+      .sticker-img {
+        max-width: 150px;
+        max-height: 130px;
+      }
+
+      .modal-body-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 18px 12px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+      }
+
+      .modal-nav-bar {
+        padding: 0 20px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Clean Flat Dashed Navigation Header with Hidden Dropdown (art, work, abt) -->
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand-box">
+        <span>Tina Tarighian</span>
+      </a>
+      <button class="nav-dropdown-trigger" id="navTrigger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>den</span>
+        <span class="trigger-arrow">▾</span>
+      </button>
+
+      <nav class="nav-dropdown-menu" id="navMenu">
+        <a href="art.html" class="nav-menu-item item-art">art</a>
+        <a href="work.html" class="nav-menu-item item-work">work</a>
+        <a href="about.html" class="nav-menu-item item-abt">abt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Fullscreen Playground with crowded stickers orbiting center text -->
+  <main class="playground-container" id="playground">
+    <!-- Center Text -->
+    <div class="center-content">
+      <div class="clock-icon" aria-hidden="true">🕰️</div>
+      <h1 class="hero-title">
+        welcome to my hoarder den<br />
+        of old <em>*kinda crappy*</em><br />
+        experiments and projects
+      </h1>
+      <div class="sub-hint">click around</div>
+    </div>
+
+    <!-- 17 Bare Stickers Crowd Around Center -->
+  </main>
+
+  <!-- RN-styled Project Detail Modal -->
+  <div class="modal-overlay" id="projectModalOverlay" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-close" id="modalCloseBtn" aria-label="Close modal">✕</div>
+
+      <div class="modal-body-container">
+        <div class="modal-media">
+          <img class="modal-img" id="modalImage" src="" alt="" />
+        </div>
+
+        <div class="modal-details">
+          <div class="modal-meta">
+            <span class="modal-cat" id="modalCategory">Web</span>
+            <span class="modal-year" id="modalYear">2025</span>
+          </div>
+          <h2 class="modal-title" id="modalTitle">Project Title</h2>
+          <p class="modal-desc" id="modalDesc">Description text goes here...</p>
+          <div class="modal-body-text" id="modalBody">Body text goes here...</div>
+          <a class="modal-action-link" id="modalLink" href="#" target="_blank" rel="noopener noreferrer">
+            <span id="modalLinkText">Open Project</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-nav-bar">
+        <button class="nav-arrow-btn" id="modalPrevBtn" aria-label="Previous project">&larr;</button>
+        <button class="nav-arrow-btn" id="modalNextBtn" aria-label="Next project">&rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navigation Dropdown Logic
+    const navTrigger = document.getElementById('navTrigger');
+    const navMenu = document.getElementById('navMenu');
+
+    function toggleNavDropdown(e) {
+      if (e) e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('is-open');
+      navTrigger.classList.toggle('is-active', isOpen);
+      navTrigger.setAttribute('aria-expanded', isOpen);
+    }
+
+    function closeNavDropdown() {
+      navMenu.classList.remove('is-open');
+      navTrigger.classList.remove('is-active');
+      navTrigger.setAttribute('aria-expanded', 'false');
+    }
+
+    navTrigger.addEventListener('click', toggleNavDropdown);
+
+    document.addEventListener('click', (e) => {
+      if (!navTrigger.contains(e.target) && !navMenu.contains(e.target)) {
+        closeNavDropdown();
+      }
+    });
+
+    // All 17 projects
+    const projects = [
+      {
+        id: "resurrection",
+        title: "Resurrection",
+        category: "Web",
+        year: "2025",
+        image: "images/art/resurrection.webp",
+        description: "A time-based website created for a cabaret artist at The BOX NYC show, featuring a dynamic background that changes with the time of day.",
+        body: "This immersive digital experience complements the performer's physical presence, creating a seamless bridge between the digital and physical realms of artistic expression.",
+        link: "https://resurrection.theemmasofia.com/",
+        linkText: "Experience Resurrection"
+      },
+      {
+        id: "source-consume",
+        title: "Source Consume",
+        category: "Installation",
+        year: "2024",
+        image: "images/art/source-consume.webp",
+        description: "An interactive QR code installation for an anti-consumption fashion show that redirects users to live feeds of sites affected by overconsumption.",
+        body: "This project creates a direct connection between fashion consumption and its environmental impact by transporting viewers to various locations affected by overconsumption, including manufacturing sites, waste dumps, and natural areas under threat.",
+        link: "",
+        linkText: ""
+      },
+      {
+        id: "infinite-podcast",
+        title: "Infinite Podcast",
+        category: "Web",
+        year: "2024",
+        image: "images/art/infinite-podcast.webp",
+        description: "A generative audio piece that infinitely chops and screws true crime podcasts together, creating an endless stream of fragmented narratives.",
+        body: "Created for the Rusty Utopia group show by Artists Quarters, this piece examines our cultural obsession with true crime content by algorithmically remixing it into an unsettling, never-ending stream.",
+        link: "https://ttarigh.github.io/infinite-podcast/",
+        linkText: "Listen to Infinite Podcast"
+      },
+      {
+        id: "musical-tie",
+        title: "Musical Tie",
+        category: "Wearable",
+        year: "2024",
+        image: "images/art/musictie.webp",
+        description: "Made a silly thing with a children's toy I thrifted… thinking about dynamics between work and play // professional items and toys.",
+        body: "I'd wear this if I was invited to a funeral for a musician. Or maybe if I was a server at a bar with live jazz, and had to help the guitarist tune up (swanky style). Anyway, I broke it...",
+        link: "https://www.instagram.com/p/C5PIpHCRMBo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        linkText: "See the Tie in Action!"
+      },
+      {
+        id: "ml-demo",
+        title: "Machine Learning Demo with Book Covers",
+        category: "ML",
+        year: "2024",
+        image: "images/art/ml.webp",
+        description: "A quick ML demo using the cocossd database to detect bookcovers.",
+        body: "",
+        link: "",
+        linkText: ""
+      },
+      {
+        id: "testing-vision",
+        title: "Testing Tina's Vision",
+        category: "Web",
+        year: "2023",
+        image: "images/art/testingTinasVision.webp",
+        description: "In an interview with a company, the CEO commented on my glasses and how the lenses are different shapes.",
+        body: "This was a cutesy project I put together in a night.",
+        link: "https://tina.zone/RIGHTEYELEFTEYE/",
+        linkText: "Test my Vision!"
+      },
+      {
+        id: "elf-barighian",
+        title: "Elf Barighian",
+        category: "AR",
+        year: "2023",
+        image: "images/art/barighian.webp",
+        description: "This piece was made as a mockup for a cannabis delivery company, Doobie.",
+        body: "It is a great demo of placing 3D assets into the real world.",
+        link: "https://tina.zone/barighian",
+        linkText: "hit my vape"
+      },
+      {
+        id: "en-route",
+        title: "En Route Super Sized Necklace",
+        category: "AR",
+        year: "2023",
+        image: "images/art/enroute.webp",
+        description: "Inspired by Vivienne Westwood's AR campaign for larger-than-life jewelry in real space.",
+        body: "I made a 3D model of one of En Route's best-selling necklaces and got some early pics using meta spark for a real-world object placement. It's always good for me to have some basic 3D modeling in my freelance practice.",
+        link: "",
+        linkText: ""
+      },
+      {
+        id: "popup-experiments",
+        title: "Pop-up Experiments",
+        category: "Web",
+        year: "2023",
+        image: "images/art/popup.webp",
+        description: "This piece is meant to be funny and also experimental. It is about how we may seem perfect on paper even if that could not be farther from the truth.",
+        body: "If you want to try this experience, make sure popups and camera are turned on.",
+        link: "https://tina.zone/abouttina",
+        linkText: "play with popups"
+      },
+      {
+        id: "columbia-adp",
+        title: "Columbia ADP's Art Exhibit",
+        category: "Web",
+        year: "2023",
+        image: "images/art/adp.webp",
+        description: "Columbia University put on a play based on old alumni's tragic love letters, and featured different artists from NYC.",
+        body: "I was invited to participate, and in addition to some live-coding visuals I did for the performance, I also had this simple html/js animation.",
+        link: "https://tina.zone/adp",
+        linkText: "Watch Here"
+      },
+      {
+        id: "magic-8-ball",
+        title: "Magic 8 Ball",
+        category: "Web",
+        year: "2023",
+        image: "images/art/magic8.webp",
+        description: "A simple magic-8 ball I made using my own head, designed to have an old primitive style of animation.",
+        body: "I still use this if I'm unsure.",
+        link: "https://tina.zone/magic8",
+        linkText: "Try the Magic"
+      },
+      {
+        id: "ar-portfolio-enhancer",
+        title: "AR Portfolio Enhancer",
+        category: "AR",
+        year: "2023",
+        image: "images/art/arhelper.webp",
+        description: "A portfolio enhancer I designed using A-frame, that I no longer use on my personal website.",
+        body: "Instead of having so much text on my projects page, I decided to record casual videos of myself discussing each one.",
+        link: "https://www.instagram.com/reel/C3tbtJ2PYTb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        linkText: "See what it was like in action!"
+      },
+      {
+        id: "audio-reactive-visualizer",
+        title: "Audio-Reactive Visualizer Projects",
+        category: "Live Coding",
+        year: "2022",
+        image: "images/art/pic.webp",
+        description: "As an artist in residence, I live code visuals for lots of different NYC bands.",
+        body: "",
+        link: "https://tina.zone/visuals",
+        linkText: "Check them out!"
+      },
+      {
+        id: "stop-buying-things",
+        title: "Chrome Extension: Stop Buying Things!",
+        category: "Chrome Extension",
+        year: "2022",
+        image: "images/art/SBTex.webp",
+        description: "After discovering the trend of \"deinfluencing,\" I decided to take a stab at the consumerism problem.",
+        body: "I noticed that because of how convenient it has become to order things online, we are consuming much more than we need to. My simple solution to this is a chrome extension I aptly named \"Stop Buying Things.\" By detecting that you are on a shopping cart page, the pop-up turns your browser window red for a few seconds, then reminds you of its simple creed: STOP BUYING THINGS!",
+        link: "",
+        linkText: ""
+      },
+      {
+        id: "mathy",
+        title: "Mathy, the Math Cat!",
+        category: "Education",
+        year: "2022",
+        image: "images/art/mathy.webp",
+        description: "An additional skill practice program built for English-speaking 2nd graders.",
+        body: "Its purpose is to help students improve their arithmetic skills by encouraging them to get multiple answers in a row. Users answer the displayed question, which increases in difficulty every level. For every correctly answered question, Mathy displays positive emotions and unlocks new backgrounds.",
+        link: "",
+        linkText: ""
+      },
+      {
+        id: "emotions-detector",
+        title: "Emotions Detector",
+        category: "Web",
+        year: "2023",
+        image: "images/art/emotions-detector.webp",
+        description: "Inspired by the dystopian smile detector Canon installed in their Chinese offices (2021), I temporarily implemented browser-based emotion tracking on my personal website.",
+        body: "With Google Analytics, I was able to see whether or not people were enjoying their time at tina.zone.",
+        link: "https://tina.zone/happytest/",
+        linkText: "Happy Test"
+      },
+      {
+        id: "interactive-fish-tank",
+        title: "Interactive Fish Tank",
+        category: "Web",
+        year: "2021",
+        image: "images/art/fish.webp",
+        description: "A project I completed in a 300-level Introduction to Computer Graphics class at Wellesley College.",
+        body: "The entire project was done in JavaScript, WebGL, and Three.js. Click the link to see how you can interact with the environment using your keyboard.",
+        link: "https://ttarigh.github.io/interactiveaquarium/",
+        linkText: "Click here"
+      }
+    ];
+
+    // Layout coordinates in percentages around the center for desktop - tighter crowding
+    const layoutPositions = [
+      { top: '16%', left: '7%', rot: -7 }, // Resurrection - moved down comfortably clear of header
+      { top: '4%', left: '28%', rot: 4 },
+      { top: '13%', left: '48%', rot: -3 }, // Hugging above clock
+      { top: '5%', left: '68%', rot: 6 },
+      { top: '6%', left: '87%', rot: -6 },
+      { top: '26%', left: '77%', rot: 5 }, // Hugging right of title
+      { top: '41%', left: '73%', rot: -4, isLarge: true }, // Elf Barighian (vape) - LARGER
+      { top: '58%', left: '87%', rot: 7 },
+      { top: '78%', left: '77%', rot: -5 },
+      { top: '67%', left: '54%', rot: 4, isLarge: true }, // Columbia ADP - LARGER
+      { top: '67%', left: '36%', rot: -6 }, // Hugging bottom left of hint
+      { top: '80%', left: '21%', rot: 5 },
+      { top: '73%', left: '4%', rot: -7, isLarge: true }, // Audio Reactive Visualizer - LARGER
+      { top: '56%', left: '4%', rot: 6 },
+      { top: '43%', left: '17%', rot: -4 }, // Hugging left of text
+      { top: '24%', left: '19%', rot: 5 }, // Hugging upper left of title
+      { top: '65%', left: '14%', rot: -3 }
+    ];
+
+    let currentModalIndex = 0;
+    const playground = document.getElementById('playground');
+    const modalOverlay = document.getElementById('projectModalOverlay');
+
+    function renderCrowdedStickers() {
+      // Remove any existing sticker items
+      document.querySelectorAll('.sticker-item').forEach(e => e.remove());
+
+      const isMobile = window.innerWidth <= 768;
+
+      projects.forEach((proj, idx) => {
+        const pos = layoutPositions[idx % layoutPositions.length];
+        const el = document.createElement('div');
+        el.className = 'sticker-item' + (pos.isLarge ? ' is-large' : '');
+        el.dataset.index = idx;
+
+        if (!isMobile) {
+          el.style.top = pos.top;
+          el.style.left = pos.left;
+          el.style.transform = `rotate(${pos.rot}deg)`;
+        } else {
+          el.style.transform = `rotate(${pos.rot}deg)`;
+        }
+
+        el.style.zIndex = idx + 1;
+
+        el.innerHTML = `
+          <img class="sticker-img" src="${proj.image}" alt="${proj.title}" loading="lazy" />
+        `;
+
+        el.addEventListener('click', () => {
+          openModal(idx);
+        });
+
+        playground.appendChild(el);
+      });
+    }
+
+    // Modal logic
+    function openModal(index) {
+      currentModalIndex = index;
+      const proj = projects[index];
+      if (!proj) return;
+
+      document.getElementById('modalImage').src = proj.image;
+      document.getElementById('modalImage').alt = proj.title;
+      document.getElementById('modalTitle').textContent = proj.title;
+      document.getElementById('modalCategory').textContent = proj.category;
+      document.getElementById('modalYear').textContent = proj.year;
+      document.getElementById('modalDesc').innerHTML = proj.description || '';
+
+      const bodyEl = document.getElementById('modalBody');
+      if (proj.body && proj.body.trim()) {
+        bodyEl.innerHTML = proj.body;
+        bodyEl.style.display = 'block';
+      } else {
+        bodyEl.innerHTML = '';
+        bodyEl.style.display = 'none';
+      }
+
+      const linkBtn = document.getElementById('modalLink');
+      const linkText = document.getElementById('modalLinkText');
+      if (proj.link && proj.link.trim()) {
+        linkBtn.href = proj.link;
+        linkText.textContent = proj.linkText || 'Open Project';
+        linkBtn.style.display = 'inline-flex';
+      } else {
+        linkBtn.style.display = 'none';
+      }
+
+      modalOverlay.classList.add('is-open');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('is-open');
+    }
+
+    function nextProject() {
+      currentModalIndex = (currentModalIndex + 1) % projects.length;
+      openModal(currentModalIndex);
+    }
+
+    function prevProject() {
+      currentModalIndex = (currentModalIndex - 1 + projects.length) % projects.length;
+      openModal(currentModalIndex);
+    }
+
+    // Event listeners
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('modalNextBtn').addEventListener('click', nextProject);
+    document.getElementById('modalPrevBtn').addEventListener('click', prevProject);
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!modalOverlay.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') nextProject();
+      if (e.key === 'ArrowLeft') prevProject();
+    });
+
+    window.addEventListener('resize', () => {
+      renderCrowdedStickers();
+    });
+
+    document.addEventListener('DOMContentLoaded', renderCrowdedStickers);
+  </script>
+</body>
+
+</html>

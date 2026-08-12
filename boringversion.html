@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🙄boring🙄</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    *::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Top Bar with "← back to normal" button and centered title */
+    .top-bar {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 24px 36px 16px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      z-index: 100;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-btn {
+      background-color: #ffbee7;
+      border: 3px dashed #000000;
+      padding: 6px 14px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 0.15s ease;
+      user-select: none;
+    }
+
+    .back-btn:hover {
+      filter: brightness(0.92);
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: clamp(24px, 3.2vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #000000;
+      margin: 0;
+      padding: 0 16px;
+      line-height: 1.2;
+    }
+
+    .header-spacer {
+      visibility: hidden;
+      pointer-events: none;
+      padding: 6px 14px;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    /* 3-Column Layout constrained to remaining viewport height */
+    .columns-container {
+      flex: 1;
+      min-height: 0; /* Allows grid items to shrink below content and scroll */
+      max-width: 1560px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px 36px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 52px;
+      align-items: stretch;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .column {
+      height: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding-right: 14px;
+      padding-bottom: 40px;
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
+    }
+
+    .column-heading {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 20;
+      padding-top: 4px;
+      padding-bottom: 18px;
+      margin-bottom: 12px;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #000000;
+      line-height: 1.1;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Project / Entry Block */
+    .item-block {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000000;
+      line-height: 1.35;
+    }
+
+    .item-title a {
+      color: #000000;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s ease;
+    }
+
+    .item-title a:hover {
+      color: #0055ff;
+    }
+
+    .item-desc {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #222222;
+    }
+
+    .item-desc a {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .item-desc a:hover {
+      background-color: #ffff00;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    /* About Column Styling */
+    .about-text {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #222222;
+      margin-bottom: 16px;
+    }
+
+    .about-text a {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .about-text a:hover {
+      background-color: #ffff00;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .about-cv-section {
+      margin-top: 36px;
+      margin-bottom: 24px;
+    }
+
+    .cv-link {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+
+    .cv-link:hover {
+      color: #0055ff;
+    }
+
+    .about-social-section {
+      font-size: 15px;
+      font-weight: 500;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    .about-social-section a {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .about-social-section a:hover {
+      background-color: #ffff00;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .social-divider {
+      color: #666666;
+      user-select: none;
+    }
+
+    /* Desktop Active Scroll Colors & Column Hiding */
+    @media (min-width: 769px) {
+      /* 1. Scrolling WORK -> Neon Yellow, hide Art & About */
+      body.scrolling-work {
+        background-color: #ffff00;
+      }
+
+      body.scrolling-work .top-bar,
+      body.scrolling-work .column-heading {
+        background-color: #ffff00;
+      }
+
+      body.scrolling-work .column-art,
+      body.scrolling-work .column-about {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* 2. Scrolling ART -> Red, hide Work & About */
+      body.scrolling-art {
+        background-color: #ff3333;
+      }
+
+      body.scrolling-art .top-bar,
+      body.scrolling-art .column-heading {
+        background-color: #ff3333;
+      }
+
+      body.scrolling-art .column-work,
+      body.scrolling-art .column-about {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* 3. Scrolling ABOUT -> Neon Green, hide Work & Art */
+      body.scrolling-about {
+        background-color: #00ff66;
+      }
+
+      body.scrolling-about .top-bar,
+      body.scrolling-about .column-heading {
+        background-color: #00ff66;
+      }
+
+      body.scrolling-about .column-work,
+      body.scrolling-about .column-art {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    /* Responsive Breakdown for Tablets & Mobile */
+    @media (max-width: 1024px) {
+      .columns-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .column-about {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html,
+      body {
+        height: auto;
+        min-height: 100%;
+        overflow-y: auto;
+      }
+
+      .top-bar {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px 20px 12px;
+      }
+
+      .back-btn {
+        align-self: flex-start;
+      }
+
+      .page-title {
+        text-align: left;
+        padding: 0;
+        font-size: 26px;
+      }
+
+      .header-spacer {
+        display: none;
+      }
+
+      .columns-container {
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 16px 20px 60px;
+        overflow: visible;
+      }
+
+      .column {
+        height: auto;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+        padding-bottom: 0;
+      }
+
+      .column-about {
+        grid-column: auto;
+      }
+
+      .column-heading {
+        position: static;
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header: Back button & Title with rolling eye emojis -->
+  <header class="top-bar">
+    <a href="index.html" class="back-btn">← back to normal</a>
+    <h1 class="page-title">🙄boring version of tina.zone🙄</h1>
+    <div class="header-spacer" aria-hidden="true">← back to normal</div>
+  </header>
+
+  <!-- Main 3-Column Content: Work, Art, About -->
+  <main class="columns-container">
+
+    <!-- COLUMN 1: WORK -->
+    <section class="column column-work" aria-label="Work">
+      <h2 class="column-heading">work</h2>
+
+      <!-- 1. VeoVJ -->
+      <article class="item-block">
+        <h3 class="item-title">VeoVJ (2025)</h3>
+        <p class="item-desc">
+          I conceived and coded VeoVJ, a tool for live-remixing visuals generated with Veo, Google's generative video
+          model. By setting the model's early 6-second outputs to music, I transformed them into cohesive audiovisual
+          performances opening for major keynotes including Google Cloud Next, I/O Developer Keynote, and Google
+          Marketing Live across 7 performances and three continents (seen by 6M+ online, 30,000+ live).
+        </p>
+      </article>
+
+      <!-- 2. What's Your Vibe? -->
+      <article class="item-block">
+        <h3 class="item-title">"What's Your Vibe?" — Mainstage I/O Talk (2025)</h3>
+        <p class="item-desc">
+          For Google I/O's mainstage, co-created and performed a live demo of Gemini Canvas features with Aaron Wade,
+          building a functional vintage-style camera app in minutes that generated its own QR code on the fly.
+        </p>
+      </article>
+
+      <!-- 3. 30 Days of Gemini Canvas -->
+      <article class="item-block">
+        <h3 class="item-title">30 Days of Gemini Canvas (2025)</h3>
+        <p class="item-desc">
+          In partnership with Google Developer Relations, pioneered the #30DaysOfGeminiCanvas challenge, live
+          "vibe-coding" a new generative toy or tool every day for a month to demystify generative AI development. (<a
+            href="https://x.com/tinaz0ne" target="_blank" rel="noopener noreferrer">Twitter</a>)
+        </p>
+      </article>
+
+      <!-- 4. Countdowns Powered by Veo2 -->
+      <article class="item-block">
+        <h3 class="item-title">Countdowns Powered by Veo2 (2025)</h3>
+        <p class="item-desc">
+          Art-directed and generated the keynote countdown for Google Cloud Next using Veo, and produced the Google I/O
+          2025 opener with Creative Lab using seamless generation tech (7M+ viewers combined). (<a
+            href="https://www.youtube.com/watch?v=WGtpoRpTAsY" target="_blank" rel="noopener noreferrer">Cloud Next</a>
+          / <a href="https://www.youtube.com/watch?v=o8NiE3XMPrM" target="_blank" rel="noopener noreferrer">Google
+            I/O</a>)
+        </p>
+      </article>
+
+      <!-- 5. Gemini Social Strategy -->
+      <article class="item-block">
+        <h3 class="item-title">Gemini Social Strategy (2025)</h3>
+        <p class="item-desc">
+          Shaped the voice and creative strategy for Gemini's social media presence across Instagram and X, developing
+          novel prompting techniques and creative campaigns.
+        </p>
+      </article>
+
+      <!-- 6. Gemini 2.0 Experiments -->
+      <article class="item-block">
+        <h3 class="item-title">Gemini 2.0 Experiments @ Google Creative Lab (2025)</h3>
+        <p class="item-desc">
+          Developed experimental projects demonstrating creative applications of Gemini 2.0: <a
+            href="https://huggingface.co/spaces/tinazone/word-to-code" target="_blank"
+            rel="noopener noreferrer">Word-to-Code</a> (p5.js sketch generator based on semantic word meanings) and <a
+            href="https://huggingface.co/spaces/tinazone/handspew" target="_blank"
+            rel="noopener noreferrer">Handspew</a> (MediaPipe hand puppet interface giving AI commentary on
+          surroundings).
+        </p>
+      </article>
+
+      <!-- 7. DOOMERS -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://doomers.fyi" target="_blank" rel="noopener noreferrer">DOOMERS</a>
+          (2025)</h3>
+        <p class="item-desc">
+          Created the website <a href="https://doomers.fyi" target="_blank" rel="noopener noreferrer">doomers.fyi</a>
+          and developed <a href="https://tina.zone/morallicense" target="_blank" rel="noopener noreferrer">Moral
+            License</a> for Matthew Gasda's play about Sam Altman, resulting in viral coverage in The Guardian, Airmail
+          News, and The Free Press with sold-out runs in NYC and SF.
+        </p>
+      </article>
+
+      <!-- 8. MESA -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.mesa.do/" target="_blank" rel="noopener noreferrer">MESA</a> (2025)
+        </h3>
+        <p class="item-desc">
+          Developed 4 rapid prototypes in 5 days for a specialized client board exploring innovative applications of
+          creative technology and generative AI.
+        </p>
+      </article>
+
+      <!-- 9. Google Deep Mind: GenWeather -->
+      <article class="item-block">
+        <h3 class="item-title">Google Deep Mind: GenWeather (2024)</h3>
+        <p class="item-desc">
+          Developed a demo of the Multimodal Live API for Gemini 2.0 Flash Experimental fetching real-time weather data
+          and presenting it in user-selected creative styles. (<a href="https://www.youtube.com/watch?v=n8Dz2GA2hDc"
+            target="_blank" rel="noopener noreferrer">Demo Video</a>)
+        </p>
+      </article>
+
+      <!-- 10. ARTECHOUSE -->
+      <article class="item-block">
+        <h3 class="item-title">ARTECHOUSE (2024)</h3>
+        <p class="item-desc">
+          Featured panelist at ARTECHOUSE's inaugural session discussing the intersection of art, AI, social media, and
+          emerging creative technologies. (<a href="https://www.instagram.com/p/DA91-9BPdLQ/" target="_blank"
+            rel="noopener noreferrer">Instagram</a>)
+        </p>
+      </article>
+
+      <!-- 11. Visiting Professor: Parsons -->
+      <article class="item-block">
+        <h3 class="item-title">Visiting Professor: Parsons School of Design (2024)</h3>
+        <p class="item-desc">
+          Taught Introduction to JavaScript for Web Design in Simone Cutrí's Core Interaction class at Parsons School of
+          Design. (<a href="https://www.instagram.com/p/DBRsM2RRLK7/" target="_blank" rel="noopener noreferrer">Selected
+            Slides</a>)
+        </p>
+      </article>
+
+      <!-- 12. FCUKERS -->
+      <article class="item-block">
+        <h3 class="item-title">FCUKERS: Govball, SXSW, Portolla Fest (2024)</h3>
+        <p class="item-desc">
+          Original visuals coordinator and creative director for FCUKERS, creating immersive live-coded visuals and AR
+          installations for festival stages (co-directed with Maria Galebach).
+        </p>
+      </article>
+
+      <!-- 13. Chlomosexual Presents Parties -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.instagram.com/chlomosexual.presents/" target="_blank"
+            rel="noopener noreferrer">Chlomosexual Presents Parties</a> (2024)</h3>
+        <p class="item-desc">
+          Creative direction and real-time live-coded visual identities for multi-thousand attendee nightlife events in
+          NYC.
+        </p>
+      </article>
+
+      <!-- 14. Ready Companion -->
+      <article class="item-block">
+        <h3 class="item-title">Ready Companion (2023)</h3>
+        <p class="item-desc">
+          Lead iOS developer for an augmented reality tour guide application utilizing geolocation technology, acquired
+          by Syracuse University.
+        </p>
+      </article>
+
+      <!-- 15. Aesthetic.Computer -->
+      <article class="item-block">
+        <h3 class="item-title">Aesthetic.Computer (2023)</h3>
+        <p class="item-desc">
+          Led development of Jeffrey Alan Scudder's "Happy Hands" series: <a href="https://aesthetic.computer/wave"
+            target="_blank" rel="noopener noreferrer">Wave</a> (gesture mapping), <a
+            href="https://aesthetic.computer/handtime" target="_blank" rel="noopener noreferrer">Handtime</a> (gesture
+          communication), and <a href="https://aesthetic.computer/staka" target="_blank"
+            rel="noopener noreferrer">Staka</a> (gesture pinball).
+        </p>
+      </article>
+
+      <!-- 16. Uye Surana -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.uyesurana.com/" target="_blank" rel="noopener noreferrer">Uye
+            Surana</a> (2023)</h3>
+        <p class="item-desc">
+          Created interactive AR "magic mirrors" celebrating inclusivity and diverse body types for New York Fashion
+          Week Fall and Spring 2023.
+        </p>
+      </article>
+
+      <!-- 17. IAMB Magazine -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://iamb.tina.zone" target="_blank" rel="noopener noreferrer">IAMB
+            Magazine</a> (2023)</h3>
+        <p class="item-desc">
+          Developed a hands-free gesture fingerpainting landing page for IAMB literary magazine's issue "NOSTALGIA".
+        </p>
+      </article>
+
+      <!-- 18. Pianos Residency -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://pianosnyc.com/" target="_blank" rel="noopener noreferrer">Pianos
+            Residency</a> (2023)</h3>
+        <p class="item-desc">
+          Artist-in-residence creating live-coded responsive visual experiences for musical performances at Pianos NYC.
+        </p>
+      </article>
+
+      <!-- 19. Cyber Matuta -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.instagram.com/cybermatuta/" target="_blank"
+            rel="noopener noreferrer">Cyber Matuta</a> (2023)</h3>
+        <p class="item-desc">
+          Created low-poly AR portals for innovative 3D-printed footwear in collaboration with a Berlin/Dutch design
+          team.
+        </p>
+      </article>
+
+      <!-- 20. Fit4U Solutions -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.fit4usolutions.com/" target="_blank" rel="noopener noreferrer">Fit4U
+            Solutions</a> (2022)</h3>
+        <p class="item-desc">
+          Created an AR try-on filter helping transgender individuals with body dysmorphia visualize specialized
+          affirming clothing before purchasing.
+        </p>
+      </article>
+    </section>
+
+    <!-- COLUMN 2: ART -->
+    <section class="column column-art" aria-label="Art">
+      <h2 class="column-heading">art</h2>
+
+      <!-- 1. everyday.tina.zone -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://everyday.tina.zone/" target="_blank"
+            rel="noopener noreferrer">everyday.tina.zone</a> (ongoing)</h3>
+        <p class="item-desc">
+          Every day, Google's native image model Nano Banana imagines what I look like X days from an August 2025
+          selfie, aging me alongside the model through Instagram UI pastiche. A practice in natural language and
+          self-surveillance.
+        </p>
+      </article>
+
+      <!-- 2. AI Purity Test -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://aipuritytest.org" target="_blank" rel="noopener noreferrer">☆ AI Purity
+            Test</a> (2025)</h3>
+        <p class="item-desc">
+          A puritanical scorecard for human hedonism and AI promiscuity inspired by the Rice Purity Test. Surpassed 2
+          million users and viral reach.
+        </p>
+      </article>
+
+      <!-- 3. 100 Deep Breaths -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://100-deep-breaths.com/" target="_blank" rel="noopener noreferrer">100
+            Deep Breaths</a> (2025)</h3>
+        <p class="item-desc">
+          One hundred video studies generated with Veo of AI-generated humans breathing, staging the uncanny encounter
+          where minimal inhalation and exhalation unsettles our sense of the real.
+        </p>
+      </article>
+
+      <!-- 4. Rithm.Love -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.rithm.love" target="_blank" rel="noopener noreferrer">☆
+            Rithm.Love</a> (2025)</h3>
+        <p class="item-desc">
+          A dating app that skips bios and prompts: screenshot your Instagram explore page to find your scrollmate via
+          your digital micro-interactions and algorithm.
+        </p>
+      </article>
+
+      <!-- 5. What does my Husband Look Like? -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://whatdoesmyhusbandlooklike.com" target="_blank"
+            rel="noopener noreferrer">What does my Husband Look Like?</a> (2025)</h3>
+        <p class="item-desc">
+          Uses multimodal reasoning models with native image generation to dream up what your husband (or wife, job,
+          breakfast) looks like based on your selfie, reflecting training bias and synthetic perception.
+        </p>
+      </article>
+
+      <!-- 6. Fumble Dating -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://fumbledating.com" target="_blank" rel="noopener noreferrer">Fumble
+            Dating</a> (2025)</h3>
+        <p class="item-desc">
+          Satirizing AI dating concierges that date for you: what happens when we optimize away the human elements of
+          dating and every match is a total fumble.
+        </p>
+      </article>
+
+      <!-- 7. Say One More Thing -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://say-one-more-thing.com/" target="_blank" rel="noopener noreferrer">☆ Say
+            One More Thing</a> (2024)</h3>
+        <p class="item-desc">
+          An email lottery with a 1 in 1,000,000 chance that your message gets delivered, exploring digital
+          communication, chance, and catharsis (5M+ views, 10,000+ entries).
+        </p>
+      </article>
+
+      <!-- 8. SuperVitamin -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/vitamin/" target="_blank"
+            rel="noopener noreferrer">SuperVitamin</a> (2024)</h3>
+        <p class="item-desc">
+          A menu of online manifestation videos, frequencies, and guided affirmations allowing you to binge and listen
+          to the cacophony of your every desire all at once.
+        </p>
+      </article>
+
+      <!-- 9. Enter Here -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.instagram.com/p/C8aQekjP9QV/" target="_blank"
+            rel="noopener noreferrer">Enter Here</a> (2024)</h3>
+        <p class="item-desc">
+          Soft-sculpture installation for @pixelmouthnyc switching dynamically between global live streams (remote sea
+          cameras, zoo animals, ASMR, Gaza bomb watches, UN meetings, and gallery security cams).
+        </p>
+      </article>
+
+      <!-- 10. Facebook Marketplace Mirrors -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://www.instagram.com/reel/C6rLBhHxfjJ/" target="_blank"
+            rel="noopener noreferrer">Facebook Marketplace Mirrors</a> (2024)</h3>
+        <p class="item-desc">
+          Curated collection of secondhand mirror listings where sellers tried to photograph mirrors without showing
+          their reflection, processed through an AI image expander.
+        </p>
+      </article>
+
+      <!-- 11. Engage with Me -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/engagewithme" target="_blank" rel="noopener noreferrer">Engage
+            with Me</a> (2024)</h3>
+        <p class="item-desc">
+          A series of interactive steps and tests you must complete before being deemed worthy enough to unlock an old
+          casual selfie of me.
+        </p>
+      </article>
+
+      <!-- 12. Happy Test -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/happytest" target="_blank" rel="noopener noreferrer">Happy
+            Test</a> (2024)</h3>
+        <p class="item-desc">
+          Browser-based emotion and smile tracking with Google Analytics on my personal website, inspired by corporate
+          dystopian smile-detection cameras.
+        </p>
+      </article>
+
+      <!-- 13. Scan Artist -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://nikimariers.substack.com/p/coding-chaos-unveiling-consumer-culture"
+            target="_blank" rel="noopener noreferrer">☆ Scan Artist</a> (2024)</h3>
+        <p class="item-desc">
+          Solo performance and NYFW exhibition using marker-based augmented reality to critique fast fashion
+          consumerism.
+        </p>
+      </article>
+
+      <!-- 14. Distance From Source -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/distancefromsource/" target="_blank"
+            rel="noopener noreferrer">Distance From Source</a> (2024)</h3>
+        <p class="item-desc">
+          A diary entry that progressively obfuscates text the farther the reader is physically located from the
+          coordinate where it was written.
+        </p>
+      </article>
+
+      <!-- 15. Ru and Ashe -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/asheandru" target="_blank" rel="noopener noreferrer">Ru and
+            Ashe: an HTML Play about Love</a> (2024)</h3>
+        <p class="item-desc">
+          Two characters in love that speak to each other across popups in the browser window.
+        </p>
+      </article>
+
+      <!-- 16. Worship Me -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://worshipme.tina.zone" target="_blank" rel="noopener noreferrer">Worship
+            Me: A Shareable Digital Shrine</a> (2023)</h3>
+        <p class="item-desc">
+          A Node.js web app where users create customizable shrines with interactive buttons allowing others to worship
+          them harder and harder.
+        </p>
+      </article>
+
+      <!-- 17. Love Meter -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="https://tina.zone/lovemeter" target="_blank" rel="noopener noreferrer">Love
+            Meter</a> (2023)</h3>
+        <p class="item-desc">
+          A digital gift reminding a heartbroken friend that the love they put into the world remains within them.
+        </p>
+      </article>
+
+      <!-- 18. Den Archive -->
+      <article class="item-block">
+        <h3 class="item-title"><a href="den.html">hoarder den</a></h3>
+        <p class="item-desc">
+          An archive of early projects and experiments from before all this.
+        </p>
+      </article>
+    </section>
+
+    <!-- COLUMN 3: ABOUT -->
+    <section class="column column-about" aria-label="About">
+      <h2 class="column-heading">about</h2>
+
+      <p class="about-text">
+        My day job is making demos: <em>what can this technology do?</em>
+      </p>
+      <p class="about-text">
+        My art practice is making spectacles: <em>what can this technology say?</em>
+      </p>
+      <p class="about-text">
+        Like a hand and a shadow puppet, they inform and motivate each other.
+      </p>
+      <p class="about-text">
+        My medium for critique is system mimicry: a <a href="http://aipuritytest.org" target="_blank"
+          rel="noopener noreferrer">purity test</a> that measures AI-promiscuity, an <a
+          href="http://say-one-more-thing.com" target="_blank" rel="noopener noreferrer">email to your ex</a> with a
+        0.0001% chance of sending, a <a href="https://www.rithm.love/about" target="_blank"
+          rel="noopener noreferrer">dating app</a> that only lets you match via instagram algorithms. With each work
+        inheriting the trust of a well-acquainted format, I onboard an unsuspicious audience to my position.
+      </p>
+      <p class="about-text">
+        Millions of users took a quiz to locate themselves within the AI era, thousands of wistful emails have been
+        logged into a system where almost none will ever be delivered, and a few hundred doomscrollers signed up to find
+        their scroll-mates. Rather than offering critique at a distance, I am offering critique through participation.
+      </p>
+      <p class="about-text">
+        And it works because the formats I mimic already have your attention. They already have your data. They already
+        know what you do at midnight and who you looked up twice. I am just making sure you notice.
+      </p>
+      <p class="about-text">
+        Tina Tarighian is an artist whose practice moves between demo and spectacle, repurposing the formats of
+        contemporary technology to examine what they do and what they reveal. Working in software, installation, and
+        internet infrastructure, she builds inside the systems she examines, producing work that functions at scale and
+        has reached millions. She is a Senior Creative Technologist at Google Creative Lab and is based in New York.
+      </p>
+
+      <!-- Artist CV Link -->
+      <div class="about-cv-section">
+        <a href="https://docs.google.com/document/d/e/2PACX-1vTROXtut07j8Su4ytr73K4_LrTfEW3gzSferyMS-4k90jvvusLA8QvTc614J2FW_N-SH2M9HgH_C63k/pub"
+          target="_blank" rel="noopener noreferrer" class="cv-link">Artist CV</a>
+      </div>
+
+      <!-- Social & Contact Links -->
+      <div class="about-social-section">
+        <a href="https://www.instagram.com/wwwtinazone/" target="_blank" rel="noopener noreferrer">instagram</a>
+        <span class="social-divider">/</span>
+        <a href="https://www.are.na/tina-tarighian/daily-read-b5xa7nbkgyg" target="_blank"
+          rel="noopener noreferrer">arena</a>
+        <span class="social-divider">/</span>
+        <a href="https://x.com/wwwtinazone" target="_blank" rel="noopener noreferrer">twitter</a>
+        <span class="social-divider">/</span>
+        <a href="mailto:tinatarighianwork@gmail.com">email</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // ============================================================
+    // GOOGLE SHEETS LIVE DATA SYNC
+    // ============================================================
+    const GOOGLE_SHEET_ID_OR_URL = 'https://docs.google.com/spreadsheets/d/1_cWMuByNoaVtMNV8bSlZ0D_cg0EerDHAvXv5Ly07U8A/edit?usp=sharing';
+    const WORK_TAB = 'work';
+    const ART_TAB = 'art';
+    const ART_GID = '960020960';
+
+    // CSV Parser with robust quotes & multiline support
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    // Markdown text & link formatter
+    function formatMarkdown(text) {
+      if (!text) return '';
+      // Escape HTML entities to prevent raw injection
+      let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Formatting
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      // Markdown links [text](url)
+      html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      // Standalone URLs
+      html = html.replace(/(^|[^"'>\/])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>');
+
+      const paragraphs = html.split(/\n\s*\n/).filter(p => p.trim());
+      if (paragraphs.length > 1) {
+        return paragraphs.map(p => `<p class="item-desc">${p.replace(/\n/g, '<br>')}</p>`).join('');
+      }
+      return `<p class="item-desc">${html.replace(/\n/g, '<br>')}</p>`;
+    }
+
+    // Parse links from Link column (supports markdown links, label:url, or naked urls separated by | or newlines)
+    function parseLinks(raw) {
+      if (!raw) return [];
+      const items = raw.split(/[\n|]/).map(s => s.trim()).filter(Boolean);
+      const links = [];
+      items.forEach(item => {
+        const mdMatch = item.match(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/);
+        if (mdMatch) {
+          links.push({ label: mdMatch[1], url: mdMatch[2] });
+          return;
+        }
+        const colonMatch = item.match(/^([^:]+):\s*(https?:\/\/.+)$/);
+        if (colonMatch) {
+          links.push({ label: colonMatch[1].trim(), url: colonMatch[2].trim() });
+          return;
+        }
+        const urlMatch = item.match(/https?:\/\/[^\s]+/);
+        if (urlMatch) {
+          links.push({ label: 'Link', url: urlMatch[0] });
+        }
+      });
+      return links;
+    }
+
+    function parseCsvProjects(csvText) {
+      const rows = parseCSV(csvText);
+      if (!rows || rows.length < 2) return [];
+
+      let headers = rows[0].map(h => (h || '').toLowerCase().trim());
+      let titleIdx = headers.findIndex(h => h.includes('title') || h.includes('name') || h.includes('project'));
+      let yearIdx = headers.findIndex(h => h.includes('year') || h.includes('date'));
+      let descIdx = headers.findIndex(h => h.includes('desc') || h.includes('detail') || h.includes('text') || h.includes('body') || h.includes('info'));
+      let linkIdx = headers.findIndex(h => h.includes('link') || h.includes('url') || h.includes('href') || h.includes('action'));
+
+      if (titleIdx === -1) titleIdx = 0;
+      if (yearIdx === -1) yearIdx = 2;
+      if (descIdx === -1) descIdx = 3;
+      if (linkIdx === -1) linkIdx = 5;
+
+      const projects = [];
+      rows.slice(1).forEach(r => {
+        const title = (r[titleIdx] || '').trim();
+        if (!title) return;
+        const year = (r[yearIdx] || '').trim();
+        let description = (r[descIdx] || '').trim();
+        // Ignore placeholder text like "xxx"
+        if (description.toLowerCase() === 'xxx') description = '';
+        const linksRaw = (r[linkIdx] || '').trim();
+
+        projects.push({
+          title,
+          year,
+          description,
+          links: parseLinks(linksRaw)
+        });
+      });
+      return projects;
+    }
+
+    function renderWorkColumn(projects) {
+      if (!projects || projects.length === 0) return;
+      const col = document.querySelector('.column-work');
+      if (!col) return;
+
+      let html = '<h2 class="column-heading">work</h2>';
+      projects.forEach(proj => {
+        let titleDisplay = proj.title;
+        if (proj.year) {
+          titleDisplay += ` (${proj.year})`;
+        }
+
+        html += '<article class="item-block">';
+        if (proj.links.length === 1 && !proj.description) {
+          html += `<h3 class="item-title"><a href="${proj.links[0].url}" target="_blank" rel="noopener noreferrer">${titleDisplay}</a></h3>`;
+        } else {
+          html += `<h3 class="item-title">${titleDisplay}</h3>`;
+        }
+
+        if (proj.description) {
+          html += formatMarkdown(proj.description);
+        }
+
+        if (proj.links.length > 0) {
+          const linksHtml = proj.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`).join(' / ');
+          html += `<p class="item-desc" style="font-size: 13.5px; color: #666666;">(${linksHtml})</p>`;
+        }
+
+        html += '</article>';
+      });
+
+      col.innerHTML = html;
+    }
+
+    function renderArtColumn(projects) {
+      if (!projects || projects.length === 0) return;
+      const col = document.querySelector('.column-art');
+      if (!col) return;
+
+      let html = '<h2 class="column-heading">art</h2>';
+      projects.forEach(proj => {
+        let titleDisplay = proj.title;
+        if (proj.year) {
+          titleDisplay += ` (${proj.year})`;
+        }
+
+        html += '<article class="item-block">';
+        if (proj.links.length === 1 && !proj.description) {
+          html += `<h3 class="item-title"><a href="${proj.links[0].url}" target="_blank" rel="noopener noreferrer">${titleDisplay}</a></h3>`;
+        } else {
+          html += `<h3 class="item-title">${titleDisplay}</h3>`;
+        }
+
+        if (proj.description) {
+          html += formatMarkdown(proj.description);
+        }
+
+        if (proj.links.length > 0) {
+          const linksHtml = proj.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`).join(' / ');
+          html += `<p class="item-desc" style="font-size: 13.5px; color: #666666;">(${linksHtml})</p>`;
+        }
+
+        html += '</article>';
+      });
+
+      // Include hoarder den link at bottom of art list
+      html += `
+        <article class="item-block">
+          <h3 class="item-title"><a href="den.html">hoarder den</a></h3>
+          <p class="item-desc">An archive of early projects and experiments from before all this.</p>
+        </article>
+      `;
+
+      col.innerHTML = html;
+    }
+
+    function loadGoogleSheetData() {
+      let sheetId = GOOGLE_SHEET_ID_OR_URL.trim();
+      const match = sheetId.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+      if (match && match[1]) {
+        sheetId = match[1];
+      }
+
+      // 1. Fetch WORK tab
+      const workUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(WORK_TAB)}&t=${Date.now()}`;
+      fetch(workUrl)
+        .then(res => {
+          if (!res.ok) throw new Error('Work sheet fetch failed');
+          return res.text();
+        })
+        .then(text => {
+          const projects = parseCsvProjects(text);
+          if (projects.length > 0) {
+            renderWorkColumn(projects);
+          }
+        })
+        .catch(err => {
+          console.warn('Using static fallback for work:', err);
+        });
+
+      // 2. Fetch ART tab
+      const artUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(ART_TAB)}&t=${Date.now()}`;
+      fetch(artUrl)
+        .then(res => {
+          if (!res.ok) throw new Error('Art sheet fetch failed');
+          return res.text();
+        })
+        .then(text => {
+          const projects = parseCsvProjects(text);
+          if (projects.length > 0) {
+            renderArtColumn(projects);
+          }
+        })
+        .catch(err => {
+          console.warn('Using static fallback for art:', err);
+        });
+    }
+
+    // ============================================================
+    // ACTIVE SCROLL BACKGROUND COLORS & COLUMN HIDING (DESKTOP)
+    // ============================================================
+    function initScrollEffects() {
+      const workCol = document.querySelector('.column-work');
+      const artCol = document.querySelector('.column-art');
+      const aboutCol = document.querySelector('.column-about');
+
+      const configs = [
+        { el: workCol, cls: 'scrolling-work' },
+        { el: artCol, cls: 'scrolling-art' },
+        { el: aboutCol, cls: 'scrolling-about' }
+      ];
+
+      let scrollTimeout = null;
+      let currentClass = '';
+
+      function onScrollActive(cls) {
+        if (window.innerWidth <= 768) return; // Desktop only
+
+        if (currentClass !== cls) {
+          if (currentClass) document.body.classList.remove(currentClass);
+          document.body.classList.add(cls);
+          currentClass = cls;
+        }
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (currentClass) {
+            document.body.classList.remove(currentClass);
+            currentClass = '';
+          }
+        }, 180);
+      }
+
+      configs.forEach(({ el, cls }) => {
+        if (!el) return;
+        el.addEventListener('scroll', () => onScrollActive(cls), { passive: true });
+        el.addEventListener('wheel', () => onScrollActive(cls), { passive: true });
+      });
+    }
+
+    // Run dynamic sync & scroll effects on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollEffects();
+      loadGoogleSheetData();
+    });
+  </script>
+</body>
+
+</html>

@@ -34,3 +34,5 @@ Thumbs.db
 *.tmp
 *.temp 
 node_modules
+old_stuff/
+old_stuff

@@ -1,341 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TINA TARIGHIAN</title>
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="img/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="img/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="img/favicon-16x16.png"
-    />
-    <link rel="manifest" href="img/site.webmanifest" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | TINA TARIGHIAN</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0 20px;
-        box-sizing: border-box;
-        background-color: #f0f0f0;
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background-color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Redesigned Navigation Header with Dotted/Dashed Style & Flat Hidden Dropdown */
+    .site-header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      pointer-events: auto;
+    }
+
+    .nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand-box {
+      background-color: #ffff00;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-brand-box:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-dropdown-trigger {
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.is-active {
+      background-color: #000000;
+      color: #ffff00;
+    }
+
+    .trigger-arrow {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown-trigger.is-active .trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      box-shadow: none;
+      padding: 4px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      animation: popInNav 0.15s ease-out;
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    @keyframes popInNav {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
       }
-      
-      .container {
-        max-width: 1400px;
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-menu-item {
+      display: block;
+      padding: 6px 12px;
+      border: 2px dashed transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-menu-item:hover {
+      border-color: #000000;
+    }
+
+    .nav-menu-item.item-art:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-menu-item.item-work:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+    }
+
+    .nav-menu-item.item-den:hover {
+      background-color: #ffff00;
+      color: #000000;
+    }
+
+    /* Page Layout Container */
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 30px 80px;
+      box-sizing: border-box;
+    }
+
+    .page-header {
+      margin-bottom: 36px;
+    }
+
+    .page-title {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: #000000;
+    }
+
+    /* Main Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left Text Column */
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .statement-paragraph {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #111111;
+      font-weight: 400;
+    }
+
+    .statement-paragraph em {
+      font-style: italic;
+    }
+
+    .statement-paragraph a {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .statement-paragraph a:hover {
+      background-color: #ffff00;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .dotted {
+      border-bottom: 2px dashed #000000;
+      padding-bottom: 1px;
+      font-weight: 600;
+    }
+
+    /* Bio Details Accordion */
+    .bio-drawer {
+      margin-top: 15px;
+      border: 3px dashed #000000;
+      background-color: #ffffff;
+    }
+
+    .bio-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      background-color: #ffffff;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .bio-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .bio-summary:hover {
+      background-color: #ffff00;
+    }
+
+    .bio-drawer[open] .bio-summary {
+      background-color: #000000;
+      color: #ffff00;
+    }
+
+    .bio-summary-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bio-arrow {
+      font-size: 14px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .bio-drawer[open] .bio-arrow {
+      transform: rotate(90deg);
+    }
+
+    .bio-badge {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 2px solid currentColor;
+      padding: 2px 8px;
+    }
+
+    .bio-content {
+      padding: 24px 20px;
+      border-top: 3px dashed #000000;
+      background-color: #fafafa;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #222222;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Right Sidebar Column (Image & Links) */
+    .sidebar-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .image-frame {
+      width: 100%;
+      border: 3px dashed #000000;
+      background-color: #ffffff;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .headshot-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Contact Links */
+    .contact-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .contact-link {
+      color: #0055ff;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      cursor: pointer;
+      padding: 2px 4px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .contact-link:hover {
+      background-color: #ffff00;
+      color: #000000;
+    }
+
+    .contact-divider {
+      color: #888888;
+      user-select: none;
+    }
+
+    /* Daily Readings Are.na Box */
+    .arena-box {
+      display: block;
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: #000000;
+      transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      user-select: none;
+    }
+
+    .arena-box:hover {
+      background-color: #ffff00;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0px #000000;
+    }
+
+    .arena-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .arena-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .arena-arrow {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .arena-desc {
+      font-size: 14px;
+      line-height: 1.45;
+      color: #444444;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 900px) {
+      .page-container {
+        padding: 90px 20px 60px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .sidebar-column {
+        position: static;
+        max-width: 440px;
         margin: 0 auto;
-        padding: 20px 0;
-        position: relative;
-      }
-      
-      h1 {
-        font-size: clamp(36px, 5vw, 50px);
-        margin-bottom: 20px;
-      }
-      
-      p {
-        margin-bottom: 16px;
-        line-height: 1.4;
-      }
-      
-      a {
-        color: blue;
-      }
-      
-      .content-wrapper {
-        display: flex;
-        flex-direction: row;
-        gap: 60px;
-      }
-      
-      .text-content {
-        flex: 1;
-        max-width: 900px;
-      }
-      
-      .image-content {
-        flex: 0 0 400px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-      }
-      
-      .image-content img {
-        max-width: 400px;
-        height: auto;
-      }
-      
-      .back-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        font-size: 50px;
-        color: red;
-        text-decoration: none;
-        z-index: 100;
-        line-height: 0.8;
-      }
-      
-      .arena-box {
-        display: block;
-        background-color: white;
-        border: 1px solid #ddd;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 8px;
-        text-decoration: none;
-        color: inherit;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        transition: transform 0.2s;
         width: 100%;
-        max-width: 400px;
-        box-sizing: border-box;
-      }
-      
-      .arena-box:hover {
-        transform: translateY(-2px);
-      }
-      
-      .arena-box h3 {
-        margin: 0 0 5px 0;
-        font-size: 20px;
-        font-weight: bold;
-        color: black;
-      }
-      
-      .arena-box p {
-        margin: 0;
-        font-size: 16px;
-        color: #666;
+        order: -1;
       }
 
-      details summary {
-        cursor: pointer;
-        font-weight: bold;
-        margin-top: 40px;
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 20px;
+      .statement-paragraph {
+        font-size: 17px;
       }
+    }
 
-      details summary::-webkit-details-marker {
-        display: none;
-      }
-
-      details summary::before {
-        content: "→";
-        color: red;
-      }
-
-      details[open] summary::before {
-        content: "↓";
-      }
-
-      .dotted {
-        text-decoration: underline;
-        text-underline-offset: 2px;
-        text-decoration-style: dotted;
-      }
-
+    @media (max-width: 600px) {
       .site-header {
-        padding: 20px 0;
-        margin-bottom: 20px;
+        top: 14px;
+        left: 14px;
       }
 
-      .site-header h1 {
-        font-size: 24px;
-        font-weight: normal;
-        margin: 0;
+      .page-container {
+        padding: 76px 16px 50px;
       }
 
-      .home-link,
-      .page-link,
-      .page-highlight {
-        color: black;
-        text-decoration: none;
+      .page-title {
+        font-size: 28px;
       }
 
-      .home-link:hover,
-      .page-link:hover,
-      .page-highlight:hover {
-        color: red;
+      .statement-paragraph {
+        font-size: 16px;
       }
 
-      .page-highlight {
-        background-color: yellow;
+      .bio-summary {
+        font-size: 16px;
+        padding: 12px 14px;
       }
-      
-      @media (max-width: 900px) {
-        .content-wrapper {
-          flex-direction: column;
-          gap: 20px;
-        }
 
-        .text-content {
-          max-width: 100%;
-        }
-        
-        .image-content {
-          flex: none;
-          width: 100%;
-          align-items: flex-start;
-        }
-        
-        .image-content img {
-          display: none;
-        }
-
-        .arena-box {
-          width: 100%;
-          max-width: 100%;
-          margin: 20px 0;
-        }
-        
-        body {
-          font-size: 16px;
-          padding: 0 15px;
-        }
-        
-        .back-button {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-        }
-        
-        .container {
-          padding: 40px 0 80px;
-        }
+      .bio-content {
+        padding: 18px 14px;
+        font-size: 14px;
       }
-    </style>
-  </head>
-  <body class="gradient-background">
-    <div class="container">
-        <header class="site-header">
-          <h1><a href="index.html" class="home-link">Tina Tarighian:</a> <a href="about.html" class="page-highlight">abt</a> / <a href="art.html" class="page-link">art</a> / <a href="work.html" class="page-link">work</a></h1>
-        </header>
-        <h1 style="margin-bottom: 10px;">about: tina tarighian</h1>
-        <div class="content-wrapper">
-          <div class="text-content">
-            <p>
-              My day job is making <span class="dotted">demos</span>: <em>what can this technology do?</em>
-              </p>
-              <p>
-                My art practice is making <span class="dotted">spectacles</span>: <em>what can this technology say?</em>
-              </p>
-              <p>
-              Like the hand and the shadow puppet, they inform and motivate each other.
-            </p>
-            <p>
-              My medium for critique is system mimicry: a <a href="http://aipuritytest.org" target="_blank">purity test</a>
-              that measures AI-promiscuity, an <a href="http://say-one-more-thing.com" target="_blank">email to your ex</a> with
-              a 0.0001% chance of sending, a <a href="https://www.rithm.love/about" target="_blank">dating app</a> that only
-              lets you match via instagram algorithms. With each work inheriting the trust of a well-acquainted format, I
-              onboard an unsuspicious audience to my position.
-            </p>
-            <p>
-              Millions of users took a quiz to locate themselves within the AI era, thousands of wistful emails have been
-              logged into a system where almost none will ever be delivered, and a few hundred doomscrollers signed up to
-              find their scroll-mates. Rather than offering critique at a distance, I am offering critique through
-              participation.
-            </p>
-            <p>
-              And it works because the formats I mimic already have your attention. They already have your data. They
-              already know what you do at midnight and who you looked up twice. I am just making sure you notice.
-            </p>
-            
-            <details id="bio-drawer">
-              <summary>formal bio</summary>
-              <div style="margin-top: 20px;">
-                <p>Tina Tarighian is an artist whose practice moves between demo and spectacle, repurposing the formats of
-                  contemporary technology to examine what they do and what they reveal. Working in software, installation, and
-                  internet infrastructure, she builds inside the systems she examines, producing work that functions at scale and
-                  has reached millions. Her work has been exhibited at TIAT Place, San Francisco; Grace Exhibition Space, New York;
-                  and in Scan Artist (2024), a solo performance in New York. She developed custom video collage software that
-                  debuted at Coachella, Governors Ball, Portola Festival, and SXSW, and she held a performance residency at Pianos
-                  NY, New York. She has been invited to speak on her work at the New Museum’s DEMO, The Do Lectures Wales, and
-                  ARTECHOUSE, among others. She is a member of New INC Year 11 Cohort, a 2026 EY Emergent Futures Fellow, and the
-                  recipient of the inaugural 2025 INTL International Creative Award in the web category.</p>
-                <p>She is a Senior Creative Technologist at Google Creative Lab and is based in New York.</p>
-              </div>
-            </details>
-            </div>
-            <div class="image-content">
-              <img id="workspace" src="images/art/headshot_final.webp" alt="Tina Tarighian">
-            
-              <div class="contact-links" style="margin-top: 15px; font-size: 16px; color: black;">
-                <a href="https://docs.google.com/document/d/e/2PACX-1vTROXtut07j8Su4ytr73K4_LrTfEW3gzSferyMS-4k90jvvusLA8QvTc614J2FW_N-SH2M9HgH_C63k/pub" target="_blank"
-                  style="color: blue; text-decoration: none;">cv</a> /
-                <a href="https://www.instagram.com/wwwtinazone/" target="_blank"
-                  style="color: blue; text-decoration: none;">instagram</a> /
-                <a href="#" id="email-link" style="color: blue; text-decoration: none;">email</a> /
-                <a href="https://x.com/wwwtinazone" target="_blank" style="color: blue; text-decoration: none;">twitter</a>
-              </div>
-            
-            <a href="https://www.are.na/tina-tarighian/daily-read-b5xa7nbkgyg" class="arena-box">
-              <h3>Daily Readings on Are.na</h3>
-              <p>What I read on the subway: thoughts, essays, speculations on AI, art, and the digital condition.</p>
-            </a>
-          </div>
-        </div>
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Clean Flat Dashed Navigation Header with Hidden Dropdown -->
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand-box">
+        <span>Tina Tarighian</span>
+      </a>
+      <button class="nav-dropdown-trigger" id="navTrigger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>abt</span>
+        <span class="trigger-arrow">▾</span>
+      </button>
+
+      <nav class="nav-dropdown-menu" id="navMenu">
+        <a href="art.html" class="nav-menu-item item-art">art</a>
+        <a href="work.html" class="nav-menu-item item-work">work</a>
+      </nav>
     </div>
-  </body>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <!-- <h1 class="page-title">about: tina tarighian</h1> -->
+    </div>
+
+    <div class="about-grid">
+      <!-- Left: Text Content -->
+      <div class="text-column">
+        <p class="statement-paragraph">
+          My day job is making <span class="dotted">demos</span>: <em>what can this technology do?</em>
+        </p>
+        <p class="statement-paragraph">
+          My art practice is making <span class="dotted">spectacles</span>: <em>what can this technology say?</em>
+        </p>
+        <p class="statement-paragraph">
+          Like a hand and a shadow puppet, they inform and motivate each other.
+        </p>
+        <p class="statement-paragraph">
+          My medium for critique is system mimicry: a <a href="http://aipuritytest.org" target="_blank"
+            rel="noopener noreferrer">purity test</a>
+          that measures AI-promiscuity, an <a href="http://say-one-more-thing.com" target="_blank"
+            rel="noopener noreferrer">email to your ex</a> with
+          a 0.0001% chance of sending, a <a href="https://www.rithm.love/about" target="_blank"
+            rel="noopener noreferrer">dating app</a> that only
+          lets you match via instagram algorithms. With each work inheriting the trust of a well-acquainted format, I
+          onboard an unsuspicious audience to my position.
+        </p>
+        <p class="statement-paragraph">
+          Millions of users took a quiz to locate themselves within the AI era, thousands of wistful emails have been
+          logged into a system where almost none will ever be delivered, and a few hundred doomscrollers signed up to
+          find their scroll-mates. Rather than offering critique at a distance, I am offering critique through
+          participation.
+        </p>
+        <p class="statement-paragraph">
+          And it works because the formats I mimic already have your attention. They already have your data. They
+          already know what you do at midnight and who you looked up twice. I am just making sure you notice.
+        </p>
+
+        <!-- Formal Bio Accordion Drawer -->
+        <details class="bio-drawer" id="bio-drawer">
+          <summary class="bio-summary">
+            <span class="bio-summary-title">
+              <span class="bio-arrow">▶</span>
+              <span>formal bio</span>
+            </span>
+            <span class="bio-badge">expand</span>
+          </summary>
+          <div class="bio-content">
+            <p>Tina Tarighian is an artist whose practice moves between demo and spectacle, repurposing the formats of
+              contemporary technology to examine what they do and what they reveal. Working in software, installation,
+              and
+              internet infrastructure, she builds inside the systems she examines, producing work that functions at
+              scale and
+              has reached millions. Her work has been exhibited at TIAT Place, San Francisco; Grace Exhibition Space,
+              New York;
+              and in Scan Artist (2024), a solo performance in New York. She developed custom video collage software
+              that
+              debuted at Coachella, Governors Ball, Portola Festival, and SXSW, and she held a performance residency at
+              Pianos
+              NY, New York. She has been invited to speak on her work at the New Museum’s DEMO, The Do Lectures Wales,
+              and
+              ARTECHOUSE, among others. She is a member of New INC Year 11 Cohort, a 2026 EY Emergent Futures Fellow,
+              and the
+              recipient of the inaugural 2025 INTL International Creative Award in the web category.</p>
+            <p>She is a Senior Creative Technologist at Google Creative Lab and is based in New York.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Right: Headshot Image, Contact Links, Daily Readings -->
+      <aside class="sidebar-column">
+        <div class="image-frame">
+          <img class="headshot-img" id="workspace" src="images/art/headshot_final.webp" alt="Tina Tarighian" />
+        </div>
+
+        <div class="contact-links">
+          <a href="https://docs.google.com/document/d/e/2PACX-1vTROXtut07j8Su4ytr73K4_LrTfEW3gzSferyMS-4k90jvvusLA8QvTc614J2FW_N-SH2M9HgH_C63k/pub"
+            target="_blank" rel="noopener noreferrer" class="contact-link">cv</a>
+          <span class="contact-divider">/</span>
+          <a href="https://www.instagram.com/wwwtinazone/" target="_blank" rel="noopener noreferrer"
+            class="contact-link">instagram</a>
+          <span class="contact-divider">/</span>
+          <button id="email-link" class="contact-link" aria-label="Copy email address">email</button>
+          <span class="contact-divider">/</span>
+          <a href="https://x.com/wwwtinazone" target="_blank" rel="noopener noreferrer" class="contact-link">twitter</a>
+        </div>
+
+        <a href="https://www.are.na/tina-tarighian/daily-read-b5xa7nbkgyg" target="_blank" rel="noopener noreferrer"
+          class="arena-box">
+          <div class="arena-header">
+            <h3 class="arena-title">Daily Readings on Are.na</h3>
+            <span class="arena-arrow">↗</span>
+          </div>
+          <p class="arena-desc">What I read on the subway: thoughts, essays, speculations on AI, art, and the digital
+            condition.</p>
+        </a>
+      </aside>
+    </div>
+  </main>
+
   <script>
-    // Splash link functionality
-    const splashLink = document.getElementById('splashLink');
-    if (splashLink) {
-      splashLink.addEventListener('click', function(e) {
+    // Navigation Dropdown Logic
+    const navTrigger = document.getElementById('navTrigger');
+    const navMenu = document.getElementById('navMenu');
+
+    function toggleNavDropdown(e) {
+      if (e) e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('is-open');
+      navTrigger.classList.toggle('is-active', isOpen);
+      navTrigger.setAttribute('aria-expanded', isOpen);
+    }
+
+    function closeNavDropdown() {
+      navMenu.classList.remove('is-open');
+      navTrigger.classList.remove('is-active');
+      navTrigger.setAttribute('aria-expanded', 'false');
+    }
+
+    navTrigger.addEventListener('click', toggleNavDropdown);
+
+    document.addEventListener('click', (e) => {
+      if (!navTrigger.contains(e.target) && !navMenu.contains(e.target)) {
+        closeNavDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdown();
+      }
+    });
+
+    // Email link copy-to-clipboard functionality
+    const emailLink = document.getElementById('email-link');
+    if (emailLink) {
+      emailLink.addEventListener('click', function (e) {
         e.preventDefault();
-        window.location.href = 'index.html';
+        const email = 'tinatarighianwork@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          const originalText = emailLink.innerText;
+          emailLink.innerText = 'copied!';
+          emailLink.style.backgroundColor = '#ffff00';
+          emailLink.style.color = '#000000';
+          setTimeout(() => {
+            emailLink.innerText = originalText;
+            emailLink.style.backgroundColor = '';
+            emailLink.style.color = '';
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy email to clipboard', err);
+          window.location.href = `mailto:${email}`;
+        });
       });
     }
 
-  // Email link copy-to-clipboard functionality
-  const emailLink = document.getElementById('email-link');
-  if (emailLink) {
-    emailLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      const email = 'tinatarighianwork@gmail.com';
-      navigator.clipboard.writeText(email).then(() => {
-        const originalText = emailLink.innerText;
-        emailLink.innerText = 'email copied to clipboard';
-        emailLink.style.color = 'green';
-        setTimeout(() => {
-          emailLink.innerText = originalText;
-          emailLink.style.color = 'blue';
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy email to clipboard', err);
+    // Bio drawer badge & scroll
+    const bioDrawer = document.getElementById('bio-drawer');
+    if (bioDrawer) {
+      const bioBadge = bioDrawer.querySelector('.bio-badge');
+      bioDrawer.addEventListener('toggle', function () {
+        if (bioBadge) {
+          bioBadge.textContent = bioDrawer.open ? 'collapse' : 'expand';
+        }
+        if (bioDrawer.open) {
+          setTimeout(() => {
+            bioDrawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
       });
-    });
-  }
-
-  // Auto-scroll for bio drawer
-  const bioDrawer = document.getElementById('bio-drawer');
-  if (bioDrawer) {
-    bioDrawer.addEventListener('toggle', function () {
-      if (bioDrawer.open) {
-        setTimeout(() => {
-          bioDrawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
-    });
-  }
+    }
   </script>
+</body>
+
 </html>

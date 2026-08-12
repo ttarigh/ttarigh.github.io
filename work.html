@@ -1,578 +1,2006 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Tina Tarighian's portfolio of work in AI, creative technology, and digital experiences" />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Work | TINA TARIGHIAN</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
-    <link rel="manifest" href="img/site.webmanifest" />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body class="work-page">
-    <div class="container">
-      <header class="site-header">
-        <h1><a href="index.html" class="home-link">Tina Tarighian:</a> <a href="about.html" class="page-link">abt</a> / <a href="art.html" class="page-link">art</a> / <a href="work.html" class="page-highlight">work</a></h1>
-      </header>
-      
-      <div class="work-projects">
-        
-<section class="work-project" id="veovj">
-  <h2 class="work-title">VeoVJ</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Experiment, AI, Global Campaign</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        I conceived and coded <strong>VeoVJ</strong>, a tool for live-remixing visuals generated with Veo, Google's gen video model. By setting the model's early, often surreal 6-second outputs to music, I transformed them into cohesive, high-energy audiovisual performances. This project went from a creative spark to a mainstage reality, opening for major events including the <strong>Google Cloud Next Gen Keynote</strong>, the <strong>I/O Developer Keynote</strong>, and <strong>Google Marketing Live</strong> across 7 performances and three continents. The tool has powered experiences seen by over 6 million people online, and I've performed with it live for audiences of over 30,000.</p>
-<p></p>
-<p><p><em>Logo by the brilliant <a href="https://jocelynzhao.com/" target="_blank">Jocelyn Zhao</a> and motion graphics by the talented <a href="https://www.tifftedy.com/" target="_blank">Tiff Tedy</a>.</em></p>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work | TINA TARIGHIAN</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100%;
+      background-color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Redesigned Navigation Header with Dotted/Dashed Style & Flat Hidden Dropdown */
+    .site-header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      pointer-events: auto;
+    }
+
+    .nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand-box {
+      background-color: #ffff00;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-brand-box:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-dropdown-trigger {
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.is-active {
+      background-color: #000000;
+      color: #ffff00;
+    }
+
+    .trigger-arrow {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown-trigger.is-active .trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      box-shadow: none;
+      padding: 4px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      animation: popInNav 0.15s ease-out;
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    @keyframes popInNav {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-menu-item {
+      display: block;
+      padding: 6px 12px;
+      border: 2px dashed transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-menu-item:hover {
+      border-color: #000000;
+    }
+
+    .nav-menu-item.item-art:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-menu-item.item-abt:hover {
+      background-color: #00ff66;
+      color: #000000;
+    }
+
+    .nav-menu-item.item-den:hover {
+      background-color: #ffff00;
+      color: #000000;
+    }
+
+    /* SCREEN 1: Hero / Statement Viewport */
+    .intro-screen {
+      width: 100vw;
+      height: 100vh;
+      min-height: 550px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      box-sizing: border-box;
+      position: relative;
+      background-color: #ffffff;
+      user-select: none;
+    }
+
+    .intro-content {
+      text-align: center;
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .intro-statement {
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 500;
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .art-highlight-link {
+      color: #000000;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: #ffff00;
+      border: 2px solid #000000;
+      padding: 0px 8px;
+      display: inline-block;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .art-highlight-link:hover {
+      background-color: #ff5757;
+      color: #ffffff;
+    }
+
+    .scroll-down-btn {
+      text-decoration: none;
+      color: #000000;
+      font-size: 48px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .scroll-down-btn:hover {
+      transform: translateY(4px);
+      color: #ff5757;
+    }
+
+    /* SCREEN 2: Work Table of Contents & Feed Layout */
+    .work-section {
+      scroll-margin-top: 75px;
+      width: 100%;
+      margin: 0;
+      padding: 30px 40px 140px 20px;
+      box-sizing: border-box;
+    }
+
+    .anchor-target {
+      display: block;
+      position: relative;
+      top: -75px;
+      visibility: hidden;
+    }
+
+    .work-layout-grid {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 60px;
+      align-items: start;
+      position: relative;
+      max-width: 1650px;
+    }
+
+    /* Sticky Sidebar / Table of Contents stuck to left side under nav */
+    .work-sidebar {
+      position: sticky;
+      top: 85px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: calc(100vh - 105px);
+      padding-right: 8px;
+    }
+
+    .sidebar-bio {
+      font-size: 14px;
+      line-height: 1.45;
+      color: #222222;
+      padding-bottom: 14px;
+      border-bottom: 2px dashed #000000;
+    }
+
+    .sidebar-bio strong {
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .toc-container {
+      overflow-y: auto;
+      flex: 1;
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE/Edge */
+    }
+
+    .toc-container::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari, Opera */
+      width: 0;
+      height: 0;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .toc-link {
+      font-size: 13.5px;
+      line-height: 1.35;
+      color: #555555;
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 4px 6px;
+      margin-left: -6px;
+      border-left: 3px solid transparent;
+      transition: all 0.12s ease;
+    }
+
+    .toc-link .toc-num {
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+      color: #888888;
+      min-width: 22px;
+    }
+
+    .toc-link .toc-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-link:hover {
+      color: #000000;
+      background-color: #ffff00;
+    }
+
+    .toc-link.is-active {
+      color: #000000;
+      font-weight: 700;
+      background-color: #ffff00;
+      border-left: 3px solid #000000;
+      padding-left: 6px;
+      margin-left: -6px;
+    }
+
+    .toc-link.is-active .toc-num {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    /* Right Project Feed */
+    .project-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
+    }
+
+    /* Disclaimer Note / iMessage Invisible Ink Banner */
+    .work-disclaimer-banner {
+      position: relative;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #ff0000;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: -50px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .invisible-ink-wrapper {
+      position: relative;
+      display: inline-block;
+      line-height: 1.5;
+    }
+
+    .invisible-ink-text {
+      display: inline-block;
+      margin: 0;
+      transition: filter 0.2s ease, opacity 0.2s ease;
+      filter: blur(5px);
+      opacity: 0.08;
+      user-select: none;
+    }
+
+    .work-disclaimer-banner:hover .invisible-ink-text,
+    .work-disclaimer-banner.is-revealed .invisible-ink-text {
+      filter: blur(0px);
+      opacity: 1;
+      user-select: text;
+    }
+
+    .invisible-ink-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.2s ease;
+    }
+
+    .work-disclaimer-banner:hover .invisible-ink-canvas,
+    .work-disclaimer-banner.is-revealed .invisible-ink-canvas {
+      opacity: 0;
+    }
+
+    .rainbow-fancy {
+      font-style: italic;
+      font-weight: 1000;
+      font-size: 1.3em;
+      font-family: 'Playfair Display', Georgia, serif;
+      background: linear-gradient(90deg, #ea4335, #fabc05, #34a853, #4285f4, #a142f4, #ea4335);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowShift 4s linear infinite;
+      letter-spacing: 0.01em;
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    @keyframes rainbowShift {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .project-card {
+      scroll-margin-top: 90px;
+      border: 3px dashed #000000;
+      background-color: #ffffff;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Top Row of Project Card: Title + Category */
+    .project-header-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: baseline;
+      border-bottom: 2px dashed #000000;
+      padding-bottom: 14px;
+    }
+
+    .project-main-title {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #000000;
+    }
+
+    .project-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-category {
+      background-color: #ffff00;
+      color: #000000;
+      border: 2px solid #000000;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .project-year {
+      color: #666666;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Body Row: Description & Links on Left, Media on Right */
+    .project-body-row {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .project-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #222222;
+    }
+
+    .project-description p+p {
+      margin-top: 10px;
+    }
+
+    .project-description strong {
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .project-description em {
+      font-size: 13px;
+      color: #555555;
+    }
+
+    .project-description ul {
+      margin-left: 20px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-description a {
+      color: #0055ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: background-color 0.12s ease, color 0.12s ease;
+    }
+
+    .project-description a:hover {
+      background-color: #ffff00;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .project-action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .project-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border: 2px solid #000000;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    .project-action-btn:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Media Side */
+    .project-media-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .project-media-grid.grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-media-grid.single-item {
+      grid-template-columns: 1fr;
+    }
+
+    .project-media-grid.stacked {
+      grid-template-columns: 1fr !important;
+    }
+
+    .media-container {
+      border: none;
+      background-color: transparent;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-img {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Mobile & Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .work-layout-grid {
+        grid-template-columns: 240px 1fr;
+        gap: 36px;
+      }
+
+      .project-body-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .project-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        top: 14px;
+        left: 14px;
+      }
+
+      .work-section {
+        padding: 30px 16px 80px;
+      }
+
+      .work-layout-grid {
+        display: block;
+      }
+
+      .work-sidebar {
+        display: none !important;
+      }
+
+      .project-feed {
+        gap: 50px;
+      }
+
+      .project-header-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .project-card {
+        padding: 18px;
+        gap: 18px;
+      }
+
+      .project-main-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Clean Flat Dashed Navigation Header with Hidden Dropdown -->
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand-box">
+        <span>Tina Tarighian</span>
+      </a>
+      <button class="nav-dropdown-trigger" id="navTrigger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>work</span>
+        <span class="trigger-arrow">▾</span>
+      </button>
+
+      <nav class="nav-dropdown-menu" id="navMenu">
+        <a href="art.html" class="nav-menu-item item-art">art</a>
+        <a href="about.html" class="nav-menu-item item-abt">abt</a>
+      </nav>
     </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/veovj.gif" alt="VeoVJ image 1" />
-            </div><div class="image-container">
-              <img src="images/work/veovj.webp" alt="VeoVJ gif" />
-            </div>
+  </header>
+
+  <!-- SCREEN 1: Hero Statement Screen with Down Arrow -->
+  <section class="intro-screen" id="introScreen">
+    <div class="intro-content">
+      <h1 class="intro-statement">
+        <span>
+          Okay... you want to see my<br />
+          Work from my Job(s)
+        </span>
+        <span>
+          I really consider myself an artist so<br />
+          you should probably go see<br />
+          my <a href="art.html" class="art-highlight-link">ART</a>, but if you must...
+        </span>
+      </h1>
+      <a href="#work-feed" class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll down to work feed">
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Table of Contents (Left) & Work Feed (Right) -->
+  <span id="projects" class="anchor-target"></span>
+  <span id="feed" class="anchor-target"></span>
+  <span id="work" class="anchor-target"></span>
+  <span id="all" class="anchor-target"></span>
+  <section class="work-section" id="work-feed">
+    <div class="work-layout-grid">
+      <!-- Left Column: Sticky Sidebar Table of Contents -->
+      <aside class="work-sidebar" aria-label="Work navigation">
+        <div class="sidebar-bio">
+          <p><strong>Tina Tarighian</strong> is an artist and creative technologist based in New York.</p>
         </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="whats-your-vibe">
-  <h2 class="work-title">"What's Your Vibe?" — Mainstage I/O Talk</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Talk, AI</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        For Google I/O's mainstage, I co-created and performed a completely live demo of the new Gemini Canvas features. Alongside my colleague <a href="https://x.com/aar0n_wade" target="_blank">Aaron Wade</a>, we designed <strong>"What's Your Vibe?"</strong>, a high-energy game show where we were challenged to build an app with randomly selected vibes. In minutes, we built a functional, poetic, vintage-style camera app and shared it instantly with the audience by having Canvas generate its own QR code on the fly.</p>
-<p></p>
-<p><p><em>The randomizer was designed by the wonderful <a href="https://tanialili.com/" target="_blank">Tania Lili</a>.</em></p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/whatsyourvibe.webp" alt="What's Your Vibe? image 1" />
-            </div><div class="image-container">
-              <img src="images/work/whatsyourvibe2.webp" alt="What's Your Vibe? image 2" />
-            </div>
+
+        <div class="toc-container">
+          <nav class="work-toc" id="workToc">
+            <ul class="toc-list">
+              <li><a href="#veovj" class="toc-link is-active"><span class="toc-num">1.</span> <span
+                    class="toc-title">VeoVJ</span></a></li>
+              <li><a href="#whats-your-vibe" class="toc-link"><span class="toc-num">2.</span> <span
+                    class="toc-title">"What's Your Vibe?"</span></a></li>
+              <li><a href="#30-days-of-gemini-canvas" class="toc-link"><span class="toc-num">3.</span> <span
+                    class="toc-title">30 Days of Gemini Canvas</span></a></li>
+              <li><a href="#countdowns-powered-by-veo2" class="toc-link"><span class="toc-num">4.</span> <span
+                    class="toc-title">Countdowns Powered by Veo2</span></a></li>
+              <li><a href="#gemini-social-strategy" class="toc-link"><span class="toc-num">5.</span> <span
+                    class="toc-title">Gemini Social Strategy</span></a></li>
+              <li><a href="#gemini-2-0-experiments-google-creative-lab" class="toc-link"><span class="toc-num">6.</span>
+                  <span class="toc-title">Gemini 2.0 Experiments</span></a></li>
+              <li><a href="#doomers" class="toc-link"><span class="toc-num">7.</span> <span
+                    class="toc-title">DOOMERS</span></a></li>
+              <li><a href="#mesa" class="toc-link"><span class="toc-num">8.</span> <span
+                    class="toc-title">MESA</span></a></li>
+              <li><a href="#google-deep-mind-genweather" class="toc-link"><span class="toc-num">9.</span> <span
+                    class="toc-title">Google Deep Mind: GenWeather</span></a></li>
+              <li><a href="#artechouse" class="toc-link"><span class="toc-num">10.</span> <span
+                    class="toc-title">ARTECHOUSE</span></a></li>
+              <li><a href="#visiting-professor-parsons-school-of-design" class="toc-link"><span
+                    class="toc-num">11.</span> <span class="toc-title">Visiting Professor: Parsons</span></a></li>
+              <li><a href="#fcukers-govball-sxsw-portolla-fest" class="toc-link"><span class="toc-num">12.</span> <span
+                    class="toc-title">FCUKERS: Festivals</span></a></li>
+              <li><a href="#chlomosexual-presents-parties" class="toc-link"><span class="toc-num">13.</span> <span
+                    class="toc-title">Chlomosexual Presents Parties</span></a></li>
+              <li><a href="#ready-companion" class="toc-link"><span class="toc-num">14.</span> <span
+                    class="toc-title">Ready Companion</span></a></li>
+              <li><a href="#aesthetic-computer" class="toc-link"><span class="toc-num">15.</span> <span
+                    class="toc-title">Aesthetic.Computer</span></a></li>
+              <li><a href="#uye-surana" class="toc-link"><span class="toc-num">16.</span> <span class="toc-title">Uye
+                    Surana</span></a></li>
+              <li><a href="#iamb-magazine" class="toc-link"><span class="toc-num">17.</span> <span
+                    class="toc-title">IAMB Magazine</span></a></li>
+              <li><a href="#pianos-residency" class="toc-link"><span class="toc-num">18.</span> <span
+                    class="toc-title">Pianos Residency</span></a></li>
+              <li><a href="#cyber-matuta" class="toc-link"><span class="toc-num">19.</span> <span
+                    class="toc-title">Cyber Matuta</span></a></li>
+              <li><a href="#fit4u-solutions" class="toc-link"><span class="toc-num">20.</span> <span
+                    class="toc-title">Fit4U Solutions</span></a></li>
+            </ul>
+          </nav>
         </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="30-days-of-gemini-canvas">
-  <h2 class="work-title">30 Days of Gemini Canvas</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Campaign, AI</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        In partnership with Google Developer Relations, I pioneered the <strong>#30DaysOfGeminiCanvas</strong> challenge to showcase the creative power and speed of the new API. Every day for a month, I would "live vibe-code" a new generative toy or tool, demonstrating how quickly ideas can be brought to life. The daily challenge was designed to demystify generative AI development and inspire a community of builders to experiment.<br> <br>Follow the journey on <a href="https://x.com/tinaz0ne" target="_blank"> twitter!</a>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/canvas30.gif" alt="30 Days of Gemini Canvas" />
-            </div>
+      </aside>
+
+      <!-- Right Column: Project Showcase Stream -->
+      <main class="project-feed">
+
+        <!-- Top Secret Work Disclaimer Banner with iMessage Invisible Ink Effect -->
+        <div class="work-disclaimer-banner" role="note" title="Hover or tap to reveal secret note">
+          <div class="invisible-ink-wrapper">
+            <p class="invisible-ink-text">
+              BTW a lot of my work at the <span class="rainbow-fancy"> Google Creative Lab </span> is SECRET. This is
+              just
+              the work that had the legs to go public. Enjoy! Email me if ur thinking of something specific.
+            </p>
+            <canvas class="invisible-ink-canvas"></canvas>
+          </div>
         </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="countdowns-powered-by-veo2">
-  <h2 class="work-title">Countdowns Powered by Veo2 (I/O & Google Cloud Next 2025)</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Motion, AI</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        I art-directed and generated the countdown for the <a href="https://www.youtube.com/watch?v=WGtpoRpTAsY" target="_blank">Google Cloud Next keynote</a> using Google's Veo model. Following that, I joined a small, brilliant team at the Creative Lab to produce the <a href="https://www.youtube.com/watch?v=o8NiE3XMPrM" target="_blank">Google I/O 2025 countdown</a>, leveraging new seamless generation tech to create a fluid, end-to-end visual narrative. Combined, these openers were seen by over 7 million people.
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/countdownclock.webp" alt="Countdown Clock image" />
-            </div><div class="image-container">
-              <img src="images/work/countdown.gif" alt="Countdown Clock gif" />
+
+        <!-- 1. VeoVJ -->
+        <article class="project-card" id="veovj">
+          <div class="project-header-row">
+            <h2 class="project-main-title">VeoVJ</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Experiment, AI, Global Campaign</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="gemini-social-strategy">
-  <h2 class="work-title">Gemini Social Strategy</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Strategy, Social, AI</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        I helped shape the voice and creative strategy for Gemini's social media presence across some Instagram and X posts. My focus was on making advanced AI concepts feel accessible and fun, developing novel prompting techniques and creative campaigns to engage a wide audience and clearly communicate the power of new features.
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/socialstrat.webp" alt="Gemini Social Strategy image 1" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>I conceived and coded <strong>VeoVJ</strong>, a tool for live-remixing visuals generated with Veo,
+                  Google's gen video model. By setting the model's early, often surreal 6-second outputs to music, I
+                  transformed them into cohesive, high-energy audiovisual performances.</p>
+                <p>This project went from a creative spark to a mainstage reality, opening for major events including
+                  the <strong>Google Cloud Next Gen Keynote</strong>, the <strong>I/O Developer Keynote</strong>, and
+                  <strong>Google Marketing Live</strong> across 7 performances and three continents. The tool has
+                  powered experiences seen by over 6 million people online, and I've performed with it live for
+                  audiences of over 30,000.
+                </p>
+                <p><em>Logo by the brilliant <a href="https://jocelynzhao.com/" target="_blank"
+                      rel="noopener noreferrer">Jocelyn Zhao</a> and motion graphics by the talented <a
+                      href="https://www.tifftedy.com/" target="_blank" rel="noopener noreferrer">Tiff Tedy</a>.</em></p>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="gemini-2-0-experiments-google-creative-lab">
-  <h2 class="work-title">Gemini 2.0 Experiments @ Google Creative Lab</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">AI, DevRel, Creative Coding</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        I developed two experimental projects that demonstrate the creative applications of Gemini 2.0:</p>
-<p></p>
-<p><ul></p>
-<p><li><a href="https://huggingface.co/spaces/tinazone/word-to-code">Word-to-Code</a>: An interactive tool that generates p5.js sketches based on the semantic meaning of words, creating visual interpretations through code.</li></p>
-<p><li><a href="https://huggingface.co/spaces/tinazone/handspew">Handspew</a>: A playful hand puppet interface using MediaPipe that responds to your surroundings with AI-generated commentary.</li></p>
-<p></ul>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/handspew.gif" alt="Gemini 2.0 Experiments @ Google Creative Lab" />
-            </div><div class="image-container">
-              <img src="images/work/wordtocode.webp" alt="Gemini 2.0 Experiments @ Google Creative Lab" />
+            <div class="project-media-col">
+              <div class="project-media-grid stacked">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/veovj.gif" alt="VeoVJ live visual performance" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/veovj.webp" alt="VeoVJ interface snapshot" />
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="doomers">
-  <h2 class="work-title">DOOMERS</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Web Development, AI, Viral Marketing</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        DOOMERS is a play about OpenAI's Sam Altman by Matthew Gasda. I created the website <a href="https://doomers.fyi">doomers.fyi</a> and developed <a href="https://tina.zone/morallicense">Moral License</a> as part of a viral marketing campaign that uses AI to generate personalized moral licenses for any action or decision.</p>
-<p></p>
-<p><p>The campaign received extensive media coverage in <a href="https://www.theguardian.com/technology/2025/feb/04/ai-doomers-play-rfk-jr-seed-oils">The Guardian</a>, <a href="https://airmail.news/issues/2025-2-8/the-ghost-in-the-machine">Airmail News</a>, and <a href="https://www.thefp.com/p/the-plays-about-the-end-of-the-world">The Free Press</a>, helping to sell out performances in both NYC and SF.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/doomers.webp" alt="DOOMERS" />
-            </div><div class="image-container">
-              <img src="images/work/doomers2.webp" alt="DOOMERS" />
+          </div>
+        </article>
+
+        <!-- 2. "What's Your Vibe?" -->
+        <article class="project-card" id="whats-your-vibe">
+          <div class="project-header-row">
+            <h2 class="project-main-title">"What's Your Vibe?" — Mainstage I/O Talk</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Talk, AI</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="mesa">
-  <h2 class="work-title">MESA</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Prototyping, Creative Technology, Viral Marketing</div>
-        <div class="work-year">2025</div>
-      </div>
-      
-      <div class="work-description">
-        Invited to <a href="https://www.mesa.do/">MESA</a> to leverage my expertise as a creative technologist, AI experimenter, and viral marketer to develop rapid prototypes for a specialized client board.</p>
-<p></p>
-<p><p>Working under NDA constraints, I developed 4 distinct prototypes in just 5 days, culminating in a comprehensive client presentation that showcased innovative solutions at the intersection of technology and creative design.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/mesa.webp" alt="MESA" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>For Google I/O's mainstage, I co-created and performed a completely live demo of the new Gemini
+                  Canvas features. Alongside my colleague <a href="https://x.com/aar0n_wade" target="_blank"
+                    rel="noopener noreferrer">Aaron Wade</a>, we designed <strong>"What's Your Vibe?"</strong>, a
+                  high-energy game show where we were challenged to build an app with randomly selected vibes.</p>
+                <p>In minutes, we built a functional, poetic, vintage-style camera app and shared it instantly with the
+                  audience by having Canvas generate its own QR code on the fly.</p>
+                <p><em>The randomizer was designed by the wonderful <a href="https://tanialili.com/" target="_blank"
+                      rel="noopener noreferrer">Tania Lili</a>.</em></p>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="google-deep-mind-genweather">
-  <h2 class="work-title">Google Deep Mind: GenWeather</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">AI, Gemini API, DevRel</div>
-        <div class="work-year">2024</div>
-      </div>
-      
-      <div class="work-description">
-        Developed a <a href="https://www.youtube.com/watch?v=n8Dz2GA2hDc">demo</a> of the Multimodal Live API for Gemini 2.0 Flash Experimental that fetches real-time weather data and presents it in user-selected creative styles.
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/genweather.webp" alt="Google Deep Mind: GenWeather" />
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/whatsyourvibe.webp"
+                    alt="What's Your Vibe? presentation snapshot" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/whatsyourvibe2.webp" alt="What's Your Vibe? demo stage" />
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="artechouse">
-  <h2 class="work-title">ARTECHOUSE</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Panel, AI, Art</div>
-        <div class="work-year">2024</div>
-      </div>
-      
-      <div class="work-description">
-        Featured <a href="https://www.instagram.com/p/DA91-9BPdLQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">panelist</a> at ARTECHOUSE's inaugural session discussing the intersection of art, AI, social media, and emerging creative technologies.
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/artechouse.webp" alt="ARTECHOUSE" />
+          </div>
+        </article>
+
+        <!-- 3. 30 Days of Gemini Canvas -->
+        <article class="project-card" id="30-days-of-gemini-canvas">
+          <div class="project-header-row">
+            <h2 class="project-main-title">30 Days of Gemini Canvas</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Campaign, AI</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="visiting-professor-parsons-school-of-design">
-  <h2 class="work-title">Visiting Professor: Parsons School of Design</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Teaching, JavaScript, Web Design</div>
-        <div class="work-year">2024</div>
-      </div>
-      
-      <div class="work-description">
-        Served as visiting professor at Parsons School of Design, teaching Introduction to JavaScript for Web Design as part of <a href="https://simonecutri.com/">Simone Cutrí's</a> Core Interaction class. <a href="https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Selected Slides</a>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/parsons.gif" alt="Visiting Professor: Parsons School of Design" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>In partnership with Google Developer Relations, I pioneered the
+                  <strong>#30DaysOfGeminiCanvas</strong> challenge to showcase the creative power and speed of the new
+                  API.
+                </p>
+                <p>Every day for a month, I would "live vibe-code" a new generative toy or tool, demonstrating how
+                  quickly ideas can be brought to life. The daily challenge was designed to demystify generative AI
+                  development and inspire a community of builders to experiment.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://x.com/tinaz0ne" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Follow on Twitter &rarr;
+                </a>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="fcukers-govball-sxsw-portolla-fest">
-  <h2 class="work-title">FCUKERS: Govball, SXSW, Portolla Fest</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Live Coding, AR, Creative Direction</div>
-        <div class="work-year">2024</div>
-      </div>
-      
-      <div class="work-description">
-        Original visuals coordinator and creative director for FCUKERS, creating immersive live-coded visuals and AR installations for performances at major festivals.</p>
-<p></p>
-<p><p>I developed and controlled real-time visuals at numerous venues including Governors Ball, SXSW, and Portolla Festival. Co-directed with <a href="https://www.mariagalebach.online/#">Maria Galebach</a>.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/fcukers.webp" alt="FCUKERS: Govball, SXSW, Portolla Fest" />
-            </div><div class="image-container">
-              <img src="images/work/fcukers2.gif" alt="FCUKERS: Govball, SXSW, Portolla Fest" />
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/canvas30.gif" alt="30 Days of Gemini Canvas animation" />
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="chlomosexual-presents-parties">
-  <h2 class="work-title">Chlomosexual Presents Parties</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Live Coding, Visuals, Performance</div>
-        <div class="work-year">2024</div>
-      </div>
-      
-      <div class="work-description">
-        Ongoing creative direction and live-coded visual experiences for <a href="https://www.instagram.com/chlomosexual.presents/">Chlomosexual's</a> multi-thousand attendee events.</p>
-<p></p>
-<p><p>This ongoing collaboration began in January 2024 and continues to the present, creating distinctive visual identities for each event.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/chlomosexual.webp" alt="Chlomosexual Presents Parties" />
+          </div>
+        </article>
+
+        <!-- 4. Countdowns Powered by Veo2 -->
+        <article class="project-card" id="countdowns-powered-by-veo2">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Countdowns Powered by Veo2 (I/O & Cloud Next 2025)</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Motion, AI</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="ready-companion">
-  <h2 class="work-title">Ready Companion</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">IOS App Development, RealityKit, Augmented Reality</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Lead iOS developer for an innovative augmented reality tour guide application acquired by Syracuse University.</p>
-<p></p>
-<p><p>Utilizing precise geolocation technology, this application creates immersive campus tour experiences. I developed the core AR functionality that allows visitors to explore and interact with virtual content throughout the university grounds.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/ready1.webp" alt="Ready Companion" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>I art-directed and generated the countdown for the <a
+                    href="https://www.youtube.com/watch?v=WGtpoRpTAsY" target="_blank" rel="noopener noreferrer">Google
+                    Cloud Next keynote</a> using Google's Veo model.</p>
+                <p>Following that, I joined a small, brilliant team at the Creative Lab to produce the <a
+                    href="https://www.youtube.com/watch?v=o8NiE3XMPrM" target="_blank" rel="noopener noreferrer">Google
+                    I/O 2025 countdown</a>, leveraging new seamless generation tech to create a fluid, end-to-end visual
+                  narrative. Combined, these openers were seen by over 7 million people.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.youtube.com/watch?v=WGtpoRpTAsY" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Cloud Next Keynote &rarr;
+                </a>
+                <a href="https://www.youtube.com/watch?v=o8NiE3XMPrM" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Google I/O Opener &rarr;
+                </a>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="aesthetic-computer">
-  <h2 class="work-title">Aesthetic.Computer</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">IOS App Development, Web Development, Gesture Control</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Led development of Aesthetic Computer's "Happy Hands" series, creating hands-free controlled immersive gameplay experiences for <a href="https://digitpain.com/">Jeffrey Alan Scudder</a>.</p>
-<p></p>
-<p><p>The project includes three distinct experiences:</p></p>
-<p><ul></p>
-<p><li><a href="https://aesthetic.computer/wave">Wave</a>: An intuitive hand gesture mapping system</li></p>
-<p><li><a href="https://aesthetic.computer/handtime">Handtime</a>: A communication platform using hand gestures and camera input</li></p>
-<p><li><a href="https://aesthetic.computer/staka">Staka</a>: A challenging pinball game controlled entirely through hand gestures</li></p>
-<p></ul>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/aesthetic-computer.gif" alt="Aesthetic.Computer" />
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/countdownclock.webp" alt="Countdown clock still" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/countdown.gif" alt="Veo countdown animated sequence" />
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="uye-surana">
-  <h2 class="work-title">Uye Surana</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Augmented Reality, NYFW, Fashion</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Collaborated with <a href="https://www.uyesurana.com/">Uye Surana's</a> head designer to create "magic mirrors" for a fashion brand emphasizing inclusivity and body positivity.</p>
-<p></p>
-<p><p>Featured at New York Fashion Week Fall and Spring 2023, this project created an interactive AR mirror experience that celebrated diverse body types and enhanced the fashion show experience for attendees.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/us1.gif" alt="Uye Surana" />
-            </div><div class="image-container">
-              <img src="images/work/us2.webp" alt="Uye Surana" />
+          </div>
+        </article>
+
+        <!-- 5. Gemini Social Strategy -->
+        <article class="project-card" id="gemini-social-strategy">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Gemini Social Strategy</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Strategy, Social, AI</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="iamb-magazine">
-  <h2 class="work-title">IAMB Magazine</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Web Development, AR, Interactive</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Developed an intuitive hands-free <a href="https://iamb.tina.zone">fingerpainting experience</a> for IAMB literary magazine's third issue, "NOSTALGIA."</p>
-<p></p>
-<p><p>This interactive landing page evokes childhood wonder through gesture-based digital painting, perfectly complementing the magazine's nostalgic theme.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/iamb.gif" alt="IAMB Magazine" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>I helped shape the voice and creative strategy for Gemini's social media presence across Instagram
+                  and X posts.</p>
+                <p>My focus was on making advanced AI concepts feel accessible and fun, developing novel prompting
+                  techniques and creative campaigns to engage a wide audience and clearly communicate the power of new
+                  features.</p>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="pianos-residency">
-  <h2 class="work-title">Pianos Residency</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">Live Coding, Visualization, Artist Residency</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Artist-in-residence creating live-coded visual experiences to enhance musical performances at <a href="https://pianosnyc.com/">Pianos NYC</a>, a Lower East Side venue.</p>
-<p></p>
-<p><p>This ongoing residency involves creating responsive, real-time visual experiences that react to and enhance live musical performances.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/fliers.webp" alt="Pianos Residency" />
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/socialstrat.webp"
+                    alt="Gemini social media campaign posts" />
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="cyber-matuta">
-  <h2 class="work-title">Cyber Matuta</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">SparkAR, Blender, 3D Modeling</div>
-        <div class="work-year">2023</div>
-      </div>
-      
-      <div class="work-description">
-        Collaborated with a <a href="https://www.instagram.com/cybermatuta/">Dutch design team</a> while living in Berlin to create low-poly AR portals for their innovative 3D-printed footwear.</p>
-<p></p>
-<p><p>This project created immersive AR experiences that allow users to explore virtual environments through their physical interaction with the shoes.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid single-image">
-          <div class="image-container">
-              <img src="images/work/cybermatuta.gif" alt="Cyber Matuta" />
+          </div>
+        </article>
+
+        <!-- 6. Gemini 2.0 Experiments -->
+        <article class="project-card" id="gemini-2-0-experiments-google-creative-lab">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Gemini 2.0 Experiments @ Google Creative Lab</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">AI, DevRel, Creative Coding</span>
+              <span class="project-year">2025</span>
             </div>
-        </div>
-    </div>
-  </div>
-</section>
-        
-<section class="work-project" id="fit4u-solutions">
-  <h2 class="work-title">Fit4U Solutions</h2>
-  
-  <div class="work-content">
-    <div class="work-info">
-      <div class="work-meta">
-        <div class="work-category">SparkAR, Blender, Social Impact</div>
-        <div class="work-year">2022</div>
-      </div>
-      
-      <div class="work-description">
-        Partnered with <a href="https://www.fit4usolutions.com/">Fit4U Solutions</a> dedicated to helping transgender individuals with body dysmorphia through specialized clothing solutions. See my process <a href="https://www.instagram.com/reel/Cn-EHLdp7-8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">here</a>.</p>
-<p></p>
-<p><p>I created a specialized AR try-on filter that simulates the effects of the company's products, helping users visualize results before purchasing and supporting their journey toward physical comfort and gender affirmation.</p>
-      </div>
-    </div>
-    
-    <div class="work-images">
-      <div class="images-grid ">
-          <div class="image-container">
-              <img src="images/work/fit4U.gif" alt="Fit4U Solutions" />
-            </div><div class="image-container">
-              <img src="images/work/fit4u2.webp" alt="Fit4U Solutions" />
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>I developed two experimental projects that demonstrate the creative applications of Gemini 2.0:</p>
+                <ul>
+                  <li><a href="https://huggingface.co/spaces/tinazone/word-to-code" target="_blank"
+                      rel="noopener noreferrer"><strong>Word-to-Code</strong></a>: An interactive tool that generates
+                    p5.js sketches based on the semantic meaning of words, creating visual interpretations through code.
+                  </li>
+                  <li><a href="https://huggingface.co/spaces/tinazone/handspew" target="_blank"
+                      rel="noopener noreferrer"><strong>Handspew</strong></a>: A playful hand puppet interface using
+                    MediaPipe that responds to your surroundings with AI-generated commentary.</li>
+                </ul>
+              </div>
+              <div class="project-action-links">
+                <a href="https://huggingface.co/spaces/tinazone/word-to-code" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Word-to-Code &rarr;
+                </a>
+                <a href="https://huggingface.co/spaces/tinazone/handspew" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Handspew &rarr;
+                </a>
+              </div>
             </div>
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/handspew.gif" alt="Handspew puppet interface demo" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/wordtocode.webp" alt="Word to Code experiment preview" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. DOOMERS -->
+        <article class="project-card" id="doomers">
+          <div class="project-header-row">
+            <h2 class="project-main-title">DOOMERS</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Web Development, AI, Viral Marketing</span>
+              <span class="project-year">2025</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>DOOMERS is a play about OpenAI's Sam Altman by Matthew Gasda. I created the website <a
+                    href="https://doomers.fyi" target="_blank" rel="noopener noreferrer">doomers.fyi</a> and developed
+                  <a href="https://tina.zone/morallicense" target="_blank" rel="noopener noreferrer">Moral License</a>
+                  as part of a viral marketing campaign that uses AI to generate personalized moral licenses for any
+                  action or decision.
+                </p>
+                <p>The campaign received extensive media coverage in <a
+                    href="https://www.theguardian.com/technology/2025/feb/04/ai-doomers-play-rfk-jr-seed-oils"
+                    target="_blank" rel="noopener noreferrer">The Guardian</a>, <a
+                    href="https://airmail.news/issues/2025-2-8/the-ghost-in-the-machine" target="_blank"
+                    rel="noopener noreferrer">Airmail News</a>, and <a
+                    href="https://www.thefp.com/p/the-plays-about-the-end-of-the-world" target="_blank"
+                    rel="noopener noreferrer">The Free Press</a>, helping to sell out performances in both NYC and SF.
+                </p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://doomers.fyi" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  doomers.fyi &rarr;
+                </a>
+                <a href="https://tina.zone/morallicense" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Moral License &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/doomers.webp" alt="DOOMERS website preview" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/doomers2.webp" alt="Moral License generator preview" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. MESA -->
+        <article class="project-card" id="mesa">
+          <div class="project-header-row">
+            <h2 class="project-main-title">MESA</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Prototyping, Creative Technology, Viral Marketing</span>
+              <span class="project-year">2025</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Invited to <a href="https://www.mesa.do/" target="_blank" rel="noopener noreferrer">MESA</a> to
+                  leverage my expertise as a creative technologist, AI experimenter, and viral marketer to develop rapid
+                  prototypes for a specialized client board.</p>
+                <p>Working under NDA constraints, I developed 4 distinct prototypes in just 5 days, culminating in a
+                  comprehensive client presentation that showcased innovative solutions at the intersection of
+                  technology and creative design.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.mesa.do/" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Visit MESA &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/mesa.webp" alt="MESA prototype designs" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Google Deep Mind: GenWeather -->
+        <article class="project-card" id="google-deep-mind-genweather">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Google Deep Mind: GenWeather</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">AI, Gemini API, DevRel</span>
+              <span class="project-year">2024</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Developed a demo of the Multimodal Live API for Gemini 2.0 Flash Experimental that fetches real-time
+                  weather data and presents it in user-selected creative styles.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.youtube.com/watch?v=n8Dz2GA2hDc" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Watch Demo &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/genweather.webp" alt="GenWeather demo screen" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. ARTECHOUSE -->
+        <article class="project-card" id="artechouse">
+          <div class="project-header-row">
+            <h2 class="project-main-title">ARTECHOUSE</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Panel, AI, Art</span>
+              <span class="project-year">2024</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Featured panelist at ARTECHOUSE's inaugural session discussing the intersection of art, AI, social
+                  media, and emerging creative technologies.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.instagram.com/p/DA91-9BPdLQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  View on Instagram &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/artechouse.webp" alt="ARTECHOUSE panel discussion" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. Visiting Professor: Parsons -->
+        <article class="project-card" id="visiting-professor-parsons-school-of-design">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Visiting Professor: Parsons School of Design</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Teaching, JavaScript, Web Design</span>
+              <span class="project-year">2024</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Served as visiting professor at Parsons School of Design, teaching Introduction to JavaScript for Web
+                  Design as part of <a href="https://simonecutri.com/" target="_blank" rel="noopener noreferrer">Simone
+                    Cutrí's</a> Core Interaction class.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.instagram.com/p/DBRsM2RRLK7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Selected Slides &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/parsons.gif" alt="Parsons teaching materials and lecture" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. FCUKERS -->
+        <article class="project-card" id="fcukers-govball-sxsw-portolla-fest">
+          <div class="project-header-row">
+            <h2 class="project-main-title">FCUKERS: Govball, SXSW, Portolla Fest</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Live Coding, AR, Creative Direction</span>
+              <span class="project-year">2024</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Original visuals coordinator and creative director for FCUKERS, creating immersive live-coded visuals
+                  and AR installations for performances at major festivals.</p>
+                <p>I developed and controlled real-time visuals at numerous venues including Governors Ball, SXSW, and
+                  Portolla Festival. Co-directed with <a href="https://www.mariagalebach.online/#" target="_blank"
+                    rel="noopener noreferrer">Maria Galebach</a>.</p>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/fcukers.webp" alt="FCUKERS live festival stage visuals" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/fcukers2.gif" alt="Live coding visuals animated loop" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13. Chlomosexual Presents Parties -->
+        <article class="project-card" id="chlomosexual-presents-parties">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Chlomosexual Presents Parties</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Live Coding, Visuals, Performance</span>
+              <span class="project-year">2024</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Ongoing creative direction and live-coded visual experiences for <a
+                    href="https://www.instagram.com/chlomosexual.presents/" target="_blank"
+                    rel="noopener noreferrer">Chlomosexual's</a> multi-thousand attendee events.</p>
+                <p>This ongoing collaboration began in January 2024 and continues to the present, creating distinctive
+                  visual identities for each event.</p>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/chlomosexual.webp" alt="Chlomosexual visuals poster" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14. Ready Companion -->
+        <article class="project-card" id="ready-companion">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Ready Companion</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">iOS App, RealityKit, AR</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Lead iOS developer for an innovative augmented reality tour guide application acquired by Syracuse
+                  University.</p>
+                <p>Utilizing precise geolocation technology, this application creates immersive campus tour experiences.
+                  I developed the core AR functionality that allows visitors to explore and interact with virtual
+                  content throughout the university grounds.</p>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/ready1.webp" alt="Ready Companion AR campus interface" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15. Aesthetic.Computer -->
+        <article class="project-card" id="aesthetic-computer">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Aesthetic.Computer</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">iOS, Web, Gesture Control</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Led development of Aesthetic Computer's "Happy Hands" series, creating hands-free controlled
+                  immersive gameplay experiences for <a href="https://digitpain.com/" target="_blank"
+                    rel="noopener noreferrer">Jeffrey Alan Scudder</a>.</p>
+                <p>The project includes three distinct experiences:</p>
+                <ul>
+                  <li><a href="https://aesthetic.computer/wave" target="_blank"
+                      rel="noopener noreferrer"><strong>Wave</strong></a>: An intuitive hand gesture mapping system</li>
+                  <li><a href="https://aesthetic.computer/handtime" target="_blank"
+                      rel="noopener noreferrer"><strong>Handtime</strong></a>: A communication platform using hand
+                    gestures and camera input</li>
+                  <li><a href="https://aesthetic.computer/staka" target="_blank"
+                      rel="noopener noreferrer"><strong>Staka</strong></a>: A challenging pinball game controlled
+                    entirely through hand gestures</li>
+                </ul>
+              </div>
+              <div class="project-action-links">
+                <a href="https://aesthetic.computer/wave" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Wave &rarr;
+                </a>
+                <a href="https://aesthetic.computer/handtime" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Handtime &rarr;
+                </a>
+                <a href="https://aesthetic.computer/staka" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Staka &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/aesthetic-computer.gif"
+                    alt="Aesthetic.Computer gesture game demo" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 16. Uye Surana -->
+        <article class="project-card" id="uye-surana">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Uye Surana</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Augmented Reality, NYFW, Fashion</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Collaborated with <a href="https://www.uyesurana.com/" target="_blank" rel="noopener noreferrer">Uye
+                    Surana's</a> head designer to create "magic mirrors" for a fashion brand emphasizing inclusivity and
+                  body positivity.</p>
+                <p>Featured at New York Fashion Week Fall and Spring 2023, this project created an interactive AR mirror
+                  experience that celebrated diverse body types and enhanced the fashion show experience for attendees.
+                </p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.uyesurana.com/" target="_blank" rel="noopener noreferrer"
+                  class="project-action-btn">
+                  Uye Surana &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/us1.gif" alt="Magic mirror NYFW filter" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/us2.webp" alt="AR mirror live experience" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17. IAMB Magazine -->
+        <article class="project-card" id="iamb-magazine">
+          <div class="project-header-row">
+            <h2 class="project-main-title">IAMB Magazine</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Web Development, AR, Interactive</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Developed an intuitive hands-free <a href="https://iamb.tina.zone" target="_blank"
+                    rel="noopener noreferrer">fingerpainting experience</a> for IAMB literary magazine's third issue,
+                  "NOSTALGIA."</p>
+                <p>This interactive landing page evokes childhood wonder through gesture-based digital painting,
+                  perfectly complementing the magazine's nostalgic theme.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://iamb.tina.zone" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Fingerpainting App &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/iamb.gif" alt="IAMB fingerpainting gesture demo" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18. Pianos Residency -->
+        <article class="project-card" id="pianos-residency">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Pianos Residency</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">Live Coding, Visualization, Artist Residency</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Artist-in-residence creating live-coded visual experiences to enhance musical performances at <a
+                    href="https://pianosnyc.com/" target="_blank" rel="noopener noreferrer">Pianos NYC</a>, a Lower East
+                  Side venue.</p>
+                <p>This ongoing residency involves creating responsive, real-time visual experiences that react to and
+                  enhance live musical performances.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://pianosnyc.com/" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Pianos NYC &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/fliers.webp" alt="Pianos residency show poster" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19. Cyber Matuta -->
+        <article class="project-card" id="cyber-matuta">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Cyber Matuta</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">SparkAR, Blender, 3D Modeling</span>
+              <span class="project-year">2023</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Collaborated with a <a href="https://www.instagram.com/cybermatuta/" target="_blank"
+                    rel="noopener noreferrer">Dutch design team</a> while living in Berlin to create low-poly AR portals
+                  for their innovative 3D-printed footwear.</p>
+                <p>This project created immersive AR experiences that allow users to explore virtual environments
+                  through their physical interaction with the shoes.</p>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid single-item">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/cybermatuta.gif" alt="Cyber Matuta 3D shoe AR portal" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20. Fit4U Solutions -->
+        <article class="project-card" id="fit4u-solutions">
+          <div class="project-header-row">
+            <h2 class="project-main-title">Fit4U Solutions</h2>
+            <div class="project-meta-pill">
+              <span class="project-category">SparkAR, Blender, Social Impact</span>
+              <span class="project-year">2022</span>
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                <p>Partnered with <a href="https://www.fit4usolutions.com/" target="_blank"
+                    rel="noopener noreferrer">Fit4U Solutions</a> dedicated to helping transgender individuals with body
+                  dysmorphia through specialized clothing solutions.</p>
+                <p>I created a specialized AR try-on filter that simulates the effects of the company's products,
+                  helping users visualize results before purchasing and supporting their journey toward physical comfort
+                  and gender affirmation.</p>
+              </div>
+              <div class="project-action-links">
+                <a href="https://www.instagram.com/reel/Cn-EHLdp7-8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank" rel="noopener noreferrer" class="project-action-btn">
+                  Process Reel &rarr;
+                </a>
+              </div>
+            </div>
+            <div class="project-media-col">
+              <div class="project-media-grid">
+                <div class="media-container">
+                  <img class="project-img" src="images/work/fit4U.gif" alt="Fit4U AR try-on filter preview" />
+                </div>
+                <div class="media-container">
+                  <img class="project-img" src="images/work/fit4u2.webp" alt="Fit4U 3D clothing model" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </main>
+    </div>
+  </section>
+
+  <script>
+    // Navigation Dropdown Logic
+    const navTrigger = document.getElementById('navTrigger');
+    const navMenu = document.getElementById('navMenu');
+
+    function toggleNavDropdown(e) {
+      if (e) e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('is-open');
+      navTrigger.classList.toggle('is-active', isOpen);
+      navTrigger.setAttribute('aria-expanded', isOpen);
+    }
+
+    function closeNavDropdown() {
+      navMenu.classList.remove('is-open');
+      navTrigger.classList.remove('is-active');
+      navTrigger.setAttribute('aria-expanded', 'false');
+    }
+
+    navTrigger.addEventListener('click', toggleNavDropdown);
+
+    document.addEventListener('click', (e) => {
+      if (!navTrigger.contains(e.target) && !navMenu.contains(e.target)) {
+        closeNavDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdown();
+      }
+    });
+
+    // Smooth Scroll for Hero button
+    const scrollDownBtn = document.getElementById('scrollDownBtn');
+    if (scrollDownBtn) {
+      scrollDownBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const workFeed = document.getElementById('work-feed');
+        if (workFeed) {
+          workFeed.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    // ============================================================
+    // GOOGLE SHEETS CONFIGURATION FOR WORK PROJECTS
+    // ============================================================
+    // Connects to tab "work" in your Google Sheet:
+    const GOOGLE_SHEET_ID_OR_URL = 'https://docs.google.com/spreadsheets/d/1_cWMuByNoaVtMNV8bSlZ0D_cg0EerDHAvXv5Ly07U8A/edit?usp=sharing';
+    const GOOGLE_SHEET_TAB_NAME = 'work';
+
+    // Helper functions for formatting
+    function formatMarkdown(text) {
+      if (!text) return '';
+      // Escape HTML entities to prevent raw tag issues
+      let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Re-allow basic formatting
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      const paragraphs = html.split(/\n\s*\n/).filter(p => p.trim());
+      if (paragraphs.length > 1) {
+        return paragraphs.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+      }
+      return `<p>${html.replace(/\n/g, '<br>')}</p>`;
+    }
+
+    function parseLinks(raw) {
+      if (!raw) return [];
+      const items = raw.split(/[\n|]/).map(s => s.trim()).filter(Boolean);
+      const links = [];
+      items.forEach(item => {
+        const mdMatch = item.match(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/);
+        if (mdMatch) {
+          links.push({ label: mdMatch[1], url: mdMatch[2] });
+          return;
+        }
+        const colonMatch = item.match(/^([^:]+):\s*(https?:\/\/.+)$/);
+        if (colonMatch) {
+          links.push({ label: colonMatch[1].trim(), url: colonMatch[2].trim() });
+          return;
+        }
+        const urlMatch = item.match(/https?:\/\/[^\s]+/);
+        if (urlMatch) {
+          links.push({ label: 'Open Link', url: urlMatch[0] });
+        }
+      });
+      return links;
+    }
+
+    function parseImages(raw) {
+      if (!raw) return [];
+      return raw.split(/[,\n]/).map(s => s.trim()).filter(Boolean);
+    }
+
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    let projectCards = [];
+    let tocLinks = [];
+    let tocContainer = null;
+
+    function renderProjects(projects) {
+      if (!projects || projects.length === 0) return;
+
+      const tocList = document.querySelector('.toc-list');
+      const projectFeed = document.querySelector('.project-feed');
+
+      let tocHtml = '';
+      let feedHtml = `
+        <div class="work-disclaimer-banner" role="note" title="Hover or tap to reveal secret note">
+          <div class="invisible-ink-wrapper">
+            <p class="invisible-ink-text">
+              BTW a lot of my work at the <span class="rainbow-fancy"> Google Creative Lab </span> is SECRET. This is just the work that had the legs to go public. Enjoy! Email me if ur thinking of something specific.
+            </p>
+            <canvas class="invisible-ink-canvas"></canvas>
+          </div>
         </div>
-    </div>
-  </div>
-</section>
-      </div>
-    </div>
-    <script src="js/main.js"></script>
-  </body>
+      `;
+
+      projects.forEach((proj, idx) => {
+        const id = proj.id || slugify(proj.title || `project-${idx + 1}`);
+        const num = idx + 1;
+        const isFirst = idx === 0;
+
+        // TOC item
+        tocHtml += `<li><a href="#${id}" class="toc-link ${isFirst ? 'is-active' : ''}"><span class="toc-num">${num}.</span> <span class="toc-title">${proj.title}</span></a></li>`;
+
+        // Media items layout determination
+        const layout = (proj.mediaLayout || '').toLowerCase().trim();
+        let gridClass = 'project-media-grid';
+        if (layout === 'stacked' || layout === 'stack' || layout === 'vertical') {
+          gridClass = 'project-media-grid stacked';
+        } else if (layout === 'grid' || layout === 'side by side' || layout === 'horizontal' || layout === 'grid-2') {
+          gridClass = (proj.images && proj.images.length === 2) ? 'project-media-grid grid-2' : 'project-media-grid';
+        } else if (!proj.images || proj.images.length <= 1) {
+          gridClass = 'project-media-grid single-item';
+        } else {
+          // Default for 2 images is side-by-side grid
+          gridClass = (proj.images.length === 2) ? 'project-media-grid grid-2' : 'project-media-grid';
+        }
+
+        let mediaHtml = '';
+        if (proj.images && proj.images.length > 0) {
+          proj.images.forEach(imgSrc => {
+            mediaHtml += `<div class="media-container"><img class="project-img" src="${imgSrc}" alt="${proj.title}" /></div>`;
+          });
+        }
+
+        // Action links
+        let linksHtml = '';
+        if (proj.links && proj.links.length > 0) {
+          linksHtml = '<div class="project-action-links">';
+          proj.links.forEach(link => {
+            linksHtml += `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="project-action-btn">${link.label} &rarr;</a>`;
+          });
+          linksHtml += '</div>';
+        }
+
+        // Project Card
+        feedHtml += `
+        <article class="project-card" id="${id}">
+          <div class="project-header-row">
+            <h2 class="project-main-title">${proj.title}</h2>
+            <div class="project-meta-pill">
+              ${proj.category ? `<span class="project-category">${proj.category}</span>` : ''}
+              ${proj.year ? `<span class="project-year">${proj.year}</span>` : ''}
+            </div>
+          </div>
+          <div class="project-body-row">
+            <div class="project-info-col">
+              <div class="project-description">
+                ${formatMarkdown(proj.description)}
+              </div>
+              ${linksHtml}
+            </div>
+            <div class="project-media-col">
+              <div class="${gridClass}">
+                ${mediaHtml}
+              </div>
+            </div>
+          </div>
+        </article>`;
+      });
+
+      if (tocList) tocList.innerHTML = tocHtml;
+      if (projectFeed) projectFeed.innerHTML = feedHtml;
+
+      initScrollSpy();
+      initInvisibleInk();
+    }
+
+    function parseCSV(text) {
+      const p = [];
+      let row = [''];
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        const next = text[i + 1];
+        if (c === '"') {
+          if (inQuotes && next === '"') {
+            row[row.length - 1] += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          row.push('');
+        } else if ((c === '\r' || c === '\n') && !inQuotes) {
+          if (c === '\r' && next === '\n') i++;
+          p.push(row);
+          row = [''];
+        } else {
+          row[row.length - 1] += c;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') {
+        p.push(row);
+      }
+      return p;
+    }
+
+    function parseCsvProjects(csvText) {
+      const rows = parseCSV(csvText);
+      if (!rows || rows.length < 2) return [];
+
+      let headers = rows[0].map(h => h.toLowerCase().trim());
+      let titleIdx = headers.findIndex(h => h.includes('title') || h.includes('name') || h.includes('project'));
+      let catIdx = headers.findIndex(h => h.includes('category') || h.includes('type') || h.includes('tag'));
+      let yearIdx = headers.findIndex(h => h.includes('year') || h.includes('date'));
+      let descIdx = headers.findIndex(h => h.includes('desc') || h.includes('detail') || h.includes('text') || h.includes('body') || h.includes('info'));
+      let layoutIdx = headers.findIndex(h => h.includes('layout') || h.includes('style') || h === 'media layout');
+      let imgIdx = headers.findIndex(h => (h.includes('image') || h.includes('img') || h.includes('pic') || h.includes('gif') || h === 'media') && !h.includes('layout'));
+      let linkIdx = headers.findIndex(h => h.includes('link') || h.includes('url') || h.includes('href') || h.includes('action'));
+
+      if (titleIdx === -1) titleIdx = 0;
+      if (catIdx === -1) catIdx = 1;
+      if (yearIdx === -1) yearIdx = 2;
+      if (descIdx === -1) descIdx = 3;
+      if (imgIdx === -1) imgIdx = 4;
+      if (linkIdx === -1) linkIdx = 5;
+      if (layoutIdx === -1) layoutIdx = 6;
+
+      const projects = [];
+      rows.slice(1).forEach(r => {
+        const title = (r[titleIdx] || '').trim();
+        if (!title) return;
+        const category = (r[catIdx] || '').trim();
+        const year = (r[yearIdx] || '').trim();
+        const description = (r[descIdx] || '').trim();
+        const imagesRaw = (r[imgIdx] || '').trim();
+        const linksRaw = (r[linkIdx] || '').trim();
+        const mediaLayout = (r[layoutIdx] || 'grid').trim();
+
+        projects.push({
+          id: slugify(title),
+          title,
+          category,
+          year,
+          description,
+          images: parseImages(imagesRaw),
+          links: parseLinks(linksRaw),
+          mediaLayout
+        });
+      });
+      return projects;
+    }
+
+    function loadGoogleSheetProjects() {
+      if (!GOOGLE_SHEET_ID_OR_URL) return;
+
+      let sheetId = GOOGLE_SHEET_ID_OR_URL.trim();
+      const match = sheetId.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+      if (match && match[1]) {
+        sheetId = match[1];
+      }
+
+      let gid = '0';
+      const gidMatch = GOOGLE_SHEET_ID_OR_URL.match(/[#&]gid=([0-9]+)/);
+      if (gidMatch && gidMatch[1]) {
+        gid = gidMatch[1];
+      }
+
+      let tabName = GOOGLE_SHEET_TAB_NAME || 'work';
+      let exportUrl = gid
+        ? `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}&t=${Date.now()}`
+        : `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+
+      fetch(exportUrl)
+        .then(response => {
+          if (!response.ok) throw new Error('Primary export response not ok');
+          return response.text();
+        })
+        .then(text => {
+          const projects = parseCsvProjects(text);
+          if (projects && projects.length > 0) {
+            renderProjects(projects);
+          }
+        })
+        .catch(() => {
+          let gvizUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+          fetch(gvizUrl)
+            .then(res => res.text())
+            .then(text => {
+              const projects = parseCsvProjects(text);
+              if (projects && projects.length > 0) {
+                renderProjects(projects);
+              }
+            })
+            .catch(err => {
+              console.log('Using default static work markup:', err);
+            });
+        });
+    }
+
+    // ScrollSpy
+    function updateActiveToc() {
+      if (projectCards.length === 0) return;
+      const viewportReadingLine = window.innerHeight * 0.45;
+      let bestCard = projectCards[0];
+      let minDistance = Infinity;
+
+      if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+        bestCard = projectCards[projectCards.length - 1];
+      } else {
+        for (let i = 0; i < projectCards.length; i++) {
+          const card = projectCards[i];
+          const rect = card.getBoundingClientRect();
+
+          if (rect.top <= viewportReadingLine && rect.bottom >= viewportReadingLine) {
+            bestCard = card;
+            break;
+          }
+
+          const cardCenter = (rect.top + rect.bottom) / 2;
+          const dist = Math.abs(cardCenter - viewportReadingLine);
+          if (dist < minDistance) {
+            minDistance = dist;
+            bestCard = card;
+          }
+        }
+      }
+
+      const activeCardId = bestCard ? bestCard.id : '';
+
+      tocLinks.forEach((link) => {
+        const href = link.getAttribute('href').substring(1);
+        if (href === activeCardId) {
+          link.classList.add('is-active');
+          if (tocContainer) {
+            const linkTop = link.offsetTop;
+            const containerHeight = tocContainer.clientHeight;
+            if (linkTop < tocContainer.scrollTop || linkTop > tocContainer.scrollTop + containerHeight - 40) {
+              tocContainer.scrollTo({
+                top: linkTop - containerHeight / 2,
+                behavior: 'smooth'
+              });
+            }
+          }
+        } else {
+          link.classList.remove('is-active');
+        }
+      });
+    }
+
+    // ============================================================
+    // iMessage "Invisible Ink" Sparkling Particle System
+    // ============================================================
+    let invisibleInkAnimId = null;
+
+    function initInvisibleInk() {
+      if (invisibleInkAnimId) {
+        cancelAnimationFrame(invisibleInkAnimId);
+        invisibleInkAnimId = null;
+      }
+
+      const banner = document.querySelector('.work-disclaimer-banner');
+      if (!banner) return;
+
+      const canvas = banner.querySelector('.invisible-ink-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let width = 0, height = 0;
+      let particles = [];
+      let isHovered = false;
+
+      function resize() {
+        const rect = banner.getBoundingClientRect();
+        width = Math.max(100, Math.ceil(rect.width));
+        height = Math.max(24, Math.ceil(rect.height));
+        canvas.width = width * (window.devicePixelRatio || 1);
+        canvas.height = height * (window.devicePixelRatio || 1);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+        createParticles();
+      }
+
+      function createParticles() {
+        // High-density microscopic sand grains (iMessage authentic feel)
+        const count = Math.min(4500, Math.max(1500, Math.floor((width * height) * 0.22)));
+        particles = [];
+        const colors = ['#ff0000', '#ee0000', '#d60000', '#ff1a1a', '#ff3333', '#cc0000', '#ff4d4d', '#ffffff'];
+
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 0.75 + 0.45,
+            alpha: Math.random() * 0.5 + 0.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            flickerPhase: Math.random() * Math.PI * 2,
+            flickerSpeed: Math.random() * 8 + 4
+          });
+        }
+      }
+
+      let time = 0;
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        if (!isHovered && !banner.classList.contains('is-revealed')) {
+          time += 0.05;
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+
+            // Microscopic localized jitter (no floating/drifting)
+            const jx = (Math.random() - 0.5) * 0.4;
+            const jy = (Math.random() - 0.5) * 0.4;
+
+            const alpha = p.alpha * (0.4 + 0.6 * Math.sin(time * p.flickerSpeed + p.flickerPhase));
+            ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+            ctx.fillStyle = p.color;
+
+            // Crisp micro sand dots
+            ctx.fillRect(p.x + jx, p.y + jy, p.size, p.size);
+          }
+        }
+
+        invisibleInkAnimId = requestAnimationFrame(animate);
+      }
+
+      banner.addEventListener('mouseenter', () => { isHovered = true; });
+      banner.addEventListener('mouseleave', () => { isHovered = false; });
+      banner.addEventListener('click', () => { banner.classList.toggle('is-revealed'); });
+
+      window.addEventListener('resize', resize);
+      resize();
+      animate();
+    }
+
+    function initScrollSpy() {
+      projectCards = Array.from(document.querySelectorAll('.project-card'));
+      tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+      tocContainer = document.querySelector('.toc-container');
+      updateActiveToc();
+    }
+
+    window.addEventListener('scroll', updateActiveToc, { passive: true });
+    window.addEventListener('resize', updateActiveToc, { passive: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollSpy();
+      initInvisibleInk();
+      loadGoogleSheetProjects();
+    });
+
+    window.addEventListener('load', () => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'auto' });
+            updateActiveToc();
+          }, 50);
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline | TINA TARIGHIAN</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="manifest" href="img/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #ffff00;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+    }
+
+    /* Navigation Header */
+    .site-header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      pointer-events: auto;
+    }
+
+    .nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand-box {
+      background-color: #ffff00;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-brand-box:hover {
+      background-color: #ff5757;
+      color: #000000;
+    }
+
+    .nav-dropdown-trigger {
+      background-color: #ffffff;
+      border: 3px dashed #000000;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      user-select: none;
+    }
+
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.is-active {
+      background-color: #000000;
+      border: 3px dashed #ffff00;
+      color: #ffff00;
+    }
+
+    .trigger-arrow {
+      font-size: 11px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-dropdown-trigger.is-active .trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #000000;
+      border: 3px dashed #ffffff;
+      padding: 4px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1001;
+      animation: popInNav 0.15s ease-out;
+    }
+
+    .nav-dropdown-menu.is-open {
+      display: flex;
+    }
+
+    @keyframes popInNav {
+      0% {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-menu-item {
+      display: block;
+      padding: 6px 12px;
+      border: 2px dashed transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-menu-item:hover {
+      border-color: #ffffff;
+    }
+
+    .nav-menu-item.item-art:hover {
+      background-color: #ff5757;
+      color: #000000;
+      border-color: #ff5757;
+    }
+
+    .nav-menu-item.item-work:hover {
+      background-color: #0055ff;
+      color: #ffffff;
+      border-color: #0055ff;
+    }
+
+    .nav-menu-item.item-abt:hover {
+      background-color: #00ff66;
+      color: #000000;
+      border-color: #00ff66;
+    }
+
+    .nav-menu-item.item-den:hover {
+      background-color: #ffff00;
+      color: #000000;
+      border-color: #ffff00;
+    }
+
+    /* Coming Soon Main Content */
+    .coming-soon-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .coming-soon-text {
+      color: #ffff00;
+      font-size: clamp(3.5rem, 10vw, 8.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        top: 14px;
+        left: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Clean Flat Navigation Header with Dropdown -->
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a href="index.html" class="nav-brand-box">
+        <span>Tina Tarighian</span>
+      </a>
+      <button class="nav-dropdown-trigger" id="navTrigger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span>timeline</span>
+        <span class="trigger-arrow">▾</span>
+      </button>
+
+      <nav class="nav-dropdown-menu" id="navMenu">
+        <a href="art.html" class="nav-menu-item item-art">art</a>
+        <a href="work.html" class="nav-menu-item item-work">work</a>
+        <a href="about.html" class="nav-menu-item item-abt">abt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="coming-soon-container">
+    <h1 class="coming-soon-text">coming soon :P</h1>
+  </main>
+
+  <script>
+    // Navigation Dropdown Logic
+    const navTrigger = document.getElementById('navTrigger');
+    const navMenu = document.getElementById('navMenu');
+
+    function toggleNavDropdown(e) {
+      if (e) e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('is-open');
+      navTrigger.classList.toggle('is-active', isOpen);
+      navTrigger.setAttribute('aria-expanded', isOpen);
+    }
+
+    function closeNavDropdown() {
+      navMenu.classList.remove('is-open');
+      navTrigger.classList.remove('is-active');
+      navTrigger.setAttribute('aria-expanded', 'false');
+    }
+
+    navTrigger.addEventListener('click', toggleNavDropdown);
+
+    document.addEventListener('click', (e) => {
+      if (!navTrigger.contains(e.target) && !navMenu.contains(e.target)) {
+        closeNavDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdown();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -19,6 +19,9 @@ This website has been completely cleaned up and modernized:
 - `art.html` - Art projects (table layout)
 - `work.html` - Work projects (grid layout)
 - `about.html` - About page
+- `den.html` - Hoarder den / lab projects
+- `timeline.html` - Chronological timeline view
+- `boringversion.html` - Minimalist text-based version
 - `css/main.css` - Combined stylesheet
 - `js/main.js` - Combined JavaScript
 - `images/` - Project images organized by category
