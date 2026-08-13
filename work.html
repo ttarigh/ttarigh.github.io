@@ -1574,7 +1574,7 @@
     // GOOGLE SHEETS CONFIGURATION FOR WORK PROJECTS
     // ============================================================
     // Connects to tab "work" in your Google Sheet:
-    const GOOGLE_SHEET_ID_OR_URL = 'https://docs.google.com/spreadsheets/d/1_cWMuByNoaVtMNV8bSlZ0D_cg0EerDHAvXv5Ly07U8A/edit?usp=sharing';
+    const GOOGLE_SHEET_ID_OR_URL = 'https://docs.google.com/spreadsheets/d/1_cWMuByNoaVtMNV8bSlZ0D_cg0EerDHAvXv5Ly07U8A/edit?gid=653353633#gid=653353633';
     const GOOGLE_SHEET_TAB_NAME = 'work';
 
     // Helper functions for formatting
@@ -1804,8 +1804,8 @@
         sheetId = match[1];
       }
 
-      let gid = '0';
-      const gidMatch = GOOGLE_SHEET_ID_OR_URL.match(/[#&]gid=([0-9]+)/);
+      let gid = '';
+      const gidMatch = GOOGLE_SHEET_ID_OR_URL.match(/[?#&]gid=([0-9]+)/);
       if (gidMatch && gidMatch[1]) {
         gid = gidMatch[1];
       }
@@ -1827,7 +1827,9 @@
           }
         })
         .catch(() => {
-          let gvizUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+          let gvizUrl = gid
+            ? `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&gid=${gid}&t=${Date.now()}`
+            : `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
           fetch(gvizUrl)
             .then(res => res.text())
             .then(text => {
