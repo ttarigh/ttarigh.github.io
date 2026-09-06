@@ -2,5 +2,9 @@
   "name": "tina-tarighian-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Tina Tarighian's portfolio"
+  "description": "Tina Tarighian's portfolio",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "sync": "python3 scripts/sync_sheets.py"
+  }
 }
