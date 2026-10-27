@@ -440,7 +440,11 @@
     }
 
     if (isMobile()) {
-      window.location.replace("mobile-splash.html");
+      if (sessionStorage.getItem('mobileAgreementAccepted')) {
+        window.location.replace("mobile-main.html");
+      } else {
+        window.location.replace("mobile-splash.html");
+      }
     }
 
     // Label functions
